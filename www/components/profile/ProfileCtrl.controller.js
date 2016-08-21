@@ -11,7 +11,6 @@ https://github.com/johnpapa/angular-styleguide/blob/master/a1/README.md
 		function missing(o){
 			profile.missingsNumber = o.num_missing;
 			profile.missingMissing = o.missing;
-			//profile.showMissing = (o.num_missing > 0) ? true : false ;
 		}
 		function student(o){
 			if(JSON.stringify(o) !== '{}'){
@@ -50,17 +49,18 @@ https://github.com/johnpapa/angular-styleguide/blob/master/a1/README.md
 			$state.go('app.grades');
 		};
 
-   var popoverTmplt = '<ion-popover-view style="top: 44px; left: 20%; margin-left: 0px; opacity: 1;"><ion-item ng-click="::profile.doShowActionSheet()">Schedules</ion-item></ion-popover-view>';
+    /*
+    var popoverTmplt = '<ion-popover-view style="top: 44px; left: 20%; margin-left: 0px; opacity: 1;"><ion-item ng-click="::profile.doShowActionSheet()">Schedules</ion-item></ion-popover-view>';
 
     var popover = $ionicPopover.fromTemplate(popoverTmplt, {
       scope: $scope
     });
     profile.showPopover = function(e) {
       popover.show(e);
-    };
+    };*/
 
 		profile.doShowActionSheet = function(){
-      popover.hide();
+      //popover.hide();
 			$ionicActionSheet.show({
 				titleText: "<h3>Pick a Schedule</h3>",
 				buttons: profile.schedules,

@@ -34,7 +34,7 @@ https://github.com/johnpapa/angular-styleguide/blob/master/a1/README.md
       if(typeof navigator.splashscreen !== 'undefined'){
         $timeout(function(){
           navigator.splashscreen.hide();
-        }, 1500);
+        }, 500);
       }
     });
 
@@ -58,8 +58,7 @@ https://github.com/johnpapa/angular-styleguide/blob/master/a1/README.md
       "img/bg-light.jpg",
       "img/placeholder-rec.jpg",
       "img/placeholder-square.jpg",
-      "img/icon.png",
-      "img/profile.jpg"
+      "img/icon.png"
     ]).then(function(){
       $log.debug("Images done loading!");
     },function(failed){

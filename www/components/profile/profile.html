@@ -4,7 +4,7 @@
     <button class="button button-icon button-clear ion-navicon-round" menu-toggle="left" drawer-toggle></button>
   </ion-nav-buttons>
   <ion-nav-buttons side="right">
-    <button class="button button-icon button-clear ion-android-more-vertical" ng-click="profile.showPopover($event)"></button>
+    <button class="button button-icon button-clear ion-android-more-vertical" ng-click="::profile.doShowActionSheet()"></button>
   </ion-nav-buttons>
   <confetti today="::today" birthday="::birthday"></confetti>
   <ion-content overflow-scroll="true">

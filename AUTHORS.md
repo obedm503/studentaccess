@@ -1,11 +1,11 @@
 # StudentAccess Developers
 ----
-## App
+### App
 - [obedm503](https://github.com/obedm503/)
 - [scotty](http://scottparajon.com/)
 
-## API
+### API
 - LStarky
 
-## Contributors
+### Contributors
 - ...

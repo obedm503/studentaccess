@@ -1,3 +1,0 @@
-# StudentAccess Doc Rules
-----
-- tbd

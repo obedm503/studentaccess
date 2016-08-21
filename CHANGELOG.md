@@ -1,7 +1,5 @@
 # StudentAccess Change log
-
 ----
-
 All notable changes to this project will be documented in this file.
 For some guidelines see [keepachangelog.com].
 
@@ -13,11 +11,8 @@ For some guidelines see [keepachangelog.com].
 > Note: The side menu is considered it's own view.
 
 ----
-
 ## Future
 ### New
-- GLOBAL: write a good README.md
-- GLOBAL: generate documentation into DOCS.md
 - LOGIN: remember me
 - MENU: active ion-item in side menu
 - GLOBAL: ink and animation for buttons and cards
@@ -25,13 +20,37 @@ For some guidelines see [keepachangelog.com].
 - GLOBAL: use ionic analytics better
 - HOMEWORK: make urls clickable
 - GLOBAL: use ng-bind instead of {{}}
+- GLOBAL: better loading screen
 
 ### Fix
+- GLOBAL: find new place to host apks
 - API: use JWTs for security
 - API: merge end points
 - API: send only necessary data
+- GLOBAL: global update happening before username and  password are available
+- GLOBAL: auth mechanism
+- GLOBAL: add popovers
+- GLOBAL: missing ionic fonts
+- PROFILE: missing homeworks highlighting
 
 ----
+## [0.9.2] -2016-08-14
+### Added
+- MENU: keep open menu on tablets
+- LOGIN: view is responsive
+- MENU: show email below name
+- GLOBAL: separate css by view
+- MENU: darken bg img
+- GLOBAL: minified js and css
+- GLOBAL: write a good README.md
+- GLOBAL: generate documentation into DOCS.md
+
+### Fixed
+- CAFETERIA: organize the food menu
+- LOGIN: remembered username no longer yellow
+- GRADES-DETAILS:  individual grades showing percentages
+- GRADES-DETAILS: grade button no longer clickable
+- PROFILE: missing number now updates
 
 ## [0.9.1] - 2016-08-14
 ### Added
@@ -50,6 +69,8 @@ For some guidelines see [keepachangelog.com].
 - PROFILE: schedules padding
 - PROFILE: doShowMissing function
 - GRADES-DETAILS: grades not showing
+- GLOBAL: splashscreen
 
 [keepachangelog.com]: https://keepachangelog.com/
 [0.9.1]: https://googledrive.com/host/0B8QaOFt88YYma1N1NUlIUFE5SDg/Android/StudentAccessV091vc15.apk
+[0.9.2]: https://googledrive.com/host/0B8QaOFt88YYma1N1NUlIUFE5SDg/Android/StudentAccessV092vc16.apk
