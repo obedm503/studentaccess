@@ -1,0 +1,129 @@
+<ion-view cache-view="false" name="master-view" class="themeBackgroundColor">
+  <ion-nav-title>{{::gradesDetails.gradeClass}}</ion-nav-title>
+  <ion-nav-buttons side="left">
+    <button class="button button-clear" ng-click="::gradesDetails.goGrades()">
+      <i class="padding icon icon-left ion-chevron-left"></i>
+    </button>
+  </ion-nav-buttons>
+  <confetti today="::today" birthday="::birthday"></confetti>
+  <ion-content overflow-scroll="true">
+    <div class="row custom-row responsive-lg">
+      <div class="col custom-col col-50">
+        <div class="card" ng-show="::gradesDetails.gradeTeacherName">
+          <ion-item class="item-thumbnail-left item-text-wrap" style="min-height:115px">
+            <div class="roundbutton" id="teacherWrapper">
+              <img id="teacherPicture" ng-src loading-src="{{::'img/placeholder-square.jpg'}}" fallback-src="{{::'img/placeholder-square.jpg'}}"/>
+            </div>
+            <h2 style="padding-top:10px">{{::gradesDetails.gradeTeacherName}}</h2>
+            <p class="item-text-wrap" ng-show="::gradesDetails.gradeTeacherEmail">
+              <span translate-once="GRADES-TEACHER-EMAIL"></span>:
+              <dfn>
+                <a href="mailto:{{::gradesDetails.gradeTeacherEmail}}">
+                  {{::gradesDetails.gradeTeacherEmail}}
+                </a>
+              </dfn>
+            </p>
+            <p class="item-text-wrap" ng-show="::gradesDetails.gradeTeacherPhone">
+              <span translate-once="GRADES-TEACHER-PHONE"></span>:
+              <dfn>
+                <a href="tel:{{::gradesDetails.gradeTeacherPhone}}">
+                   {{::gradesDetails.gradeTeacherPhone}}
+                </a>
+              </dfn>
+            </p>
+            </ion-item>
+        </div>
+        <br ng-show="::gradesDetails.gradeAverage">
+        <div class="card card-fab">
+          <div class="title-fab">
+            <ion-item class="item-divider">
+              {{::gradesDetails.gradeClass}}
+            </ion-item>
+             <button class="grade-button button button-fab custom-fab roundbutton" ng-show="gradesDetails.gradeAverage"
+                     ng-class="::{
+                       'worstGradeButton':(gradesDetails.gradeAverage <= 60),
+                       'badGradeButton':(gradesDetails.gradeAverage < 80 && gradesDetails.gradeAverage > 60),
+                       'okGradeButton':(gradesDetails.gradeAverage >= 80 && gradesDetails.gradeAverage < 95),
+                       'bestGradeButton':(gradesDetails.gradeAverage >= 95)
+                     }"
+                     style="-webkit-mask-image: none"><!--to prevent button activation-->
+                {{::gradesDetails.gradeAverage}}
+              </button>
+          </div>
+          <ion-item class="item-text-wrap">
+            {{::gradesDetails.gradeClassDesc}}
+            <span ng-show="::gradesDetails.gradeClassDesc"><br><br></span>
+            <div class="row custom-row" ng-show="::gradesDetails.gradeClassPeriod">
+              <b class="col custom-col">
+                <span translate-once="GRADES-CLASS-PERIOD"></span>:
+              </b>
+              <div class="col custom-col">
+                {{::gradesDetails.gradeClassPeriod}}
+              </div>
+            </div>
+            <div class="row custom-row" ng-show="::gradesDetails.gradeClassRoom">
+              <b class="col custom-col">
+                <span translate-once="GRADES-CLASS-ROOM"></span>:
+              </b>
+              <div class="col custom-col">
+                {{::gradesDetails.gradeClassRoom}}
+              </div>
+            </div>
+            <div class="row custom-row" ng-show="::gradesDetails.gradeBreakdown">
+              <b class="col custom-col">
+                <span translate-once="GRADES-BREAKDOWN"></span>:
+              </b>
+              <div class="col custom-col">
+                {{::gradesDetails.gradeBreakdown}}
+              </div>
+            </div>
+            <div class="row custom-row" ng-show="::gradesDetails.gradeLastUpdate">
+              <b class="col custom-col">
+                <span translate-once="GRADES-LAST-UPDATED"></span>:
+              </b>
+              <div class="col custom-col">
+                {{::gradesDetails.gradeLastUpdate}}
+              </div>
+            </div>
+          </ion-item>
+        </div>
+      </div>
+      <div class="col custom-col col-50">
+        <div class="card">
+          <ion-item class="item-divider margin-bottom"><span translate-once="GRADES-GRADES"></span></ion-item>
+          <ion-item class="item-text-wrap alternate-colors" ng-repeat="item in ::gradesDetails.gradeGrades | orderBy:'-gra_date_due'">
+            <div class="row" style="padding:0;margin:0;">
+              <b id="classDateVert">
+                {{::item.calc_date}}
+              </b>
+              <div class="col custom-col">
+                <b>{{::item.grc_code}}:</b> {{::item.gra_name}}
+                <br>
+                <b><span translate-once="GRADES-YOUR-GRADE"></span>: </b>
+                {{::item.grs_score}}/{{::item.gra_points}}
+                <span ng-show="item.grs_score && item.gra_points && gradesDetails.isFinite(item.grs_score/item.gra_points)"
+                 ng-class="{
+                   'worstGrade':((item.grs_score/item.gra_points) <= .60),
+                   'badGrade':((item.grs_score/item.gra_points) > .60 && (item.grs_score/item.gra_points) < .85),
+                   'goodGrade':((item.grs_score/item.gra_points) >= .85 && (item.grs_score/item.gra_points) < .95),
+                   'bestGrade':((item.grs_score/item.gra_points) >= .95)
+                 }">({{::gradesDetails.Math.floor(item.grs_score/item.gra_points * 100)}}%)</span>
+                <br>
+                <b><span translate-once="GRADES-CLASS-AVERAGE"></span>: </b>
+                {{::item.gra_avg}}/{{::item.gra_points}}
+                <span ng-show="item.gra_avg && item.gra_points && gradesDetails.isFinite(item.gra_avg/item.gra_points)"
+                 ng-class="{
+                   'worstGrade':((item.gra_avg/item.gra_points) <= .60),
+                   'badGrade':((item.gra_avg/item.gra_points) > .60 && (item.gra_avg/item.gra_points) < .85),
+                   'goodGrade':((item.gra_avg/item.gra_points) >= .85 && (item.gra_avg/item.gra_points) < .95),
+                   'bestGrade':((item.gra_avg/item.gra_points) >= .95)
+                 }">({{::gradesDetails.Math.floor(item.gra_avg/item.gra_points * 100)}}%)</span>
+              </div>
+            </div>
+          </ion-item>
+          <ion-item class="alternate-colors" ng-show="!gradesDetails.gradeGrades.length"><span translate-once="GRADES-NO-GRADES-LIST"></span></ion-item>
+        </div>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

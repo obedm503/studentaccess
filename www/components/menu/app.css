@@ -1,0 +1,128 @@
+/*/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
+Sooper Majestic Custom Cool Spectacular Sheet (SMC CSS)
+\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/*/
+/*
+* RULES
+* delete background-color rule from .button.activated,.button.active in ionic.min.css
+* comment out/delete css related to android action sheet .platform-android
+*/
+
+/*-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+GLOBAL
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-*/
+
+.current {
+	background-color: red !important;
+}
+.custom-row {
+	padding: 0 !important;
+	margin-top: 0 !important;
+	margin-bottom: 3px !important;
+}
+.custom-col {
+	padding: 0 !important;
+	margin-bottom: 0!important;
+}
+.custom-item >.item-content {
+	padding:10px !important;
+}
+.bar.default-primary-color {
+  color:white;
+}
+.margin-top {
+  margin-top:10px;
+}
+.margin-bottom {
+  margin-bottom:10px;
+}
+.margin-vertical {
+	margin-top:10px;
+	margin-bottom:10px;
+}
+.margin-left {
+  margin-left:10px;
+}
+.margin-right {
+  margin-right:10px;
+}
+.margin-horizontal {
+	margin-left:10px;
+	margin-right:10px;
+}
+.item-border {
+	border-bottom:1px solid rgba(0,0,0,.12) !important;/*#ddd*/
+}
+/*-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+Cards
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-*/
+div.card-fab {
+	overflow:visible !important;
+}
+div.card-fab > div.title-fab {
+	overflow:hidden !important;
+}
+button.button.button-fab.custom-fab {
+	right:8px;
+	position: absolute;
+	top: -26px;
+	bottom: initial;
+}
+/*-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+Buttons
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-*/
+.ncaLogo {
+	margin-right:8px;
+	height: 28px;
+	margin-bottom: -7px;
+}
+.title.creditsFooterBar {
+  font-style: italic;
+  font-size:8px;
+  text-align: center;
+  color: #6E6E6E;
+}
+/*-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+searchBar
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-*/
+div.searchBar {
+	overflow:auto;
+	position: relative;
+	z-index: 1;
+	top:30px;
+}
+div.searchBar > div.card {
+	border-width:2px;
+	border-style:solid;
+	border-color:#ddd;
+	margin-top:0 !important;
+	margin-bottom:0 !important;
+}
+div.searchBar > div.card > ion-item {
+	padding-left:10px;
+	padding-right:10px;
+}
+div.searchBar > div.card > ion-item > i {
+	padding-left:6px;
+}
+div.searchBar > div.card > ion-item > input {
+	width:inherit;
+}
+/*-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+network connection notif
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-*/
+div.network {
+	overflow:auto;
+	bottom: 0;
+	position: relative;
+	z-index: 100;
+}
+div.network > div.card {
+	text-align:center;
+	border-width:2px;
+	border-style:solid;
+	border-color:#ddd;
+}
+div.network > div.card > ion-item {
+	padding-left:10px;
+	padding-right:10px;
+}

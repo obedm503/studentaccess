@@ -1,0 +1,15 @@
+{
+  "name": "studentaccess",
+  "app_id": "0923c6a6",
+  "browsers": [
+    {
+      "platform": "android",
+      "browser": "crosswalk",
+      "version": "12.41.296.5"
+    }
+  ],
+  "watchPatterns": [
+    "www/build/*",
+    "www/components/*.html"
+  ]
+}

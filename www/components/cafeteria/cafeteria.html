@@ -1,0 +1,134 @@
+<ion-view name="master-view" class="themeBackgroundColor">
+  <ion-nav-title><span translate-once="CAFETERIA-VIEW-TITLE"></span></ion-nav-title>
+  <ion-nav-buttons side="left">
+    <button class="button button-icon button-clear ion-navicon-round" menu-toggle="left" drawer-toggle></button>
+  </ion-nav-buttons>
+
+  <div class="row custom-row responsive-lg">
+    <div class="col custom-col col-50 col-offset-25">
+      <div class="searchBar" ng-show="cafeteria.showSearchBar">
+        <br>
+        <div class="card">
+          <ion-item class="item-input">
+            <i class="icon ion-search placeholder-icon"></i>
+            <input type="text" autofocus translate-once-placeholder="SEARCH" ng-model="cafeteria.searchBar.bar">
+            <button ng-click="::cafeteria.emptySearchBar()" class="button-clear">
+              <i class="icon ion-close"></i>
+            </button>
+          </ion-item>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <confetti today="::today" birthday="::birthday"></confetti>
+  <ion-content overflow-scroll="true">
+    <ion-refresher on-refresh="::cafeteria.refresh()"></ion-refresher>
+    <span ng-show="cafeteria.showSearchBar"><br><br></span>
+    <div class="row custom-row responsive-lg">
+      <div class="col custom-col col-50">
+        <br>
+        <!--menu-->
+        <div class="card">
+          <ion-item class="item-divider"><span translate-once="CAFETERIA-TODAYS-FOOD"></span></ion-item>
+          <ion-item class="item-border" ng-repeat="item in cafeteria.cafeteriaMenu | orderBy: 'calc_date'" ng-class="{'todaysHW':(item.calc_date == date)}">
+            <div class="row custom-row">
+              <div class="col custom-col">
+                <b>
+                  {{::item.calc_date}}:
+                </b>
+              </div>
+              <div class="col custom-col">
+                {{::item.calc_menu}}
+              </div>
+            </div>
+          </ion-item>
+          <ion-item class="padding" ng-show="!cafeteria.cafeteriaMenu.length"><span translate-once="CAFETERIA-NOFOOD"></span></ion-item>
+        </div>
+        <br>
+        <!--balance history-->
+        <div class="card card-fab">
+          <div class="title-fab" ng-click="::cafeteria.switch()" >
+            <ion-item class="item-divider">
+              <span translate-once="CAFETERIA-BALANCE-HISTORY"></span><span ng-show="cafeteria.current"> | {{cafeteria.current|translate}}</span>
+            </ion-item>
+            <button id="balance-fab" class="button button-fab custom-fab accent-color icon ion-loop"></button>
+          </div>
+          <ion-item ng-show="(cafeteria.familyTransactions.labels.length && cafeteria.current === 'CAFETERIA-FAMILY') || (cafeteria.studentTransactions.labels.length && cafeteria.current === 'CAFETERIA-STUDENT')">
+            <canvas class="chart chart-line" chart-data="[cafeteria.chartData]" chart-labels="cafeteria.chartLabels">
+            </canvas>
+          </ion-item>
+          <ion-item ng-show="!cafeteria.familyTransactions.labels.length && cafeteria.current === 'CAFETERIA-FAMILY'">
+            <span translate-once="CAFETERIA-NO-FAMILY-TRANSACTIONS"></span>
+          </ion-item>
+          <ion-item ng-show="!cafeteria.studentTransactions.labels.length && cafeteria.current === 'CAFETERIA-STUDENT'">
+            <span translate-once="CAFETERIA-NO-STUDENT-TRANSACTIONS"></span>
+          </ion-item>
+        </div>
+      </div>
+      <div class="col custom-col col-50">
+        <br>
+        <!--transactionHistory-->
+        <div class="card card-fab">
+          <div class="title-fab" ng-click="::cafeteria.doShowSearchBar()" >
+            <ion-item class="margin-bottom item-divider">
+              <span translate-once="CAFETERIA-TRANSACTION-HISTORY"></span>
+            </ion-item>
+            <button id="transaction-fab" class="button button-fab custom-fab accent-color icon ion-search"></button>
+          </div>
+          <ion-item class="custom-item item-text-wrap alternate-colors" ng-repeat="item in cafeteria.transactionHistory | filter:cafeteria.searchBar.bar | limitTo:cafeteria.transactionLimit">
+            <div class="row custom-row" ng-show="::item.credhist_method">
+              <b class="col custom-col">
+                <span translate-once="CAFETERIA-TRANSACTION-METHOD"></span>:
+              </b>
+              <div class="col custom-col">
+                {{::item.credhist_method}}
+              </div>
+            </div>
+            <div class="row custom-row" ng-show="::item.credhist_description">
+              <b class="col custom-col">
+                <span translate-once="CAFETERIA-TRANSACTION-ITEM"></span>:
+              </b>
+              <div class="col custom-col">
+                {{::item.credhist_description}}
+              </div>
+            </div>
+            <div class="row custom-row" ng-show="::item.credhist_authorized">
+              <b class="col custom-col">
+                <span translate-once="CAFETERIA-TRANSACTION-AUTHORIZED-BY"></span>:
+              </b>
+              <div class="col custom-col">
+                {{::item.credhist_authorized}}
+              </div>
+            </div>
+            <div class="row custom-row" ng-show="::item.credhist_datetime">
+              <b class="col custom-col">
+                <span translate-once="CAFETERIA-TRANSACTION-DATE-TIME"></span>:
+              </b>
+              <div class="col custom-col">
+                {{::item.credhist_datetime}}
+              </div>
+            </div>
+            <div class="row custom-row" ng-show="::item.credhist_debit">
+              <b class="col custom-col">
+                <span translate-once="CAFETERIA-TRANSACTION-PRICE"></span>:
+              </b>
+              <div class="col custom-col">
+                {{::item.credhist_debit|currency}}
+              </div>
+            </div>
+          </ion-item>
+          <ion-item ng-show="!(cafeteria.transactionHistory | filter:cafeteria.searchBar.bar).length">
+            <span translate-once="CAFETERIA-NOTHING-FOUND"></span>
+          </ion-item>
+          <ion-item class="item-border" ng-show="(((cafeteria.transactionLimit >= 12) || (cafeteria.transactionHistory.length <= 12)) && (cafeteria.transactionHistory | filter:cafeteria.searchBar.bar).length)" ng-click="::cafeteria.transactionShowLess()">
+            <span translate-once="CAFETERIA-SHOW-LESS"></span>
+          </ion-item>
+          <ion-item ng-show="((cafeteria.transactionLimit < cafeteria.transactionHistory.length) && (cafeteria.transactionHistory | filter:cafeteria.searchBar.bar).length)" ng-click="::cafeteria.transactionShowMore()">
+            <span translate-once="CAFETERIA-SHOW-MORE"></span>
+          </ion-item>
+        </div>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

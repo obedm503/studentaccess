@@ -1,0 +1,22 @@
+<ion-view view-title="{{login.ncaLogo}}" cache-view="false" align-title="center" name="login-view" class="themeBackgroundColor">
+  <ion-content class="padding-horizontal">
+    <div class="row custom-row responsive-lg">
+      <div class="col custom-col col-50 col-offset-25">
+        <form name="loginForm" style="margin-top:10px" ng-submit="login.login(login.data)" novalidate>
+          <div class="list" style="margin-bottom:0">
+            <label class="item item-input item-floating-label">
+              <span class="input-label" translate-once="LOGIN-USER"></span>
+              <input required name="username" type="text" ng-model="login.data.usernameInput" translate-once-placeholder="LOGIN-USER">
+            </label>
+            <label style="border-bottom:none" class="item item-input item-floating-label">
+              <span translate-once="LOGIN-PASSWORD" class="input-label"></span>
+              <input required name="password" type="password" ng-model="login.data.passwordInput" translate-once-placeholder="LOGIN-PASSWORD">
+            </label>
+          </div>
+          <button ng-disabled="loginForm.$invalid" style="color: white;background-color: #33cd5f;margin-top:20px" class="button button-block button-balanced icon-right ion-log-in" translate-once="LOGIN"></button>
+          <!--only used either ng-submit or ng-click, not both https://docs.angularjs.org/api/ng/directive/form#submitting-a-form-and-preventing-the-default-action-->
+        </form>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

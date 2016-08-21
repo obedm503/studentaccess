@@ -1,0 +1,47 @@
+<ion-view name="master-view" class="themeBackgroundColor">
+  <ion-nav-title><span translate-once="EVENTS-VIEW-TITLE"></span></ion-nav-title>
+  <ion-nav-buttons side="left">
+    <button class="button button-icon button-clear ion-navicon-round" menu-toggle="left" drawer-toggle></button>
+  </ion-nav-buttons>
+  <confetti today="::today" birthday="::birthday"></confetti>
+  <ion-content scrollbar-y="false" overflow-scroll="true">
+    <ion-refresher on-refresh="::events.refresh()"></ion-refresher>
+    <div class="row custom-row responsive-lg">
+      <div class="col custom-col col-50 col-offset-25">
+        <div ng-repeat="item in events.events" class="card ink" data-ink-color="#E6E6E6" data-ink-opacity="1">
+          <ion-item href="#/app/events/{{::item.ev_id}}" class="custom-item item-text-wrap" ng-class="{'todaysHW':(item.ev_date_start === date)}">
+            <div class="row custom-row">
+              <div ng-show="::item.calc_ev_date_start" class="col custom-col">
+                <b>{{::item.calc_ev_date_start}}:</b>
+              </div>
+              <div ng-show="::item.calc_subject" class="col custom-col">
+                {{::item.calc_subject}}
+              </div>
+            </div>
+            <div class="row custom-row" ng-show="::item.calc_location">
+              <div class="col custom-col">
+                <span translate-once="EVENTS-LOCATION"></span>:
+              </div>
+              <div class="col custom-col">
+                {{::item.calc_location}}
+              </div>
+            </div>
+            <div class="row custom-row" ng-show="::item.ev_time_start">
+              <div class="col custom-col">
+                <span translate-once="EVENTS-TIME"></span>:
+              </div>
+              <div class="col custom-col">
+                {{::item.ev_time_start}}
+              </div>
+            </div>
+          </ion-item>
+        </div>
+        <div class="card" style="text-align:center" ng-show="!events.events.length">
+          <ion-item>
+            <span translate-once="EVENTS-NOEVENTS"></span>
+          </ion-item>
+        </div>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

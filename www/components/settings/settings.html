@@ -1,0 +1,59 @@
+<ion-view name="master-view">
+  <ion-nav-title><span translate="SETTINGS-VIEW-TITLE"></span></ion-nav-title>
+  <ion-nav-buttons side="left">
+    <button class="button button-icon button-clear ion-navicon-round" menu-toggle="left" drawer-toggle></button>
+  </ion-nav-buttons>
+  <ion-content overflow-scroll="true" class="themeSettingsBackground themeSidemenuHeaderBar">
+    <div class="row custom-row responsive-lg">
+      <div class="col custom-col col-50 col-offset-25">
+        <div class="card ink" data-ink-color="#E6E6E6" data-ink-opacity="1">
+          <label for="selectedLang" class="item item-input item-select">
+            <div class="input-label">
+              <span translate="SETTINGS-SELECTED-LANG"></span>
+            </div>
+            <select 
+              class="text-center"
+              ng-change="ChangeLanguage(language)" 
+              name="selectedLang" 
+              ng-model="language" 
+              ng-options="item.lang as item.name for item in ::langs">
+            </select>
+          </label>
+        </div>
+        <div class="card ink" data-ink-color="#E6E6E6" data-ink-opacity="1">
+          <label for="themeCss" class="item item-input item-select">
+            <div class="input-label">
+              <span translate="SETTINGS-SELECTED-THEME"></span>
+            </div>
+            <select 
+              class="text-center"
+              name="themeCss" 
+              ng-model="themeCss" 
+              ng-change="ChangeTheme(themeCss)" 
+              ng-options="item.url as item.name | translate for item in ::themes">
+            </select>
+          </label>
+        </div>
+        <div class="card ink" data-ink-color="#E6E6E6" data-ink-opacity="1">
+          <ion-item style="font-size:16px" ng-click="::settings.doShowDeletePics()">
+            <span translate="SETTINGS-DELETE-PICS"></span>
+          </ion-item>
+        </div>
+        <div class="card text-center" style="background-color:#ecf0f1">
+          <div class="item">
+            <h3><span translate="SETTINGS-SUGGESTIONS"></span></h3>
+            <span translate="SETTINGS-YOUR-NAME"></span>: {{::personName}}
+            <br>
+            <span translate="SETTINGS-SUGGESTION-SUBJECT"></span>: 
+            <textarea style="width:100%;" cols="40" rows="2" ng-model="suggestionSubject"></textarea>
+            <span translate="SETTINGS-SUGGESTION-BODY"></span>:
+            <br>
+            <textarea style="width:100%;" cols="40" rows="5" ng-model="suggestionBody"></textarea>
+            <br>
+            <a href="mailto:obedm503@gmail.com?cc=sgparajon@gmail.com&amp;subject=StudentAccess Suggestion: {{::personName}}. {{suggestionSubject}}&amp;body={{suggestionBody}}"><button class="button" ng-click="suggestionBody = null; suggestionSubject = null"><span translate="SETTINGS-SUGGESTION-MAILUS"></span></button></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>
