@@ -8,3 +8,4 @@ plugins/
 scss/
 www/lib/
 .io-config.json
+www/build/

@@ -22,7 +22,6 @@
     "ionic-material": "^0.4.2",
     "ngCordova": "^0.1.27-alpha",
     "angular-chart.js": "^1.0.1",
-    "chart.js": "*",
     "angular-localforage": "^1.3.1",
     "ionic-ion-imageCacheFactory": "git://github.com/andrewmcgivery/ionic-ion-imageCacheFactory.git#9e9818c",
     "loaders.css": "^0.1.2",
@@ -33,8 +32,8 @@
   },
   "resolutions": {
     "ionic": "1.3.1",
-    "angular-animate": "1.4.3",
+    "angular-animate": "*",
     "angular": "1.x",
-    "angular-sanitize": "1.4.3"
+    "angular-sanitize": "*"
   }
 }
