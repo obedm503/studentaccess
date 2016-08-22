@@ -3,7 +3,7 @@
 
 node_modules/
 platforms/
-hooks/
+#hooks/
 plugins/
 scss/
 www/lib/

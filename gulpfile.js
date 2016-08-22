@@ -28,7 +28,7 @@ var gulp = require('gulp'),
       ]
     };
 
-gulp.task('default', ['appcss','appjs','vendorjs','vendorcss']);
+gulp.task('default', ['appcss','appjs','vendorjs','vendorcss','docs']);
 gulp.task('buildapp',['appcss', 'appjs']);
 gulp.task('buildvendor',['vendorcss', 'vendorjs']);
 
