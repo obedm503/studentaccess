@@ -1,7 +1,7 @@
 [![Stories in Ready](https://badge.waffle.io/ncai-developers/studentaccess.png?label=ready&title=Ready)](https://waffle.io/ncai-developers/studentaccess)
-[badge](https://img.shields.io/badge/version-0.9.2-blue.svg)
-[forthebadge](http://forthebadge.com/images/badges/built-by-developers.svg)
-[forthebadge](http://forthebadge.com/images/badges/compatibility-betamax.svg)
+[![badge](https://img.shields.io/badge/version-0.9.2-blue.svg)]
+[![forthebadge](http://forthebadge.com/images/badges/built-by-developers.svg)]
+[![forthebadge](http://forthebadge.com/images/badges/compatibility-betamax.svg)]
 [![forthebadge](http://forthebadge.com/images/badges/designed-in-ms-paint.svg)](AUTHORS.md)
 
 # StudentAccess
