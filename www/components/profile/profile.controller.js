@@ -7,8 +7,11 @@ https://github.com/johnpapa/angular-styleguide/blob/master/a1/README.md
 
 	function ProfileCtrl($localForage, $log, $rootScope, $filter, $ionicActionSheet, $state, StudentService, UpdateService, $ionicPopover,$scope) {
 		var profile = this;
+    //init the number, this should be changed once data is retrieved
+    profile.missingsNumber = 0;
 
 		function missing(o){
+      $log.warn(o);
 			profile.missingsNumber = o.num_missing;
 			profile.missingMissing = o.missing;
 		}
@@ -41,7 +44,7 @@ https://github.com/johnpapa/angular-styleguide/blob/master/a1/README.md
 
 		profile.doShowMissing = function(){
 			if(profile.missingsNumber){
-				profile.showMissing = (profile.showMissing) ? false : true ;
+				profile.showMissing = (profile.showMissing) ? false : true;
 			}
 		};
 
@@ -77,7 +80,7 @@ https://github.com/johnpapa/angular-styleguide/blob/master/a1/README.md
 		};
 
 	//-=-=-=-=-=-=-=-=-=-=-=-Missing-=-=-=-=-=-=-=-=-=-=-=-//
-		UpdateService.anything('STUDENT_MISSING', 'day').then(function(){
+    UpdateService.anything('STUDENT_MISSING', 'day').then(function(){
 			return StudentService.getStudentMissing();
 		}).catch(function(){
 			return $localForage.getItem('STUDENT_MISSING', true).then(function(o){

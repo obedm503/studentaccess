@@ -26,9 +26,12 @@
             </button>
           </div>
         </ion-item>
-        <div ng-repeat="item in grades.classes" class="card ink" data-ink-color="#E6E6E6" data-ink-opacity="1">
+        <div ng-repeat="item in grades.classes" class="item-text-wrap card ink" data-ink-color="#E6E6E6" data-ink-opacity="1">
           <ion-item href="#/app/grades/{{::item.class_period}}/{{::item.class_teacher_id}}">
-            <b>[<span ng-bind="::item.class_period"></span>]   {{::item.class_name}}<span ng-show="::item.class_avg">: </span></b>
+            <b>
+              [<span ng-bind="::item.class_period"></span>]
+              {{::item.class_name}}<span ng-show="::item.class_avg">: </span>
+            </b>
             <span class="padding-top" ng-class="{'worstGrade':(item.class_avg < 61)}">{{::item.class_avg}}</span>
           </ion-item>
         </div>

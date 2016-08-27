@@ -26,11 +26,11 @@
             </div>
           </ion-item>
           <ion-item ng-show="(profile.eagleCredits||profile.eagleCreditsFam)">
-            <div ng-show="::profile.eagleCredits" class="row custom-row">
+            <div ng-show="profile.eagleCredits" class="row custom-row">
               <b class="col custom-col item-text-wrap"><span translate="PROFILE-BALANCE"></span>:</b>
               <dfn class="col custom-col item-text-wrap">{{::profile.eagleCredits|currency}}</dfn>
             </div>
-            <div ng-show="::profile.eagleCreditsFam" class="row custom-row">
+            <div ng-show="profile.eagleCreditsFam" class="row custom-row">
               <b class="col custom-col item-text-wrap"><span translate="PROFILE-BALANCE-FAM"></span>:</b>
               <dfn class="col custom-col item-text-wrap">{{::profile.eagleCreditsFam|currency}}</dfn>
             </div>
@@ -42,7 +42,9 @@
             <ion-item ng-class="{'margin-bottom':!profile.showMissing}" class="item-divider">
               <span translate="PROFILE-MISSING"></span>
             </ion-item>
-            <button id="missing-fab" class="button button-fab custom-fab accent-color">{{profile.missingsNumber}}</button>
+            <button id="missing-fab" class="button button-fab custom-fab accent-color">
+              {{profile.missingsNumber}}
+            </button>
           </div>
           <div ng-show="profile.showMissing">
             <div class="list">

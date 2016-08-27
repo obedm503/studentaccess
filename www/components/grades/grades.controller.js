@@ -8,13 +8,14 @@ https://github.com/johnpapa/angular-styleguide/blob/master/a1/README.md
 	function GradesCtrl($localForage,$rootScope, $log, StudentService, UpdateService) {
 		var grades = this;
 		grades.Math = window.Math;
+    grades.classes = [];
 
-		function classes(y){
-			grades.classes = y.classes;
-			$rootScope.gradesClasses = $array.convertToObject(y.classes)('class_period');
+		function classes(o){
+			grades.classes = o.classes;
+			$rootScope.gradesClasses = $array.convertToObject(o.classes)('class_period');
 		}
-		function teachers(e){
-			$rootScope.teachersList = $array.convertToObject(e)('teacher_id');
+		function teachers(a){
+			$rootScope.teachersList = $array.convertToObject(a)('teacher_id');
 		}
 
 		function schedule(scheduleData){
@@ -41,20 +42,11 @@ https://github.com/johnpapa/angular-styleguide/blob/master/a1/README.md
 			});
 		};
 
-		$log.debug('once data is merged into one api call, fix this ctrl');
-
 	//-=-=-=-=-=-=-=-=-=-=-=-LIST CLASSES / Schedule -=-=-=-=-=-=-=-=-=-=-=-
 		UpdateService.anything('STUDENT_SCHEDULE','month').then(function(){
 			return StudentService.getStudentSchedule();
 		}).catch(function(){
 			return $localForage.getItem('STUDENT_SCHEDULE', true).then(function(o){ return o.data; });
-			/*
-			if(window.localStorage.STUDENT_SCHEDULE && window.localStorage.STUDENT_SCHEDULE !== '{}'){
-				return JSON.parse(window.localStorage.STUDENT_SCHEDULE).data;
-			} else {
-				$log.error('no schedule found in lcl strg');
-				return {};
-			}*/
 		}).then(schedule);
 
 	//-=-=-=-=-=-=-=-=-=-=-=-Classes Data -=-=-=-=-=-=-=-=-=-=-=-
@@ -62,26 +54,13 @@ https://github.com/johnpapa/angular-styleguide/blob/master/a1/README.md
 			return StudentService.getStudentGrades();
 		}).catch(function(){
 			return $localForage.getItem('STUDENT_GRADES', true).then(function(o){ return o.data; });
-			/*
-			if(window.localStorage.STUDENT_GRADES && window.localStorage.STUDENT_GRADES !== '{}'){
-				return JSON.parse(window.localStorage.STUDENT_GRADES).data.classes;
-			} else {
-				return [];
-			}*/
 		}).then(classes);
 
 	//-=-=-=-=-=-=-=-=-=-=-=-Teacher Data -=-=-=-=-=-=-=-=-=-=-=-
 		UpdateService.anything('TEACHERS','month').then(function(){
-			return StudentService.getStudentTeachersData()
+			return StudentService.getStudentTeachersData();
 		}).catch(function(){
 			return $localForage.getItem('TEACHERS', true).then(function(o){ return o.data; });
-			/*
-			if(window.localStorage.TEACHERS && window.localStorage.TEACHERS !== '{}'){
-				return JSON.parse(window.localStorage.TEACHERS).data;
-			} else {
-				$log.error('no teacher data in local storage');
-				return [];
-			}*/
 		}).then(teachers);
 	}
 })();
