@@ -9,22 +9,22 @@
     <link href="build/vendor.build.min.css" rel="stylesheet">
     <link href="build/app.build.min.css" rel="stylesheet">
 
-    <!-- ionic/angular js-->
+    <!-- ionic/angular -->
     <script src="lib/ionic/js/ionic.bundle.min.js"></script>
-    <!--other third party code-->
+    <!-- third party -->
     <script src="build/vendor.build.min.js"></script>
-    <!-- app's js-->
+    <!-- app -->
     <script src="build/app.build.min.js"></script>
+    
+    <!--themes-->
+    <link rel="stylesheet" ng-href="themes/{{themeCss}}.css">
 
     <!-- cordova script (this will be a 404 during development)-->
     <!-- Cordova is bootstrapped by ionic-platform-web-client, uncomment this if you remove ionic-platform-web-client... -->
     <!-- <script src="cordova.js"></script> -->
   </head>
-
   <body ng-show="show">
     <ion-nav-bar class="default-primary-color"></ion-nav-bar>
     <ion-nav-view></ion-nav-view>
-    <!--themes-->
-    <link rel="stylesheet" ng-href="themes/{{themeCss}}.css">
   </body>
 </html>
