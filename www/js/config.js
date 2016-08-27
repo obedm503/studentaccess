@@ -205,6 +205,9 @@ https://github.com/johnpapa/angular-styleguide/blob/master/a1/README.md
 		$translateProvider.preferredLanguage('en');
 		$translateProvider.useSanitizeValueStrategy('escaped');
 
+    //templates are now cached
+    //the file 'components/login/login.html' does not exist in that location
+    //components were moved to outside 'www' to reduce package size
 		$stateProvider
 			.state('login', {
 				url: '/login',

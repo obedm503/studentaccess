@@ -4,9 +4,11 @@ var gulp = require('gulp'),
     rename = require('gulp-rename'),
     uglify = require('gulp-uglify'),
     gulpJsdoc2md = require('gulp-jsdoc-to-markdown'),
+    templateCache = require('gulp-angular-templatecache'),
     paths = {
-      appjs: ['./www/js/app.js','./www/js/config.js','./www/components/**/*.js'],
-      appcss: ['./www/components/**/*.css'],
+      appjs: ['./www/js/app.js','./www/js/templates.js','./www/js/config.js','./components/**/*.js'],
+      appcss: ['./components/**/*.css'],
+      apphtml: ['./components/**/*.html'],
       vendorjs: [
         './www/lib/ionic-material/dist/ionic.material.min.js',
         './www/lib/ionic-platform-web-client/dist/ionic.io.bundle.min.js',
@@ -28,15 +30,22 @@ var gulp = require('gulp'),
       ]
     };
 
-gulp.task('default', ['appcss','appjs','vendorjs','vendorcss','docs']);
-gulp.task('buildapp',['appcss', 'appjs']);
+gulp.task('default', ['buildapp','buildvendor','docs']);
+gulp.task('buildapp',['apphtml','appcss', 'appjs']);
 gulp.task('buildvendor',['vendorcss', 'vendorjs']);
 
+
 gulp.task('docs', function () {
-  return gulp.src('./www/components/**/*.js')
+  return gulp.src('./components/**/*.js')
     .pipe(concat('DOCS.md'))
     .pipe(gulpJsdoc2md())
     .pipe(gulp.dest('./'));
+});
+
+gulp.task('apphtml', function () {
+  return gulp.src(paths.apphtml)
+    .pipe(templateCache('templates.js',{root:'components/',module:'studentaccess',moduleSystem:'IIFE'}))
+    .pipe(gulp.dest('./www/js/'));
 });
 
 gulp.task('appcss', function() {
