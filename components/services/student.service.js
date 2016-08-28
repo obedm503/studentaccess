@@ -65,7 +65,7 @@ https://github.com/johnpapa/angular-styleguide/blob/master/a1/README.md
 
 		function getSchedulesData(){
 			return $http({
-				url: './components/profile/schedules.json',
+				url: 'schedules.json',
 				method: 'GET'
 			}).then(function(result){
 				var schedule = result.data;

@@ -7,8 +7,8 @@ https://github.com/johnpapa/angular-styleguide/blob/master/a1/README.md
 
 	function config($logProvider, $compileProvider, $translateProvider, $stateProvider, $urlRouterProvider) {
 		//set to false if in production
-		$compileProvider.debugInfoEnabled(true);
-		$logProvider.debugEnabled(true);
+		$compileProvider.debugInfoEnabled(false);
+		$logProvider.debugEnabled(false);
 
 		$translateProvider.translations('en', {
 			"PULL-TO-REFRESH":"Pull to refresh...",

@@ -11,7 +11,6 @@ https://github.com/johnpapa/angular-styleguide/blob/master/a1/README.md
     profile.missingsNumber = 0;
 
 		function missing(o){
-      $log.warn(o);
 			profile.missingsNumber = o.num_missing;
 			profile.missingMissing = o.missing;
 		}
