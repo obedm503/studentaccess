@@ -5,6 +5,7 @@ var gulp = require('gulp'),
     uglify = require('gulp-uglify'),
     gulpJsdoc2md = require('gulp-jsdoc-to-markdown'),
     templateCache = require('gulp-angular-templatecache'),
+		ghPages = require('gulp-gh-pages'),
     paths = {
       appjs: ['./www/js/app.js','./www/js/templates.js','./www/js/config.js','./components/**/*.js'],
       appcss: ['./components/**/*.css'],
@@ -21,7 +22,7 @@ var gulp = require('gulp'),
         './www/lib/angular-img-fallback/angular.dcb-img-fallback.min.js',
         './www/lib/chart.js/dist/Chart.min.js',
         './www/lib/angular-chart.js/dist/angular-chart.min.js',
-        './www/lib/obedm503-array/dist/$array.min.js'
+        './www/lib/dollar-array/dist/$array.min.js'
       ],
       vendorcss: [
         './www/lib/ionic-material/dist/ionic.material.min.css',
@@ -32,7 +33,7 @@ var gulp = require('gulp'),
 
 gulp.task('default', ['buildapp','buildvendor','docs']);
 gulp.task('buildapp',['apphtml','appcss', 'appjs']);
-gulp.task('buildvendor',['vendorcss', 'vendorjs']);
+gulp.task('buildvendor',['vendorcss', 'vendorjs','moveionic']);
 
 
 gulp.task('docs', function () {
@@ -74,7 +75,19 @@ gulp.task('vendorcss', function() {
     .pipe(gulp.dest('./www/build/'));
 });
 
+gulp.task('moveionic', function() {
+  return gulp.src(['./www/lib/ionic/**/*','!./www/lib/ionic/scss','!./www/lib/ionic/*'])
+		.pipe(gulp.dest('./www/build/ionic/'));
+});
+
 gulp.task('watch', function() {
   gulp.watch(paths.appjs, ['appjs']);
   gulp.watch(paths.appcss, ['appcss']);
+});
+
+gulp.task('deploy', ['default'], function () {
+  return gulp.src(['./www/**/*','!./www/lib'])
+    .pipe(ghPages({
+			message:"Last Deploy [timestamp]"
+		}));
 });

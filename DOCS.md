@@ -44,8 +44,7 @@ getStoredPic().then(function(pic){
 <a name="AppCtrl.refreshEverything"></a>
 
 ### AppCtrl.refreshEverything()
-Helper funtion. Calls all data through the [UpdateService](#UpdateService) to check if the data is still valid. If data isn't valid or is undefined, call the [StudentService].
-Function is called on [AppCtrl] load.
+Helper funtion. Calls all data through the [UpdateService](#UpdateService) to check if the data is still valid. If data isn't valid or is undefined, call the [StudentService].Function is called on [AppCtrl] load.
 
 **Kind**: static method of <code>[AppCtrl](#AppCtrl)</code>  
 <a name="NetworkService"></a>
@@ -93,8 +92,7 @@ Service in charge of making requests to the API.
 <a name="StudentService.attachDate"></a>
 
 ### StudentService.attachDate ⇒ <code>Object</code>
-Method used to attach the current date to any data passed in. It's used by the [StudentService](studentaccess.service:StudentService).
-You may be prone to typo's with the properties of the returned object.
+Method used to attach the current date to any data passed in. It's used by the [StudentService](studentaccess.service:StudentService).You may be prone to typo's with the properties of the returned object.
 
 **Kind**: static property of <code>[StudentService](#StudentService)</code>  
 **Returns**: <code>Object</code> - with date property of [$rootScope.date]($rootScope.date) and a data property with the data passed.  
@@ -106,8 +104,7 @@ You may be prone to typo's with the properties of the returned object.
 <a name="StudentService.getDate"></a>
 
 ### StudentService.getDate()
-Helper funtion. Creates a new Date, filters it through angular's date filter, and stores the value in $rootScope.date.
-Function is called on [StudentService](#StudentService) load.
+Helper funtion. Creates a new Date, filters it through angular's date filter, and stores the value in $rootScope.date.Function is called on [StudentService](#StudentService) load.
 
 **Kind**: static method of <code>[StudentService](#StudentService)</code>  
 **See**: $rootScope.date  
