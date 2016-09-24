@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html ng-app="studentaccess">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title>StudentAccess</title>
+
+    <link href="build/ionic/css/ionic.min.css" rel="stylesheet">
+    <link href="build/vendor.build.min.css" rel="stylesheet">
+    <link href="build/app.build.min.css" rel="stylesheet">
+
+    <!-- ionic/angular -->
+    <script src="build/ionic/js/ionic.bundle.min.js"></script>
+    <!-- third party -->
+    <script src="build/vendor.build.min.js"></script>
+    <!-- app -->
+    <script src="build/app.build.min.js"></script>
+
+    <!--themes-->
+    <link rel="stylesheet" ng-href="themes/{{themeCss}}.css">
+
+    <!-- cordova script (this will be a 404 during development)-->
+    <!-- Cordova is bootstrapped by ionic-platform-web-client, uncomment this if you remove ionic-platform-web-client... -->
+    <!-- <script src="cordova.js"></script> -->
+  </head>
+  <body ng-show="show">
+    <ion-nav-bar class="default-primary-color"></ion-nav-bar>
+    <ion-nav-view></ion-nav-view>
+  </body>
+</html>
