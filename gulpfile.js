@@ -86,7 +86,7 @@ gulp.task('watch', function() {
 });
 
 gulp.task('deploy', ['default'], function () {
-  return gulp.src(['./www/**/*','!./www/lib'])
+  return gulp.src(['./www/**/*','!./www/{lib,lib/**/*}'])
     .pipe(ghPages({
 			message:"Last Deploy [timestamp]"
 		}));

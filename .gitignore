@@ -10,3 +10,4 @@ www/lib/
 .io-config.json
 www/build/
 www/js/templates.js
+.publish/
