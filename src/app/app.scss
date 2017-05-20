@@ -14,3 +14,56 @@
 // To declare rules for a specific mode, create a child rule
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
+.dark-gray {
+  background-color: $dark-gray;
+}
+.light-gray {
+  background-color: $light-gray;
+}
+.menu-icon {
+  margin-right: 10px;
+}
+.item-md, .item-ios, .item-wp {
+  ion-avatar {
+    img {
+      height: 110px;
+      border-radius: 100px;
+      width: auto;
+      box-shadow: 0 2px 5px 0 rgba(0,0,0,.26);
+    }
+  }
+}
+
+.card-fab, ion-card + .card-fab {
+  margin-top: 36px;
+  position: relative;
+  overflow: visible;
+}
+.fab-top-right {
+  font-size: 20px;
+  position: absolute;
+  top: -26px;
+  right: 8px;
+}
+.person-col {
+  line-height: 110px;
+
+  .person {
+    line-height: normal;
+    vertical-align: middle;
+    display: inline-block;
+  }
+}
+
+.alternate-colors {
+  &:nth-child(even) {
+    background-color: #FFF
+  }
+  &:nth-child(odd) {
+    background-color: $light-gray;
+  }
+}
+
+ion-menu {
+  // menu styles
+}

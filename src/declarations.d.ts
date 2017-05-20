@@ -13,9 +13,16 @@
 */
 declare module '*';
 
-interface StoredItem {
-  data: any,
-  date: string
+interface StoredItem<t> {
+  data: t,
+  date: Date
+}
+
+interface IKey {
+  key: string,
+  valid: string,
+  query?: string,
+  url?: string
 }
 
 interface StoredUser {

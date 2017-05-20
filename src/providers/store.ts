@@ -2,78 +2,133 @@ import { Injectable } from '@angular/core';
 import { Storage } from '@ionic/storage';
 
 import { Http } from '@angular/http';
-import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/toPromise';
 
-// import { $array } from '$array';
+import currentWeekNumber from 'current-week-number';
+
+import { State } from './state';
 
 @Injectable()
 export class Store {
-  public user: { username: string, language: string, password: string };
   private date: Date = new Date();
+  public today: string;
   private api: string = 'https://db.nca.edu.ni/api/api_ewapp.php'
-  private keys = {
-    HOMEWORK: {
-      query: 'homework',
-      valid: 'DAY'
-    },
-    LOGIN: {
-      query: 'login',
-      valid: 'MONTH'
-    }
-  };
+  private keys: IKey[];
 
-  constructor(public http: Http, public storage: Storage) {}
+  constructor(public http: Http, public storage: Storage, public state: State ){
+    let month = ('0' + ( this.date.getMonth() + 1 ).toString() ).slice(-2);
+    let day = ('0' + this.date.getDate().toString() ).slice(-2);
+    let year = this.date.getFullYear().toString();
+    this.today = `${year}-${month}-${day}`;
+
+    // this.date.setDate(7);
+    console.log('new Store()');
+    this.keys = this.state.keys;
+  }
 
   public setUser(user){
-    this.user = user;
-    this.storage.set('USER', user);
+    this.state.set('USER', {
+      date: this.date,
+      data: user
+    });
   }
 
-  public getUser(){
-    return this.storage.get('USER');
+  private async getUser(){
+    console.log('getUser')
+    try {
+      let user;
+      user = this.state.get('USER');
+      if( !user ){
+        let state = await this.storage.get('STATE');
+        user = state.USER;
+        console.log('getUser: ',state)
+      }
+      if( user && this.date.getMonth() === new Date(user.date).getMonth() ){
+        return user.data;
+      } else {
+        return null;
+      }
+    } catch(e){
+      console.warn(e);
+    }
   }
 
-  private async buildUrl(query: string): Promise<string> {
-    return `${this.api}?mode=student&language=${this.user.language}&username=${this.user.username}&password=${this.user.password}&query=${query}`;
+  public async getLogin(){
+    let login = this.state.get('LOGIN');
+    if( login && this.date.getMonth() === new Date(login.date).getMonth() ){
+      return login.data;
+    } else { return null; }
   }
 
-  private fetch(key: string): Promise<any> {
-    return this.buildUrl(this.keys[key].query)
-      .then( url => fetch( url ))
-      .then( res => res.json() )
-      .then( data => {
-        this.storage.set(key, {
+  buildUrl(query: string, url: string): string {
+    let user = (this.state.get('USER') || {} as StoredItem<StoredUser>).data as StoredUser;
+    return url ? url : `${this.api}?mode=student&lang=${user.language}&username=${user.username}&password=${user.password}&query=${query}`;
+  }
+
+  private fromApi( el: IKey ): Promise<any> {
+    let url = this.buildUrl( el.query, el.url );
+    console.log('fromApi url promise ',url)
+    // return Promise.resolve(url)
+    //   .then( url => fetch( url ))
+    return this.http.get(url).toPromise()
+      .then( res => res.text() ).then( text => {
+        try {
+          let json = JSON.parse(text);
+          return json;
+        } catch(e) {
+          return text;
+        }
+      }).then( data => {
+        console.log(`fetched ${el.key}`)
+        this.state.set(el.key, {
           date: this.date,
           data
         });
         return data;
-      })
-      .catch( e => console.log(e) );
-  }
-
-  public async getLogin(){
-    let login = await this.storage.get('LOGIN') as { date: Date, data: any };
-    return login ? login.data : null;
+      });
   }
 
   public async get(key: string): Promise<any> {
-    let item = await this.storage.get(key) as { date: Date, data: any };
-    if( !item ){ return this.fetch(key); }
-    let comparator: boolean;
-    switch( this.keys[key].valid ){
-      case 'DAY':
-        comparator = this.date.getDate() === new Date(item.date).getDate();
-        break;
-      case 'MONTH':
-        comparator = this.date.getMonth() === new Date(item.date).getMonth();
-        break;
-      default:
-        throw Error('Unknown Mode');
-    }
-    if( comparator ){
-      return item.data;
-    } else {
-      return this.fetch(key);
+    try {
+      if( key === 'USER' ){ return this.getUser(); }
+
+      // from the state
+      let item = this.state.get(key);
+
+      let el = this.keys.find( el => el.key === key );
+
+      // not in memory, not in storage, from api
+      if( !item ){
+        console.log('not in state... fetching ', key);
+        return this.fromApi(el).catch(console.warn);
+      }
+
+      let comparator: boolean;
+      switch( el.valid ){
+        case 'DAY':
+          comparator = this.date.getDate() === new Date(item.date).getDate();
+          break;
+        case 'WEEK':
+          comparator = currentWeekNumber(this.date) === currentWeekNumber( new Date(item.date) );
+          break;
+        case 'MONTH':
+          comparator = this.date.getMonth() === new Date(item.date).getMonth();
+          break;
+        default:
+          throw Error('Store: Unknown Mode');
+      }
+      //check validity
+      if( comparator ){
+        return item.data;
+      } else {
+        return this.fromApi(el).catch( err => {
+          console.warn(err);
+          // if network fails return old data
+          return item.data;
+        });
+      }
+    } catch(e){
+      console.warn(e);
     }
   }
 

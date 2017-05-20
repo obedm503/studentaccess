@@ -4,10 +4,10 @@ import { Homework } from './homework';
 
 @NgModule({
   declarations: [
-    Homework,
+    Homework
   ],
   imports: [
-    IonicPageModule.forChild(Homework),
+    IonicPageModule.forChild(Homework)
   ],
   exports: [
     Homework

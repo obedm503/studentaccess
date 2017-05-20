@@ -1,13 +1,16 @@
 import { Component } from '@angular/core';
 import {
   NavController,
+  NavParams,
   AlertController,
   LoadingController,
   Loading,
-  IonicPage
+  IonicPage,
+  Events
 } from 'ionic-angular';
 import { Auth } from '../../providers/auth';
 import { Store } from '../../providers/store';
+import { State } from '../../providers/state';
 
 @IonicPage()
 @Component({
@@ -20,29 +23,31 @@ export class Login {
   remember: boolean = true;
 
   constructor(
-    private nav: NavController,
-    private auth: Auth,
-    private store: Store,
-    private alertCtrl: AlertController,
-    private loadingCtrl: LoadingController
-  ) { }
-
+    public events: Events,
+    public nav: NavController,
+    public navParams: NavParams,
+    public auth: Auth,
+    public store: Store,
+    public state: State,
+    public alertCtrl: AlertController,
+    public loadingCtrl: LoadingController
+  ){
+    console.log('new Login()');
+  }
 
   public login() {
     this.showLoading();
-    this.auth.login(this.user).subscribe(allowed => {
-      console.log(allowed);
-      if( this.remember ){
-        this.store.setUser(this.user)
-      } else {
-        this.store.user = this.user;
-      }
-      if (allowed.login_status) {
-        this.nav.setRoot('Home');
+    console.log('Login.login()')
+    this.auth.login(this.user).then(login => {
+      this.state.remember = this.remember;
+      if (login.login_status) {
+        this.store.setUser(this.user);
+        this.nav.setRoot('Profile');
+        this.events.publish('login', this.user, login);
       } else {
         this.showError("Access Denied");
       }
-    }, error => {
+    }).catch(error => {
       this.showError(error);
     });
   }

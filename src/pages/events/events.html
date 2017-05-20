@@ -1,18 +1,88 @@
-<!--
-  Generated template for the Events page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
-
   <ion-navbar>
-    <ion-title>events</ion-title>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>{{ selected ? selected.calc_subject : constructor.name }}</ion-title>
   </ion-navbar>
-
 </ion-header>
 
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col col-12 col-lg-6 col-md-6 offset-md-3 col-sm-12>
+        <ion-list *ngIf="!selected">
+          <ion-card text-wrap
+            *ngFor="let item of events"
+            (click)="goSelected(item)"
+            [class.gray]="item.ev_date_start == store.today"
+          >
+            <ion-card-content>
+              <ion-row [hidden]="!item.calc_ev_date_start && !item.calc_subject">
+                <ion-col>
+                  <b>{{ item.calc_ev_date_start }}:</b>
+                </ion-col>
+                <ion-col>
+                  {{ item.calc_subject }}
+                </ion-col>
+              </ion-row>
+              <ion-row [hidden]="!item.calc_location">
+                <ion-col>
+                  Location:
+                </ion-col>
+                <ion-col>
+                  {{ item.calc_location }}
+                </ion-col>
+              </ion-row>
+              <ion-row [hidden]="!item.calc_ev_time_start">
+                <ion-col>
+                  Time:
+                </ion-col>
+                <ion-col>
+                  {{ item.calc_ev_time_start }}
+                </ion-col>
+              </ion-row>
+            </ion-card-content>
+          </ion-card>
+        </ion-list>
 
-<ion-content padding>
-
+        <ion-card *ngIf="selected">
+          <ion-card-header text-wrap>
+            {{ selected.calc_subject }}
+          </ion-card-header>
+          <ion-card-content>
+            {{ selected.calc_text }}
+          </ion-card-content>
+          <ion-list>
+            <ion-item color="secondary">
+              <ion-row [hidden]="!selected.calc_ev_date_start">
+                <ion-col>
+                  <b>Date:</b>
+                </ion-col>
+                <ion-col>
+                  {{ selected.calc_ev_date_start }}
+                </ion-col>
+              </ion-row>
+              <ion-row [hidden]="!selected.calc_ev_time_start">
+                <ion-col>
+                  <b>Time:</b>
+                </ion-col>
+                <ion-col>
+                  {{ selected.calc_ev_time_start }}
+                </ion-col>
+              </ion-row>
+              <ion-row [hidden]="!selected.calc_location">
+                <ion-col>
+                  <b>Location:</b>
+                </ion-col>
+                <ion-col >
+                  {{ selected.calc_location }}
+                </ion-col>
+              </ion-row>
+            </ion-item>
+          </ion-list>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>

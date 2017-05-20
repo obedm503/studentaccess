@@ -1,0 +1,106 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>{{ class.class_name }}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col col-12 col-lg-5 offset-lg-1 col-md-6 [attr.offset-md-3]="class.grades.length ? '' : null" col-sm-12>
+        <ion-card>
+          <ion-item class="dark-gray" text-wrap>
+            <ion-row>
+              <ion-col col-5 col-sm-5 col-md-4 col-lg-3>
+                <ion-avatar>
+                  <img [src]="teacherPic">
+                </ion-avatar>
+              </ion-col>
+              <ion-col col-7 col-sm-7 col-md-8 col-lg-9 class="person-col">
+                <span class="person">
+                  {{ teacher.teacher_name }}
+                  <span [hidden]="!teacher.teacher_email">
+                    <br>
+                    Email:
+                    <a href="mailto:{{ teacher.teacher_email }}">
+                      {{ teacher.teacher_email }}
+                    </a>
+                  </span>
+                  <span [hidden]="!teacher.teacher_phone">
+                    <br>
+                    Phone:
+                    <a href="tel:{{ teacher.teacher_phone }}">
+                      {{ teacher.teacher_phone }}
+                    </a>
+                  </span>
+                </span>
+              </ion-col>
+            </ion-row>
+          </ion-item>
+        </ion-card>
+
+        <ion-card [class.card-fab]="class.class_avg">
+          <button [hidden]="!class.class_avg" ion-fab class="fab-top-right">{{ class.class_avg }}</button>
+          <ion-card-header>
+            {{ class.class_name }}
+          </ion-card-header>
+          <ion-card-content [hidden]="!class.class_description">
+            {{ class.class_description }}
+          </ion-card-content>
+          <ion-item text-wrap color="secondary">
+            <ion-row [hidden]="!class.class_period">
+              <ion-col>Period</ion-col>
+              <ion-col>
+                <ion-badge>{{ class.class_period }}</ion-badge>
+              </ion-col>
+            </ion-row>
+            <ion-row [hidden]="!class.class_room">
+              <ion-col>Room</ion-col>
+              <ion-col>
+                {{ class.class_room }}
+              </ion-col>
+            </ion-row>
+            <ion-row [hidden]="!class.class_scale">
+              <ion-col>Grading Scale</ion-col>
+              <ion-col>
+                {{ class.class_scale }}
+              </ion-col>
+            </ion-row>
+            <ion-row [hidden]="!class.class_updated">
+              <ion-col>Last Updated</ion-col>
+              <ion-col>
+                {{ class.class_updated }}
+              </ion-col>
+            </ion-row>
+          </ion-item>
+        </ion-card>
+      </ion-col>
+      <ion-col [hidden]="!class.grades" col-12 col-lg-5 col-md-6 col-sm-12>
+        <ion-card>
+          <ion-card-header>
+            Grades
+          </ion-card-header>
+          <ion-list>
+            <ion-item *ngFor="let item of class.grades" class="alternate-colors">
+              <ion-row>
+                <ion-col>
+                  <b>
+                    {{ item.calc_date }}
+                  </b>
+                </ion-col>
+                <ion-col>
+                  <b>{{ item.grc_code }}:</b> {{ item.gra_name }}
+                  <br>
+                  <b>Grade:</b> {{ item.grs_score }}/{{ item.gra_points }} ({{ item.calc_percent }})
+                </ion-col>
+              </ion-row>
+            </ion-item>
+          </ion-list>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

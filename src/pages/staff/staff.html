@@ -1,0 +1,74 @@
+<ion-header>
+  <ion-navbar>
+    <ion-buttons left>
+      <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>{{ selected ? selected.calc_name : constructor.name }}</ion-title>
+    <ion-buttons right [hidden]="selected">
+      <button ion-button (click)="toggleSearch()">
+        <ion-icon name="search"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-searchbar
+    [hidden]="!toggled"
+    [(ngModel)]="search"
+    (ionInput)="doSearch()">
+  </ion-searchbar>
+  <ion-grid>
+    <ion-row>
+      <ion-col col-12 col-lg-6 col-md-6 offset-md-3 col-sm-12>
+        <ion-list *ngIf="!selected">
+          <ion-card *ngFor="let item of filteredStaff" (click)="goSelected(item)">
+            <ion-card-content>
+              <b>{{ item.calc_status }}: </b> {{ item.calc_name }}
+            </ion-card-content>
+          </ion-card>
+        </ion-list>
+
+        <ion-card *ngIf="selected">
+          <ion-card-header>
+            {{ selected.calc_name }} | {{ selected.calc_status }}
+          </ion-card-header>
+          <ion-item color="secondary">
+            <ion-row [hidden]="!selected.calc_phone">
+              <ion-col>
+                <b>Cellphone:</b>
+              </ion-col>
+              <ion-col col-12 col-sm-6 col-md-6 col-lg-6>
+                <a ion-button full text-wrap color="primary" href="tel:{{ selected.calc_phone }}">
+                  {{ selected.calc_phone }}
+                </a>
+              </ion-col>
+            </ion-row>
+            <ion-row [hidden]="!selected.calc_homephone">
+              <ion-col>
+                <b>Homephone: </b>
+              </ion-col>
+              <ion-col col-12 col-sm-6 col-md-6 col-lg-6>
+                <a ion-button full text-wrap color="danger" href="tel:{{ selected.calc_homephone }}">
+                  {{ selected.calc_homephone }}
+                </a>
+              </ion-col>
+            </ion-row>
+            <ion-row [hidden]="!selected.calc_email">
+              <ion-col>
+                <b>Email: </b>
+              </ion-col>
+              <ion-col col-12 col-sm-6 col-md-6 col-lg-6>
+                <a ion-button full text-wrap color="dark" href="mailto:{{ selected.calc_email }}">
+                  {{ selected.calc_email }}
+                </a>
+              </ion-col>
+            </ion-row>
+          </ion-item>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

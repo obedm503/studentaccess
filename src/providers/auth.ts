@@ -5,6 +5,7 @@ import { Storage } from '@ionic/storage';
 import 'rxjs/add/operator/map';
 
 import { Store } from './store';
+import { State } from './state';
 
 export class User {
   constructor(
@@ -18,35 +19,31 @@ export class User {
 export class Auth {
   currentUser: User;
 
-  constructor(public http: Http, public store: Store, public storage: Storage){}
+  constructor(
+    public http: Http,
+    public store: Store,
+    public storage: Storage,
+    public state: State
+  ){}
 
-  public login(credentials){
-    if (credentials.username === null || credentials.password === null) {
-      return Observable.throw("Please insert credentials");
-    } else {
-      return this.http.get(
-        `https://db.nca.edu.ni/api/api_ewapp.php?mode=student&query=login&username=${credentials.username}&password=${credentials.password}&language=${credentials.language}`
-      ).map(res => res.json());
-      // return Observable.create(observer => {
-      //   // At this point make a request to your backend to make a real check!
-      //   let access = (credentials.password === "pass" && credentials.username === "email");
-      //   this.currentUser = new User('Simon', 'saimon@devdactic.com');
-      //   observer.next(access);
-      //   observer.complete();
-      // });
+  public login(credentials): Promise<any> {
+    if( !credentials.username || !credentials.password ){
+      return Promise.reject("Please insert credentials");
     }
+    return fetch(`https://db.nca.edu.ni/api/api_ewapp.php?mode=student&query=login&username=${credentials.username}&password=${credentials.password}&lang=${credentials.language}`)
+      .then(res => res.json());
   }
 
   public getUser(): Promise<User> {
-    return Promise.resolve(this.currentUser || this.store.getUser() );
+    return Promise.resolve(this.currentUser || this.store.get('USER') );
   }
 
-  public logout(){
-    return Observable.create(observer => {
+  public logout(): Promise<null> {
+    return this.storage.clear().then( () => {
+      console.log('cleared storage')
       this.currentUser = null;
-      this.storage.clear();
-      observer.next(true);
-      observer.complete();
+      this.state.clear();
+      return null;
     });
   }
 }

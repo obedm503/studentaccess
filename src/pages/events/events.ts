@@ -1,24 +1,35 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
-/**
- * Generated class for the Events page.
- *
- * See http://ionicframework.com/docs/components/#navigation for more info
- * on Ionic pages and navigation.
- */
+import { Store } from '../../providers/store';
+
 @IonicPage()
 @Component({
   selector: 'page-events',
-  templateUrl: 'events.html',
+  templateUrl: 'events.html'
 })
 export class Events {
+  public events;
+  public selected;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-  }
+  constructor(
+    public nav: NavController,
+    public navParams: NavParams,
+    public store: Store
+  ){}
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad Events');
+    this.selected = this.navParams.get('selected');
+    if( !this.selected ){
+      this.store.get('EVENTS').then( (events = { events: [] }) => {
+        this.events = events.events;
+      });
+    }
+  }
+  goSelected(item){
+    this.nav.push('Events', {
+      selected: item
+    });
   }
 
 }

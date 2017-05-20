@@ -1,21 +1,39 @@
 <ion-header>
   <ion-navbar>
-    <button ion-button menuToggle>
-      <ion-icon name="menu"></ion-icon>
-    </button>
+    <ion-buttons left>
+      <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    </ion-buttons>
     <ion-title>{{ constructor.name }}</ion-title>
+    <ion-buttons right>
+      <button ion-button (click)="popover($event)">
+        <ion-icon name="more"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
 </ion-header>
 
 <ion-content>
-  <ion-list>
-    <button ion-item *ngFor="let item of homework" (click)="itemTapped($event, item)">
-      <div class="item-note" item-left>
-        {{item.calc_date}}
-        <br>
-        {{item.calc_class}}
-      </div>
-      {{item.lsn_hw}}
-    </button>
-  </ion-list>
+  <ion-grid>
+    <ion-row>
+      <ion-col col-12 col-lg-6 col-md-6 offset-md-3 col-sm-12>
+        <ion-list>
+          <ion-item
+            text-wrap
+            *ngFor="let item of filteredHw"
+            [class.gray]="item.lsn_date == store.today"
+          >
+            <ion-label>
+              {{ item.calc_date }}
+              <br>
+              <strong>{{ item.calc_class }}: </strong>
+              {{ item.lsn_hw }}
+            </ion-label>
+            <ion-checkbox color="primary"></ion-checkbox>
+          </ion-item>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>
