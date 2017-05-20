@@ -27,7 +27,6 @@
     "@ionic/storage": "2.0.1",
     "chart.js": "^2.5.0",
     "current-week-number": "^1.0.7",
-    "dollar-array": "^2.0.2",
     "ionic-angular": "3.1.0",
     "ionicons": "3.0.0",
     "localforage": "^1.5.0",

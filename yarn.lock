@@ -1079,10 +1079,6 @@ doctrine@^0.7.2:
     esutils "^1.1.6"
     isarray "0.0.1"
 
-dollar-array@^2.0.2:
-  version "2.0.2"
-  resolved "https://registry.yarnpkg.com/dollar-array/-/dollar-array-2.0.2.tgz#8d3b57d9f3f00b18f7941d693ee04f631bbb4b37"
-
 domain-browser@^1.1.1:
   version "1.1.7"
   resolved "https://registry.yarnpkg.com/domain-browser/-/domain-browser-1.1.7.tgz#867aa4b093faa05f1de08c06f4d7b21fdf8698bc"
