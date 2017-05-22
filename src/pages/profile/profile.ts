@@ -1,19 +1,15 @@
-import { Component, trigger, state, style, animate, transition } from '@angular/core';
+import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, FabContainer } from 'ionic-angular';
 
 import { Store } from '../../providers/store';
+import { expand } from '../../components/animations';
 
 @IonicPage()
 @Component({
   selector: 'page-profile',
   templateUrl: 'profile.html',
   animations: [
-    trigger('expand', [
-      state('true', style({ maxHeight: '7em', opacity: '1' })),
-      state('false', style({ maxHeight: '0', opacity: '0' })),
-      transition('void => *', animate('0s')),
-      transition('* <=> *', animate('250ms ease-in-out'))
-    ])
+    expand
   ]
 })
 export class Profile {

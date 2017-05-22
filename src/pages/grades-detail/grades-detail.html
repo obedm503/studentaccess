@@ -10,7 +10,19 @@
 <ion-content>
   <ion-grid>
     <ion-row>
-      <ion-col col-12 col-lg-5 offset-lg-1 col-md-6 [attr.offset-md-3]="class.grades.length ? '' : null" col-sm-12>
+      <ion-col
+        [attr.col-lg-5]="class.grades.length ? '' : null"
+        [attr.offset-lg-1]="class.grades.length ? '' : null"
+        [attr.col-lg-6]="!class.grades.length ? '' : null"
+        [attr.offset-lg-3]="!class.grades.length ? '' : null"
+
+        [attr.col-md-5]="class.grades.length ? '' : null"
+        [attr.offset-md-1]="class.grades.length ? '' : null"
+        [attr.col-md-6]="!class.grades.length ? '' : null"
+        [attr.offset-md-3]="!class.grades.length ? '' : null"
+
+        col-sm-12 col-12
+      >
         <ion-card>
           <ion-item class="dark-gray" text-wrap>
             <ion-row>
@@ -24,14 +36,14 @@
                   {{ teacher.teacher_name }}
                   <span [hidden]="!teacher.teacher_email">
                     <br>
-                    Email:
+                    {{ 'GRADES-email' | translate }}:
                     <a href="mailto:{{ teacher.teacher_email }}">
                       {{ teacher.teacher_email }}
                     </a>
                   </span>
                   <span [hidden]="!teacher.teacher_phone">
                     <br>
-                    Phone:
+                    {{ 'GRADES-phone' | translate }}:
                     <a href="tel:{{ teacher.teacher_phone }}">
                       {{ teacher.teacher_phone }}
                     </a>
@@ -52,25 +64,33 @@
           </ion-card-content>
           <ion-item text-wrap color="secondary">
             <ion-row [hidden]="!class.class_period">
-              <ion-col>Period</ion-col>
+              <ion-col>
+                {{ 'GRADES-period' | translate }}
+              </ion-col>
               <ion-col>
                 <ion-badge>{{ class.class_period }}</ion-badge>
               </ion-col>
             </ion-row>
             <ion-row [hidden]="!class.class_room">
-              <ion-col>Room</ion-col>
+              <ion-col>
+                {{ 'GRADES-room' | translate }}
+              </ion-col>
               <ion-col>
                 {{ class.class_room }}
               </ion-col>
             </ion-row>
             <ion-row [hidden]="!class.class_scale">
-              <ion-col>Grading Scale</ion-col>
+              <ion-col>
+                {{ 'GRADES-grading-scale' | translate }}
+              </ion-col>
               <ion-col>
                 {{ class.class_scale }}
               </ion-col>
             </ion-row>
             <ion-row [hidden]="!class.class_updated">
-              <ion-col>Last Updated</ion-col>
+              <ion-col>
+                {{ 'GRADES-last-updated' | translate }}
+              </ion-col>
               <ion-col>
                 {{ class.class_updated }}
               </ion-col>
@@ -78,13 +98,13 @@
           </ion-item>
         </ion-card>
       </ion-col>
-      <ion-col [hidden]="!class.grades" col-12 col-lg-5 col-md-6 col-sm-12>
+      <ion-col col-lg-5 col-md-5 col-sm-12 col-12 [hidden]="!class.grades.length">
         <ion-card>
           <ion-card-header>
-            Grades
+            {{ 'GRADES-name' | translate }}
           </ion-card-header>
           <ion-list>
-            <ion-item *ngFor="let item of class.grades" class="alternate-colors">
+            <ion-item text-wrap *ngFor="let item of class.grades" class="alternate-colors">
               <ion-row>
                 <ion-col>
                   <b>
@@ -94,7 +114,7 @@
                 <ion-col>
                   <b>{{ item.grc_code }}:</b> {{ item.gra_name }}
                   <br>
-                  <b>Grade:</b> {{ item.grs_score }}/{{ item.gra_points }} ({{ item.calc_percent }})
+                  <b>{{ 'GRADES-grade' | translate }}:</b> {{ item.grs_score }}/{{ item.gra_points }} ({{ item.calc_percent }})
                 </ion-col>
               </ion-row>
             </ion-item>

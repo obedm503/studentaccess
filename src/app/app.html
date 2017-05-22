@@ -1,19 +1,15 @@
 <ion-menu [content]="content">
-  <ion-header>
-    <ion-toolbar>
-      <ion-title>{{ name }}</ion-title>
-    </ion-toolbar>
-  </ion-header>
   <ion-content>
     <ion-list no-lines>
+      <ion-item color="secondary">{{ name }}</ion-item>
       <ion-item color="primary">{{ username }}@nca.edu.ni</ion-item>
       <button class="light-gray" menuClose ion-item *ngFor="let item of pages" (click)="openPage(item)">
         <ion-icon class="menu-icon" [name]="item.icon"></ion-icon>
-        {{ item.title }}
+        {{ item.title | translate }}
       </button>
       <button class="light-gray" menuClose ion-item (click)="logout()">
         <ion-icon class="menu-icon" name="log-out"></ion-icon>
-        Logout
+        {{ 'MENU-logout' | translate }}
       </button>
     </ion-list>
   </ion-content>

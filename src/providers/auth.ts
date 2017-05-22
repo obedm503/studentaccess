@@ -1,8 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
-import { Observable } from 'rxjs/Observable';
 import { Storage } from '@ionic/storage';
-import 'rxjs/add/operator/map';
 
 import { Store } from './store';
 import { State } from './state';

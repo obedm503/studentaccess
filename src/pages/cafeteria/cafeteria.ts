@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage } from 'ionic-angular';
 
 import { Chart } from 'chart.js';
 import { Store } from '../../providers/store';
@@ -15,7 +15,7 @@ export class Cafeteria {
   public transactions: any[] = [];
   public menu: any[] = [];
 
-  constructor(public nav: NavController, public store: Store){}
+  constructor(public store: Store){}
 
   ionViewDidLoad(){
     this.store.get('MENU').then( ( menu = { menu: [] } ) => {

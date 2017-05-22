@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, IonicPageMetadata } from 'ionic-angular';
+import { IonicPage, NavParams } from 'ionic-angular';
 
 import { Store } from '../../providers/store';
 
@@ -17,7 +17,6 @@ export class GradesDetail {
   public teacherPic = '/assets/placeholder-rec.jpg';
 
   constructor(
-    public nav: NavController,
     public navParams: NavParams,
 
     public store: Store

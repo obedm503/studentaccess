@@ -2,7 +2,11 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
-import { HttpModule } from '@angular/http';
+import { HttpModule,Http } from '@angular/http';
+
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+
 import { IonicStorageModule } from '@ionic/storage';
 
 import { StatusBar } from '@ionic-native/status-bar';
@@ -26,7 +30,16 @@ import { State } from '../providers/state';
     IonicStorageModule.forRoot({
       name: 'studentaccess',
       driverOrder: ['indexeddb','websql','localstorage']
-    })
+    }),
+    TranslateModule.forRoot({
+    loader: {
+      provide: TranslateLoader,
+      useFactory: (function(http: Http){
+        return new TranslateHttpLoader(http, './assets/i18n/', '.json');
+      }),
+      deps: [Http]
+    }
+  })
   ],
   bootstrap: [ IonicApp ],
   entryComponents: [ StudentAccess ],

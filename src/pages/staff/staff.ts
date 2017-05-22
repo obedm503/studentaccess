@@ -2,11 +2,13 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 import { Store } from '../../providers/store';
+import { expand } from '../../components/animations';
 
 @IonicPage()
 @Component({
   selector: 'page-staff',
   templateUrl: 'staff.html',
+  animations: [ expand ]
 })
 export class Staff {
   public staff: any[] = [];

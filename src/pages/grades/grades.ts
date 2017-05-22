@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController } from 'ionic-angular';
 
 import { Store } from '../../providers/store';
 
@@ -13,7 +13,7 @@ export class Grades {
   public avg;
   private teachers: any[] = [];
 
-  constructor(public nav: NavController, public navParams: NavParams, public store: Store){}
+  constructor(public nav: NavController, public store: Store){}
 
   ionViewDidLoad(){
     this.store.get('SCHEDULE').then( ({ overall_avg } = {}) => this.avg = overall_avg );

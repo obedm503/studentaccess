@@ -3,7 +3,12 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>{{ selected ? selected.calc_subject : constructor.name }}</ion-title>
+    <ion-title *ngIf="!selected">
+      {{ 'EVENTS-name' | translate }}
+    </ion-title>
+    <ion-title *ngIf="selected">
+      {{ selected.calc_subject }}
+    </ion-title>
   </ion-navbar>
 </ion-header>
 
@@ -20,7 +25,7 @@
             <ion-card-content>
               <ion-row [hidden]="!item.calc_ev_date_start && !item.calc_subject">
                 <ion-col>
-                  <b>{{ item.calc_ev_date_start }}:</b>
+                  <b [hidden]="!item.calc_ev_date_start">{{ item.calc_ev_date_start }}:</b>
                 </ion-col>
                 <ion-col>
                   {{ item.calc_subject }}
@@ -28,7 +33,7 @@
               </ion-row>
               <ion-row [hidden]="!item.calc_location">
                 <ion-col>
-                  Location:
+                  {{ 'EVENTS-location' | translate }}:
                 </ion-col>
                 <ion-col>
                   {{ item.calc_location }}
@@ -36,7 +41,7 @@
               </ion-row>
               <ion-row [hidden]="!item.calc_ev_time_start">
                 <ion-col>
-                  Time:
+                  {{ 'EVENTS-time' | translate }}:
                 </ion-col>
                 <ion-col>
                   {{ item.calc_ev_time_start }}
@@ -57,7 +62,7 @@
             <ion-item color="secondary">
               <ion-row [hidden]="!selected.calc_ev_date_start">
                 <ion-col>
-                  <b>Date:</b>
+                  <b>{{ 'EVENTS-date' | translate }}:</b>
                 </ion-col>
                 <ion-col>
                   {{ selected.calc_ev_date_start }}
@@ -65,7 +70,7 @@
               </ion-row>
               <ion-row [hidden]="!selected.calc_ev_time_start">
                 <ion-col>
-                  <b>Time:</b>
+                  <b>{{ 'EVENTS-time' | translate }}:</b>
                 </ion-col>
                 <ion-col>
                   {{ selected.calc_ev_time_start }}
@@ -73,7 +78,7 @@
               </ion-row>
               <ion-row [hidden]="!selected.calc_location">
                 <ion-col>
-                  <b>Location:</b>
+                  <b>{{ 'EVENTS-location' | translate }}:</b>
                 </ion-col>
                 <ion-col >
                   {{ selected.calc_location }}

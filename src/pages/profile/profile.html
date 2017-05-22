@@ -3,7 +3,7 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>{{ constructor.name }}</ion-title>
+    <ion-title>{{ 'PROFILE-name' | translate }}</ion-title>
   </ion-navbar>
 </ion-header>
 
@@ -25,29 +25,29 @@
                   <br>
                   {{ birth }}
                   <br>
-                  {{ grade }}th grade
+                  {{ grade }}{{ 'PROFILE-th-grade' | translate }}
                 </span>
               </ion-col>
             </ion-row>
           </ion-item>
           <ion-item>
             <ion-icon name="person" item-left></ion-icon>
-            Student Credit
+            {{ 'PROFILE-student-credit' | translate }}
             <ion-badge item-right>{{ studentCredit | currency:'USD':true:'1.2-2' }}</ion-badge>
           </ion-item>
           <ion-item>
             <ion-icon name="people" item-left></ion-icon>
-            Family Credit
+            {{ 'PROFILE-family-credit' | translate }}
             <ion-badge item-right>{{ familyCredit | currency:'USD':true:'1.2-2' }}</ion-badge>
           </ion-item>
           <button ion-item (click)="goSelected({attendance: attendance})">
             <ion-icon name="alarm" color="danger" item-left></ion-icon>
-            Attendance
+            {{ 'RECORDS-attendance' | translate }}
             <ion-badge color="danger" item-right>{{ attendance.length }}</ion-badge>
           </button>
           <button ion-item (click)="goSelected({discipline: discipline})">
             <ion-icon name="checkmark-circle" color="danger" item-left></ion-icon>
-            Discipline Records
+            {{ 'RECORDS-discipline' | translate }}
             <ion-badge color="danger" item-right>{{ discipline.length }}</ion-badge>
           </button>
         </ion-card>
@@ -57,7 +57,7 @@
             {{ missing.length }}
           </button>
           <ion-card-header>
-            Missing Assignments
+            {{ 'PROFILE-missing-assignments' | translate }}
           </ion-card-header>
           <ion-list>
             <ion-item
@@ -72,12 +72,14 @@
                 <strong>{{ item.calc_class }}: </strong>
                 {{ item.gra_name }}
                 <br>
-                <strong>Worth: </strong> {{ item.gra_points }} Points!
+                <strong>{{ 'PROFILE-worth' | translate }}: </strong> {{ item.gra_points }} {{ 'PROFILE-points' | translate }}
               </ion-label>
               <ion-checkbox color="primary"></ion-checkbox>
             </ion-item>
           </ion-list>
-          <button ion-item color="secondary" (click)="goGrades()">Check your Grades</button>
+          <button ion-item color="secondary" (click)="goGrades()">
+            {{ 'PROFILE-check-grades' | translate }}
+          </button>
         </ion-card>
       </ion-col>
       <ion-col col-lg-5 col-md-6 col-sm-12 col-12>
@@ -93,7 +95,7 @@
           </ion-fab>
 
           <ion-card-header>
-            Class Schedule | {{ selectedSchedule.text }}
+            {{ 'PROFILE-schedule' | translate }} | {{ selectedSchedule.text }}
           </ion-card-header>
           <ion-list>
             <ion-item *ngFor="let item of selectedSchedule.schedule" class="alternate-colors">

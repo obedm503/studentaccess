@@ -3,6 +3,7 @@ import { Nav, Platform, LoadingController, Events, Loading } from 'ionic-angular
 import { Storage } from '@ionic/storage';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { TranslateService } from '@ngx-translate/core';
 
 import { Auth } from '../providers/auth';
 import { Store } from '../providers/store';
@@ -30,8 +31,11 @@ export class StudentAccess {
 
     public auth: Auth,
     public store: Store,
-    public state: State
+    public state: State,
+    public translate: TranslateService
   ){
+    translate.setDefaultLang('en');
+
     let deepLink = location.hash.substr(2)
       .split('-')
       .map( word => word.charAt(0).toUpperCase() + word.substr(1) )
@@ -59,12 +63,12 @@ export class StudentAccess {
       .catch(console.warn);
 
     this.pages = [
-      { title: 'Profile', component: 'Profile', icon: 'person' },
-      { title: 'Homework', component: 'Homework', icon: 'bookmarks' },
-      { title: 'Grades', component: 'Grades', icon: 'checkmark-circle' },
-      { title: 'Events', component: 'Events', icon: 'calendar' },
-      { title: 'Cafeteria', component: 'Cafeteria', icon: 'card' },
-      { title: 'Staff', component: 'Staff', icon: 'people' }
+      { title: 'PROFILE-name', component: 'Profile', icon: 'person' },
+      { title: 'HOMEWORK-name', component: 'Homework', icon: 'bookmarks' },
+      { title: 'GRADES-name', component: 'Grades', icon: 'checkmark-circle' },
+      { title: 'EVENTS-name', component: 'Events', icon: 'calendar' },
+      { title: 'CAFETERIA-name', component: 'Cafeteria', icon: 'card' },
+      { title: 'STAFF-name', component: 'Staff', icon: 'people' }
     ];
 
     this.events.subscribe('login', (user, login) => this.login(user, login));
@@ -72,6 +76,7 @@ export class StudentAccess {
   login(user, login){
     this.username = user.username;
     this.name = login.person_name;
+    this.translate.use(user.language);
   }
   ionViewDidLoad(){
     this.loading.present();
