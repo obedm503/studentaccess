@@ -1,7 +1,7 @@
 {
-  "name": "ionic-app-base",
-  "version": "0.0.0",
-  "author": "Ionic Framework",
+  "name": "studentaccess",
+  "version": "0.2.0",
+  "author": "NCAI StudentAccess",
   "homepage": "http://ionicframework.com/",
   "private": true,
   "scripts": {
