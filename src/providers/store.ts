@@ -16,14 +16,19 @@ export class Store {
   private keys: IKey[];
 
   constructor(public http: Http, public storage: Storage, public state: State ){
+    console.log('new Store()');
     let month = ('0' + ( this.date.getMonth() + 1 ).toString() ).slice(-2);
     let day = ('0' + this.date.getDate().toString() ).slice(-2);
     let year = this.date.getFullYear().toString();
     this.today = `${year}-${month}-${day}`;
-
-    // this.date.setDate(7);
-    console.log('new Store()');
     this.keys = this.state.keys;
+  }
+  public clear(): Promise<null> {
+    return this.storage.clear().then( () => {
+      console.log('cleared storage')
+      this.state.clear();
+      return null;
+    });
   }
 
   public setUser(user){
@@ -68,8 +73,6 @@ export class Store {
   private fromApi( el: IKey ): Promise<any> {
     let url = this.buildUrl( el.query, el.url );
     console.log('fromApi url promise ',url)
-    // return Promise.resolve(url)
-    //   .then( url => fetch( url ))
     return this.http.get(url).toPromise()
       .then( res => res.text() ).then( text => {
         try {

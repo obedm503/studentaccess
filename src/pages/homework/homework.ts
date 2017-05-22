@@ -52,6 +52,6 @@ export class Homework {
           this.filteredHw = this.homework.filter( hw => el.calc_class === hw.calc_class );
         }
       }) ).filter( (el, i, arr) => arr.findIndex( t => t.text === el.text ) === i );
-    }).catch(console.log);
+    });
   }
 }

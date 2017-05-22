@@ -1,9 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
-import { Storage } from '@ionic/storage';
 
 import { Store } from './store';
-import { State } from './state';
 
 export class User {
   constructor(
@@ -19,16 +17,15 @@ export class Auth {
 
   constructor(
     public http: Http,
-    public store: Store,
-    public storage: Storage,
-    public state: State
+    public store: Store
   ){}
 
   public login(credentials): Promise<any> {
     if( !credentials.username || !credentials.password ){
       return Promise.reject("Please insert credentials");
     }
-    return fetch(`https://db.nca.edu.ni/api/api_ewapp.php?mode=student&query=login&username=${credentials.username}&password=${credentials.password}&lang=${credentials.language}`)
+    return this.http.get(`https://db.nca.edu.ni/api/api_ewapp.php?mode=student&query=login&username=${credentials.username}&password=${credentials.password}&lang=${credentials.language}`)
+      .toPromise()
       .then(res => res.json());
   }
 
@@ -37,11 +34,7 @@ export class Auth {
   }
 
   public logout(): Promise<null> {
-    return this.storage.clear().then( () => {
-      console.log('cleared storage')
-      this.currentUser = null;
-      this.state.clear();
-      return null;
-    });
+    return this.store.clear()
+      .then( () => this.currentUser = null );
   }
 }

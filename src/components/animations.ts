@@ -6,7 +6,7 @@ import {
   transition
 } from '@angular/animations';
 
-export let expand = trigger('expand', [
+export const expand = trigger('expand', [
   state('true', style({
     maxHeight: '7em',
     opacity: '1',

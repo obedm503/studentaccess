@@ -18,19 +18,14 @@ export class GradesDetail {
 
   constructor(
     public navParams: NavParams,
-
     public store: Store
   ){}
 
   ionViewDidLoad(){
-    try {
-      this.class = this.navParams.get('class');
-      this.teacher = this.navParams
-        .get('teachers')
-        .find( el => el.teacher_id === this.class.class_teacher_id );
-      this.teacherPic = this.teacher ? `data:image/jpeg;base64,${this.teacher.teacher_pic}` : this.teacherPic;
-    } catch(e){
-      console.warn(e);
-    }
+    this.class = this.navParams.get('class');
+    this.teacher = this.navParams
+      .get('teachers')
+      .find( el => el.teacher_id === this.class.class_teacher_id );
+    this.teacherPic = this.teacher ? `data:image/jpeg;base64,${this.teacher.teacher_pic}` : this.teacherPic;
   }
 }
