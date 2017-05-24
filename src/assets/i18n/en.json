@@ -1,0 +1,55 @@
+{
+  "MENU-logout":"Logout",
+
+  "PROFILE-name":"Profile",
+  "PROFILE-th-grade": "th Grade",
+  "PROFILE-student-credit":"Student Credit",
+  "PROFILE-family-credit": "Family Credit",
+  "PROFILE-missing-assignments":"Missing Assignments",
+  "PROFILE-worth":"Worth",
+  "PROFILE-points":"Points",
+  "PROFILE-check-grades":"Check your Grades",
+  "PROFILE-schedule":"Class Schedule",
+
+  "RECORDS-attendance":"Attendance",
+  "RECORDS-discipline":"Discipline",
+  "RECORDS-category":"Category",
+  "RECORDS-quarter":"Quarter",
+  "RECORDS-reason":"Reason",
+  "RECORDS-date":"Date",
+  "RECORDS-day":"Day",
+  "RECORDS-teacher":"Teacher",
+
+  "HOMEWORK-name":"Homework",
+  "HOMEWORK-title":"Pick a Class",
+  "HOMEWORK-clear":"Clear",
+  "HOMEWORK-cancel":"Cancel",
+
+  "GRADES-name":"Grades",
+  "GRADES-email":"Email",
+  "GRADES-phone":"Phone",
+  "GRADES-period":"Period",
+  "GRADES-room":"Room",
+  "GRADES-grading-scale":"Grading Scale",
+  "GRADES-last-updated":"Last Updated",
+  "GRADES-grade":"Grade",
+
+  "EVENTS-name":"Events",
+  "EVENTS-date":"Date",
+  "EVENTS-time":"Time",
+  "EVENTS-location":"Location",
+
+  "CAFETERIA-name":"Cafeteria",
+  "CAFETERIA-todays-lunch":"Today's lunch",
+  "CAFETERIA-balance-history":"Balance History",
+  "CAFETERIA-transactions":"Transactions",
+  "CAFETERIA-date-time":"Date/Time",
+  "CAFETERIA-client":"Client",
+  "CAFETERIA-product":"Product",
+  "CAFETERIA-authorized-by":"Authorized By",
+
+  "STAFF-name":"Staff",
+  "STAFF-cellphone":"Cellphone",
+  "STAFF-homephone":"Homephone",
+  "STAFF-email":"Email"
+}

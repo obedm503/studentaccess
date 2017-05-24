@@ -1,16 +1,7 @@
 {
   "name": "studentaccess",
-  "app_id": "0923c6a6",
-  "browsers": [
-    {
-      "platform": "android",
-      "browser": "crosswalk",
-      "version": "12.41.296.5"
-    }
-  ],
-  "watchPatterns": [
-    "www/build/*",
-    "www/components/*.html",
-    "www/index.html"
-  ]
+  "app_id": "ni.edu.nca.studentaccess",
+  "typescript": true,
+  "v2": true,
+  "type": "ionic-angular"
 }

@@ -1,0 +1,86 @@
+<ion-header>
+  <ion-navbar>
+    <ion-buttons left>
+      <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title *ngIf="!selected">
+      {{ 'STAFF-name' | translate }}
+    </ion-title>
+    <ion-title *ngIf="selected">
+      {{ selected.calc_name }}
+    </ion-title>
+    <ion-buttons right [hidden]="selected">
+      <button ion-button (click)="toggleSearch()">
+        <ion-icon name="search"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-searchbar
+    [@expand]="toggled"
+    [(ngModel)]="search"
+    (ionInput)="doSearch()"
+    placeholder="the search bar"
+  ></ion-searchbar>
+  <ion-grid>
+    <ion-row>
+      <ion-col col-12 col-lg-6 col-md-6 offset-md-3 col-sm-12>
+        <ion-list *ngIf="!selected">
+          <ion-card *ngFor="let item of filteredStaff">
+            <ion-item detail-push (click)="goSelected(item)">
+              <b>{{ item.calc_status }}: </b> {{ item.calc_name }}
+            </ion-item>
+          </ion-card>
+        </ion-list>
+
+        <ion-card *ngIf="selected">
+          <ion-card-header>
+            {{ selected.calc_name }} | {{ selected.calc_status }}
+          </ion-card-header>
+          <ion-item text-wrap color="secondary">
+            <ion-row color="secondary" [hidden]="!selected.calc_phone">
+              <ion-col>
+                <ion-item color="secondary">
+                  {{ 'STAFF-cellphone' | translate }}:
+                </ion-item>
+              </ion-col>
+              <ion-col>
+                <a ion-item color="danger" class="disable-hover" href="tel:{{ selected.calc_phone }}">
+                  {{ selected.calc_phone }}
+                </a>
+              </ion-col>
+            </ion-row>
+            <ion-row [hidden]="!selected.calc_homephone">
+              <ion-col>
+                <ion-item color="secondary">
+                  {{ 'STAFF-homephone' | translate }}:
+                </ion-item>
+              </ion-col>
+              <ion-col>
+                <a ion-item color="danger" class="disable-hover" href="tel:{{ selected.calc_homephone }}">
+                  {{ selected.calc_homephone }}
+                </a>
+              </ion-col>
+            </ion-row>
+            <ion-row [hidden]="!selected.calc_email">
+              <ion-col>
+                <ion-item color="secondary">
+                  {{ 'STAFF-email' | translate }}:
+                </ion-item>
+              </ion-col>
+              <ion-col>
+                <a ion-item color="danger" href="mailto:{{ selected.calc_email }}">
+                  {{ selected.calc_email }}
+                </a>
+              </ion-col>
+            </ion-row>
+          </ion-item>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
