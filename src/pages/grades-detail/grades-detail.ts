@@ -23,6 +23,7 @@ export class GradesDetail {
 
   ionViewDidLoad(){
     this.class = this.navParams.get('class');
+    this.class.grades = this.class.grades.reverse();
     this.teacher = this.navParams
       .get('teachers')
       .find( el => el.teacher_id === this.class.class_teacher_id );

@@ -20,6 +20,22 @@
 .light-gray {
   background-color: $light-gray;
 }
+.alternate-colors {
+  &:nth-child(even) {
+    background-color: #FFF
+  }
+  &:nth-child(odd) {
+    background-color: $light-gray;
+  }
+}
+
+@each $key, $value in $grade-colors {
+  .#{$key}-grade {
+    color: map-get( $value, circle );
+    font-weight: bold;
+  }
+}
+
 .menu-icon {
   margin-right: 10px;
 }
@@ -27,8 +43,8 @@
   ion-avatar {
     img {
       height: 110px;
+      width: 82.66px;
       border-radius: 100px;
-      width: auto;
       box-shadow: 0 2px 5px 0 rgba(0,0,0,.26);
     }
   }
@@ -55,14 +71,7 @@
   }
 }
 
-.alternate-colors {
-  &:nth-child(even) {
-    background-color: #FFF
-  }
-  &:nth-child(odd) {
-    background-color: $light-gray;
-  }
-}
+
 
 ion-menu {
   // menu styles

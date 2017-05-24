@@ -55,7 +55,7 @@
           <ion-card-header text-wrap>
             {{ selected.calc_subject }}
           </ion-card-header>
-          <ion-card-content>
+          <ion-card-content [hidden]="!selected.calc_text">
             {{ selected.calc_text }}
           </ion-card-content>
           <ion-list>

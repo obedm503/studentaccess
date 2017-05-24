@@ -1,5 +1,6 @@
 {
   "name": "StudentAccess",
+  "description":"NCAI Student Information Client",
   "start_url": "index.html",
   "display": "standalone",
   "icons": [{
@@ -7,6 +8,6 @@
     "sizes": "180x180",
     "type": "image/png"
   }],
-  "background_color": "#4e8ef7",
-  "theme_color": "#4e8ef7"
+  "background_color": "#dbdbdb",
+  "theme_color": "#009688"
 }

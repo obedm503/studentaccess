@@ -113,8 +113,15 @@
                 </ion-col>
                 <ion-col>
                   <b>{{ item.grc_code }}:</b> {{ item.gra_name }}
-                  <br>
-                  <b>{{ 'GRADES-grade' | translate }}:</b> {{ item.grs_score }}/{{ item.gra_points }} ({{ item.calc_percent }})
+                  <div [hidden]="!item.calc_percent">
+                    <b>{{ 'GRADES-grade' | translate }}:</b> {{ item.grs_score }}/{{ item.gra_points }}
+                    <span
+                      [class.fail-grade]="(item.grs_score/item.gra_points)*100 <= 60"
+                      [class.bad-grade]="(item.grs_score/item.gra_points)*100 > 60 && (item.grs_score/item.gra_points)*100 < 80"
+                      [class.good-grade]="(item.grs_score/item.gra_points)*100 >= 80 && (item.grs_score/item.gra_points) < .95"
+                      [class.best-grade]="(item.grs_score/item.gra_points)*100 >= 95"
+                    >({{ item.calc_percent }})</span>
+                  </div>
                 </ion-col>
               </ion-row>
             </ion-item>
