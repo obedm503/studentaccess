@@ -84,15 +84,9 @@
       </ion-col>
       <ion-col col-lg-5 col-md-6 col-sm-12 col-12>
         <ion-card class="card-fab">
-          <ion-fab class="fab-top-right" #fab>
-            <button ion-fab><ion-icon name="swap"></ion-icon></button>
-            <ion-fab-list side="left">
-              <button ion-fab
-                *ngFor="let item of schedules"
-                (click)="toggleSchedule(item.type, fab)"
-              >{{ item.text }}</button>
-            </ion-fab-list>
-          </ion-fab>
+          <button class="fab-top-right" ion-fab (click)="toggleSchedule()">
+            <ion-icon name="swap"></ion-icon>
+          </button>
 
           <ion-card-header>
             {{ 'PROFILE-schedule' | translate }} | {{ selectedSchedule.text }}

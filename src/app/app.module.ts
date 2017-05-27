@@ -37,7 +37,7 @@ import { State } from '../providers/state';
       useFactory: function loader(http: Http){
         return new TranslateHttpLoader(http, './assets/i18n/', '.json');
       },
-      deps: [Http]
+      deps: [ Http ]
     }
   })
   ],

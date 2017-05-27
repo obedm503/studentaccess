@@ -1,4 +1,14 @@
 {
+  "CANCEL":"Cancel",
+
+  "LOGIN-name":"Login",
+  "LOGIN-user-id":"UserID",
+  "LOGIN-password":"Password",
+  "LOGIN-language":"Language",
+  "LOGIN-remember-me":"Keep me logged in",
+  "LOGIN-fail":"Wrong UserID or password. Try again.",
+  "LOGIN-no-credentials":"Empty UserID or password!",
+
   "MENU-logout":"Logout",
 
   "PROFILE-name":"Profile",
@@ -10,6 +20,7 @@
   "PROFILE-points":"Points",
   "PROFILE-check-grades":"Check your Grades",
   "PROFILE-schedule":"Class Schedule",
+  "PROFILE-select-schedule":"Select Schedule",
 
   "RECORDS-attendance":"Attendance",
   "RECORDS-discipline":"Discipline",
@@ -22,8 +33,7 @@
 
   "HOMEWORK-name":"Homework",
   "HOMEWORK-title":"Pick a Class",
-  "HOMEWORK-clear":"Clear",
-  "HOMEWORK-cancel":"Cancel",
+  "HOMEWORK-all-classes":"All Classes",
 
   "GRADES-name":"Grades",
   "GRADES-email":"Email",

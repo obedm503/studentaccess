@@ -12,30 +12,44 @@
           <ion-row>
             <ion-col>
               <ion-item>
-                <ion-label floating>UserID</ion-label>
+                <ion-label floating>
+                  {{ 'LOGIN-user-id' | translate }}
+                </ion-label>
                 <ion-input minlength="8" maxlength="8" type="text" name="username" [(ngModel)]="user.username" required></ion-input>
               </ion-item>
               <ion-item>
-                <ion-label floating>Password</ion-label>
-                <ion-input minlength="7" maxlength="7" type="password" name="password" [(ngModel)]="user.password" required></ion-input>
+                <ion-label floating>
+                  {{ 'LOGIN-password' | translate }}
+                </ion-label>
+                <ion-input
+                  minlength="7"
+                  maxlength="7"
+                  type="password"
+                  name="password"
+                  [(ngModel)]="user.password"
+                  required
+                ></ion-input>
               </ion-item>
               <ion-item>
-                <ion-label>Language</ion-label>
-                <ion-select [(ngModel)]="user.language" name="Language">
-                  <ion-option value="en">English</ion-option>
-                  <ion-option value="es">Español</ion-option>
+                <ion-label>{{ 'LOGIN-language' | translate }}</ion-label>
+                <ion-select [(ngModel)]="user.language" [name]="'LOGIN-language' | translate">
+                  <ion-option value="en" (ionSelect)="selectLang('en')">English</ion-option>
+                  <ion-option value="es" (ionSelect)="selectLang('es')">Español</ion-option>
                 </ion-select>
               </ion-item>
               <ion-item>
-                <ion-label>Remember Me</ion-label>
-                <ion-toggle [(ngModel)]="remember" name="Remember ME"></ion-toggle>
+                <ion-label>{{ 'LOGIN-remember-me' | translate }}</ion-label>
+                <ion-toggle
+                  [(ngModel)]="remember"
+                  [name]="'LOGIN-remember-me' | translate"
+                ></ion-toggle>
               </ion-item>
             </ion-col>
           </ion-row>
           <ion-row>
             <ion-col class="signup-col">
               <button color="secondary" ion-button class="submit-btn" full type="submit" [disabled]="!registerForm.form.valid">
-                Login
+                {{ 'LOGIN-name' | translate }}
               </button>
             </ion-col>
           </ion-row>

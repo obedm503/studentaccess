@@ -1,7 +1,8 @@
 [
 	{
 		"type":"normal",
-		"text":"Normal",
+		"en":"Normal",
+		"es":"Normal",
 		"schedule":[
 			{
 				"period":"Homeroom",
@@ -47,7 +48,8 @@
 		]
 	},{
 		"type":"wednesday",
-		"text":"Wednesday",
+		"en":"Wednesday",
+    "es":"Miercoles",
 		"schedule":[
 			{
 				"period":"Homeroom",
@@ -97,7 +99,8 @@
 		]
 	},{
 		"type":"halfday",
-		"text":"Halfday",
+		"en":"Halfday",
+    "es":"Medio Dia",
 		"schedule":[
 			{
 				"period":"Homeroom",
@@ -143,7 +146,8 @@
 		]
 	},{
 		"type":"firstday",
-		"text":"First Day",
+		"en":"First Day",
+    "es":"Primer Día",
 		"schedule":[
 			{
 				"period":"Homeroom",

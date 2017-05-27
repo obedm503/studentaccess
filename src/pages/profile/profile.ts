@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, FabContainer } from 'ionic-angular';
-
+import { IonicPage, NavController, NavParams, FabContainer, AlertController } from 'ionic-angular';
+import { TranslateService } from '@ngx-translate/core';
 import { Store } from '../../providers/store';
 import { expand } from '../../components/animations';
 
@@ -34,19 +34,12 @@ export class Profile {
   constructor(
     public nav: NavController,
     public navParams: NavParams,
+    public alert: AlertController,
+    public translate: TranslateService,
 
     public store: Store
   ){}
 
-  toggleMissing(){
-    this.showMissing = !this.showMissing;
-  }
-  toggleSchedule(type: string, fab: FabContainer){
-    if( type !== this.selectedSchedule.type ){
-      fab.close();
-      this.selectedSchedule = this.schedules.find( schedule => schedule.type === type );
-    }
-  }
   ionViewDidLoad(){
     this.store.get('MISSING').then( ( hw = { missing: [] } ) => {
       this.missing = hw.missing;
@@ -71,6 +64,33 @@ export class Profile {
     });
   }
 
+  toggleSchedule(){
+    let lang = this.translate.currentLang;
+    let inputs = this.schedules.map( el => ({
+      type: 'radio',
+      label: el[lang],
+      value: el.type,
+      checked: el.type === this.selectedSchedule.type
+    }) );
+
+    this.alert.create({
+      title: this.translate.instant('PROFILE-select-schedule'),
+      buttons: [
+        this.translate.instant('CANCEL'),
+        {
+          text: 'OK',
+          handler: type => {
+            this.selectedSchedule = this.schedules.find( schedule => schedule.type === type );
+          }
+        }
+      ],
+      inputs
+    }).present();
+  }
+
+  toggleMissing(){
+    this.showMissing = !this.showMissing;
+  }
   goSelected(opts){
     this.nav.push('Records', opts);
   }

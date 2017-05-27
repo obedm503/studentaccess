@@ -1,5 +1,10 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ActionSheetController } from 'ionic-angular';
+import {
+  IonicPage,
+  NavController,
+  NavParams,
+  AlertController
+} from 'ionic-angular';
 import { TranslateService } from '@ngx-translate/core';
 
 import { Store } from '../../providers/store';
@@ -14,31 +19,17 @@ export class Homework {
   homework: Array<{calc_class: string, calc_date: string, lsn_date: string, lsn_hw: string, lsn_id: string}> = [];
   classes: any[];
   filteredHw: any[];
+  selectedClass: string = 'all-classes';
 
   constructor(
     public nav: NavController,
     public navParams: NavParams,
-    public actionSheetCtrl: ActionSheetController,
     public translate: TranslateService,
+    public alert: AlertController,
 
     public store: Store,
     public auth: Auth
   ){}
-  popover(e){
-    let buttons = this.classes.slice(0);
-    buttons.push({
-      text: this.translate.instant('HOMEWORK-clear'),
-      role: 'destructive',
-      handler: () => this.filteredHw = this.homework
-    }, {
-      text: this.translate.instant('HOMEWORK-cancel'),
-      role: 'cancel'
-    });
-    this.actionSheetCtrl.create({
-      title: this.translate.instant('HOMEWORK-title'),
-      buttons: buttons
-    }).present();
-  }
 
   ionViewDidLoad(){
     this.store.get('HOMEWORK').then( ( hw = {homework: []} ) => {
@@ -46,12 +37,42 @@ export class Homework {
       // this.filteredHw is presented in view
       this.filteredHw = this.homework = hw.homework;
 
-      this.classes = this.homework.map( el => ({
-        text: el.calc_class,
-        handler: () => {
-          this.filteredHw = this.homework.filter( hw => el.calc_class === hw.calc_class );
-        }
-      }) ).filter( (el, i, arr) => arr.findIndex( t => t.text === el.text ) === i );
+      this.classes = this.homework
+        .filter( (el, i, arr) => arr.findIndex( t => t.calc_class === el.calc_class ) === i )
+        .map( el => ({
+          type: 'radio',
+          label: el.calc_class,
+          value: el.calc_class
+        }) );
+      this.classes.push({
+        type: 'radio',
+        label: this.translate.instant('HOMEWORK-all-classes'),
+        value: 'all-classes'
+      });
     });
+  }
+
+  popover(e){
+    this.alert.create({
+      title: this.translate.instant('HOMEWORK-title'),
+      buttons: [
+        this.translate.instant('CANCEL'),
+        {
+          text: 'OK',
+          handler: className => {
+            this.selectedClass = className;
+            if( className === 'all-classes' ){
+              this.filteredHw = this.homework;
+            } else {
+              this.filteredHw = this.homework.filter( hw => className === hw.calc_class );
+            }
+          }
+        }
+      ],
+      inputs: this.classes.map( button => ({
+        ...button,
+        checked: button.value === this.selectedClass
+      }) )
+    }).present();
   }
 }

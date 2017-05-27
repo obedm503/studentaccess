@@ -22,7 +22,7 @@ export class Auth {
 
   public login(credentials): Promise<any> {
     if( !credentials.username || !credentials.password ){
-      return Promise.reject("Please insert credentials");
+      return Promise.reject(null);
     }
     return this.http.get(`https://db.nca.edu.ni/api/api_ewapp.php?mode=student&query=login&username=${credentials.username}&password=${credentials.password}&lang=${credentials.language}`)
       .toPromise()

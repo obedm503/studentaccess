@@ -11,6 +11,7 @@ import {
 import { Auth } from '../../providers/auth';
 import { Store } from '../../providers/store';
 import { State } from '../../providers/state';
+import { TranslateService } from '@ngx-translate/core';
 
 @IonicPage()
 @Component({
@@ -30,14 +31,14 @@ export class Login {
     public store: Store,
     public state: State,
     public alertCtrl: AlertController,
-    public loadingCtrl: LoadingController
+    public loadingCtrl: LoadingController,
+    public translate: TranslateService
   ){
     console.log('new Login()');
   }
 
   public login() {
     this.showLoading();
-    console.log('Login.login()')
     this.auth.login(this.user).then(login => {
       this.state.remember = this.remember;
       if (login.login_status) {
@@ -45,14 +46,24 @@ export class Login {
         this.nav.setRoot('Profile');
         this.events.publish('login', this.user, login);
       } else {
-        this.showError("Access Denied");
+        this.showError(this.translate.instant('LOGIN-fail'));
+        this.user.password = '';
+        this.user.username = '';
       }
-    }).catch(error => {
-      this.showError(error);
+    }).catch(err => {
+      if( err === null ){
+        this.showError(this.translate.instant('LOGIN-no-credentials'));
+      } else {
+        this.showError(err);
+      }
     });
   }
 
-  showLoading() {
+  public selectLang( lang: string ){
+    this.translate.use(lang);
+  }
+
+  public showLoading() {
     this.loading = this.loadingCtrl.create({
       content: 'Please wait...',
       dismissOnPageChange: true
@@ -63,11 +74,10 @@ export class Login {
   showError(text) {
     this.loading.dismiss();
 
-    let alert = this.alertCtrl.create({
-      title: 'Fail',
+    this.alertCtrl.create({
+      title: 'Error',
       subTitle: text,
       buttons: ['OK']
-    });
-    alert.present(prompt);
+    }).present();
   }
 }

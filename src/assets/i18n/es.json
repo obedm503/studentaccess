@@ -1,4 +1,14 @@
 {
+  "CANCEL":"Cancelar",
+
+  "LOGIN-name":"Iniciar sesión",
+  "LOGIN-user-id":"Usuario",
+  "LOGIN-password":"Contraseña",
+  "LOGIN-language":"Idioma",
+  "LOGIN-remember-me":"Recordar mi cuenta",
+  "LOGIN-fail":"Usuario o contraseña incorrectos. Intentelo denuevo.",
+  "LOGIN-no-credentials":"Usuario o contraseña vacios!",
+
   "MENU-logout":"Salir",
 
   "PROFILE-name":"Perfil",
@@ -10,6 +20,7 @@
   "PROFILE-points":"Puntos",
   "PROFILE-check-grades":"Revisar Notas",
   "PROFILE-schedule":"Horario de Clases",
+  "PROFILE-select-schedule":"Seleccionar Horario",
 
   "RECORDS-attendance":"Asistencia",
   "RECORDS-discipline":"Conducta",
@@ -22,8 +33,7 @@
 
   "HOMEWORK-name":"Tareas",
   "HOMEWORK-title":"Elegir Clase",
-  "HOMEWORK-clear":"Todas las Tareas",
-  "HOMEWORK-cancel":"Cancelar",
+  "HOMEWORK-all-classes":"Todas las Tareas",
 
   "GRADES-name":"Notas",
   "GRADES-email":"Correo Electronico",

@@ -34,7 +34,10 @@ export class StudentAccess {
     public state: State,
     public translate: TranslateService
   ){
+    // load translation in background
+    translate.getTranslation('es');
     translate.setDefaultLang('en');
+    translate.use('en');
 
     let deepLink = location.hash.substr(2)
       .split('-')
@@ -92,13 +95,4 @@ export class StudentAccess {
       this.nav.setRoot('Login');
     });
   }
-
-  // initializeApp(){
-  //   this.platform.ready().then(() => {
-  //     // Okay, so the platform is ready and our plugins are available.
-  //     // Here you can do any higher level native things you might need.
-  //     this.statusBar.styleDefault();
-  //     this.splashScreen.hide();
-  //   });
-  // }
 }

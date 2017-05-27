@@ -64,33 +64,33 @@
           </ion-card-content>
           <ion-item text-wrap color="secondary">
             <ion-row [hidden]="!class.class_period">
-              <ion-col>
+              <b ion-col>
                 {{ 'GRADES-period' | translate }}
-              </ion-col>
+              </b>
               <ion-col>
                 <ion-badge>{{ class.class_period }}</ion-badge>
               </ion-col>
             </ion-row>
             <ion-row [hidden]="!class.class_room">
-              <ion-col>
+              <b ion-col>
                 {{ 'GRADES-room' | translate }}
-              </ion-col>
+              </b>
               <ion-col>
                 {{ class.class_room }}
               </ion-col>
             </ion-row>
             <ion-row [hidden]="!class.class_scale">
-              <ion-col>
+              <b ion-col>
                 {{ 'GRADES-grading-scale' | translate }}
-              </ion-col>
+              </b>
               <ion-col>
                 {{ class.class_scale }}
               </ion-col>
             </ion-row>
             <ion-row [hidden]="!class.class_updated">
-              <ion-col>
+              <b ion-col>
                 {{ 'GRADES-last-updated' | translate }}
-              </ion-col>
+              </b>
               <ion-col>
                 {{ class.class_updated }}
               </ion-col>
