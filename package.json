@@ -1,8 +1,7 @@
 {
   "name": "studentaccess",
-  "version": "2.0.0",
   "author": "obedm503 (obedm503.github.io)",
-  "homepage": "http://ionicframework.com/",
+  "homepage": "https://ncai-developers.github.io/studentaccess/",
   "private": true,
   "config": {
     "ionic_www_dir":"docs"
@@ -10,7 +9,7 @@
   "scripts": {
     "publish": "ionic serve -b -d",
     "clean": "ionic-app-scripts clean",
-    "build": "ionic-app-scripts build",
+    "build": "ionic-app-scripts build --prod",
     "ionic:build": "ionic-app-scripts build",
     "ionic:serve": "ionic-app-scripts serve"
   },

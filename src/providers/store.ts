@@ -65,14 +65,23 @@ export class Store {
     } else { return null; }
   }
 
-  buildUrl(query: string, url: string): string {
+  private buildUrl(
+    url: string,
+    query: string,
+    queryParams: string[] = []
+  ): string {
+    if( url ){ return url; }
+
+    // adds extra '&' at the beginning when joined
+    queryParams.unshift('');
+    let extraParams = queryParams.join('&');
+
     let user = (this.state.get('USER') || {} as StoredItem<StoredUser>).data as StoredUser;
-    return url ? url : `${this.api}?mode=student&lang=${user.language}&username=${user.username}&password=${user.password}&query=${query}`;
+    return `${this.api}?query=${query}&lang=${user.language}&username=${user.username}&password=${user.password}&mode=student${ extraParams }`;
   }
 
   private fromApi( el: IKey ): Promise<any> {
-    let url = this.buildUrl( el.query, el.url );
-    console.log('fromApi url promise ',url)
+    let url = this.buildUrl( el.url, el.query, el.queryParams );
     return this.http.get(url).toPromise()
       .then( res => res.text() ).then( text => {
         try {

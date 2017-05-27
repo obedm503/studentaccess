@@ -34,9 +34,9 @@ import { State } from '../providers/state';
     TranslateModule.forRoot({
     loader: {
       provide: TranslateLoader,
-      useFactory: (function(http: Http){
+      useFactory: function loader(http: Http){
         return new TranslateHttpLoader(http, './assets/i18n/', '.json');
-      }),
+      },
       deps: [Http]
     }
   })

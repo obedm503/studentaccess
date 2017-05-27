@@ -22,7 +22,8 @@ interface IKey {
   key: string,
   valid: string,
   query?: string,
-  url?: string
+  url?: string,
+  queryParams?: string[]
 }
 
 interface StoredUser {

@@ -5,22 +5,7 @@ import { Events } from 'ionic-angular';
 @Injectable()
 export class State {
   public remember: boolean = true;
-
-  private USER: StoredItem<StoredUser> = null;
-  private HOMEWORK: StoredItem<any> = null;
-  private LOGIN: StoredItem<any> = null;
-  private MISSING: StoredItem<any> = null;
-  private IMAGE: StoredItem<string> = null;
-  private SCHEDULES: StoredItem<any[]> = null;
-  private TRANSACTIONS: StoredItem<any> = null;
-  private MENU: StoredItem<any> = null;
-  private EVENTS: StoredItem<any> = null;
-  private STAFF: StoredItem<any> = null;
-  private TEACHERS: StoredItem<any> = null;
-  private SCHEDULE: StoredItem<any> = null;
-  private ALLGRADES: StoredItem<any> = null;
-
-  public keys: Array<IKey> = [
+  public keys: IKey[] = [
     {
       key: 'USER',
       valid: 'MONTH'
@@ -47,6 +32,7 @@ export class State {
     }, {
       key: 'TRANSACTIONS',
       query: 'credit',
+      queryParams: ['history=10'],
       valid: 'MONTH'
     }, {
       key: 'MENU',
@@ -78,6 +64,20 @@ export class State {
       valid: 'DAY'
     }
   ];
+
+  private USER: StoredItem<StoredUser> = null;
+  private HOMEWORK: StoredItem<any> = null;
+  private LOGIN: StoredItem<any> = null;
+  private MISSING: StoredItem<any> = null;
+  private IMAGE: StoredItem<string> = null;
+  private SCHEDULES: StoredItem<any[]> = null;
+  private TRANSACTIONS: StoredItem<any> = null;
+  private MENU: StoredItem<any> = null;
+  private EVENTS: StoredItem<any> = null;
+  private STAFF: StoredItem<any> = null;
+  private TEACHERS: StoredItem<any> = null;
+  private SCHEDULE: StoredItem<any> = null;
+  private ALLGRADES: StoredItem<any> = null;
 
   constructor(public storage: Storage, public events: Events){
     console.log('new State()')
