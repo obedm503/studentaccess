@@ -11,13 +11,15 @@ export const expand = trigger('expand', [
     maxHeight: '7em',
     opacity: '1',
     padding: '',
-    minHeight: '0',
+    border: '',
+    minHeight: '',
     transition: 'all 250ms cubic-bezier(0.420, 0.000, 0.580, 1.000)'
   })),
   state('false', style({
     maxHeight: '0',
-    opacity: '0',
+    opacity: '.7',
     padding: '0',
+    border: 'none',
     minHeight: '0',
     transition: 'all 250ms cubic-bezier(0.420, 0.000, 0.580, 1.000)'
   })),

@@ -1,5 +1,11 @@
 page-staff {
-  a:hover {
-    opacity: 1;
+  a {
+    color: map-get($colors, light);
+    &:hover {
+      opacity: 1;
+    }
+  }
+  ion-grid.grid, ion-row.row, ion-col.col {
+    padding: 0;
   }
 }

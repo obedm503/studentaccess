@@ -21,9 +21,9 @@ export class Cafeteria {
     this.store.get('MENU').then( ( menu = { menu: [] } ) => {
       this.menu = menu.menu;
     });
-    this.store.get('TRANSACTIONS').then( ( transactions = { transactions: [] } ) => {
-      this.transactions = transactions.transactions.slice(0, 10);
-      this.updateChart(this.transactions);
+    this.store.get('TRANSACTIONS').then( ({ transactions } = { transactions: [] } ) => {
+      this.transactions = transactions;
+      this.updateChart(transactions);
     });
   }
   updateChart(transactions: any[]){
