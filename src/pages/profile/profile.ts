@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, FabContainer, AlertController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 import { TranslateService } from '@ngx-translate/core';
 import { Store } from '../../providers/store';
 import { expand } from '../../components/animations';
@@ -26,7 +26,7 @@ export class Profile {
   grade: string = '';
   familyCredit: string = '0.00';
   studentCredit: string = '0.00';
-  personImage: string = '/assets/placeholder-rec.jpg';
+  personImage: string = '/assets/placeholder.jpg';
 
   attendance: any[] = [];
   discipline: any[] = [];

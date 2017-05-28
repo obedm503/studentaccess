@@ -10,7 +10,7 @@
 <ion-content>
   <ion-grid>
     <ion-row>
-      <ion-col col-12 col-lg-5 offset-lg-1 col-md-6 [attr.offset-md-3]="transactions.length ? '' : null" col-sm-12>
+      <ion-col col-lg-5 offset-lg-1 col-md-6 [attr.offset-md-3]="transactions.length ? null : '' " col-sm-12 col-12>
         <ion-card>
           <ion-card-header>
             {{ 'CAFETERIA-todays-lunch' | translate }}
@@ -31,7 +31,7 @@
           </ion-card-content>
         </ion-card>
       </ion-col>
-      <ion-col col-lg-5 col-md-6 col-sm-12 [hidden]="!transactions.length">
+      <ion-col col-lg-5 col-md-6 col-sm-12 col-12 [hidden]="!transactions.length">
         <ion-card>
           <ion-card-header>
             {{ 'CAFETERIA-transactions' | translate }}
@@ -39,41 +39,41 @@
           <ion-list>
             <ion-item *ngFor="let item of transactions" class="alternate-colors">
               <ion-row [hidden]="!item.credhist_method">
-                <ion-col>
+                <b ion-col>
                   {{ 'CAFETERIA-client' | translate }}
-                </ion-col>
+                </b>
                 <ion-col>
                   {{ item.credhist_method }}
                 </ion-col>
               </ion-row>
               <ion-row [hidden]="!item.credhist_description">
-                <ion-col>
+                <b ion-col>
                   {{ 'CAFETERIA-product' | translate }}:
-                </ion-col>
+                </b>
                 <ion-col>
                   {{ item.credhist_description }}
                 </ion-col>
               </ion-row>
               <ion-row [hidden]="!item.credhist_authorized">
-                <ion-col>
+                <b ion-col>
                   {{ 'CAFETERIA-authorized-by' | translate }}:
-                </ion-col>
+                </b>
                 <ion-col>
                   {{ item.credhist_authorized }}
                 </ion-col>
               </ion-row>
               <ion-row [hidden]="!item.credhist_authorized">
-                <ion-col>
+                <b ion-col>
                   {{ 'CAFETERIA-date-time' | translate }}:
-                </ion-col>
+                </b>
                 <ion-col>
                   {{ item.credhist_datetime }}
                 </ion-col>
               </ion-row>
               <ion-row [hidden]="!item.credhist_debit">
-                <ion-col>
+                <b ion-col>
                   {{ 'CAFETERIA-price' | translate }}:
-                </ion-col>
+                </b>
                 <ion-col>
                   {{ item.credhist_debit }}
                 </ion-col>

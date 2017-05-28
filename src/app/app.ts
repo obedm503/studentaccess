@@ -36,8 +36,13 @@ export class StudentAccess {
   ){
     // load translation in background
     translate.getTranslation('es');
-    translate.setDefaultLang('en');
-    translate.use('en');
+    let preferedLang = translate.getBrowserLang();
+    console.log(preferedLang);
+    if( preferedLang !== 'en' && preferedLang !== 'es' ){
+      preferedLang = 'en';
+    }
+    console.log(preferedLang);
+    translate.setDefaultLang(preferedLang);
 
     let deepLink = location.hash.substr(2)
       .split('-')

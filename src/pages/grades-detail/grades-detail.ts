@@ -14,7 +14,7 @@ import { Store } from '../../providers/store';
 export class GradesDetail {
   public class = { class_name: '', class_teacher_id: '', grades: [] };
   public teacher = { teacher_pic: '' };
-  public teacherPic = '/assets/placeholder-rec.jpg';
+  public teacherPic = '/assets/placeholder.jpg';
 
   constructor(
     public navParams: NavParams,
