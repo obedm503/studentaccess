@@ -15,8 +15,9 @@ For some guidelines see [keepachangelog.com].
 ### New
 - MENU: active ion-item in side menu
 - HOMEWORK: add custom homeworks
-- GLOBAL: use ionic analytics better
+- GLOBAL: use analytics
 - HOMEWORK: make urls clickable
+- GLOBAL: confetti
 
 ### Fix
 - API: use JWTs for security
@@ -24,7 +25,7 @@ For some guidelines see [keepachangelog.com].
 - API: send only necessary data
 - PROFILE: missing homeworks highlighting
 
-## [2.0.0]: 2017-05-
+## [2.0.0]: 2017-05-28
 ### New
 - GLOBAL: date versioning over SemVer
 - GLOBAL: rewritten in ionic 3/angular 4
