@@ -29,8 +29,6 @@ export class Cafeteria {
     });
   }
   updateChart(transactions: any[]){
-    let months = ["January", "February", "March", "April", "May", "June",
-  "July", "August", "September", "October", "November", "December"];
     Chart.Line(this.canvas.nativeElement, {
       data: {
         labels: transactions.map( el => {
