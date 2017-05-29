@@ -28,7 +28,7 @@ export class Profile {
   grade: string = '';
   familyCredit: string = '0.00';
   studentCredit: string = '0.00';
-  personImage: string = '/assets/placeholder.jpg';
+  personImage: string = './assets/placeholder.jpg';
 
   attendance: any[] = [];
   discipline: any[] = [];

@@ -34,6 +34,9 @@
     color: map-get( $value, circle );
     font-weight: bold;
   }
+  .#{$key}-background {
+    background-color: map-get( $value, circle );
+  }
 }
 
 .menu-icon {

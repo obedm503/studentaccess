@@ -55,7 +55,16 @@
         </ion-card>
 
         <ion-card [class.card-fab]="class.class_avg">
-          <button [hidden]="!class.class_avg" ion-fab class="fab-top-right">{{ class.class_avg }}</button>
+          <button
+            [hidden]="!class.class_avg"
+            ion-fab class="fab-top-right"
+            [class.fail-background]="class.class_avg <= 60"
+            [class.bad-background]="class.class_avg > 60 && class.class_avg < 80"
+            [class.good-background]="class.class_avg >= 80 && class.class_avg < 95"
+            [class.best-background]="class.class_avg >= 95"
+          >
+            {{ class.class_avg }}
+          </button>
           <ion-card-header>
             {{ class.class_name }}
           </ion-card-header>

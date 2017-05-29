@@ -27000,9 +27000,17 @@ ion-navbar.toolbar {
   font-weight: bold;
 }
 
+.none-background {
+  background-color: #ff751a;
+}
+
 .owe-grade {
   color: #1ac6ff;
   font-weight: bold;
+}
+
+.owe-background {
+  background-color: #1ac6ff;
 }
 
 .fail-grade {
@@ -27010,9 +27018,17 @@ ion-navbar.toolbar {
   font-weight: bold;
 }
 
+.fail-background {
+  background-color: #e3301c;
+}
+
 .bad-grade {
   color: #a05fb9;
   font-weight: bold;
+}
+
+.bad-background {
+  background-color: #a05fb9;
 }
 
 .good-grade {
@@ -27020,9 +27036,17 @@ ion-navbar.toolbar {
   font-weight: bold;
 }
 
+.good-background {
+  background-color: #2981bc;
+}
+
 .best-grade {
   color: #2ecc71;
   font-weight: bold;
+}
+
+.best-background {
+  background-color: #2ecc71;
 }
 
 .menu-icon {
