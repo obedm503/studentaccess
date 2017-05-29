@@ -1,0 +1,93 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title *ngIf="!selected">
+      {{ 'EVENTS-name' | translate }}
+    </ion-title>
+    <ion-title *ngIf="selected">
+      {{ selected.calc_subject }}
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col col-12 col-lg-6 col-md-6 offset-md-3 col-sm-12>
+        <ion-list *ngIf="!selected">
+          <ion-card text-wrap
+            *ngFor="let item of events"
+            (click)="goSelected(item)"
+            [class.gray]="item.ev_date_start == store.today"
+          >
+            <ion-card-content>
+              <ion-row [hidden]="!item.calc_ev_date_start && !item.calc_subject">
+                <ion-col>
+                  <b [hidden]="!item.calc_ev_date_start">{{ item.calc_ev_date_start }}:</b>
+                </ion-col>
+                <ion-col>
+                  {{ item.calc_subject }}
+                </ion-col>
+              </ion-row>
+              <ion-row [hidden]="!item.calc_location">
+                <ion-col>
+                  {{ 'EVENTS-location' | translate }}:
+                </ion-col>
+                <ion-col>
+                  {{ item.calc_location }}
+                </ion-col>
+              </ion-row>
+              <ion-row [hidden]="!item.calc_ev_time_start">
+                <ion-col>
+                  {{ 'EVENTS-time' | translate }}:
+                </ion-col>
+                <ion-col>
+                  {{ item.calc_ev_time_start }}
+                </ion-col>
+              </ion-row>
+            </ion-card-content>
+          </ion-card>
+        </ion-list>
+
+        <ion-card *ngIf="selected">
+          <ion-card-header text-wrap>
+            {{ selected.calc_subject }}
+          </ion-card-header>
+          <ion-card-content [hidden]="!selected.calc_text">
+            {{ selected.calc_text }}
+          </ion-card-content>
+          <ion-list>
+            <ion-item color="secondary">
+              <ion-row [hidden]="!selected.calc_ev_date_start">
+                <ion-col>
+                  <b>{{ 'EVENTS-date' | translate }}:</b>
+                </ion-col>
+                <ion-col>
+                  {{ selected.calc_ev_date_start }}
+                </ion-col>
+              </ion-row>
+              <ion-row [hidden]="!selected.calc_ev_time_start">
+                <ion-col>
+                  <b>{{ 'EVENTS-time' | translate }}:</b>
+                </ion-col>
+                <ion-col>
+                  {{ selected.calc_ev_time_start }}
+                </ion-col>
+              </ion-row>
+              <ion-row [hidden]="!selected.calc_location">
+                <ion-col>
+                  <b>{{ 'EVENTS-location' | translate }}:</b>
+                </ion-col>
+                <ion-col >
+                  {{ selected.calc_location }}
+                </ion-col>
+              </ion-row>
+            </ion-item>
+          </ion-list>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

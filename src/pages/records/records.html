@@ -1,0 +1,48 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>{{ title | translate }}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col col-12 col-lg-6 col-md-6 offset-md-3 col-sm-12>
+        <ion-list *ngIf="attendance">
+          <ion-card *ngFor="let item of attendance">
+            <ion-item [color]="item.at_cat == 'E' ? 'secondary' : 'danger'">
+              {{ 'RECORDS-category' | translate}}: {{ item.at_cat }}
+              <br>
+              {{ 'RECORDS-quarter' | translate}}: {{ item.at_qtr }}
+              <br>
+              {{ 'RECORDS-reason' | translate }}: {{ item.calc_cat }}
+              <br>
+              {{ 'RECORDS-date' | translate }}: {{ item.calc_date }}
+              <br>
+              {{ 'RECORDS-day' | translate }}: {{ item.calc_day }}
+            </ion-item>
+          </ion-card>
+        </ion-list>
+
+        <ion-list *ngIf="discipline">
+          <ion-card *ngFor="let item of discipline">
+            <ion-item [color]="item.ds_cat == 'L' ? 'secondary' : 'danger'">
+              {{ item.ds_cat }}: {{ item.calc_cat }}
+              <br>
+              {{ 'RECORDS-date' | translate }}: {{ item.calc_date }}
+              <br>
+              {{ 'RECORDS-teacher' | translate }}: {{ item.calc_teacher }}
+              <br>
+              {{ 'RECORDS-reason' | translate }}: {{ item.calc_comment }}
+              <br>
+              {{ 'RECORDS-quarter' | translate}}: {{ item.ds_qtr }}
+            </ion-item>
+          </ion-card>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

@@ -1,0 +1,66 @@
+{
+  "CANCEL":"Cancelar",
+
+  "LOGIN-name":"Iniciar sesión",
+  "LOGIN-user-id":"Usuario",
+  "LOGIN-password":"Contraseña",
+  "LOGIN-language":"Idioma",
+  "LOGIN-remember-me":"Recordar mi cuenta",
+  "LOGIN-fail":"Usuario o contraseña incorrectos. Intentelo denuevo.",
+  "LOGIN-no-credentials":"Usuario o contraseña vacios!",
+
+  "MENU-logout":"Salir",
+
+  "PROFILE-name":"Perfil",
+  "PROFILE-th-grade": "to Grado",
+  "PROFILE-student-credit":"Credito del Estudiante",
+  "PROFILE-family-credit": "Credito de la Familia",
+  "PROFILE-missing-assignments":"Asignaturas Pendientes",
+  "PROFILE-worth":"Vale",
+  "PROFILE-points":"Puntos",
+  "PROFILE-check-grades":"Revisar Notas",
+  "PROFILE-schedule":"Horario de Clases",
+  "PROFILE-select-schedule":"Seleccionar Horario",
+
+  "RECORDS-attendance":"Asistencia",
+  "RECORDS-discipline":"Conducta",
+  "RECORDS-category":"Categoria",
+  "RECORDS-quarter":"Quatrimestre",
+  "RECORDS-reason":"Razón",
+  "RECORDS-date":"Fecha",
+  "RECORDS-day":"Dia",
+  "RECORDS-teacher":"Maestro",
+
+  "HOMEWORK-name":"Tareas",
+  "HOMEWORK-title":"Elegir Clase",
+  "HOMEWORK-all-classes":"Todas las Tareas",
+
+  "GRADES-name":"Notas",
+  "GRADES-email":"Correo Electronico",
+  "GRADES-phone":"Telefono",
+  "GRADES-period":"Periodo",
+  "GRADES-room":"Aula",
+  "GRADES-grading-scale":"Escala de Notas",
+  "GRADES-last-updated":"Ultima Actualizacion",
+  "GRADES-grade":"Nota",
+
+  "EVENTS-name":"Eventos",
+  "EVENTS-date":"Fecha",
+  "EVENTS-time":"Hora",
+  "EVENTS-location":"Lugar",
+
+  "CAFETERIA-name":"Cafeteria",
+  "CAFETERIA-todays-lunch":"Almuerzo del Dia",
+  "CAFETERIA-balance-history":"Historial de Balance",
+  "CAFETERIA-transactions":"Últimas 10 Transacciones",
+  "CAFETERIA-price":"Precio",
+  "CAFETERIA-date-time":"Fecha/Hora",
+  "CAFETERIA-client":"Cliente",
+  "CAFETERIA-product":"Producto",
+  "CAFETERIA-authorized-by":"Autorizado Por",
+
+  "STAFF-name":"Personal",
+  "STAFF-cellphone":"Celular",
+  "STAFF-homephone":"Convencional",
+  "STAFF-email":"Correo Electronico"
+}
