@@ -27,7 +27,7 @@
     <ion-searchbar
       [(ngModel)]="search"
       (ionInput)="doSearch()"
-      placeholder="the search bar"
+      [placeholder]=" 'STAFF-name' | translate "
     ></ion-searchbar>
   </ion-toolbar>
 

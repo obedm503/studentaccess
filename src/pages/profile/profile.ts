@@ -18,6 +18,8 @@ export class Profile {
     type: '',
     schedule: []
   };
+  lang: string = this.translate.currentLang;
+
   missing: any[] = [];
   showMissing: boolean = false;
 
@@ -65,10 +67,9 @@ export class Profile {
   }
 
   toggleSchedule(){
-    let lang = this.translate.currentLang;
     let inputs = this.schedules.map( el => ({
       type: 'radio',
-      label: el[lang],
+      label: el[this.lang],
       value: el.type,
       checked: el.type === this.selectedSchedule.type
     }) );

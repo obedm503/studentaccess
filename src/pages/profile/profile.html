@@ -89,7 +89,7 @@
           </button>
 
           <ion-card-header>
-            {{ 'PROFILE-schedule' | translate }} | {{ selectedSchedule.text }}
+            {{ 'PROFILE-schedule' | translate }} | {{ selectedSchedule[lang] }}
           </ion-card-header>
           <ion-list>
             <ion-item *ngFor="let item of selectedSchedule.schedule" class="alternate-colors">

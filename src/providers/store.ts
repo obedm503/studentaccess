@@ -72,12 +72,10 @@ export class Store {
   ): string {
     if( url ){ return url; }
 
-    // adds extra '&' at the beginning when joined
-    queryParams.unshift('');
     let extraParams = queryParams.join('&');
 
     let user = (this.state.get('USER') || {} as StoredItem<StoredUser>).data as StoredUser;
-    return `${this.api}?query=${query}&lang=${user.language}&username=${user.username}&password=${user.password}&mode=student${ extraParams }`;
+    return `${this.api}?query=${query}&lang=${user.language}&username=${user.username}&password=${user.password}&mode=student&${ extraParams }`;
   }
 
   private fromApi( el: IKey ): Promise<any> {

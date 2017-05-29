@@ -65,7 +65,6 @@ export class Login {
 
   public showLoading() {
     this.loading = this.loadingCtrl.create({
-      content: 'Please wait...',
       dismissOnPageChange: true
     });
     this.loading.present();

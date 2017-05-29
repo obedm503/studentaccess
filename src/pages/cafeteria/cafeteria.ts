@@ -23,8 +23,9 @@ export class Cafeteria {
       this.menu = menu.menu;
     });
     this.store.get('TRANSACTIONS').then( ({ transactions } = { transactions: [] } ) => {
-      this.transactions = transactions;
-      this.updateChart(transactions);
+      // hard code limit until api is fixed
+      this.transactions = transactions.slice(0, 10);
+      this.updateChart(this.transactions);
     });
   }
   updateChart(transactions: any[]){
@@ -34,7 +35,7 @@ export class Cafeteria {
       data: {
         labels: transactions.map( el => {
           let date = new Date(el.credhist_datetime);
-          return `${date.getDate()}-${months[date.getMonth()]}-${date.getFullYear()}`;
+          return date.toLocaleDateString();
         }),
         datasets: [{
           label: this.translate.instant('CAFETERIA-balance-history'),
