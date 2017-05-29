@@ -27,7 +27,7 @@ export class State {
       valid: 'MONTH'
     }, {
       key: 'SCHEDULES',
-      url: '/assets/schedules.json',
+      url: './assets/schedules.json',
       valid: 'MONTH'
     }, {
       key: 'TRANSACTIONS',

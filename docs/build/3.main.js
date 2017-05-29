@@ -119,7 +119,7 @@ var Profile = (function () {
         this.grade = '';
         this.familyCredit = '0.00';
         this.studentCredit = '0.00';
-        this.personImage = '/assets/placeholder.jpg';
+        this.personImage = './assets/placeholder.jpg';
         this.attendance = [];
         this.discipline = [];
     }
