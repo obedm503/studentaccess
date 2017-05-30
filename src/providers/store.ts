@@ -15,7 +15,7 @@ export class Store {
   private api: string = 'https://db.nca.edu.ni/api/api_ewapp.php'
   private keys: IKey[];
 
-  constructor(public http: Http, public storage: Storage, public state: State ){
+  constructor(private http: Http, private storage: Storage, private state: State ){
     console.log('new Store()');
     let month = ('0' + ( this.date.getMonth() + 1 ).toString() ).slice(-2);
     let day = ('0' + this.date.getDate().toString() ).slice(-2);
@@ -23,19 +23,83 @@ export class Store {
     this.today = `${year}-${month}-${day}`;
     this.keys = this.state.keys;
   }
-  public clear(): Promise<null> {
-    return this.storage.clear().then( () => {
-      console.log('cleared storage')
-      this.state.clear();
-      return null;
-    });
+
+  private fromApi( el: IKey, modifier: Function, oldData?: any ): Promise<any> {
+    let url = this.buildUrl( el.url, el.query, el.queryParams );
+    return this.http.get(url)
+      .toPromise()
+      .then( res => res.text() )
+      .then( text => {
+        try {
+          let json = JSON.parse(text);
+          return json;
+        } catch(e) {
+          return text;
+        }
+      }).then( newData => {
+        let modifiedData = !modifier ? newData : modifier({
+          newData,
+          oldData
+        });
+        this.state.set(el.key, {
+          date: this.date,
+          data: modifiedData
+        });
+        return modifiedData;
+      })
+      .catch( err => {
+        console.warn(err);
+        return oldData;
+      });
   }
 
-  public setUser(user){
-    this.state.set('USER', {
-      date: this.date,
-      data: user
-    });
+  public async get( key: string, modifier?: Function ): Promise<any> {
+    try {
+      if( key === 'USER' ){ return this.getUser(); }
+
+      // from the state
+      let storeItem = this.state.get(key);
+
+      let keyItem = this.keys.find( el => el.key === key );
+
+      // not in memory, not in storage, from api
+      if( !storeItem ){
+        console.log('not in state... fetching ', key);
+        return this.fromApi( keyItem, modifier );
+      }
+
+      let comparator: boolean;
+      switch( keyItem.valid ){
+        case 'DAY':
+          comparator = this.date.getDate() === new Date(storeItem.date).getDate();
+          break;
+        case 'WEEK':
+          comparator = currentWeekNumber(this.date) === currentWeekNumber( new Date(storeItem.date) );
+          break;
+        case 'MONTH':
+          comparator = this.date.getMonth() === new Date(storeItem.date).getMonth();
+          break;
+        default:
+          throw Error('Store: Unknown Mode');
+      }
+      //check validity
+      if( comparator ){
+        return storeItem.data;
+      } else {
+        return this.fromApi( keyItem, modifier, storeItem.data );
+      }
+    } catch(e){
+      console.warn(e);
+    }
+  }
+
+  private buildUrl( url: string, query: string, queryParams: string[] = [] ): string {
+    if( url ){ return url; }
+
+    let extraParams = queryParams.join('&');
+
+    let user = (this.state.get('USER') || {} as StoredItem<StoredUser>).data as StoredUser;
+    return `${this.api}?query=${query}&lang=${user.language}&username=${user.username}&password=${user.password}&mode=student&${ extraParams }`;
   }
 
   private async getUser(){
@@ -57,92 +121,26 @@ export class Store {
       console.warn(e);
     }
   }
-
   public async getLogin(){
     let login = this.state.get('LOGIN');
     if( login && this.date.getMonth() === new Date(login.date).getMonth() ){
       return login.data;
     } else { return null; }
   }
-
-  private buildUrl(
-    url: string,
-    query: string,
-    queryParams: string[] = []
-  ): string {
-    if( url ){ return url; }
-
-    let extraParams = queryParams.join('&');
-
-    let user = (this.state.get('USER') || {} as StoredItem<StoredUser>).data as StoredUser;
-    return `${this.api}?query=${query}&lang=${user.language}&username=${user.username}&password=${user.password}&mode=student&${ extraParams }`;
+  public persist(){
+    this.state.save();
   }
-
-  private fromApi( el: IKey ): Promise<any> {
-    let url = this.buildUrl( el.url, el.query, el.queryParams );
-    return this.http.get(url).toPromise()
-      .then( res => res.text() ).then( text => {
-        try {
-          let json = JSON.parse(text);
-          return json;
-        } catch(e) {
-          return text;
-        }
-      }).then( data => {
-        console.log(`fetched ${el.key}`)
-        this.state.set(el.key, {
-          date: this.date,
-          data
-        });
-        return data;
-      });
+  public setUser(user){
+    this.state.set('USER', {
+      date: this.date,
+      data: user
+    });
   }
-
-  public async get(key: string): Promise<any> {
-    try {
-      if( key === 'USER' ){ return this.getUser(); }
-
-      // from the state
-      let item = this.state.get(key);
-
-      let el = this.keys.find( el => el.key === key );
-
-      // not in memory, not in storage, from api
-      if( !item ){
-        console.log('not in state... fetching ', key);
-        return this.fromApi(el).catch(console.warn);
-      }
-
-      let comparator: boolean;
-      switch( el.valid ){
-        case 'DAY':
-          comparator = this.date.getDate() === new Date(item.date).getDate();
-          break;
-        case 'WEEK':
-          comparator = currentWeekNumber(this.date) === currentWeekNumber( new Date(item.date) );
-          break;
-        case 'MONTH':
-          comparator = this.date.getMonth() === new Date(item.date).getMonth();
-          break;
-        default:
-          throw Error('Store: Unknown Mode');
-      }
-      //check validity
-      if( comparator ){
-        return item.data;
-      } else {
-        return this.fromApi(el).catch( err => {
-          console.warn(err);
-          // if network fails return old data
-          return item.data;
-        });
-      }
-    } catch(e){
-      console.warn(e);
-    }
-  }
-
-  public refresh(){
-    // should refesh local data
+  public clear(): Promise<null> {
+    return this.storage.clear().then( () => {
+      console.log('cleared storage')
+      this.state.clear();
+      return null;
+    });
   }
 }

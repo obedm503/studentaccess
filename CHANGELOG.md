@@ -13,17 +13,24 @@ For some guidelines see [keepachangelog.com].
 ----
 ## Future
 ### New
-- MENU: active ion-item in side menu
 - HOMEWORK: add custom homeworks
 - GLOBAL: use analytics
 - HOMEWORK: make urls clickable
 - GLOBAL: confetti
+- HOMEWORK: highlight today's assignments
+- EVENTS: highlight today's events
 
 ### Fix
 - API: use JWTs for security
 - API: merge end points
 - API: send only necessary data
 - PROFILE: missing homeworks highlighting
+- LOGIN: language select always shows english after logout from spanish-selected session
+
+## 2017-05-29
+### New
+- HOMEWORK: persist and hide or show checked homeworks. Suggested by Mr. Van Zoest
+- MENU: show active page
 
 ## [2.0.0]: 2017-05-28
 ### New

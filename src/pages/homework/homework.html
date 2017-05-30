@@ -19,10 +19,18 @@
     <ion-row>
       <ion-col col-12 col-lg-6 col-md-6 offset-md-3 col-sm-12>
         <ion-list>
+          <ion-item>
+            <ion-label>{{ 'HOMEWORK-hide-checked' | translate }}</ion-label>
+            <ion-toggle
+              [(ngModel)]="hideChecked"
+              [name]="'HOMEWORK-hide-checked' | translate"
+            ></ion-toggle>
+          </ion-item>
           <ion-item
             text-wrap
             *ngFor="let item of filteredHw"
             [class.gray]="item.lsn_date == store.today"
+            [@expand]="!( item.checked && hideChecked )"
           >
             <ion-label>
               {{ item.calc_date }}
@@ -30,7 +38,11 @@
               <strong>{{ item.calc_class }}: </strong>
               {{ item.lsn_hw }}
             </ion-label>
-            <ion-checkbox color="primary"></ion-checkbox>
+            <ion-checkbox
+              color="primary"
+              [(ngModel)]="item.checked"
+              (ngModelChange)="check(item)"
+            ></ion-checkbox>
           </ion-item>
         </ion-list>
       </ion-col>
