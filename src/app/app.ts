@@ -17,6 +17,7 @@ export class StudentAccess {
   public name: string = '';
 
   public pages: Array<any>;
+  public activePage: string;
 
   constructor(
     public loadingCtrl: LoadingController,
@@ -52,10 +53,10 @@ export class StudentAccess {
       .then( () => this.state.load() )
       .then( fromStorage => {
         let state  = fromStorage as any;
-        if(state && state.USER){
+        if(state && state.USER && state.LOGIN){
           this.login(state.USER.data, state.LOGIN.data);
           deepLink = deepLink === 'Login' ? null : deepLink;
-          this.rootPage = deepLink || 'Profile';
+          this.activePage = this.rootPage = deepLink || 'Profile';
         } else {
           this.logout();
         }
@@ -72,12 +73,13 @@ export class StudentAccess {
     ];
   }
   login(user, login){
+    this.activePage = 'Profile';
     this.username = user.username;
     this.name = login.person_name;
     this.translate.use(user.language);
   }
-  openPage(page) {
-    this.nav.setRoot(page.component);
+  openPage(page){
+    this.activePage = this.rootPage = page;
   }
   logout(){
     this.loading = this.loadingCtrl.create();

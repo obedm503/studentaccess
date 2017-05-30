@@ -8,9 +8,7 @@ import { expand } from '../../components/animations';
 @Component({
   selector: 'page-profile',
   templateUrl: 'profile.html',
-  animations: [
-    expand
-  ]
+  animations: [ expand ]
 })
 export class Profile {
   schedules: any[] = [];

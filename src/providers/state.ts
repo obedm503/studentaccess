@@ -1,6 +1,5 @@
 import { Storage } from '@ionic/storage';
 import { Injectable } from '@angular/core';
-import { Events } from 'ionic-angular';
 
 @Injectable()
 export class State {
@@ -79,7 +78,7 @@ export class State {
   private SCHEDULE: StoredItem<any> = null;
   private ALLGRADES: StoredItem<any> = null;
 
-  constructor(public storage: Storage, public events: Events){
+  constructor(private storage: Storage){
     console.log('new State()')
   }
 
