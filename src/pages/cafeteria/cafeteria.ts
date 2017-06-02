@@ -34,7 +34,7 @@ export class Cafeteria {
     });
     this.store.get('TRANSACTIONS').then( ({ transactions } = { transactions: [] } ) => {
       // hard code limit until api is fixed
-      this.transactions = transactions.slice(0, 10);
+      this.transactions = transactions.reverse().slice(0, 10);
       this.updateChart(this.transactions);
       this.loading.dismiss();
     });

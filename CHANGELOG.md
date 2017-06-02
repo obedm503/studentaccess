@@ -15,7 +15,6 @@ For some guidelines see [keepachangelog.com].
 ### New
 - HOMEWORK: add custom homeworks
 - GLOBAL: use analytics
-- HOMEWORK: make urls clickable
 - GLOBAL: confetti
 
 ### Fix
@@ -28,6 +27,7 @@ For some guidelines see [keepachangelog.com].
 ## 2017-05-02
 # Fix
 - HOMEWORK: list now shows newest homework on top
+- CAFETERIA: transactions were backwards in chart and list
 # New
 - GLOBAL: loading screens on all pages that need it
 - HOMEWORK: highlight today's assignments

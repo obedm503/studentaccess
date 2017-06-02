@@ -15643,7 +15643,7 @@ var Cafeteria = (function () {
         this.store.get('TRANSACTIONS').then(function (_a) {
             var transactions = (_a === void 0 ? { transactions: [] } : _a).transactions;
             // hard code limit until api is fixed
-            _this.transactions = transactions.slice(0, 10);
+            _this.transactions = transactions.reverse().slice(0, 10);
             _this.updateChart(_this.transactions);
             _this.loading.dismiss();
         });

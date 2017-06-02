@@ -4,7 +4,7 @@
   "homepage": "https://ncai-developers.github.io/studentaccess/",
   "private": true,
   "config": {
-    "ionic_www_dir":"docs"
+    "ionic_www_dir": "docs"
   },
   "scripts": {
     "publish": "ionic serve -b -d",
