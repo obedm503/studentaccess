@@ -1,5 +1,12 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
+import {
+  IonicPage,
+  NavController,
+  NavParams,
+  AlertController,
+  Loading,
+  LoadingController
+} from 'ionic-angular';
 import { TranslateService } from '@ngx-translate/core';
 import { Store } from '../../providers/store';
 import { expand } from '../../components/animations';
@@ -11,6 +18,7 @@ import { expand } from '../../components/animations';
   animations: [ expand ]
 })
 export class Profile {
+  loading: Loading = this.loadingCtrl.create();
   schedules: any[] = [];
   selectedSchedule = {
     type: '',
@@ -32,15 +40,16 @@ export class Profile {
   discipline: any[] = [];
 
   constructor(
-    public nav: NavController,
-    public navParams: NavParams,
-    public alert: AlertController,
-    public translate: TranslateService,
-
-    public store: Store
+    private nav: NavController,
+    private navParams: NavParams,
+    private alert: AlertController,
+    private translate: TranslateService,
+    private loadingCtrl: LoadingController,
+    private store: Store
   ){}
 
   ionViewDidLoad(){
+    this.loading.present();
     this.store.get('MISSING').then( ( hw = { missing: [] } ) => {
       this.missing = hw.missing;
     });
@@ -57,6 +66,7 @@ export class Profile {
     });
     this.store.get('IMAGE').then( ( img = '' ) => {
       this.personImage = `data:image/jpeg;base64,${img}`;
+      this.loading.dismiss();
     });
     this.store.get('RECORDS').then( ( records = { attendance: [], discipline: [] } ) => {
       this.attendance = records.attendance;

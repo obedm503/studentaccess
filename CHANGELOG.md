@@ -17,8 +17,6 @@ For some guidelines see [keepachangelog.com].
 - GLOBAL: use analytics
 - HOMEWORK: make urls clickable
 - GLOBAL: confetti
-- HOMEWORK: highlight today's assignments
-- EVENTS: highlight today's events
 
 ### Fix
 - API: use JWTs for security
@@ -26,6 +24,14 @@ For some guidelines see [keepachangelog.com].
 - API: send only necessary data
 - PROFILE: missing homeworks highlighting
 - LOGIN: language select always shows english after logout from spanish-selected session
+
+## 2017-05-02
+# Fix
+- HOMEWORK: list now shows newest homework on top
+# New
+- GLOBAL: loading screens on all pages that need it
+- HOMEWORK: highlight today's assignments
+- EVENTS: highlight today's events
 
 ## 2017-05-29
 ### New

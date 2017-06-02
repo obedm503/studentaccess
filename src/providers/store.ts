@@ -103,7 +103,6 @@ export class Store {
   }
 
   private async getUser(){
-    console.log('getUser')
     try {
       let user;
       user = this.state.get('USER');
@@ -125,7 +124,9 @@ export class Store {
     let login = this.state.get('LOGIN');
     if( login && this.date.getMonth() === new Date(login.date).getMonth() ){
       return login.data;
-    } else { return null; }
+    } else {
+      return null;
+    }
   }
   public persist(){
     this.state.save();
@@ -139,8 +140,7 @@ export class Store {
   public clear(): Promise<null> {
     return this.storage.clear().then( () => {
       console.log('cleared storage')
-      this.state.clear();
-      return null;
+      return this.state.clear();
     });
   }
 }

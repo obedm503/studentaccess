@@ -94,21 +94,25 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 var Staff = (function () {
-    function Staff(nav, navParams, store) {
+    function Staff(nav, navParams, loadingCtrl, store) {
         this.nav = nav;
         this.navParams = navParams;
+        this.loadingCtrl = loadingCtrl;
         this.store = store;
         this.staff = [];
         this.filteredStaff = [];
         this.toggled = false;
+        this.loading = this.loadingCtrl.create();
     }
     Staff.prototype.ionViewDidLoad = function () {
         var _this = this;
         this.selected = this.navParams.get('selected');
         if (!this.selected) {
+            this.loading.present();
             this.store.get('STAFF').then(function (staff) {
                 if (staff === void 0) { staff = { staff_list: [] }; }
                 _this.filteredStaff = _this.staff = staff.staff_list;
+                _this.loading.dismiss();
             });
         }
     };
@@ -145,6 +149,7 @@ Staff = __decorate([
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */],
         __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */],
+        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* LoadingController */],
         __WEBPACK_IMPORTED_MODULE_2__providers_store__["a" /* Store */]])
 ], Staff);
 

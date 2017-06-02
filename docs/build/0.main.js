@@ -15625,14 +15625,17 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 var Cafeteria = (function () {
-    function Cafeteria(store, translate) {
+    function Cafeteria(store, translate, loadingCtrl) {
         this.store = store;
         this.translate = translate;
+        this.loadingCtrl = loadingCtrl;
         this.transactions = [];
         this.menu = [];
+        this.loading = this.loadingCtrl.create();
     }
     Cafeteria.prototype.ionViewDidLoad = function () {
         var _this = this;
+        this.loading.present();
         this.store.get('MENU').then(function (menu) {
             if (menu === void 0) { menu = { menu: [] }; }
             _this.menu = menu.menu;
@@ -15642,6 +15645,7 @@ var Cafeteria = (function () {
             // hard code limit until api is fixed
             _this.transactions = transactions.slice(0, 10);
             _this.updateChart(_this.transactions);
+            _this.loading.dismiss();
         });
     };
     Cafeteria.prototype.updateChart = function (transactions) {
@@ -15669,7 +15673,9 @@ Cafeteria = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_6" /* Component */])({
         selector: 'page-cafeteria',template:/*ion-inline-start:"/home/obedm503/projects/ncai-developers/studentaccess/src/pages/cafeteria/cafeteria.html"*/'<ion-header>\n  <ion-navbar>\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>{{ \'CAFETERIA-name\' | translate }}</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content>\n  <ion-grid>\n    <ion-row>\n      <ion-col col-lg-5 offset-lg-1 col-md-6 [attr.offset-md-3]="transactions.length ? null : \'\' " col-sm-12 col-12>\n        <ion-card>\n          <ion-card-header>\n            {{ \'CAFETERIA-todays-lunch\' | translate }}\n          </ion-card-header>\n          <ion-list>\n            <ion-item *ngFor="let item of menu" class="alternate-colors">\n              <b>{{ item.calc_date }}:</b> {{ item.calc_menu }}\n            </ion-item>\n          </ion-list>\n        </ion-card>\n\n        <ion-card [hidden]="!transactions.length">\n          <ion-card-header>\n            {{ \'CAFETERIA-balance-history\' | translate }} | type\n          </ion-card-header>\n          <ion-card-content>\n            <canvas #chart></canvas>\n          </ion-card-content>\n        </ion-card>\n      </ion-col>\n      <ion-col col-lg-5 col-md-6 col-sm-12 col-12 [hidden]="!transactions.length">\n        <ion-card>\n          <ion-card-header>\n            {{ \'CAFETERIA-transactions\' | translate }}\n          </ion-card-header>\n          <ion-list>\n            <ion-item *ngFor="let item of transactions" class="alternate-colors">\n              <ion-row [hidden]="!item.credhist_method">\n                <b ion-col>\n                  {{ \'CAFETERIA-client\' | translate }}\n                </b>\n                <ion-col>\n                  {{ item.credhist_method }}\n                </ion-col>\n              </ion-row>\n              <ion-row [hidden]="!item.credhist_description">\n                <b ion-col>\n                  {{ \'CAFETERIA-product\' | translate }}:\n                </b>\n                <ion-col>\n                  {{ item.credhist_description }}\n                </ion-col>\n              </ion-row>\n              <ion-row [hidden]="!item.credhist_authorized">\n                <b ion-col>\n                  {{ \'CAFETERIA-authorized-by\' | translate }}:\n                </b>\n                <ion-col>\n                  {{ item.credhist_authorized }}\n                </ion-col>\n              </ion-row>\n              <ion-row [hidden]="!item.credhist_authorized">\n                <b ion-col>\n                  {{ \'CAFETERIA-date-time\' | translate }}:\n                </b>\n                <ion-col>\n                  {{ item.credhist_datetime }}\n                </ion-col>\n              </ion-row>\n              <ion-row [hidden]="!item.credhist_debit">\n                <b ion-col>\n                  {{ \'CAFETERIA-price\' | translate }}:\n                </b>\n                <ion-col>\n                  {{ item.credhist_debit | currency:\'USD\':true:\'1.2-2\' }}\n                </ion-col>\n              </ion-row>\n            </ion-item>\n          </ion-list>\n        </ion-card>\n      </ion-col>\n    </ion-row>\n  </ion-grid>\n</ion-content>\n'/*ion-inline-end:"/home/obedm503/projects/ncai-developers/studentaccess/src/pages/cafeteria/cafeteria.html"*/,
     }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_4__providers_store__["a" /* Store */], __WEBPACK_IMPORTED_MODULE_2__ngx_translate_core__["c" /* TranslateService */]])
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_4__providers_store__["a" /* Store */],
+        __WEBPACK_IMPORTED_MODULE_2__ngx_translate_core__["c" /* TranslateService */],
+        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* LoadingController */]])
 ], Cafeteria);
 
 //# sourceMappingURL=cafeteria.js.map

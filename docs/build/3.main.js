@@ -100,12 +100,14 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 var Profile = (function () {
-    function Profile(nav, navParams, alert, translate, store) {
+    function Profile(nav, navParams, alert, translate, loadingCtrl, store) {
         this.nav = nav;
         this.navParams = navParams;
         this.alert = alert;
         this.translate = translate;
+        this.loadingCtrl = loadingCtrl;
         this.store = store;
+        this.loading = this.loadingCtrl.create();
         this.schedules = [];
         this.selectedSchedule = {
             type: '',
@@ -125,6 +127,7 @@ var Profile = (function () {
     }
     Profile.prototype.ionViewDidLoad = function () {
         var _this = this;
+        this.loading.present();
         this.store.get('MISSING').then(function (hw) {
             if (hw === void 0) { hw = { missing: [] }; }
             _this.missing = hw.missing;
@@ -145,6 +148,7 @@ var Profile = (function () {
         this.store.get('IMAGE').then(function (img) {
             if (img === void 0) { img = ''; }
             _this.personImage = "data:image/jpeg;base64," + img;
+            _this.loading.dismiss();
         });
         this.store.get('RECORDS').then(function (records) {
             if (records === void 0) { records = { attendance: [], discipline: [] }; }
@@ -193,8 +197,9 @@ Profile = __decorate([
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */],
         __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */],
-        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* AlertController */],
+        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* AlertController */],
         __WEBPACK_IMPORTED_MODULE_2__ngx_translate_core__["c" /* TranslateService */],
+        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* LoadingController */],
         __WEBPACK_IMPORTED_MODULE_3__providers_store__["a" /* Store */]])
 ], Profile);
 

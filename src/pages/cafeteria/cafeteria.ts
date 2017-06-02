@@ -1,5 +1,9 @@
 import { Component, ViewChild } from '@angular/core';
-import { IonicPage } from 'ionic-angular';
+import {
+  IonicPage,
+  Loading,
+  LoadingController
+} from 'ionic-angular';
 import { TranslateService } from '@ngx-translate/core';
 
 import { Chart } from 'chart.js';
@@ -15,10 +19,16 @@ export class Cafeteria {
   @ViewChild('chart') canvas: any;
   public transactions: any[] = [];
   public menu: any[] = [];
+  private loading: Loading = this.loadingCtrl.create();
 
-  constructor(public store: Store, public translate: TranslateService){}
+  constructor(
+    private store: Store,
+    private translate: TranslateService,
+    private loadingCtrl: LoadingController
+  ){}
 
   ionViewDidLoad(){
+    this.loading.present();
     this.store.get('MENU').then( ( menu = { menu: [] } ) => {
       this.menu = menu.menu;
     });
@@ -26,6 +36,7 @@ export class Cafeteria {
       // hard code limit until api is fixed
       this.transactions = transactions.slice(0, 10);
       this.updateChart(this.transactions);
+      this.loading.dismiss();
     });
   }
   updateChart(transactions: any[]){
