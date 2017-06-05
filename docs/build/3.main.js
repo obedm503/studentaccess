@@ -6,7 +6,7 @@ webpackJsonp([3],{
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(107);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(49);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__profile__ = __webpack_require__(427);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ngx_translate_core__ = __webpack_require__(108);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ProfileModule", function() { return ProfileModule; });
@@ -80,7 +80,7 @@ var expand = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_animatio
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(107);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(49);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ngx_translate_core__ = __webpack_require__(108);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_store__ = __webpack_require__(109);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_animations__ = __webpack_require__(303);
@@ -125,6 +125,9 @@ var Profile = (function () {
         this.attendance = [];
         this.discipline = [];
     }
+    Profile.prototype.ionViewCanEnter = function () {
+        return this.store.state.isSet;
+    };
     Profile.prototype.ionViewDidLoad = function () {
         var _this = this;
         console.log('present');
@@ -197,10 +200,14 @@ Profile = __decorate([
         selector: 'page-profile',template:/*ion-inline-start:"/home/obedm503/projects/ncai-developers/studentaccess/src/pages/profile/profile.html"*/'<ion-header>\n  <ion-navbar>\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>{{ \'PROFILE-name\' | translate }}</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content>\n  <ion-grid>\n    <ion-row>\n      <ion-col col-lg-5 offset-lg-1 col-md-6 col-sm-12 col-12>\n        <ion-card>\n          <ion-item class="dark-gray">\n            <ion-row>\n              <ion-col col-5 col-sm-5 col-md-4 col-lg-3>\n                <ion-avatar>\n                  <img [src]="personImage">\n                </ion-avatar>\n              </ion-col>\n              <ion-col col-7 col-sm-7 col-md-8 col-lg-9 class="person-col">\n                <span class="person" [hidden]="!grade.length">\n                  {{ studentName }}\n                  <br>\n                  {{ birth }}\n                  <br>\n                  {{ grade }}{{ \'PROFILE-th-grade\' | translate }}\n                </span>\n              </ion-col>\n            </ion-row>\n          </ion-item>\n          <ion-item>\n            <ion-icon name="person" item-left></ion-icon>\n            {{ \'PROFILE-student-credit\' | translate }}\n            <ion-badge item-right>{{ studentCredit | currency:\'USD\':true:\'1.2-2\' }}</ion-badge>\n          </ion-item>\n          <ion-item>\n            <ion-icon name="people" item-left></ion-icon>\n            {{ \'PROFILE-family-credit\' | translate }}\n            <ion-badge item-right>{{ familyCredit | currency:\'USD\':true:\'1.2-2\' }}</ion-badge>\n          </ion-item>\n          <button ion-item (click)="goSelected({attendance: attendance})">\n            <ion-icon name="alarm" color="danger" item-left></ion-icon>\n            {{ \'RECORDS-attendance\' | translate }}\n            <ion-badge color="danger" item-right>{{ attendance.length }}</ion-badge>\n          </button>\n          <button ion-item (click)="goSelected({discipline: discipline})">\n            <ion-icon name="checkmark-circle" color="danger" item-left></ion-icon>\n            {{ \'RECORDS-discipline\' | translate }}\n            <ion-badge color="danger" item-right>{{ discipline.length }}</ion-badge>\n          </button>\n        </ion-card>\n\n        <ion-card class="card-fab">\n          <button class="fab-top-right" ion-fab (click)="toggleMissing()">\n            {{ missing.length }}\n          </button>\n          <ion-card-header>\n            {{ \'PROFILE-missing-assignments\' | translate }}\n          </ion-card-header>\n          <ion-list>\n            <ion-item\n              text-wrap\n              *ngFor="let item of missing"\n              [@expand]="showMissing"\n              class="alternate-colors"\n            >\n              <ion-label>\n                {{ item.calc_date }}\n                <br>\n                <strong>{{ item.calc_class }}: </strong>\n                {{ item.gra_name }}\n                <br>\n                <strong>{{ \'PROFILE-worth\' | translate }}: </strong> {{ item.gra_points }} {{ \'PROFILE-points\' | translate }}\n              </ion-label>\n              <ion-checkbox color="primary"></ion-checkbox>\n            </ion-item>\n          </ion-list>\n          <button ion-item color="secondary" (click)="goGrades()">\n            {{ \'PROFILE-check-grades\' | translate }}\n          </button>\n        </ion-card>\n      </ion-col>\n      <ion-col col-lg-5 col-md-6 col-sm-12 col-12>\n        <ion-card class="card-fab">\n          <button class="fab-top-right" ion-fab (click)="toggleSchedule()">\n            <ion-icon name="swap"></ion-icon>\n          </button>\n\n          <ion-card-header>\n            {{ \'PROFILE-schedule\' | translate }} | {{ selectedSchedule[lang] }}\n          </ion-card-header>\n          <ion-list>\n            <ion-item *ngFor="let item of selectedSchedule.schedule" class="alternate-colors">\n              <ion-row>\n                <ion-col>\n                  {{ item.period }}\n                </ion-col>\n                <ion-col>\n                  {{ item.begin }}\n                  <br>\n                  {{ item.end }}\n                </ion-col>\n              </ion-row>\n            </ion-item>\n          </ion-list>\n        </ion-card>\n      </ion-col>\n    </ion-row>\n  </ion-grid>\n</ion-content>\n'/*ion-inline-end:"/home/obedm503/projects/ncai-developers/studentaccess/src/pages/profile/profile.html"*/,
         animations: [__WEBPACK_IMPORTED_MODULE_4__components_animations__["a" /* expand */]]
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* AlertController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* AlertController */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_2__ngx_translate_core__["c" /* TranslateService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__ngx_translate_core__["c" /* TranslateService */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* LoadingController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* LoadingController */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_3__providers_store__["a" /* Store */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__providers_store__["a" /* Store */]) === "function" && _f || Object])
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */],
+        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */],
+        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* AlertController */],
+        __WEBPACK_IMPORTED_MODULE_2__ngx_translate_core__["c" /* TranslateService */],
+        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* LoadingController */],
+        __WEBPACK_IMPORTED_MODULE_3__providers_store__["a" /* Store */]])
 ], Profile);
 
-var _a, _b, _c, _d, _e, _f;
 //# sourceMappingURL=profile.js.map
 
 /***/ })
