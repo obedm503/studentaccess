@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Storage } from '@ionic/storage';
+import { Events } from 'ionic-angular';
 
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/toPromise';
@@ -15,7 +16,12 @@ export class Store {
   private api: string = 'https://db.nca.edu.ni/api/api_ewapp.php'
   private keys: IKey[];
 
-  constructor(private http: Http, private storage: Storage, private state: State ){
+  constructor(
+    private http: Http,
+    private storage: Storage,
+    public state: State,
+    private events: Events
+  ){
     console.log('new Store()');
     let month = ('0' + ( this.date.getMonth() + 1 ).toString() ).slice(-2);
     let day = ('0' + this.date.getDate().toString() ).slice(-2);
@@ -23,7 +29,6 @@ export class Store {
     this.today = `${year}-${month}-${day}`;
     this.keys = this.state.keys;
   }
-
   private fromApi( el: IKey, modifier: Function, oldData?: any ): Promise<any> {
     let url = this.buildUrl( el.url, el.query, el.queryParams );
     return this.http.get(url)
@@ -36,7 +41,8 @@ export class Store {
         } catch(e) {
           return text;
         }
-      }).then( newData => {
+      })
+      .then( newData => {
         let modifiedData = !modifier ? newData : modifier({
           newData,
           oldData
@@ -90,6 +96,7 @@ export class Store {
       }
     } catch(e){
       console.warn(e);
+      return;
     }
   }
 

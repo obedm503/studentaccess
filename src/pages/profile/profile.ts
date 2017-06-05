@@ -47,8 +47,11 @@ export class Profile {
     private loadingCtrl: LoadingController,
     private store: Store
   ){}
-
+  ionViewCanEnter(){
+    return this.store.state.isSet;
+  }
   ionViewDidLoad(){
+    console.log('present')
     this.loading.present();
     this.store.get('MISSING').then( ( hw = { missing: [] } ) => {
       this.missing = hw.missing;
@@ -65,7 +68,8 @@ export class Profile {
       this.selectedSchedule = schedules[0];
     });
     this.store.get('IMAGE').then( ( img = '' ) => {
-      this.personImage = `data:image/jpeg;base64,${img}`;
+      console.log('dismiss');
+      this.personImage = img ? `data:image/jpeg;base64,${img}` : './assets/placeholder.jpg';
       this.loading.dismiss();
     });
     this.store.get('RECORDS').then( ( records = { attendance: [], discipline: [] } ) => {

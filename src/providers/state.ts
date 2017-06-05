@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 
 @Injectable()
 export class State {
+  public isSet: boolean = false;
   public remember: boolean = true;
   public keys: IKey[] = [
     {
@@ -116,10 +117,12 @@ export class State {
       }, {});
       // load state into memory
       Object.assign(this, reduced);
+      this.isSet = true;
       return reduced;
     }).catch(console.warn);
   }
   public clear(){
     this.keys.forEach( key => this[key.key] = null );
+    this.isSet = false;
   }
 }

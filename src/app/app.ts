@@ -56,7 +56,7 @@ export class StudentAccess {
         if(state && state.USER && state.LOGIN){
           this.login(state.USER.data, state.LOGIN.data);
           deepLink = deepLink === 'Login' ? null : deepLink;
-          this.activePage = this.rootPage = deepLink || 'Profile';
+          this.openPage(deepLink || 'Profile');
         } else {
           this.logout();
         }
@@ -73,13 +73,16 @@ export class StudentAccess {
     ];
   }
   login(user, login){
-    this.activePage = 'Profile';
+    // this.activePage = 'Profile';
     this.username = user.username;
     this.name = login.person_name;
     this.translate.use(user.language);
   }
   openPage(page){
-    this.activePage = this.rootPage = page;
+    console.log('openPage: ', page);
+    if( this.nav.getActive().name !== page){
+      this.activePage = this.rootPage = page;
+    }
   }
   logout(){
     this.loading = this.loadingCtrl.create();
