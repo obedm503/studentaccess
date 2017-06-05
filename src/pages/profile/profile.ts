@@ -47,9 +47,6 @@ export class Profile {
     private loadingCtrl: LoadingController,
     private store: Store
   ){}
-  ionViewCanEnter(){
-    return this.store.state.isSet;
-  }
   ionViewDidLoad(){
     console.log('present')
     this.loading.present();
@@ -68,8 +65,8 @@ export class Profile {
       this.selectedSchedule = schedules[0];
     });
     this.store.get('IMAGE').then( ( img = '' ) => {
-      console.log('dismiss');
       this.personImage = img ? `data:image/jpeg;base64,${img}` : './assets/placeholder.jpg';
+      console.log('dismiss');
       this.loading.dismiss();
     });
     this.store.get('RECORDS').then( ( records = { attendance: [], discipline: [] } ) => {

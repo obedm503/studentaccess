@@ -29,9 +29,11 @@ export class Events {
   ionViewDidLoad(){
     this.selected = this.navParams.get('selected');
     if( !this.selected ){
+      console.log('present');
       this.loading.present();
       this.store.get('EVENTS').then( (events = { events: [] }) => {
         this.events = events.events;
+        console.log('dismiss');
         this.loading.dismiss();
       });
     }

@@ -31,7 +31,7 @@ export class StudentAccess {
     this.loading = this.loadingCtrl.create({
       dismissOnPageChange: true
     });
-    this.loading.present();
+    // this.loading.present();
 
     // load translations in background
     translate.getTranslation('en');
@@ -41,22 +41,18 @@ export class StudentAccess {
       preferedLang = 'en';
     }
     translate.setDefaultLang(preferedLang);
+    // let hash = location.hash.slice(2);
+    // let deepLink = hash.charAt(0).toUpperCase() + hash.slice(1);
 
-    let deepLink = location.hash.slice(2)
-      .split('-')
-      .map( word => word.charAt(0).toUpperCase() + word.substr(1) )
-      .join('');
-
-    this.events.subscribe('login', (user, login) => this.login(user, login));
+    this.events.subscribe('login', ( user, login, link ) => this.login(user, login, link) );
 
     this.storage.ready()
       .then( () => this.state.load() )
       .then( fromStorage => {
         let state  = fromStorage as any;
-        if(state && state.USER && state.LOGIN){
-          this.login(state.USER.data, state.LOGIN.data);
-          deepLink = deepLink === 'Login' ? null : deepLink;
-          this.openPage(deepLink || 'Profile');
+        if( state && state.USER && state.LOGIN ){
+          // deepLink = deepLink === 'Login' ? 'Profile' : deepLink;
+          this.login(state.USER.data, state.LOGIN.data, 'Profile' );
         } else {
           this.logout();
         }
@@ -72,17 +68,19 @@ export class StudentAccess {
       { title: 'STAFF-name', component: 'Staff', icon: 'people' }
     ];
   }
-  login(user, login){
-    // this.activePage = 'Profile';
+  login( user, login, link? ){
     this.username = user.username;
     this.name = login.person_name;
     this.translate.use(user.language);
+    this.openPage(link);
   }
-  openPage(page){
-    console.log('openPage: ', page);
-    if( this.nav.getActive().name !== page){
-      this.activePage = this.rootPage = page;
-    }
+  openPage( page ){
+    page = page ? page : 'Profile';
+    // if( page !== this.nav.getActive().name ){
+      this.activePage = page;
+      this.nav.setRoot(page);
+    // }
+    console.log('openPage: ', page, 'active Page: ', (this.nav.getActive() || {} as any).name );
   }
   logout(){
     this.loading = this.loadingCtrl.create();

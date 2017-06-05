@@ -72,10 +72,12 @@ var Events = (function () {
         var _this = this;
         this.selected = this.navParams.get('selected');
         if (!this.selected) {
+            console.log('present');
             this.loading.present();
             this.store.get('EVENTS').then(function (events) {
                 if (events === void 0) { events = { events: [] }; }
                 _this.events = events.events;
+                console.log('dismiss');
                 _this.loading.dismiss();
             });
         }

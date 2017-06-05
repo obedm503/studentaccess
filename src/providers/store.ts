@@ -70,7 +70,6 @@ export class Store {
 
       // not in memory, not in storage, from api
       if( !storeItem ){
-        console.log('not in state... fetching ', key);
         return this.fromApi( keyItem, modifier );
       }
 

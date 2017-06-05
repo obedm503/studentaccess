@@ -92,8 +92,8 @@ var Login = (function () {
             _this.state.remember = _this.remember;
             if (login.login_status) {
                 _this.store.setUser(_this.user);
-                _this.nav.setRoot('Profile');
-                _this.events.publish('login', _this.user, login);
+                // this.nav.setRoot('Profile');
+                _this.events.publish('login', _this.user, login, 'Profile');
             }
             else {
                 _this.showError(_this.translate.instant('LOGIN-fail'));
@@ -133,17 +133,10 @@ Login = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_6" /* Component */])({
         selector: 'page-login',template:/*ion-inline-start:"/home/obedm503/projects/ncai-developers/studentaccess/src/pages/login/login.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>StudentAccess</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content>\n  <ion-grid>\n    <ion-row>\n      <ion-col col-12 col-lg-6 col-md-6 offset-md-3 col-sm-12>\n        <form (ngSubmit)="login()" #registerForm="ngForm">\n          <ion-row>\n            <ion-col>\n              <ion-item>\n                <ion-label floating>\n                  {{ \'LOGIN-user-id\' | translate }}\n                </ion-label>\n                <ion-input minlength="7" maxlength="8" type="text" name="username" [(ngModel)]="user.username" required></ion-input>\n              </ion-item>\n              <ion-item>\n                <ion-label floating>\n                  {{ \'LOGIN-password\' | translate }}\n                </ion-label>\n                <ion-input\n                  minlength="7"\n                  maxlength="7"\n                  type="password"\n                  name="password"\n                  [(ngModel)]="user.password"\n                  required\n                ></ion-input>\n              </ion-item>\n              <ion-item>\n                <ion-label>{{ \'LOGIN-language\' | translate }}</ion-label>\n                <ion-select [(ngModel)]="user.language" [name]="\'LOGIN-language\' | translate">\n                  <ion-option value="en" (ionSelect)="selectLang(\'en\')">English</ion-option>\n                  <ion-option value="es" (ionSelect)="selectLang(\'es\')">Español</ion-option>\n                </ion-select>\n              </ion-item>\n              <ion-item>\n                <ion-label>{{ \'LOGIN-remember-me\' | translate }}</ion-label>\n                <ion-toggle\n                  [(ngModel)]="remember"\n                  [name]="\'LOGIN-remember-me\' | translate"\n                ></ion-toggle>\n              </ion-item>\n            </ion-col>\n          </ion-row>\n          <ion-row>\n            <ion-col class="signup-col">\n              <button color="secondary" ion-button class="submit-btn" full type="submit" [disabled]="!registerForm.form.valid">\n                {{ \'LOGIN-name\' | translate }}\n              </button>\n            </ion-col>\n          </ion-row>\n        </form>\n      </ion-col>\n    </ion-row>\n  </ion-grid>\n</ion-content>\n'/*ion-inline-end:"/home/obedm503/projects/ncai-developers/studentaccess/src/pages/login/login.html"*/,
     }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* Events */],
-        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */],
-        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */],
-        __WEBPACK_IMPORTED_MODULE_2__providers_auth__["a" /* Auth */],
-        __WEBPACK_IMPORTED_MODULE_3__providers_store__["a" /* Store */],
-        __WEBPACK_IMPORTED_MODULE_4__providers_state__["a" /* State */],
-        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* AlertController */],
-        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* LoadingController */],
-        __WEBPACK_IMPORTED_MODULE_5__ngx_translate_core__["c" /* TranslateService */]])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* Events */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* Events */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_2__providers_auth__["a" /* Auth */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__providers_auth__["a" /* Auth */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_3__providers_store__["a" /* Store */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__providers_store__["a" /* Store */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_4__providers_state__["a" /* State */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__providers_state__["a" /* State */]) === "function" && _f || Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* AlertController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* AlertController */]) === "function" && _g || Object, typeof (_h = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* LoadingController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* LoadingController */]) === "function" && _h || Object, typeof (_j = typeof __WEBPACK_IMPORTED_MODULE_5__ngx_translate_core__["c" /* TranslateService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__ngx_translate_core__["c" /* TranslateService */]) === "function" && _j || Object])
 ], Login);
 
+var _a, _b, _c, _d, _e, _f, _g, _h, _j;
 //# sourceMappingURL=login.js.map
 
 /***/ })
