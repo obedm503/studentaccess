@@ -2,7 +2,7 @@
 importScripts('./build/sw-toolbox.js');
 
 self.toolbox.options.cache = {
-  name: 'studentaccess-2017-06-05'
+  name: 'studentaccess-2017-06-05.1'
 };
 
 // pre-cache our key assets
