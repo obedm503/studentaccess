@@ -24,6 +24,14 @@ For some guidelines see [keepachangelog.com].
 - PROFILE: missing homeworks highlighting
 - LOGIN: language select always shows english after logout from spanish-selected session
 
+## 2017-06-06
+# Fix
+- GRADES, GRADES-DETAILS: badge font is larger
+- CAFETERIA: balance history chart visibility
+- PROFILE: made "th" after the user's grade year a superscript
+- GLOBAL: created grade-badge component
+- GLOBAL: added try/catch blocks to pages' ionViewDidLoad or ionViewDidEnter
+
 ## 2017-06-05
 # Fix
 - LOGIN: reduces username limit to 7 characters
