@@ -15,10 +15,7 @@ For some guidelines see [keepachangelog.com].
 ### New
 - HOMEWORK: add custom homeworks
 - GLOBAL: use analytics
-- HOMEWORK: make urls clickable
 - GLOBAL: confetti
-- HOMEWORK: highlight today's assignments
-- EVENTS: highlight today's events
 
 ### Fix
 - API: use JWTs for security
@@ -26,6 +23,32 @@ For some guidelines see [keepachangelog.com].
 - API: send only necessary data
 - PROFILE: missing homeworks highlighting
 - LOGIN: language select always shows english after logout from spanish-selected session
+
+## 2017-06-06
+# Fix
+- GRADES, GRADES-DETAILS: badge font is larger
+- CAFETERIA: balance history chart visibility
+- PROFILE: made "th" after the user's grade year a superscript
+- GLOBAL: created grade-badge component
+- GLOBAL: added try/catch blocks to pages' ionViewDidLoad or ionViewDidEnter
+
+## 2017-06-05
+# Fix
+- LOGIN: reduces username limit to 7 characters
+- GLOBAL: nasty race condition error between pages and app-component
+- GRADES-DETAILS: grades list was backwards
+# New
+- GLOBAL: service worker caches images starting with "data:image/jpeg;base64,"
+    i.e. all images coming from api
+
+## 2017-06-02
+# Fix
+- HOMEWORK: list now shows newest homework on top
+- CAFETERIA: transactions were backwards in chart and list
+# New
+- GLOBAL: loading screens on all pages that need it
+- HOMEWORK: highlight today's assignments
+- EVENTS: highlight today's events
 
 ## 2017-05-29
 ### New

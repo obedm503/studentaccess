@@ -1,7 +1,5 @@
 {
   "name": "studentaccess",
   "app_id": "ni.edu.nca.studentaccess",
-  "typescript": true,
-  "v2": true,
   "type": "ionic-angular"
 }

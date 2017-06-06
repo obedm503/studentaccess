@@ -1,5 +1,10 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController } from 'ionic-angular';
+import {
+  IonicPage,
+  NavController,
+  Loading,
+  LoadingController
+} from 'ionic-angular';
 
 import { Store } from '../../providers/store';
 
@@ -12,19 +17,29 @@ export class Grades {
   public classes: any[] = [];
   public avg;
   private teachers: any[] = [];
+  private loading: Loading = this.loadingCtrl.create();
 
   constructor(
-    public nav: NavController,
-    public store: Store
+    private nav: NavController,
+    private loadingCtrl: LoadingController,
+    private store: Store
   ){}
 
-  ionViewDidLoad(){
-    this.store.get('SCHEDULE')
-      .then( ({ overall_avg } = {}) => this.avg = overall_avg );
-    this.store.get('ALLGRADES')
-      .then( ({ classes } = {}) => this.classes = classes );
-    this.store.get('TEACHERS')
-      .then( ({ teachers } = {}) => this.teachers = teachers );
+  async ionViewDidLoad(){
+    await this.loading.present();
+    try {
+      let schedule = await this.store.get('SCHEDULE');
+      this.avg = schedule.overall_avg;
+
+      let grades = await this.store.get('ALLGRADES');
+      this.classes = grades.classes;
+
+      let teachers = await this.store.get('TEACHERS');
+      this.teachers = teachers.teachers;
+    } catch(err){
+      console.warn(err);
+    }
+    this.loading.dismiss();
   }
   goSelected(item){
     this.nav.push('GradesDetail', {

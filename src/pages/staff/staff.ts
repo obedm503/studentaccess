@@ -1,5 +1,11 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {
+  IonicPage,
+  NavController,
+  NavParams,
+  Loading,
+  LoadingController
+} from 'ionic-angular';
 
 import { Store } from '../../providers/store';
 import { expand } from '../../components/animations';
@@ -16,20 +22,26 @@ export class Staff {
   public selected;
   public toggled: boolean = false;
   public search;
+  private loading: Loading = this.loadingCtrl.create();
 
   constructor(
-    public nav: NavController,
-    public navParams: NavParams,
-
-    public store: Store
+    private nav: NavController,
+    private navParams: NavParams,
+    private loadingCtrl: LoadingController,
+    private store: Store
   ){}
 
-  ionViewDidLoad(){
+  async ionViewDidLoad(){
     this.selected = this.navParams.get('selected');
     if( !this.selected ){
-      this.store.get('STAFF').then( ( staff = { staff_list: [] } )=> {
+      await this.loading.present();
+      try {
+        let staff = await this.store.get('STAFF');
         this.filteredStaff = this.staff = staff.staff_list;
-      });
+      } catch(err){
+        console.warn(err);
+      }
+      this.loading.dismiss();
     }
   }
   goSelected(item){

@@ -12,7 +12,8 @@
   "MENU-logout":"Salir",
 
   "PROFILE-name":"Perfil",
-  "PROFILE-th-grade": "to Grado",
+  "PROFILE-th": "to",
+  "PROFILE-grade": "Grado",
   "PROFILE-student-credit":"Credito del Estudiante",
   "PROFILE-family-credit": "Credito de la Familia",
   "PROFILE-missing-assignments":"Asignaturas Pendientes",
@@ -52,7 +53,7 @@
 
   "CAFETERIA-name":"Cafeteria",
   "CAFETERIA-todays-lunch":"Almuerzo del Dia",
-  "CAFETERIA-balance-history":"Historial de Balance",
+  "CAFETERIA-balance-history":"Historial de Saldo",
   "CAFETERIA-transactions":"Últimas 10 Transacciones",
   "CAFETERIA-price":"Precio",
   "CAFETERIA-date-time":"Fecha/Hora",

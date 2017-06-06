@@ -20,7 +20,7 @@
           <ion-card text-wrap
             *ngFor="let item of events"
             (click)="goSelected(item)"
-            [class.gray]="item.ev_date_start == store.today"
+            [class.dark-gray]="item.ev_date_start === store.today"
           >
             <ion-card-content>
               <ion-row [hidden]="!item.calc_ev_date_start && !item.calc_subject">

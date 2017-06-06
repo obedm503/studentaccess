@@ -3,7 +3,9 @@ import {
   IonicPage,
   NavController,
   NavParams,
-  AlertController
+  AlertController,
+  Loading,
+  LoadingController
 } from 'ionic-angular';
 import { TranslateService } from '@ngx-translate/core';
 
@@ -20,34 +22,41 @@ import { expand } from '../../components/animations';
 export class Homework {
   homework: Array<{calc_class: string, calc_date: string, lsn_date: string, lsn_hw: string, lsn_id: string}> = [];
   classes: any[];
-  filteredHw: any[];
+  filteredHw: any[] = [];
   selectedClass: string = 'all-classes';
   hideChecked: boolean = true;
+  loading: Loading = this.loadingCtrl.create();
 
   constructor(
     private nav: NavController,
     private navParams: NavParams,
     private translate: TranslateService,
     private alert: AlertController,
+    private loadingCtrl: LoadingController,
 
     private store: Store,
     private auth: Auth
   ){}
 
-  public ionViewDidLoad(){
-    this.store.get('HOMEWORK', ({ newData, oldData = { homework: [] } }) => ({
-      ...newData,
-      homework: newData.homework.map( item => {
-        if( oldData.homework.findIndex( el => item.lsn_id === el.lsn_id && el.checked )  > -1 ){
-          item.checked = true;
-        }
-        return item;
-      })
-    }) ).then( ({ homework } = {homework: []} ) => {
+  public async ionViewDidEnter(){
+    await this.loading.present();
+    try {
+      let hw = await this.store.get('HOMEWORK', ({ newData, oldData = { homework: [] } }) => ({
+        ...newData,
+        homework: newData.homework.map( item => {
+          if( oldData.homework.findIndex( el => item.lsn_id === el.lsn_id && el.checked )  > -1 ){
+            item.checked = true;
+          }
+          return item;
+        } )
+      }) );
       // this.homework serves as a backup
       // this.filteredHw is presented in view
-      this.filteredHw = this.homework = homework;
-    });
+      this.filteredHw = this.homework = hw.homework.slice(0).reverse();
+    } catch(err){
+      console.warn(err);
+    }
+    this.loading.dismiss();
   }
 
   popover(e){

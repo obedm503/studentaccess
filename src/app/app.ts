@@ -12,7 +12,7 @@ import { State } from '../providers/state';
 export class StudentAccess {
   @ViewChild(Nav) nav: Nav;
   public loading: Loading;
-  public rootPage: string = 'Login';
+  public rootPage: string = 'Profile';
   public username: string = '';
   public name: string = '';
 
@@ -41,22 +41,15 @@ export class StudentAccess {
       preferedLang = 'en';
     }
     translate.setDefaultLang(preferedLang);
-
-    let deepLink = location.hash.slice(2)
-      .split('-')
-      .map( word => word.charAt(0).toUpperCase() + word.substr(1) )
-      .join('');
-
-    this.events.subscribe('login', (user, login) => this.login(user, login));
+    this.events.subscribe('login', ( user, login, link ) => this.login(user, login, link) );
 
     this.storage.ready()
       .then( () => this.state.load() )
       .then( fromStorage => {
+        this.loading.dismiss();
         let state  = fromStorage as any;
-        if(state && state.USER && state.LOGIN){
+        if( state && state.USER && state.LOGIN ){
           this.login(state.USER.data, state.LOGIN.data);
-          deepLink = deepLink === 'Login' ? null : deepLink;
-          this.activePage = this.rootPage = deepLink || 'Profile';
         } else {
           this.logout();
         }
@@ -72,14 +65,21 @@ export class StudentAccess {
       { title: 'STAFF-name', component: 'Staff', icon: 'people' }
     ];
   }
-  login(user, login){
-    this.activePage = 'Profile';
+  login( user, login, link? ){
     this.username = user.username;
     this.name = login.person_name;
     this.translate.use(user.language);
+    if( link ){
+      this.openPage(link);
+    } else {
+      let hash = location.hash.slice(2);
+      this.activePage = hash.charAt(0).toUpperCase() + hash.slice(1);
+    }
   }
-  openPage(page){
-    this.activePage = this.rootPage = page;
+  openPage( page ){
+    this.activePage = page;
+    this.nav.setRoot(page);
+    console.log('openPage: ', page, 'active Page: ', (this.nav.getActive() || {} as any).name );
   }
   logout(){
     this.loading = this.loadingCtrl.create();

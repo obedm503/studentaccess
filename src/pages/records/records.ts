@@ -14,9 +14,9 @@ export class Records {
   public attendance: any[] = [];
   public discipline: any[] = [];
 
-  constructor(public navParams: NavParams){}
+  constructor(private navParams: NavParams){}
 
-  ionViewDidLoad() {
+  ionViewDidEnter() {
     this.discipline = this.navParams.get('discipline');
     this.attendance = this.navParams.get('attendance');
     this.title = this.attendance ? 'RECORDS-attendance' : 'RECORDS-discipline';

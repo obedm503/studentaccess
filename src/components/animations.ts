@@ -8,7 +8,7 @@ import {
 
 export const expand = trigger('expand', [
   state('true', style({
-    maxHeight: '7em',
+    maxHeight: '10em',
     opacity: '1',
     padding: '',
     border: '',

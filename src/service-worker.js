@@ -2,7 +2,7 @@
 importScripts('./build/sw-toolbox.js');
 
 self.toolbox.options.cache = {
-  name: 'studentaccess-2017-06-05'
+  name: 'studentaccess-2017-06-06'
 };
 
 // pre-cache our key assets
@@ -11,6 +11,7 @@ let assets = [
   './build/main.css',
   './build/polyfills.js',
   'index.html',
+  '/',
   'manifest.json',
   './assets/placeholder.jpg',
   './assets/schedules.json',
@@ -24,6 +25,8 @@ self.toolbox.precache(assets);
 
 // dynamically cache any other local assets
 self.toolbox.router.any('/*', self.toolbox.cacheFirst);
+// people images
+self.toolbox.router.any('data:image/jpeg;base64,*', self.toolbox.cacheFirst);
 // api
 self.toolbox.router.any('https://db.nca.edu.ni/*', self.toolbox.networkOnly);
 

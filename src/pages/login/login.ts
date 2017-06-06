@@ -41,10 +41,10 @@ export class Login {
     this.showLoading();
     this.auth.login(this.user).then(login => {
       this.state.remember = this.remember;
-      if (login.login_status) {
+      if( login.login_status ){
         this.store.setUser(this.user);
-        this.nav.setRoot('Profile');
-        this.events.publish('login', this.user, login);
+        // this.nav.setRoot('Profile');
+        this.events.publish('login', this.user, login, 'Profile');
       } else {
         this.showError(this.translate.instant('LOGIN-fail'));
         this.user.password = '';

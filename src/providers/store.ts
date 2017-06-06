@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Storage } from '@ionic/storage';
+import { Events } from 'ionic-angular';
 
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/toPromise';
@@ -15,7 +16,12 @@ export class Store {
   private api: string = 'https://db.nca.edu.ni/api/api_ewapp.php'
   private keys: IKey[];
 
-  constructor(private http: Http, private storage: Storage, private state: State ){
+  constructor(
+    private http: Http,
+    private storage: Storage,
+    public state: State,
+    private events: Events
+  ){
     console.log('new Store()');
     let month = ('0' + ( this.date.getMonth() + 1 ).toString() ).slice(-2);
     let day = ('0' + this.date.getDate().toString() ).slice(-2);
@@ -23,7 +29,6 @@ export class Store {
     this.today = `${year}-${month}-${day}`;
     this.keys = this.state.keys;
   }
-
   private fromApi( el: IKey, modifier: Function, oldData?: any ): Promise<any> {
     let url = this.buildUrl( el.url, el.query, el.queryParams );
     return this.http.get(url)
@@ -36,7 +41,8 @@ export class Store {
         } catch(e) {
           return text;
         }
-      }).then( newData => {
+      })
+      .then( newData => {
         let modifiedData = !modifier ? newData : modifier({
           newData,
           oldData
@@ -64,7 +70,6 @@ export class Store {
 
       // not in memory, not in storage, from api
       if( !storeItem ){
-        console.log('not in state... fetching ', key);
         return this.fromApi( keyItem, modifier );
       }
 
@@ -90,6 +95,7 @@ export class Store {
       }
     } catch(e){
       console.warn(e);
+      return;
     }
   }
 
@@ -103,7 +109,6 @@ export class Store {
   }
 
   private async getUser(){
-    console.log('getUser')
     try {
       let user;
       user = this.state.get('USER');
@@ -125,7 +130,9 @@ export class Store {
     let login = this.state.get('LOGIN');
     if( login && this.date.getMonth() === new Date(login.date).getMonth() ){
       return login.data;
-    } else { return null; }
+    } else {
+      return null;
+    }
   }
   public persist(){
     this.state.save();
@@ -139,8 +146,7 @@ export class Store {
   public clear(): Promise<null> {
     return this.storage.clear().then( () => {
       console.log('cleared storage')
-      this.state.clear();
-      return null;
+      return this.state.clear();
     });
   }
 }

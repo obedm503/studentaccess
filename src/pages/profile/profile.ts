@@ -1,5 +1,12 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
+import {
+  IonicPage,
+  NavController,
+  NavParams,
+  AlertController,
+  Loading,
+  LoadingController
+} from 'ionic-angular';
 import { TranslateService } from '@ngx-translate/core';
 import { Store } from '../../providers/store';
 import { expand } from '../../components/animations';
@@ -11,12 +18,13 @@ import { expand } from '../../components/animations';
   animations: [ expand ]
 })
 export class Profile {
+  loading: Loading = this.loadingCtrl.create();
   schedules: any[] = [];
   selectedSchedule = {
     type: '',
     schedule: []
   };
-  lang: string = this.translate.currentLang;
+  lang: string;
 
   missing: any[] = [];
   showMissing: boolean = false;
@@ -24,44 +32,49 @@ export class Profile {
   birth: string = '';
   studentName: string = '';
   grade: string = '';
-  familyCredit: string = '0.00';
-  studentCredit: string = '0.00';
+  familyCredit: number = 0.00;
+  studentCredit: number = 0.00;
   personImage: string = './assets/placeholder.jpg';
 
   attendance: any[] = [];
   discipline: any[] = [];
 
   constructor(
-    public nav: NavController,
-    public navParams: NavParams,
-    public alert: AlertController,
-    public translate: TranslateService,
-
-    public store: Store
+    private nav: NavController,
+    private navParams: NavParams,
+    private alert: AlertController,
+    private translate: TranslateService,
+    private loadingCtrl: LoadingController,
+    private store: Store
   ){}
-
-  ionViewDidLoad(){
-    this.store.get('MISSING').then( ( hw = { missing: [] } ) => {
-      this.missing = hw.missing;
-    });
-    this.store.get('LOGIN').then( ( login = { birthdate: ''} ) => {
-      this.birth = login.birthdate.replace(/-/ig, ' ');
+  async ionViewDidLoad(){
+    await this.loading.present();
+    try {
+      let login = await this.store.get('LOGIN');
+      this.birth = ( login.birthdate || '' ).replace(/-/ig, ' ');
       this.studentName = login.person_name;
       this.grade = login.grade;
-      this.familyCredit = login.credit_family;
-      this.studentCredit = login.credit_student;
-    });
-    this.store.get('SCHEDULES').then( ( schedules = [{}] ) => {
+      this.familyCredit = parseFloat( login.credit_family || '0' );
+      this.studentCredit = parseFloat( login.credit_student || '0' );
+
+      let missing = await this.store.get('MISSING');
+      this.missing = missing.missing;
+
+      let schedules = await this.store.get('SCHEDULES');
+      this.lang = this.translate.currentLang;
       this.schedules = schedules;
-      this.selectedSchedule = schedules[0];
-    });
-    this.store.get('IMAGE').then( ( img = '' ) => {
-      this.personImage = `data:image/jpeg;base64,${img}`;
-    });
-    this.store.get('RECORDS').then( ( records = { attendance: [], discipline: [] } ) => {
+      this.selectedSchedule = schedules[0] || {};
+
+      let img = await this.store.get('IMAGE');
+      this.personImage = img ? `data:image/jpeg;base64,${img}` : './assets/placeholder.jpg';
+
+      let records = await this.store.get('RECORDS');
       this.attendance = records.attendance;
       this.discipline = records.discipline;
-    });
+    } catch(err){
+      console.warn(err);
+    }
+    this.loading.dismiss();
   }
 
   toggleSchedule(){
@@ -90,7 +103,7 @@ export class Profile {
   toggleMissing(){
     this.showMissing = !this.showMissing;
   }
-  goSelected(opts){
+  goSelected( opts ){
     this.nav.push('Records', opts);
   }
   goGrades(){
