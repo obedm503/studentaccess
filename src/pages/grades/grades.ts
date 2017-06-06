@@ -25,7 +25,7 @@ export class Grades {
     private store: Store
   ){}
 
-  async ionViewDidEnter(){
+  async ionViewDidLoad(){
     await this.loading.present();
 
     let schedule = await this.store.get('SCHEDULE');

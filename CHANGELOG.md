@@ -24,7 +24,16 @@ For some guidelines see [keepachangelog.com].
 - PROFILE: missing homeworks highlighting
 - LOGIN: language select always shows english after logout from spanish-selected session
 
-## 2017-05-02
+## 2017-06-05
+# Fix
+- LOGIN: reduces username limit to 7 characters
+- GLOBAL: nasty race condition error between pages and app-component
+- GRADES-DETAILS: grades list was backwards
+# New
+- GLOBAL: service worker caches images starting with "data:image/jpeg;base64,"
+    i.e. all images coming from api
+
+## 2017-06-02
 # Fix
 - HOMEWORK: list now shows newest homework on top
 - CAFETERIA: transactions were backwards in chart and list

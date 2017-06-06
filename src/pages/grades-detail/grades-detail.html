@@ -11,15 +11,15 @@
   <ion-grid>
     <ion-row>
       <ion-col
-        [attr.col-lg-5]="class.grades.length ? '' : null"
-        [attr.offset-lg-1]="class.grades.length ? '' : null"
-        [attr.col-lg-6]="!class.grades.length ? '' : null"
-        [attr.offset-lg-3]="!class.grades.length ? '' : null"
+        [attr.col-lg-5]="grades.length ? '' : null"
+        [attr.offset-lg-1]="grades.length ? '' : null"
+        [attr.col-lg-6]="!grades.length ? '' : null"
+        [attr.offset-lg-3]="!grades.length ? '' : null"
 
-        [attr.col-md-5]="class.grades.length ? '' : null"
-        [attr.offset-md-1]="class.grades.length ? '' : null"
-        [attr.col-md-6]="!class.grades.length ? '' : null"
-        [attr.offset-md-3]="!class.grades.length ? '' : null"
+        [attr.col-md-5]="grades.length ? '' : null"
+        [attr.offset-md-1]="grades.length ? '' : null"
+        [attr.col-md-6]="!grades.length ? '' : null"
+        [attr.offset-md-3]="!grades.length ? '' : null"
 
         col-sm-12 col-12
       >
@@ -107,13 +107,13 @@
           </ion-item>
         </ion-card>
       </ion-col>
-      <ion-col col-lg-5 col-md-5 col-sm-12 col-12 [hidden]="!class.grades.length">
+      <ion-col col-lg-5 col-md-5 col-sm-12 col-12 [hidden]="!grades.length">
         <ion-card>
           <ion-card-header>
             {{ 'GRADES-name' | translate }}
           </ion-card-header>
           <ion-list>
-            <ion-item text-wrap *ngFor="let item of class.grades" class="alternate-colors">
+            <ion-item text-wrap *ngFor="let item of grades" class="alternate-colors">
               <ion-row>
                 <ion-col>
                   <b>

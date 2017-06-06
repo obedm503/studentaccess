@@ -14,6 +14,7 @@ import { Store } from '../../providers/store';
 export class GradesDetail {
   public class = { class_name: '', class_teacher_id: '', grades: [] };
   public teacher = { teacher_pic: '' };
+  public grades: any[] = [];
   public teacherPic = './assets/placeholder.jpg';
   public fabBackground: string;
 
@@ -22,9 +23,9 @@ export class GradesDetail {
     public store: Store
   ){}
 
-  ionViewDidEnter(){
+  ionViewDidLoad(){
     this.class = this.navParams.get('class');
-    this.class.grades = this.class.grades.reverse();
+    this.grades = this.class.grades.slice(0).reverse();
     this.teacher = this.navParams
       .get('teachers')
       .find( el => el.teacher_id === this.class.class_teacher_id );

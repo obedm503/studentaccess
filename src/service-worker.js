@@ -24,6 +24,8 @@ self.toolbox.precache(assets);
 
 // dynamically cache any other local assets
 self.toolbox.router.any('/*', self.toolbox.cacheFirst);
+// people images
+self.toolbox.router.any('data:image/jpeg;base64,*', self.toolbox.cacheFirst);
 // api
 self.toolbox.router.any('https://db.nca.edu.ni/*', self.toolbox.networkOnly);
 
