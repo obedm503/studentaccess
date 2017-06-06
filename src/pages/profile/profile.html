@@ -20,7 +20,7 @@
                 </ion-avatar>
               </ion-col>
               <ion-col col-7 col-sm-7 col-md-8 col-lg-9 class="person-col">
-                <span class="person" [hidden]="!grade.length">
+                <span class="person" [hidden]="!grade">
                   {{ studentName }}
                   <br>
                   {{ birth }}
@@ -40,12 +40,12 @@
             {{ 'PROFILE-family-credit' | translate }}
             <ion-badge item-right>{{ familyCredit | currency:'USD':true:'1.2-2' }}</ion-badge>
           </ion-item>
-          <button ion-item (click)="goSelected({attendance: attendance})">
+          <button ion-item (click)="goSelected({ attendance: attendance })">
             <ion-icon name="alarm" color="danger" item-left></ion-icon>
             {{ 'RECORDS-attendance' | translate }}
             <ion-badge color="danger" item-right>{{ attendance.length }}</ion-badge>
           </button>
-          <button ion-item (click)="goSelected({discipline: discipline})">
+          <button ion-item (click)="goSelected({ discipline: discipline })">
             <ion-icon name="checkmark-circle" color="danger" item-left></ion-icon>
             {{ 'RECORDS-discipline' | translate }}
             <ion-badge color="danger" item-right>{{ discipline.length }}</ion-badge>

@@ -38,22 +38,21 @@ export class Homework {
     private auth: Auth
   ){}
 
-  public ionViewDidLoad(){
-    this.loading.present();
-    this.store.get('HOMEWORK', ({ newData, oldData = { homework: [] } }) => ({
+  public async ionViewDidEnter(){
+    await this.loading.present();
+    let hw = await this.store.get('HOMEWORK', ({ newData, oldData = { homework: [] } }) => ({
       ...newData,
       homework: newData.homework.map( item => {
         if( oldData.homework.findIndex( el => item.lsn_id === el.lsn_id && el.checked )  > -1 ){
           item.checked = true;
         }
         return item;
-      })
-    }) ).then( ({ homework } = {homework: []} ) => {
-      // this.homework serves as a backup
-      // this.filteredHw is presented in view
-      this.filteredHw = this.homework = homework.reverse();
-      this.loading.dismiss();
-    });
+      } )
+    }) );
+    // this.homework serves as a backup
+    // this.filteredHw is presented in view
+    this.filteredHw = this.homework = hw.homework.slice(0).reverse();
+    this.loading.dismiss();
   }
 
   popover(e){

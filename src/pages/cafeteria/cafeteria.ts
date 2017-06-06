@@ -27,17 +27,17 @@ export class Cafeteria {
     private loadingCtrl: LoadingController
   ){}
 
-  ionViewDidLoad(){
-    this.loading.present();
-    this.store.get('MENU').then( ( menu = { menu: [] } ) => {
-      this.menu = menu.menu;
-    });
-    this.store.get('TRANSACTIONS').then( ({ transactions } = { transactions: [] } ) => {
-      // hard code limit until api is fixed
-      this.transactions = transactions.reverse().slice(0, 10);
-      this.updateChart(this.transactions);
-      this.loading.dismiss();
-    });
+  async ionViewDidEnter(){
+    await this.loading.present();
+    let menu = await this.store.get('MENU');
+    this.menu = menu.menu;
+
+    let transactions = await this.store.get('TRANSACTIONS');
+    // hard code limit until api is fixed
+    this.transactions = transactions.transactions.slice(0).reverse().slice(0, 10);
+    this.updateChart(this.transactions);
+
+    this.loading.dismiss();
   }
   updateChart(transactions: any[]){
     Chart.Line(this.canvas.nativeElement, {

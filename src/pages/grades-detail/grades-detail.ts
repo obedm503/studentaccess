@@ -22,7 +22,7 @@ export class GradesDetail {
     public store: Store
   ){}
 
-  ionViewDidLoad(){
+  ionViewDidEnter(){
     this.class = this.navParams.get('class');
     this.class.grades = this.class.grades.reverse();
     this.teacher = this.navParams

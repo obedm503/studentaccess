@@ -12,7 +12,7 @@ import { State } from '../providers/state';
 export class StudentAccess {
   @ViewChild(Nav) nav: Nav;
   public loading: Loading;
-  public rootPage: string = 'Login';
+  public rootPage: string = 'Profile';
   public username: string = '';
   public name: string = '';
 
@@ -31,7 +31,7 @@ export class StudentAccess {
     this.loading = this.loadingCtrl.create({
       dismissOnPageChange: true
     });
-    // this.loading.present();
+    this.loading.present();
 
     // load translations in background
     translate.getTranslation('en');
@@ -41,18 +41,15 @@ export class StudentAccess {
       preferedLang = 'en';
     }
     translate.setDefaultLang(preferedLang);
-    // let hash = location.hash.slice(2);
-    // let deepLink = hash.charAt(0).toUpperCase() + hash.slice(1);
-
     this.events.subscribe('login', ( user, login, link ) => this.login(user, login, link) );
 
     this.storage.ready()
       .then( () => this.state.load() )
       .then( fromStorage => {
+        this.loading.dismiss();
         let state  = fromStorage as any;
         if( state && state.USER && state.LOGIN ){
-          // deepLink = deepLink === 'Login' ? 'Profile' : deepLink;
-          this.login(state.USER.data, state.LOGIN.data, 'Profile' );
+          this.login(state.USER.data, state.LOGIN.data);
         } else {
           this.logout();
         }
@@ -72,14 +69,16 @@ export class StudentAccess {
     this.username = user.username;
     this.name = login.person_name;
     this.translate.use(user.language);
-    this.openPage(link);
+    if( link ){
+      this.openPage(link);
+    } else {
+      let hash = location.hash.slice(2);
+      this.activePage = hash.charAt(0).toUpperCase() + hash.slice(1);
+    }
   }
   openPage( page ){
-    page = page ? page : 'Profile';
-    // if( page !== this.nav.getActive().name ){
-      this.activePage = page;
-      this.nav.setRoot(page);
-    // }
+    this.activePage = page;
+    this.nav.setRoot(page);
     console.log('openPage: ', page, 'active Page: ', (this.nav.getActive() || {} as any).name );
   }
   logout(){

@@ -9,9 +9,6 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
 import { IonicStorageModule } from '@ionic/storage';
 
-import { StatusBar } from '@ionic-native/status-bar';
-import { SplashScreen } from '@ionic-native/splash-screen';
-
 import { StudentAccess } from './app';
 
 import { Store } from '../providers/store';
@@ -47,10 +44,7 @@ import { State } from '../providers/state';
     Store,
     Auth,
     State,
-
-    StatusBar,
     HttpModule,
-    SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

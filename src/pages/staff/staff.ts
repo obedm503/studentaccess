@@ -31,14 +31,13 @@ export class Staff {
     private store: Store
   ){}
 
-  ionViewDidLoad(){
+  async ionViewDidLoad(){
     this.selected = this.navParams.get('selected');
     if( !this.selected ){
-      this.loading.present();
-      this.store.get('STAFF').then( ( staff = { staff_list: [] } )=> {
-        this.filteredStaff = this.staff = staff.staff_list;
-        this.loading.dismiss();
-      });
+      await this.loading.present()
+      let staff = await this.store.get('STAFF');
+      this.filteredStaff = this.staff = staff.staff_list;
+      this.loading.dismiss();
     }
   }
   goSelected(item){
