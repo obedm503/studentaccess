@@ -1,6 +1,7 @@
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
-import { StudentAccessModule } from './app.module';
+import { AppModule } from './app.module';
 import { enableProdMode } from '@angular/core';
 
 enableProdMode();
-platformBrowserDynamic().bootstrapModule(StudentAccessModule);
+// renamed to AppModule to solve prod env bug ¯\_(ツ)_/¯
+platformBrowserDynamic().bootstrapModule(AppModule);

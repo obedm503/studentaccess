@@ -40,18 +40,22 @@ export class Homework {
 
   public async ionViewDidEnter(){
     await this.loading.present();
-    let hw = await this.store.get('HOMEWORK', ({ newData, oldData = { homework: [] } }) => ({
-      ...newData,
-      homework: newData.homework.map( item => {
-        if( oldData.homework.findIndex( el => item.lsn_id === el.lsn_id && el.checked )  > -1 ){
-          item.checked = true;
-        }
-        return item;
-      } )
-    }) );
-    // this.homework serves as a backup
-    // this.filteredHw is presented in view
-    this.filteredHw = this.homework = hw.homework.slice(0).reverse();
+    try {
+      let hw = await this.store.get('HOMEWORK', ({ newData, oldData = { homework: [] } }) => ({
+        ...newData,
+        homework: newData.homework.map( item => {
+          if( oldData.homework.findIndex( el => item.lsn_id === el.lsn_id && el.checked )  > -1 ){
+            item.checked = true;
+          }
+          return item;
+        } )
+      }) );
+      // this.homework serves as a backup
+      // this.filteredHw is presented in view
+      this.filteredHw = this.homework = hw.homework.slice(0).reverse();
+    } catch(err){
+      console.warn(err);
+    }
     this.loading.dismiss();
   }
 

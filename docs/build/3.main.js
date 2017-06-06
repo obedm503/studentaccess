@@ -1,15 +1,15 @@
 webpackJsonp([3],{
 
-/***/ 287:
+/***/ 289:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(49);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__profile__ = __webpack_require__(416);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__staff__ = __webpack_require__(419);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ngx_translate_core__ = __webpack_require__(105);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ProfileModule", function() { return ProfileModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "StaffModule", function() { return StaffModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -20,27 +20,23 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var ProfileModule = (function () {
-    function ProfileModule() {
+var StaffModule = (function () {
+    function StaffModule() {
     }
-    return ProfileModule;
+    return StaffModule;
 }());
-ProfileModule = __decorate([
+StaffModule = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["b" /* NgModule */])({
-        declarations: [
-            __WEBPACK_IMPORTED_MODULE_2__profile__["a" /* Profile */]
-        ],
+        declarations: [__WEBPACK_IMPORTED_MODULE_2__staff__["a" /* Staff */]],
         imports: [
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__profile__["a" /* Profile */]),
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__staff__["a" /* Staff */]),
             __WEBPACK_IMPORTED_MODULE_3__ngx_translate_core__["a" /* TranslateModule */].forChild()
         ],
-        exports: [
-            __WEBPACK_IMPORTED_MODULE_2__profile__["a" /* Profile */]
-        ]
+        exports: [__WEBPACK_IMPORTED_MODULE_2__staff__["a" /* Staff */]]
     })
-], ProfileModule);
+], StaffModule);
 
-//# sourceMappingURL=profile.module.js.map
+//# sourceMappingURL=staff.module.js.map
 
 /***/ }),
 
@@ -53,7 +49,7 @@ ProfileModule = __decorate([
 
 var expand = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_animations__["a" /* trigger */])('expand', [
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_animations__["b" /* state */])('true', __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_animations__["c" /* style */])({
-        maxHeight: '7em',
+        maxHeight: '10em',
         opacity: '1',
         padding: '',
         border: '',
@@ -75,16 +71,15 @@ var expand = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_animatio
 
 /***/ }),
 
-/***/ 416:
+/***/ 419:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(49);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ngx_translate_core__ = __webpack_require__(105);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_store__ = __webpack_require__(106);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_animations__ = __webpack_require__(291);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Profile; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_store__ = __webpack_require__(106);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_animations__ = __webpack_require__(291);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Staff; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -133,121 +128,86 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 
 
 
-
-var Profile = (function () {
-    function Profile(nav, navParams, alert, translate, loadingCtrl, store) {
+var Staff = (function () {
+    function Staff(nav, navParams, loadingCtrl, store) {
         this.nav = nav;
         this.navParams = navParams;
-        this.alert = alert;
-        this.translate = translate;
         this.loadingCtrl = loadingCtrl;
         this.store = store;
+        this.staff = [];
+        this.filteredStaff = [];
+        this.toggled = false;
         this.loading = this.loadingCtrl.create();
-        this.schedules = [];
-        this.selectedSchedule = {
-            type: '',
-            schedule: []
-        };
-        this.missing = [];
-        this.showMissing = false;
-        this.birth = '';
-        this.studentName = '';
-        this.grade = '';
-        this.familyCredit = 0.00;
-        this.studentCredit = 0.00;
-        this.personImage = './assets/placeholder.jpg';
-        this.attendance = [];
-        this.discipline = [];
     }
-    Profile.prototype.ionViewDidLoad = function () {
+    Staff.prototype.ionViewDidLoad = function () {
         return __awaiter(this, void 0, void 0, function () {
-            var login, missing, schedules, img, records;
+            var staff, err_1;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.loading.present()];
+                    case 0:
+                        this.selected = this.navParams.get('selected');
+                        if (!!this.selected) return [3 /*break*/, 6];
+                        return [4 /*yield*/, this.loading.present()];
                     case 1:
                         _a.sent();
-                        return [4 /*yield*/, this.store.get('LOGIN')];
+                        _a.label = 2;
                     case 2:
-                        login = _a.sent();
-                        this.birth = (login.birthdate || '').replace(/-/ig, ' ');
-                        this.studentName = login.person_name;
-                        this.grade = login.grade;
-                        this.familyCredit = parseFloat(login.credit_family || '0');
-                        this.studentCredit = parseFloat(login.credit_student || '0');
-                        return [4 /*yield*/, this.store.get('MISSING')];
+                        _a.trys.push([2, 4, , 5]);
+                        return [4 /*yield*/, this.store.get('STAFF')];
                     case 3:
-                        missing = _a.sent();
-                        this.missing = missing.missing;
-                        return [4 /*yield*/, this.store.get('SCHEDULES')];
+                        staff = _a.sent();
+                        this.filteredStaff = this.staff = staff.staff_list;
+                        return [3 /*break*/, 5];
                     case 4:
-                        schedules = _a.sent();
-                        this.lang = this.translate.currentLang;
-                        this.schedules = schedules;
-                        this.selectedSchedule = schedules[0] || {};
-                        return [4 /*yield*/, this.store.get('IMAGE')];
+                        err_1 = _a.sent();
+                        console.warn(err_1);
+                        return [3 /*break*/, 5];
                     case 5:
-                        img = _a.sent();
-                        this.personImage = img ? "data:image/jpeg;base64," + img : './assets/placeholder.jpg';
-                        return [4 /*yield*/, this.store.get('RECORDS')];
-                    case 6:
-                        records = _a.sent();
-                        this.attendance = records.attendance;
-                        this.discipline = records.discipline;
                         this.loading.dismiss();
-                        return [2 /*return*/];
+                        _a.label = 6;
+                    case 6: return [2 /*return*/];
                 }
             });
         });
     };
-    Profile.prototype.toggleSchedule = function () {
-        var _this = this;
-        var inputs = this.schedules.map(function (el) { return ({
-            type: 'radio',
-            label: el[_this.lang],
-            value: el.type,
-            checked: el.type === _this.selectedSchedule.type
-        }); });
-        this.alert.create({
-            title: this.translate.instant('PROFILE-select-schedule'),
-            buttons: [
-                this.translate.instant('CANCEL'),
-                {
-                    text: 'OK',
-                    handler: function (type) {
-                        _this.selectedSchedule = _this.schedules.find(function (schedule) { return schedule.type === type; });
-                    }
-                }
-            ],
-            inputs: inputs
-        }).present();
+    Staff.prototype.goSelected = function (item) {
+        this.nav.push('Staff', {
+            selected: item
+        });
     };
-    Profile.prototype.toggleMissing = function () {
-        this.showMissing = !this.showMissing;
+    Staff.prototype.toggleSearch = function () {
+        this.toggled = !this.toggled;
+        if (!this.toggled && this.filteredStaff !== this.staff) {
+            this.filteredStaff = this.staff;
+        }
     };
-    Profile.prototype.goSelected = function (opts) {
-        this.nav.push('Records', opts);
+    Staff.prototype.doSearch = function () {
+        try {
+            var query_1 = this.search.toLowerCase().trim();
+            this.filteredStaff = this.staff.filter(function (el) {
+                return el.calc_name.toLowerCase().indexOf(query_1) > -1 ||
+                    el.calc_status.toLowerCase().indexOf(query_1) > -1;
+            });
+        }
+        catch (e) {
+            console.warn(e);
+        }
     };
-    Profile.prototype.goGrades = function () {
-        this.nav.setRoot('Grades');
-    };
-    return Profile;
+    return Staff;
 }());
-Profile = __decorate([
+Staff = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPage */])(),
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_7" /* Component */])({
-        selector: 'page-profile',template:/*ion-inline-start:"/home/obedm503/projects/ncai-developers/studentaccess/src/pages/profile/profile.html"*/'<ion-header>\n  <ion-navbar>\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>{{ \'PROFILE-name\' | translate }}</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content>\n  <ion-grid>\n    <ion-row>\n      <ion-col col-lg-5 offset-lg-1 col-md-6 col-sm-12 col-12>\n        <ion-card>\n          <ion-item class="dark-gray">\n            <ion-row>\n              <ion-col col-5 col-sm-5 col-md-4 col-lg-3>\n                <ion-avatar>\n                  <img [src]="personImage">\n                </ion-avatar>\n              </ion-col>\n              <ion-col col-7 col-sm-7 col-md-8 col-lg-9 class="person-col">\n                <span class="person" [hidden]="!grade">\n                  {{ studentName }}\n                  <br>\n                  {{ birth }}\n                  <br>\n                  {{ grade }}{{ \'PROFILE-th-grade\' | translate }}\n                </span>\n              </ion-col>\n            </ion-row>\n          </ion-item>\n          <ion-item>\n            <ion-icon name="person" item-left></ion-icon>\n            {{ \'PROFILE-student-credit\' | translate }}\n            <ion-badge item-right>{{ studentCredit | currency:\'USD\':true:\'1.2-2\' }}</ion-badge>\n          </ion-item>\n          <ion-item>\n            <ion-icon name="people" item-left></ion-icon>\n            {{ \'PROFILE-family-credit\' | translate }}\n            <ion-badge item-right>{{ familyCredit | currency:\'USD\':true:\'1.2-2\' }}</ion-badge>\n          </ion-item>\n          <button ion-item (click)="goSelected({ attendance: attendance })">\n            <ion-icon name="alarm" color="danger" item-left></ion-icon>\n            {{ \'RECORDS-attendance\' | translate }}\n            <ion-badge color="danger" item-right>{{ attendance.length }}</ion-badge>\n          </button>\n          <button ion-item (click)="goSelected({ discipline: discipline })">\n            <ion-icon name="checkmark-circle" color="danger" item-left></ion-icon>\n            {{ \'RECORDS-discipline\' | translate }}\n            <ion-badge color="danger" item-right>{{ discipline.length }}</ion-badge>\n          </button>\n        </ion-card>\n\n        <ion-card class="card-fab">\n          <button class="fab-top-right" ion-fab (click)="toggleMissing()">\n            {{ missing.length }}\n          </button>\n          <ion-card-header>\n            {{ \'PROFILE-missing-assignments\' | translate }}\n          </ion-card-header>\n          <ion-list>\n            <ion-item\n              text-wrap\n              *ngFor="let item of missing"\n              [@expand]="showMissing"\n              class="alternate-colors"\n            >\n              <ion-label>\n                {{ item.calc_date }}\n                <br>\n                <strong>{{ item.calc_class }}: </strong>\n                {{ item.gra_name }}\n                <br>\n                <strong>{{ \'PROFILE-worth\' | translate }}: </strong> {{ item.gra_points }} {{ \'PROFILE-points\' | translate }}\n              </ion-label>\n              <ion-checkbox color="primary"></ion-checkbox>\n            </ion-item>\n          </ion-list>\n          <button ion-item color="secondary" (click)="goGrades()">\n            {{ \'PROFILE-check-grades\' | translate }}\n          </button>\n        </ion-card>\n      </ion-col>\n      <ion-col col-lg-5 col-md-6 col-sm-12 col-12>\n        <ion-card class="card-fab">\n          <button class="fab-top-right" ion-fab (click)="toggleSchedule()">\n            <ion-icon name="swap"></ion-icon>\n          </button>\n\n          <ion-card-header>\n            {{ \'PROFILE-schedule\' | translate }} | {{ selectedSchedule[lang] }}\n          </ion-card-header>\n          <ion-list>\n            <ion-item *ngFor="let item of selectedSchedule.schedule" class="alternate-colors">\n              <ion-row>\n                <ion-col>\n                  {{ item.period }}\n                </ion-col>\n                <ion-col>\n                  {{ item.begin }}\n                  <br>\n                  {{ item.end }}\n                </ion-col>\n              </ion-row>\n            </ion-item>\n          </ion-list>\n        </ion-card>\n      </ion-col>\n    </ion-row>\n  </ion-grid>\n</ion-content>\n'/*ion-inline-end:"/home/obedm503/projects/ncai-developers/studentaccess/src/pages/profile/profile.html"*/,
-        animations: [__WEBPACK_IMPORTED_MODULE_4__components_animations__["a" /* expand */]]
+        selector: 'page-staff',template:/*ion-inline-start:"/home/obedm503/projects/ncai-developers/studentaccess/src/pages/staff/staff.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-buttons left>\n      <button ion-button menuToggle>\n        <ion-icon name="menu"></ion-icon>\n      </button>\n    </ion-buttons>\n    <ion-title *ngIf="!selected">\n      {{ \'STAFF-name\' | translate }}\n    </ion-title>\n    <ion-title *ngIf="selected">\n      {{ selected.calc_name }}\n    </ion-title>\n    <ion-buttons right [hidden]="selected">\n      <button ion-button (click)="toggleSearch()">\n        <ion-icon name="search"></ion-icon>\n      </button>\n    </ion-buttons>\n  </ion-navbar>\n</ion-header>\n<ion-content>\n  <ion-toolbar\n    no-border-top\n    color="secondary"\n    [@expand]="toggled"\n  >\n    <ion-searchbar\n      [(ngModel)]="search"\n      (ionInput)="doSearch()"\n      [placeholder]=" \'STAFF-name\' | translate "\n    ></ion-searchbar>\n  </ion-toolbar>\n\n  <ion-grid>\n    <ion-row>\n      <ion-col col-12 col-lg-6 col-md-6 offset-md-3 col-sm-12>\n        <ion-list *ngIf="!selected">\n          <!--<ion-card>-->\n            <ion-item detail-push (click)="goSelected(item)" *ngFor="let item of filteredStaff">\n              <b>{{ item.calc_status }}: </b> {{ item.calc_name }}\n            </ion-item>\n          <!--</ion-card>-->\n        </ion-list>\n\n        <ion-card *ngIf="selected">\n          <ion-card-header>\n            {{ selected.calc_name }} | {{ selected.calc_status }}\n          </ion-card-header>\n          <ion-item text-wrap color="secondary">\n            <ion-row color="secondary" [hidden]="!selected.calc_phone">\n              <b ion-col>\n                {{ \'STAFF-cellphone\' | translate }}:\n              </b>\n              <a ion-col href="tel:{{ selected.calc_phone }}">\n                {{ selected.calc_phone }}\n              </a>\n            </ion-row>\n            <ion-row [hidden]="!selected.calc_homephone">\n              <b ion-col>\n                {{ \'STAFF-homephone\' | translate }}:\n              </b>\n              <a ion-col href="tel:{{ selected.calc_homephone }}">\n                {{ selected.calc_homephone }}\n              </a>\n            </ion-row>\n            <ion-row [hidden]="!selected.calc_email">\n              <b ion-col>\n                {{ \'STAFF-email\' | translate }}:\n              </b>\n              <a ion-col href="mailto:{{ selected.calc_email }}">\n                {{ selected.calc_email }}\n              </a>\n            </ion-row>\n          </ion-item>\n        </ion-card>\n      </ion-col>\n    </ion-row>\n  </ion-grid>\n</ion-content>\n'/*ion-inline-end:"/home/obedm503/projects/ncai-developers/studentaccess/src/pages/staff/staff.html"*/,
+        animations: [__WEBPACK_IMPORTED_MODULE_3__components_animations__["a" /* expand */]]
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */],
         __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */],
-        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* AlertController */],
-        __WEBPACK_IMPORTED_MODULE_2__ngx_translate_core__["c" /* TranslateService */],
         __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* LoadingController */],
-        __WEBPACK_IMPORTED_MODULE_3__providers_store__["a" /* Store */]])
-], Profile);
+        __WEBPACK_IMPORTED_MODULE_2__providers_store__["a" /* Store */]])
+], Staff);
 
-//# sourceMappingURL=profile.js.map
+//# sourceMappingURL=staff.js.map
 
 /***/ })
 

@@ -6,7 +6,7 @@ webpackJsonp([0],Array(281).concat([
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(49);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__cafeteria__ = __webpack_require__(410);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__cafeteria__ = __webpack_require__(411);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ngx_translate_core__ = __webpack_require__(105);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CafeteriaModule", function() { return CafeteriaModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -1878,7 +1878,7 @@ function loadLocale(name) {
             module && module.exports) {
         try {
             oldLocale = globalLocale._abbr;
-            __webpack_require__(467)("./" + name);
+            __webpack_require__(469)("./" + name);
             // because defineLocale currently also sets the global locale, we
             // want to undo that for lazy loaded locales
             getSetGlobalLocale(oldLocale);
@@ -4513,16 +4513,19 @@ return hooks;
 
 })));
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(466)(module)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(468)(module)))
 
 /***/ }),
 /* 291 */,
-/* 292 */
+/* 292 */,
+/* 293 */,
+/* 294 */,
+/* 295 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* MIT license */
-var convert = __webpack_require__(464);
-var string = __webpack_require__(462);
+var convert = __webpack_require__(465);
+var string = __webpack_require__(463);
 
 var Color = function (obj) {
 	if (obj instanceof Color) {
@@ -5008,7 +5011,7 @@ module.exports = Color;
 
 
 /***/ }),
-/* 293 */
+/* 296 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -5086,7 +5089,7 @@ return af;
 
 
 /***/ }),
-/* 294 */
+/* 297 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -5150,7 +5153,7 @@ return arDz;
 
 
 /***/ }),
-/* 295 */
+/* 298 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -5214,7 +5217,7 @@ return arKw;
 
 
 /***/ }),
-/* 296 */
+/* 299 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -5345,7 +5348,7 @@ return arLy;
 
 
 /***/ }),
-/* 297 */
+/* 300 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -5410,7 +5413,7 @@ return arMa;
 
 
 /***/ }),
-/* 298 */
+/* 301 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -5520,7 +5523,7 @@ return arSa;
 
 
 /***/ }),
-/* 299 */
+/* 302 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -5584,7 +5587,7 @@ return arTn;
 
 
 /***/ }),
-/* 300 */
+/* 303 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -5731,7 +5734,7 @@ return ar;
 
 
 /***/ }),
-/* 301 */
+/* 304 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -5841,7 +5844,7 @@ return az;
 
 
 /***/ }),
-/* 302 */
+/* 305 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -5980,7 +5983,7 @@ return be;
 
 
 /***/ }),
-/* 303 */
+/* 306 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -6075,7 +6078,7 @@ return bg;
 
 
 /***/ }),
-/* 304 */
+/* 307 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -6199,7 +6202,7 @@ return bn;
 
 
 /***/ }),
-/* 305 */
+/* 308 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -6323,7 +6326,7 @@ return bo;
 
 
 /***/ }),
-/* 306 */
+/* 309 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -6436,7 +6439,7 @@ return br;
 
 
 /***/ }),
-/* 307 */
+/* 310 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -6584,7 +6587,7 @@ return bs;
 
 
 /***/ }),
-/* 308 */
+/* 311 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -6677,7 +6680,7 @@ return ca;
 
 
 /***/ }),
-/* 309 */
+/* 312 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -6854,7 +6857,7 @@ return cs;
 
 
 /***/ }),
-/* 310 */
+/* 313 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -6922,7 +6925,7 @@ return cv;
 
 
 /***/ }),
-/* 311 */
+/* 314 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -7008,7 +7011,7 @@ return cy;
 
 
 /***/ }),
-/* 312 */
+/* 315 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -7073,7 +7076,7 @@ return da;
 
 
 /***/ }),
-/* 313 */
+/* 316 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -7157,7 +7160,7 @@ return deAt;
 
 
 /***/ }),
-/* 314 */
+/* 317 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -7240,7 +7243,7 @@ return deCh;
 
 
 /***/ }),
-/* 315 */
+/* 318 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -7323,7 +7326,7 @@ return de;
 
 
 /***/ }),
-/* 316 */
+/* 319 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -7428,7 +7431,7 @@ return dv;
 
 
 /***/ }),
-/* 317 */
+/* 320 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -7533,7 +7536,7 @@ return el;
 
 
 /***/ }),
-/* 318 */
+/* 321 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -7605,7 +7608,7 @@ return enAu;
 
 
 /***/ }),
-/* 319 */
+/* 322 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -7673,7 +7676,7 @@ return enCa;
 
 
 /***/ }),
-/* 320 */
+/* 323 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -7745,7 +7748,7 @@ return enGb;
 
 
 /***/ }),
-/* 321 */
+/* 324 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -7817,7 +7820,7 @@ return enIe;
 
 
 /***/ }),
-/* 322 */
+/* 325 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -7889,7 +7892,7 @@ return enNz;
 
 
 /***/ }),
-/* 323 */
+/* 326 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -7967,7 +7970,7 @@ return eo;
 
 
 /***/ }),
-/* 324 */
+/* 327 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -8054,7 +8057,7 @@ return esDo;
 
 
 /***/ }),
-/* 325 */
+/* 328 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -8142,7 +8145,7 @@ return es;
 
 
 /***/ }),
-/* 326 */
+/* 329 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -8227,7 +8230,7 @@ return et;
 
 
 /***/ }),
-/* 327 */
+/* 330 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -8298,7 +8301,7 @@ return eu;
 
 
 /***/ }),
-/* 328 */
+/* 331 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -8410,7 +8413,7 @@ return fa;
 
 
 /***/ }),
-/* 329 */
+/* 332 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -8522,7 +8525,7 @@ return fi;
 
 
 /***/ }),
-/* 330 */
+/* 333 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -8587,7 +8590,7 @@ return fo;
 
 
 /***/ }),
-/* 331 */
+/* 334 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -8666,7 +8669,7 @@ return frCa;
 
 
 /***/ }),
-/* 332 */
+/* 335 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -8749,7 +8752,7 @@ return frCh;
 
 
 /***/ }),
-/* 333 */
+/* 336 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -8837,7 +8840,7 @@ return fr;
 
 
 /***/ }),
-/* 334 */
+/* 337 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -8917,7 +8920,7 @@ return fy;
 
 
 /***/ }),
-/* 335 */
+/* 338 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -8998,7 +9001,7 @@ return gd;
 
 
 /***/ }),
-/* 336 */
+/* 339 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -9080,7 +9083,7 @@ return gl;
 
 
 /***/ }),
-/* 337 */
+/* 340 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -9207,7 +9210,7 @@ return gomLatn;
 
 
 /***/ }),
-/* 338 */
+/* 341 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -9311,7 +9314,7 @@ return he;
 
 
 /***/ }),
-/* 339 */
+/* 342 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -9440,7 +9443,7 @@ return hi;
 
 
 /***/ }),
-/* 340 */
+/* 343 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -9590,7 +9593,7 @@ return hr;
 
 
 /***/ }),
-/* 341 */
+/* 344 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -9704,7 +9707,7 @@ return hu;
 
 
 /***/ }),
-/* 342 */
+/* 345 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -9804,7 +9807,7 @@ return hyAm;
 
 
 /***/ }),
-/* 343 */
+/* 346 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -9892,7 +9895,7 @@ return id;
 
 
 /***/ }),
-/* 344 */
+/* 347 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -10024,7 +10027,7 @@ return is;
 
 
 /***/ }),
-/* 345 */
+/* 348 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -10099,7 +10102,7 @@ return it;
 
 
 /***/ }),
-/* 346 */
+/* 349 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -10184,7 +10187,7 @@ return ja;
 
 
 /***/ }),
-/* 347 */
+/* 350 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -10272,7 +10275,7 @@ return jv;
 
 
 /***/ }),
-/* 348 */
+/* 351 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -10366,7 +10369,7 @@ return ka;
 
 
 /***/ }),
-/* 349 */
+/* 352 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -10458,7 +10461,7 @@ return kk;
 
 
 /***/ }),
-/* 350 */
+/* 353 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -10521,7 +10524,7 @@ return km;
 
 
 /***/ }),
-/* 351 */
+/* 354 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -10652,7 +10655,7 @@ return kn;
 
 
 /***/ }),
-/* 352 */
+/* 355 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -10726,7 +10729,7 @@ return ko;
 
 
 /***/ }),
-/* 353 */
+/* 356 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -10819,7 +10822,7 @@ return ky;
 
 
 /***/ }),
-/* 354 */
+/* 357 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -10961,7 +10964,7 @@ return lb;
 
 
 /***/ }),
-/* 355 */
+/* 358 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -11036,7 +11039,7 @@ return lo;
 
 
 /***/ }),
-/* 356 */
+/* 359 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -11158,7 +11161,7 @@ return lt;
 
 
 /***/ }),
-/* 357 */
+/* 360 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -11260,7 +11263,7 @@ return lv;
 
 
 /***/ }),
-/* 358 */
+/* 361 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -11376,7 +11379,7 @@ return me;
 
 
 /***/ }),
-/* 359 */
+/* 362 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -11445,7 +11448,7 @@ return mi;
 
 
 /***/ }),
-/* 360 */
+/* 363 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -11540,7 +11543,7 @@ return mk;
 
 
 /***/ }),
-/* 361 */
+/* 364 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -11626,7 +11629,7 @@ return ml;
 
 
 /***/ }),
-/* 362 */
+/* 365 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -11790,7 +11793,7 @@ return mr;
 
 
 /***/ }),
-/* 363 */
+/* 366 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -11878,7 +11881,7 @@ return msMy;
 
 
 /***/ }),
-/* 364 */
+/* 367 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -11965,7 +11968,7 @@ return ms;
 
 
 /***/ }),
-/* 365 */
+/* 368 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -12066,7 +12069,7 @@ return my;
 
 
 /***/ }),
-/* 366 */
+/* 369 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -12134,7 +12137,7 @@ return nb;
 
 
 /***/ }),
-/* 367 */
+/* 370 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -12262,7 +12265,7 @@ return ne;
 
 
 /***/ }),
-/* 368 */
+/* 371 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -12355,7 +12358,7 @@ return nlBe;
 
 
 /***/ }),
-/* 369 */
+/* 372 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -12448,7 +12451,7 @@ return nl;
 
 
 /***/ }),
-/* 370 */
+/* 373 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -12513,7 +12516,7 @@ return nn;
 
 
 /***/ }),
-/* 371 */
+/* 374 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -12642,7 +12645,7 @@ return paIn;
 
 
 /***/ }),
-/* 372 */
+/* 375 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -12754,7 +12757,7 @@ return pl;
 
 
 /***/ }),
-/* 373 */
+/* 376 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -12820,7 +12823,7 @@ return ptBr;
 
 
 /***/ }),
-/* 374 */
+/* 377 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -12890,7 +12893,7 @@ return pt;
 
 
 /***/ }),
-/* 375 */
+/* 378 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -12970,7 +12973,7 @@ return ro;
 
 
 /***/ }),
-/* 376 */
+/* 379 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -13158,7 +13161,7 @@ return ru;
 
 
 /***/ }),
-/* 377 */
+/* 380 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -13261,7 +13264,7 @@ return sd;
 
 
 /***/ }),
-/* 378 */
+/* 381 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -13327,7 +13330,7 @@ return se;
 
 
 /***/ }),
-/* 379 */
+/* 382 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -13403,7 +13406,7 @@ return si;
 
 
 /***/ }),
-/* 380 */
+/* 383 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -13558,7 +13561,7 @@ return sk;
 
 
 /***/ }),
-/* 381 */
+/* 384 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -13725,7 +13728,7 @@ return sl;
 
 
 /***/ }),
-/* 382 */
+/* 385 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -13800,7 +13803,7 @@ return sq;
 
 
 /***/ }),
-/* 383 */
+/* 386 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -13915,7 +13918,7 @@ return srCyrl;
 
 
 /***/ }),
-/* 384 */
+/* 387 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -14030,7 +14033,7 @@ return sr;
 
 
 /***/ }),
-/* 385 */
+/* 388 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -14124,7 +14127,7 @@ return ss;
 
 
 /***/ }),
-/* 386 */
+/* 389 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -14198,7 +14201,7 @@ return sv;
 
 
 /***/ }),
-/* 387 */
+/* 390 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -14262,7 +14265,7 @@ return sw;
 
 
 /***/ }),
-/* 388 */
+/* 391 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -14397,7 +14400,7 @@ return ta;
 
 
 /***/ }),
-/* 389 */
+/* 392 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -14491,7 +14494,7 @@ return te;
 
 
 /***/ }),
-/* 390 */
+/* 393 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -14564,7 +14567,7 @@ return tet;
 
 
 /***/ }),
-/* 391 */
+/* 394 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -14636,7 +14639,7 @@ return th;
 
 
 /***/ }),
-/* 392 */
+/* 395 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -14703,7 +14706,7 @@ return tlPh;
 
 
 /***/ }),
-/* 393 */
+/* 396 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -14828,7 +14831,7 @@ return tlh;
 
 
 /***/ }),
-/* 394 */
+/* 397 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -14923,7 +14926,7 @@ return tr;
 
 
 /***/ }),
-/* 395 */
+/* 398 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -15019,7 +15022,7 @@ return tzl;
 
 
 /***/ }),
-/* 396 */
+/* 399 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -15082,7 +15085,7 @@ return tzmLatn;
 
 
 /***/ }),
-/* 397 */
+/* 400 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -15145,7 +15148,7 @@ return tzm;
 
 
 /***/ }),
-/* 398 */
+/* 401 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -15301,7 +15304,7 @@ return uk;
 
 
 /***/ }),
-/* 399 */
+/* 402 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -15405,7 +15408,7 @@ return ur;
 
 
 /***/ }),
-/* 400 */
+/* 403 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -15468,7 +15471,7 @@ return uzLatn;
 
 
 /***/ }),
-/* 401 */
+/* 404 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -15531,7 +15534,7 @@ return uz;
 
 
 /***/ }),
-/* 402 */
+/* 405 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -15615,7 +15618,7 @@ return vi;
 
 
 /***/ }),
-/* 403 */
+/* 406 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -15688,7 +15691,7 @@ return xPseudo;
 
 
 /***/ }),
-/* 404 */
+/* 407 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -15753,7 +15756,7 @@ return yo;
 
 
 /***/ }),
-/* 405 */
+/* 408 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -15869,7 +15872,7 @@ return zhCn;
 
 
 /***/ }),
-/* 406 */
+/* 409 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -15979,7 +15982,7 @@ return zhHk;
 
 
 /***/ }),
-/* 407 */
+/* 410 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -16088,18 +16091,18 @@ return zhTw;
 
 
 /***/ }),
-/* 408 */,
-/* 409 */,
-/* 410 */
+/* 411 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(49);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ngx_translate_core__ = __webpack_require__(105);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_chart_js__ = __webpack_require__(419);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_chart_js__ = __webpack_require__(420);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_chart_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_chart_js__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_store__ = __webpack_require__(106);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_patternomaly__ = __webpack_require__(467);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_patternomaly___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_patternomaly__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Cafeteria; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -16150,6 +16153,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 
 
 
+
 var Cafeteria = (function () {
     function Cafeteria(store, translate, loadingCtrl) {
         this.store = store;
@@ -16161,22 +16165,31 @@ var Cafeteria = (function () {
     }
     Cafeteria.prototype.ionViewDidEnter = function () {
         return __awaiter(this, void 0, void 0, function () {
-            var menu, transactions;
+            var menu, transactions, err_1;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0: return [4 /*yield*/, this.loading.present()];
                     case 1:
                         _a.sent();
-                        return [4 /*yield*/, this.store.get('MENU')];
+                        _a.label = 2;
                     case 2:
+                        _a.trys.push([2, 5, , 6]);
+                        return [4 /*yield*/, this.store.get('MENU')];
+                    case 3:
                         menu = _a.sent();
                         this.menu = menu.menu;
                         return [4 /*yield*/, this.store.get('TRANSACTIONS')];
-                    case 3:
+                    case 4:
                         transactions = _a.sent();
                         // hard code limit until api is fixed
                         this.transactions = transactions.transactions.slice(0).reverse().slice(0, 10);
                         this.updateChart(this.transactions);
+                        return [3 /*break*/, 6];
+                    case 5:
+                        err_1 = _a.sent();
+                        console.warn(err_1);
+                        return [3 /*break*/, 6];
+                    case 6:
                         this.loading.dismiss();
                         return [2 /*return*/];
                 }
@@ -16185,14 +16198,40 @@ var Cafeteria = (function () {
     };
     Cafeteria.prototype.updateChart = function (transactions) {
         __WEBPACK_IMPORTED_MODULE_3_chart_js__["Chart"].Line(this.canvas.nativeElement, {
+            options: {
+                tooltips: { backgroundColor: '#009688' },
+                legend: { display: false },
+                scales: {
+                    xAxes: [{
+                            gridLines: {
+                                color: 'rgba(0,0,0,0.3)',
+                                zeroLineColor: 'rgba(0,0,0,0.4)',
+                                zeroLineWidth: 2
+                            }
+                        }],
+                    yAxes: [{
+                            gridLines: {
+                                color: 'rgba(0,0,0,0.3)',
+                                zeroLineColor: 'rgba(0,0,0,0.4)',
+                                zeroLineWidth: 2
+                            }
+                        }]
+                },
+                animation: { duration: 0 },
+                hover: { animationDuration: 0 },
+                responsiveAnimationDuration: 0
+            },
             data: {
                 labels: transactions.map(function (el) {
                     var date = new Date(el.credhist_datetime);
                     return date.toLocaleDateString();
                 }),
                 datasets: [{
-                        label: this.translate.instant('CAFETERIA-balance-history'),
-                        data: transactions.map(function (el) { return el.credhist_balance; })
+                        data: transactions.map(function (el) { return el.credhist_balance; }),
+                        backgroundColor: __WEBPACK_IMPORTED_MODULE_5_patternomaly___default.a.draw('cross', '#448AFF'),
+                        borderColor: 'rgba(0,0,0,0.7)',
+                        pointBackgroundColor: 'black',
+                        lineTension: 0
                     }]
             }
         });
@@ -16206,7 +16245,7 @@ __decorate([
 Cafeteria = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPage */])(),
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_7" /* Component */])({
-        selector: 'page-cafeteria',template:/*ion-inline-start:"/home/obedm503/projects/ncai-developers/studentaccess/src/pages/cafeteria/cafeteria.html"*/'<ion-header>\n  <ion-navbar>\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>{{ \'CAFETERIA-name\' | translate }}</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content>\n  <ion-grid>\n    <ion-row>\n      <ion-col col-lg-5 offset-lg-1 col-md-6 [attr.offset-md-3]="transactions.length ? null : \'\' " col-sm-12 col-12>\n        <ion-card>\n          <ion-card-header>\n            {{ \'CAFETERIA-todays-lunch\' | translate }}\n          </ion-card-header>\n          <ion-list>\n            <ion-item *ngFor="let item of menu" class="alternate-colors">\n              <b>{{ item.calc_date }}:</b> {{ item.calc_menu }}\n            </ion-item>\n          </ion-list>\n        </ion-card>\n\n        <ion-card [hidden]="!transactions.length">\n          <ion-card-header>\n            {{ \'CAFETERIA-balance-history\' | translate }} | type\n          </ion-card-header>\n          <ion-card-content>\n            <canvas #chart></canvas>\n          </ion-card-content>\n        </ion-card>\n      </ion-col>\n      <ion-col col-lg-5 col-md-6 col-sm-12 col-12 [hidden]="!transactions.length">\n        <ion-card>\n          <ion-card-header>\n            {{ \'CAFETERIA-transactions\' | translate }}\n          </ion-card-header>\n          <ion-list>\n            <ion-item *ngFor="let item of transactions" class="alternate-colors">\n              <ion-row [hidden]="!item.credhist_method">\n                <b ion-col>\n                  {{ \'CAFETERIA-client\' | translate }}\n                </b>\n                <ion-col>\n                  {{ item.credhist_method }}\n                </ion-col>\n              </ion-row>\n              <ion-row [hidden]="!item.credhist_description">\n                <b ion-col>\n                  {{ \'CAFETERIA-product\' | translate }}:\n                </b>\n                <ion-col>\n                  {{ item.credhist_description }}\n                </ion-col>\n              </ion-row>\n              <ion-row [hidden]="!item.credhist_authorized">\n                <b ion-col>\n                  {{ \'CAFETERIA-authorized-by\' | translate }}:\n                </b>\n                <ion-col>\n                  {{ item.credhist_authorized }}\n                </ion-col>\n              </ion-row>\n              <ion-row [hidden]="!item.credhist_authorized">\n                <b ion-col>\n                  {{ \'CAFETERIA-date-time\' | translate }}:\n                </b>\n                <ion-col>\n                  {{ item.credhist_datetime }}\n                </ion-col>\n              </ion-row>\n              <ion-row [hidden]="!item.credhist_debit">\n                <b ion-col>\n                  {{ \'CAFETERIA-price\' | translate }}:\n                </b>\n                <ion-col>\n                  {{ item.credhist_debit | currency:\'USD\':true:\'1.2-2\' }}\n                </ion-col>\n              </ion-row>\n            </ion-item>\n          </ion-list>\n        </ion-card>\n      </ion-col>\n    </ion-row>\n  </ion-grid>\n</ion-content>\n'/*ion-inline-end:"/home/obedm503/projects/ncai-developers/studentaccess/src/pages/cafeteria/cafeteria.html"*/,
+        selector: 'page-cafeteria',template:/*ion-inline-start:"/home/obedm503/projects/ncai-developers/studentaccess/src/pages/cafeteria/cafeteria.html"*/'<ion-header>\n  <ion-navbar>\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>{{ \'CAFETERIA-name\' | translate }}</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content>\n  <ion-grid>\n    <ion-row>\n      <ion-col col-lg-5 offset-lg-1 col-md-6 [attr.offset-md-3]="transactions.length ? null : \'\' " col-sm-12 col-12>\n        <ion-card>\n          <ion-card-header>\n            {{ \'CAFETERIA-todays-lunch\' | translate }}\n          </ion-card-header>\n          <ion-list>\n            <ion-item *ngFor="let item of menu" class="alternate-colors">\n              <b>{{ item.calc_date }}:</b> {{ item.calc_menu }}\n            </ion-item>\n          </ion-list>\n        </ion-card>\n\n        <ion-card [hidden]="!transactions.length">\n          <ion-card-header>\n            {{ \'CAFETERIA-balance-history\' | translate }}\n          </ion-card-header>\n          <ion-card-content>\n            <canvas #chart></canvas>\n          </ion-card-content>\n        </ion-card>\n      </ion-col>\n      <ion-col col-lg-5 col-md-6 col-sm-12 col-12 [hidden]="!transactions.length">\n        <ion-card>\n          <ion-card-header>\n            {{ \'CAFETERIA-transactions\' | translate }}\n          </ion-card-header>\n          <ion-list>\n            <ion-item *ngFor="let item of transactions" class="alternate-colors">\n              <ion-row [hidden]="!item.credhist_method">\n                <b ion-col>\n                  {{ \'CAFETERIA-client\' | translate }}\n                </b>\n                <ion-col>\n                  {{ item.credhist_method }}\n                </ion-col>\n              </ion-row>\n              <ion-row [hidden]="!item.credhist_description">\n                <b ion-col>\n                  {{ \'CAFETERIA-product\' | translate }}:\n                </b>\n                <ion-col>\n                  {{ item.credhist_description }}\n                </ion-col>\n              </ion-row>\n              <ion-row [hidden]="!item.credhist_authorized">\n                <b ion-col>\n                  {{ \'CAFETERIA-authorized-by\' | translate }}:\n                </b>\n                <ion-col>\n                  {{ item.credhist_authorized }}\n                </ion-col>\n              </ion-row>\n              <ion-row [hidden]="!item.credhist_authorized">\n                <b ion-col>\n                  {{ \'CAFETERIA-date-time\' | translate }}:\n                </b>\n                <ion-col>\n                  {{ item.credhist_datetime }}\n                </ion-col>\n              </ion-row>\n              <ion-row [hidden]="!item.credhist_debit">\n                <b ion-col>\n                  {{ \'CAFETERIA-price\' | translate }}:\n                </b>\n                <ion-col>\n                  {{ item.credhist_debit | currency:\'USD\':true:\'1.2-2\' }}\n                </ion-col>\n              </ion-row>\n            </ion-item>\n          </ion-list>\n        </ion-card>\n      </ion-col>\n    </ion-row>\n  </ion-grid>\n</ion-content>\n'/*ion-inline-end:"/home/obedm503/projects/ncai-developers/studentaccess/src/pages/cafeteria/cafeteria.html"*/,
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_4__providers_store__["a" /* Store */],
         __WEBPACK_IMPORTED_MODULE_2__ngx_translate_core__["c" /* TranslateService */],
@@ -16216,7 +16255,6 @@ Cafeteria = __decorate([
 //# sourceMappingURL=cafeteria.js.map
 
 /***/ }),
-/* 411 */,
 /* 412 */,
 /* 413 */,
 /* 414 */,
@@ -16224,65 +16262,66 @@ Cafeteria = __decorate([
 /* 416 */,
 /* 417 */,
 /* 418 */,
-/* 419 */
+/* 419 */,
+/* 420 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /**
  * @namespace Chart
  */
-var Chart = __webpack_require__(440)();
+var Chart = __webpack_require__(441)();
 
+__webpack_require__(439)(Chart);
+__webpack_require__(453)(Chart);
+__webpack_require__(435)(Chart);
 __webpack_require__(438)(Chart);
-__webpack_require__(452)(Chart);
+__webpack_require__(443)(Chart);
 __webpack_require__(434)(Chart);
+__webpack_require__(436)(Chart);
 __webpack_require__(437)(Chart);
 __webpack_require__(442)(Chart);
-__webpack_require__(433)(Chart);
-__webpack_require__(435)(Chart);
-__webpack_require__(436)(Chart);
-__webpack_require__(441)(Chart);
-__webpack_require__(444)(Chart);
 __webpack_require__(445)(Chart);
-__webpack_require__(443)(Chart);
-__webpack_require__(439)(Chart);
 __webpack_require__(446)(Chart);
-
+__webpack_require__(444)(Chart);
+__webpack_require__(440)(Chart);
 __webpack_require__(447)(Chart);
+
 __webpack_require__(448)(Chart);
 __webpack_require__(449)(Chart);
 __webpack_require__(450)(Chart);
+__webpack_require__(451)(Chart);
 
-__webpack_require__(458)(Chart);
-__webpack_require__(456)(Chart);
-__webpack_require__(457)(Chart);
 __webpack_require__(459)(Chart);
+__webpack_require__(457)(Chart);
+__webpack_require__(458)(Chart);
 __webpack_require__(460)(Chart);
 __webpack_require__(461)(Chart);
+__webpack_require__(462)(Chart);
 
 // Controllers must be loaded after elements
 // See Chart.core.datasetController.dataElementType
-__webpack_require__(427)(Chart);
 __webpack_require__(428)(Chart);
 __webpack_require__(429)(Chart);
 __webpack_require__(430)(Chart);
 __webpack_require__(431)(Chart);
 __webpack_require__(432)(Chart);
+__webpack_require__(433)(Chart);
 
-__webpack_require__(420)(Chart);
 __webpack_require__(421)(Chart);
 __webpack_require__(422)(Chart);
 __webpack_require__(423)(Chart);
 __webpack_require__(424)(Chart);
 __webpack_require__(425)(Chart);
 __webpack_require__(426)(Chart);
+__webpack_require__(427)(Chart);
 
 // Loading built-it plugins
 var plugins = [];
 
 plugins.push(
-    __webpack_require__(453)(Chart),
     __webpack_require__(454)(Chart),
-    __webpack_require__(455)(Chart)
+    __webpack_require__(455)(Chart),
+    __webpack_require__(456)(Chart)
 );
 
 Chart.plugins.register(plugins);
@@ -16294,7 +16333,7 @@ if (typeof window !== 'undefined') {
 
 
 /***/ }),
-/* 420 */
+/* 421 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -16312,7 +16351,7 @@ module.exports = function(Chart) {
 
 
 /***/ }),
-/* 421 */
+/* 422 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -16329,7 +16368,7 @@ module.exports = function(Chart) {
 
 
 /***/ }),
-/* 422 */
+/* 423 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -16347,7 +16386,7 @@ module.exports = function(Chart) {
 
 
 /***/ }),
-/* 423 */
+/* 424 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -16365,7 +16404,7 @@ module.exports = function(Chart) {
 
 
 /***/ }),
-/* 424 */
+/* 425 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -16383,7 +16422,7 @@ module.exports = function(Chart) {
 
 
 /***/ }),
-/* 425 */
+/* 426 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -16401,7 +16440,7 @@ module.exports = function(Chart) {
 
 
 /***/ }),
-/* 426 */
+/* 427 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -16455,7 +16494,7 @@ module.exports = function(Chart) {
 
 
 /***/ }),
-/* 427 */
+/* 428 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -16845,7 +16884,7 @@ module.exports = function(Chart) {
 
 
 /***/ }),
-/* 428 */
+/* 429 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -16974,7 +17013,7 @@ module.exports = function(Chart) {
 
 
 /***/ }),
-/* 429 */
+/* 430 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -17284,7 +17323,7 @@ module.exports = function(Chart) {
 
 
 /***/ }),
-/* 430 */
+/* 431 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -17624,7 +17663,7 @@ module.exports = function(Chart) {
 
 
 /***/ }),
-/* 431 */
+/* 432 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -17854,7 +17893,7 @@ module.exports = function(Chart) {
 
 
 /***/ }),
-/* 432 */
+/* 433 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -18028,7 +18067,7 @@ module.exports = function(Chart) {
 
 
 /***/ }),
-/* 433 */
+/* 434 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -18203,7 +18242,7 @@ module.exports = function(Chart) {
 
 
 /***/ }),
-/* 434 */
+/* 435 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -18360,7 +18399,7 @@ module.exports = function(Chart) {
 
 
 /***/ }),
-/* 435 */
+/* 436 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -19218,7 +19257,7 @@ module.exports = function(Chart) {
 
 
 /***/ }),
-/* 436 */
+/* 437 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -19555,13 +19594,13 @@ module.exports = function(Chart) {
 
 
 /***/ }),
-/* 437 */
+/* 438 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var color = __webpack_require__(292);
+var color = __webpack_require__(295);
 
 module.exports = function(Chart) {
 
@@ -19681,7 +19720,7 @@ module.exports = function(Chart) {
 
 
 /***/ }),
-/* 438 */
+/* 439 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -19689,7 +19728,7 @@ module.exports = function(Chart) {
 /* global document: false */
 
 
-var color = __webpack_require__(292);
+var color = __webpack_require__(295);
 
 module.exports = function(Chart) {
 	// Global Chart helpers object for utility methods and classes
@@ -20672,7 +20711,7 @@ module.exports = function(Chart) {
 
 
 /***/ }),
-/* 439 */
+/* 440 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -20995,7 +21034,7 @@ module.exports = function(Chart) {
 
 
 /***/ }),
-/* 440 */
+/* 441 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -21058,7 +21097,7 @@ module.exports = function() {
 
 
 /***/ }),
-/* 441 */
+/* 442 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -21501,7 +21540,7 @@ module.exports = function(Chart) {
 
 
 /***/ }),
-/* 442 */
+/* 443 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -21879,7 +21918,7 @@ module.exports = function(Chart) {
 
 
 /***/ }),
-/* 443 */
+/* 444 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -22643,7 +22682,7 @@ module.exports = function(Chart) {
 
 
 /***/ }),
-/* 444 */
+/* 445 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -22694,7 +22733,7 @@ module.exports = function(Chart) {
 
 
 /***/ }),
-/* 445 */
+/* 446 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -22909,7 +22948,7 @@ module.exports = function(Chart) {
 
 
 /***/ }),
-/* 446 */
+/* 447 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -23854,7 +23893,7 @@ module.exports = function(Chart) {
 
 
 /***/ }),
-/* 447 */
+/* 448 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -23965,7 +24004,7 @@ module.exports = function(Chart) {
 
 
 /***/ }),
-/* 448 */
+/* 449 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -24059,7 +24098,7 @@ module.exports = function(Chart) {
 
 
 /***/ }),
-/* 449 */
+/* 450 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -24166,7 +24205,7 @@ module.exports = function(Chart) {
 
 
 /***/ }),
-/* 450 */
+/* 451 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -24381,7 +24420,7 @@ module.exports = function(Chart) {
 
 
 /***/ }),
-/* 451 */
+/* 452 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -24671,7 +24710,7 @@ module.exports = function(Chart) {
 
 
 /***/ }),
-/* 452 */
+/* 453 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -24679,7 +24718,7 @@ module.exports = function(Chart) {
 
 // By default, select the browser (DOM) platform.
 // @TODO Make possible to select another platform at build time.
-var implementation = __webpack_require__(451);
+var implementation = __webpack_require__(452);
 
 module.exports = function(Chart) {
 	/**
@@ -24747,7 +24786,7 @@ module.exports = function(Chart) {
 
 
 /***/ }),
-/* 453 */
+/* 454 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -25063,7 +25102,7 @@ module.exports = function(Chart) {
 
 
 /***/ }),
-/* 454 */
+/* 455 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -25614,7 +25653,7 @@ module.exports = function(Chart) {
 
 
 /***/ }),
-/* 455 */
+/* 456 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -25847,7 +25886,7 @@ module.exports = function(Chart) {
 
 
 /***/ }),
-/* 456 */
+/* 457 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -25986,7 +26025,7 @@ module.exports = function(Chart) {
 
 
 /***/ }),
-/* 457 */
+/* 458 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -26183,7 +26222,7 @@ module.exports = function(Chart) {
 
 
 /***/ }),
-/* 458 */
+/* 459 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -26296,7 +26335,7 @@ module.exports = function(Chart) {
 
 
 /***/ }),
-/* 459 */
+/* 460 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -26549,7 +26588,7 @@ module.exports = function(Chart) {
 
 
 /***/ }),
-/* 460 */
+/* 461 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -27079,7 +27118,7 @@ module.exports = function(Chart) {
 
 
 /***/ }),
-/* 461 */
+/* 462 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -27528,11 +27567,11 @@ module.exports = function(Chart) {
 
 
 /***/ }),
-/* 462 */
+/* 463 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* MIT license */
-var colorNames = __webpack_require__(465);
+var colorNames = __webpack_require__(466);
 
 module.exports = {
    getRgba: getRgba,
@@ -27755,7 +27794,7 @@ for (var name in colorNames) {
 
 
 /***/ }),
-/* 463 */
+/* 464 */
 /***/ (function(module, exports) {
 
 /* MIT license */
@@ -28459,10 +28498,10 @@ for (var key in cssKeywords) {
 
 
 /***/ }),
-/* 464 */
+/* 465 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var conversions = __webpack_require__(463);
+var conversions = __webpack_require__(464);
 
 var convert = function() {
    return new Converter();
@@ -28556,7 +28595,7 @@ Converter.prototype.getValues = function(space) {
 module.exports = convert;
 
 /***/ }),
-/* 465 */
+/* 466 */
 /***/ (function(module, exports) {
 
 module.exports = {
@@ -28711,7 +28750,1105 @@ module.exports = {
 };
 
 /***/ }),
-/* 466 */
+/* 467 */
+/***/ (function(module, exports, __webpack_require__) {
+
+(function (global, factory) {
+   true ? module.exports = factory() :
+  typeof define === 'function' && define.amd ? define(factory) :
+  (global.pattern = factory());
+}(this, (function () { 'use strict';
+
+var BACKGROUND_COLOR = 'rgba(100, 100, 100, 0.7)';
+var PATTERN_COLOR = 'rgba(255, 255, 255, 0.8)';
+var POINT_STYLE = 'round';
+
+var asyncGenerator = function () {
+  function AwaitValue(value) {
+    this.value = value;
+  }
+
+  function AsyncGenerator(gen) {
+    var front, back;
+
+    function send(key, arg) {
+      return new Promise(function (resolve, reject) {
+        var request = {
+          key: key,
+          arg: arg,
+          resolve: resolve,
+          reject: reject,
+          next: null
+        };
+
+        if (back) {
+          back = back.next = request;
+        } else {
+          front = back = request;
+          resume(key, arg);
+        }
+      });
+    }
+
+    function resume(key, arg) {
+      try {
+        var result = gen[key](arg);
+        var value = result.value;
+
+        if (value instanceof AwaitValue) {
+          Promise.resolve(value.value).then(function (arg) {
+            resume("next", arg);
+          }, function (arg) {
+            resume("throw", arg);
+          });
+        } else {
+          settle(result.done ? "return" : "normal", result.value);
+        }
+      } catch (err) {
+        settle("throw", err);
+      }
+    }
+
+    function settle(type, value) {
+      switch (type) {
+        case "return":
+          front.resolve({
+            value: value,
+            done: true
+          });
+          break;
+
+        case "throw":
+          front.reject(value);
+          break;
+
+        default:
+          front.resolve({
+            value: value,
+            done: false
+          });
+          break;
+      }
+
+      front = front.next;
+
+      if (front) {
+        resume(front.key, front.arg);
+      } else {
+        back = null;
+      }
+    }
+
+    this._invoke = send;
+
+    if (typeof gen.return !== "function") {
+      this.return = undefined;
+    }
+  }
+
+  if (typeof Symbol === "function" && Symbol.asyncIterator) {
+    AsyncGenerator.prototype[Symbol.asyncIterator] = function () {
+      return this;
+    };
+  }
+
+  AsyncGenerator.prototype.next = function (arg) {
+    return this._invoke("next", arg);
+  };
+
+  AsyncGenerator.prototype.throw = function (arg) {
+    return this._invoke("throw", arg);
+  };
+
+  AsyncGenerator.prototype.return = function (arg) {
+    return this._invoke("return", arg);
+  };
+
+  return {
+    wrap: function (fn) {
+      return function () {
+        return new AsyncGenerator(fn.apply(this, arguments));
+      };
+    },
+    await: function (value) {
+      return new AwaitValue(value);
+    }
+  };
+}();
+
+var classCallCheck = function (instance, Constructor) {
+  if (!(instance instanceof Constructor)) {
+    throw new TypeError("Cannot call a class as a function");
+  }
+};
+
+var createClass = function () {
+  function defineProperties(target, props) {
+    for (var i = 0; i < props.length; i++) {
+      var descriptor = props[i];
+      descriptor.enumerable = descriptor.enumerable || false;
+      descriptor.configurable = true;
+      if ("value" in descriptor) descriptor.writable = true;
+      Object.defineProperty(target, descriptor.key, descriptor);
+    }
+  }
+
+  return function (Constructor, protoProps, staticProps) {
+    if (protoProps) defineProperties(Constructor.prototype, protoProps);
+    if (staticProps) defineProperties(Constructor, staticProps);
+    return Constructor;
+  };
+}();
+
+var inherits = function (subClass, superClass) {
+  if (typeof superClass !== "function" && superClass !== null) {
+    throw new TypeError("Super expression must either be null or a function, not " + typeof superClass);
+  }
+
+  subClass.prototype = Object.create(superClass && superClass.prototype, {
+    constructor: {
+      value: subClass,
+      enumerable: false,
+      writable: true,
+      configurable: true
+    }
+  });
+  if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
+};
+
+var possibleConstructorReturn = function (self, call) {
+  if (!self) {
+    throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
+  }
+
+  return call && (typeof call === "object" || typeof call === "function") ? call : self;
+};
+
+var Shape = function () {
+  function Shape() {
+    var size = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 20;
+    var backgroundColor = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : BACKGROUND_COLOR;
+    var patternColor = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : PATTERN_COLOR;
+    classCallCheck(this, Shape);
+
+    this._canvas = document.createElement('canvas');
+    this._context = this._canvas.getContext('2d');
+
+    this._canvas.width = size;
+    this._canvas.height = size;
+
+    this._context.fillStyle = backgroundColor;
+    this._context.fillRect(0, 0, this._canvas.width, this._canvas.height);
+
+    this._size = size;
+    this._patternColor = patternColor;
+
+    return this;
+  }
+
+  createClass(Shape, [{
+    key: 'setStrokeProps',
+    value: function setStrokeProps() {
+      this._context.strokeStyle = this._patternColor;
+      this._context.lineWidth = this._size / 10;
+      this._context.lineJoin = POINT_STYLE;
+      this._context.lineCap = POINT_STYLE;
+    }
+  }, {
+    key: 'setFillProps',
+    value: function setFillProps() {
+      this._context.fillStyle = this._patternColor;
+    }
+  }]);
+  return Shape;
+}();
+
+var Plus = function (_Shape) {
+  inherits(Plus, _Shape);
+
+  function Plus() {
+    classCallCheck(this, Plus);
+    return possibleConstructorReturn(this, (Plus.__proto__ || Object.getPrototypeOf(Plus)).apply(this, arguments));
+  }
+
+  createClass(Plus, [{
+    key: 'drawTile',
+    value: function drawTile() {
+      var halfSize = this._size / 2;
+
+      this._context.beginPath();
+
+      this.setStrokeProps();
+
+      this.drawPlus();
+      this.drawPlus(halfSize, halfSize);
+
+      this._context.stroke();
+
+      return this._canvas;
+    }
+  }, {
+    key: 'drawPlus',
+    value: function drawPlus() {
+      var offsetX = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 0;
+      var offsetY = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 0;
+
+      var size = this._size;
+      var halfSize = size / 2;
+      var quarterSize = size / 4;
+
+      this._context.moveTo(quarterSize + offsetX, 0 + offsetY);
+      this._context.lineTo(quarterSize + offsetX, halfSize + offsetY);
+      this._context.moveTo(0 + offsetX, quarterSize + offsetY);
+      this._context.lineTo(halfSize + offsetX, quarterSize + offsetY);
+
+      this._context.closePath();
+    }
+  }]);
+  return Plus;
+}(Shape);
+
+var Cross = function (_Shape) {
+  inherits(Cross, _Shape);
+
+  function Cross() {
+    classCallCheck(this, Cross);
+    return possibleConstructorReturn(this, (Cross.__proto__ || Object.getPrototypeOf(Cross)).apply(this, arguments));
+  }
+
+  createClass(Cross, [{
+    key: 'drawTile',
+    value: function drawTile() {
+      var halfSize = this._size / 2;
+
+      this._context.beginPath();
+
+      this.setStrokeProps();
+
+      this.drawCross();
+      this.drawCross(halfSize, halfSize);
+
+      this._context.stroke();
+
+      return this._canvas;
+    }
+  }, {
+    key: 'drawCross',
+    value: function drawCross() {
+      var offsetX = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 0;
+      var offsetY = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 0;
+
+      var size = this._size;
+      var halfSize = size / 2;
+      var gap = 2;
+
+      this._context.moveTo(offsetX + gap, offsetY + gap);
+      this._context.lineTo(halfSize - gap + offsetX, halfSize - gap + offsetY);
+      this._context.moveTo(offsetX + gap, halfSize - gap + offsetY);
+      this._context.lineTo(halfSize - gap + offsetX, offsetY + gap);
+
+      this._context.closePath();
+    }
+  }]);
+  return Cross;
+}(Shape);
+
+var Dash = function (_Shape) {
+  inherits(Dash, _Shape);
+
+  function Dash() {
+    classCallCheck(this, Dash);
+    return possibleConstructorReturn(this, (Dash.__proto__ || Object.getPrototypeOf(Dash)).apply(this, arguments));
+  }
+
+  createClass(Dash, [{
+    key: 'drawTile',
+    value: function drawTile() {
+      var halfSize = this._size / 2;
+
+      this._context.beginPath();
+
+      this.setStrokeProps();
+
+      this.drawDash();
+      this.drawDash(halfSize, halfSize);
+
+      this._context.stroke();
+
+      return this._canvas;
+    }
+  }, {
+    key: 'drawDash',
+    value: function drawDash() {
+      var offsetX = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 0;
+      var offsetY = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 0;
+
+      var size = this._size;
+      var halfSize = size / 2;
+      var gap = 2;
+
+      this._context.moveTo(offsetX + gap, offsetY + gap);
+      this._context.lineTo(halfSize - gap + offsetX, halfSize - gap + offsetY);
+
+      this._context.closePath();
+    }
+  }]);
+  return Dash;
+}(Shape);
+
+var CrossDash = function (_Shape) {
+  inherits(CrossDash, _Shape);
+
+  function CrossDash() {
+    classCallCheck(this, CrossDash);
+    return possibleConstructorReturn(this, (CrossDash.__proto__ || Object.getPrototypeOf(CrossDash)).apply(this, arguments));
+  }
+
+  createClass(CrossDash, [{
+    key: 'drawTile',
+    value: function drawTile() {
+      var halfSize = this._size / 2;
+      this._context.beginPath();
+
+      this.setStrokeProps();
+
+      var cross = new Cross();
+      cross.drawCross.call(this);
+
+      var dash = new Dash();
+      dash.drawDash.call(this, halfSize, halfSize);
+
+      this._context.stroke();
+
+      return this._canvas;
+    }
+  }]);
+  return CrossDash;
+}(Shape);
+
+var Dot = function (_Shape) {
+  inherits(Dot, _Shape);
+
+  function Dot() {
+    classCallCheck(this, Dot);
+    return possibleConstructorReturn(this, (Dot.__proto__ || Object.getPrototypeOf(Dot)).apply(this, arguments));
+  }
+
+  createClass(Dot, [{
+    key: 'drawTile',
+    value: function drawTile() {
+      var halfSize = this._size / 2;
+
+      this._context.beginPath();
+
+      this.setFillProps();
+
+      this.drawDot();
+      this.drawDot(halfSize, halfSize);
+
+      this._context.fill();
+
+      return this._canvas;
+    }
+  }, {
+    key: 'drawDot',
+    value: function drawDot() {
+      var offsetX = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 0;
+      var offsetY = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 0;
+      var diameter = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : this._size / 10;
+
+      var size = this._size;
+      var quarterSize = size / 4;
+      var x = quarterSize + offsetX;
+      var y = quarterSize + offsetY;
+
+      this._context.moveTo(x + quarterSize, y);
+      this._context.arc(x, y, diameter, 0, 2 * Math.PI);
+
+      this._context.closePath();
+    }
+  }]);
+  return Dot;
+}(Shape);
+
+var DotDash = function (_Shape) {
+  inherits(DotDash, _Shape);
+
+  function DotDash() {
+    classCallCheck(this, DotDash);
+    return possibleConstructorReturn(this, (DotDash.__proto__ || Object.getPrototypeOf(DotDash)).apply(this, arguments));
+  }
+
+  createClass(DotDash, [{
+    key: 'drawTile',
+    value: function drawTile() {
+      var halfSize = this._size / 2;
+
+      this._context.beginPath();
+
+      this.setStrokeProps();
+
+      var dash = new Dash();
+      dash.drawDash.call(this, halfSize, halfSize);
+
+      this._context.closePath();
+      this._context.stroke();
+
+      this.setFillProps();
+
+      var dot = new Dot();
+      dot.drawDot.call(this);
+
+      this._context.fill();
+
+      return this._canvas;
+    }
+  }]);
+  return DotDash;
+}(Shape);
+
+var Disc = function (_Dot) {
+  inherits(Disc, _Dot);
+
+  function Disc() {
+    classCallCheck(this, Disc);
+    return possibleConstructorReturn(this, (Disc.__proto__ || Object.getPrototypeOf(Disc)).apply(this, arguments));
+  }
+
+  createClass(Disc, [{
+    key: 'drawTile',
+    value: function drawTile() {
+      var halfSize = this._size / 2;
+      var diameter = this._size / 5;
+
+      this._context.beginPath();
+
+      this.setFillProps();
+
+      this.drawDot(0, 0, diameter);
+      this.drawDot(halfSize, halfSize, diameter);
+
+      this._context.fill();
+
+      return this._canvas;
+    }
+  }]);
+  return Disc;
+}(Dot);
+
+var Ring = function (_Dot) {
+  inherits(Ring, _Dot);
+
+  function Ring() {
+    classCallCheck(this, Ring);
+    return possibleConstructorReturn(this, (Ring.__proto__ || Object.getPrototypeOf(Ring)).apply(this, arguments));
+  }
+
+  createClass(Ring, [{
+    key: 'drawTile',
+    value: function drawTile() {
+      var halfSize = this._size / 2;
+      var diameter = this._size / 5;
+
+      this._context.beginPath();
+
+      this.setStrokeProps();
+
+      this.drawDot(0, 0, diameter);
+      this.drawDot(halfSize, halfSize, diameter);
+
+      this._context.stroke();
+
+      return this._canvas;
+    }
+  }]);
+  return Ring;
+}(Dot);
+
+var Line = function (_Shape) {
+  inherits(Line, _Shape);
+
+  function Line() {
+    classCallCheck(this, Line);
+    return possibleConstructorReturn(this, (Line.__proto__ || Object.getPrototypeOf(Line)).apply(this, arguments));
+  }
+
+  createClass(Line, [{
+    key: 'drawTile',
+    value: function drawTile() {
+      var halfSize = this._size / 2;
+
+      this._context.beginPath();
+
+      this.setStrokeProps();
+
+      this.drawLine();
+      this.drawLine(halfSize, halfSize);
+
+      this._context.stroke();
+
+      return this._canvas;
+    }
+  }, {
+    key: 'drawLine',
+    value: function drawLine() {
+      var offsetX = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 0;
+      var offsetY = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 0;
+
+      var size = this._size;
+      var quarterSize = size / 4;
+
+      this._context.moveTo(0, quarterSize + offsetY);
+      this._context.lineTo(this._size, quarterSize + offsetY);
+
+      this._context.closePath();
+    }
+  }]);
+  return Line;
+}(Shape);
+
+var VerticalLine = function (_Line) {
+  inherits(VerticalLine, _Line);
+
+  function VerticalLine() {
+    classCallCheck(this, VerticalLine);
+    return possibleConstructorReturn(this, (VerticalLine.__proto__ || Object.getPrototypeOf(VerticalLine)).apply(this, arguments));
+  }
+
+  createClass(VerticalLine, [{
+    key: 'drawTile',
+    value: function drawTile() {
+      this._context.translate(this._size, 0);
+      this._context.rotate(90 * Math.PI / 180);
+
+      Line.prototype.drawTile.call(this);
+
+      return this._canvas;
+    }
+  }]);
+  return VerticalLine;
+}(Line);
+
+var Weave = function (_Shape) {
+  inherits(Weave, _Shape);
+
+  function Weave() {
+    classCallCheck(this, Weave);
+    return possibleConstructorReturn(this, (Weave.__proto__ || Object.getPrototypeOf(Weave)).apply(this, arguments));
+  }
+
+  createClass(Weave, [{
+    key: 'drawTile',
+    value: function drawTile() {
+      this._context.beginPath();
+
+      this.setStrokeProps();
+
+      this.drawWeave(0, 0);
+
+      this._context.stroke();
+
+      return this._canvas;
+    }
+  }, {
+    key: 'drawWeave',
+    value: function drawWeave(offsetX, offsetY) {
+      var size = this._size;
+      var halfSize = size / 2;
+
+      this._context.moveTo(offsetX + 1, offsetY + 1);
+      this._context.lineTo(halfSize - 1, halfSize - 1);
+
+      this._context.moveTo(halfSize + 1, size - 1);
+      this._context.lineTo(size - 1, halfSize + 1);
+
+      this._context.closePath();
+    }
+  }]);
+  return Weave;
+}(Shape);
+
+var Zigzag = function (_Shape) {
+  inherits(Zigzag, _Shape);
+
+  function Zigzag() {
+    classCallCheck(this, Zigzag);
+    return possibleConstructorReturn(this, (Zigzag.__proto__ || Object.getPrototypeOf(Zigzag)).apply(this, arguments));
+  }
+
+  createClass(Zigzag, [{
+    key: 'drawTile',
+    value: function drawTile() {
+      this._context.beginPath();
+
+      this.setStrokeProps();
+
+      this.drawZigzag();
+      this.drawZigzag(this._size / 2);
+
+      this._context.stroke();
+
+      return this._canvas;
+    }
+  }, {
+    key: 'drawZigzag',
+    value: function drawZigzag() {
+      var offsetY = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 0;
+
+      var size = this._size;
+      var quarterSize = size / 4;
+      var halfSize = size / 2;
+      var tenthSize = size / 10;
+
+      this._context.moveTo(0, tenthSize + offsetY);
+      this._context.lineTo(quarterSize, halfSize - tenthSize + offsetY);
+      this._context.lineTo(halfSize, tenthSize + offsetY);
+      this._context.lineTo(size - quarterSize, halfSize - tenthSize + offsetY);
+      this._context.lineTo(size, tenthSize + offsetY);
+    }
+  }]);
+  return Zigzag;
+}(Shape);
+
+var ZigzagVertical = function (_Zigzag) {
+  inherits(ZigzagVertical, _Zigzag);
+
+  function ZigzagVertical() {
+    classCallCheck(this, ZigzagVertical);
+    return possibleConstructorReturn(this, (ZigzagVertical.__proto__ || Object.getPrototypeOf(ZigzagVertical)).apply(this, arguments));
+  }
+
+  createClass(ZigzagVertical, [{
+    key: 'drawTile',
+    value: function drawTile() {
+      this._context.translate(this._size, 0);
+      this._context.rotate(90 * Math.PI / 180);
+
+      Zigzag.prototype.drawTile.call(this);
+
+      return this._canvas;
+    }
+  }]);
+  return ZigzagVertical;
+}(Zigzag);
+
+var Diagonal = function (_Shape) {
+  inherits(Diagonal, _Shape);
+
+  function Diagonal() {
+    classCallCheck(this, Diagonal);
+    return possibleConstructorReturn(this, (Diagonal.__proto__ || Object.getPrototypeOf(Diagonal)).apply(this, arguments));
+  }
+
+  createClass(Diagonal, [{
+    key: 'drawTile',
+    value: function drawTile() {
+      var halfSize = this._size / 2;
+
+      this._context.beginPath();
+
+      this.setStrokeProps();
+
+      this.drawDiagonalLine();
+      this.drawDiagonalLine(halfSize, halfSize);
+
+      this._context.stroke();
+
+      return this._canvas;
+    }
+  }, {
+    key: 'drawDiagonalLine',
+    value: function drawDiagonalLine() {
+      var offsetX = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 0;
+      var offsetY = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 0;
+
+      var size = this._size;
+      var halfSize = size / 2;
+      var gap = 1;
+
+      this._context.moveTo(halfSize - gap - offsetX, gap * -1 + offsetY);
+      this._context.lineTo(size + 1 - offsetX, halfSize + 1 + offsetY);
+
+      this._context.closePath();
+    }
+  }]);
+  return Diagonal;
+}(Shape);
+
+var DiagonalRightLeft = function (_Diagonal) {
+  inherits(DiagonalRightLeft, _Diagonal);
+
+  function DiagonalRightLeft() {
+    classCallCheck(this, DiagonalRightLeft);
+    return possibleConstructorReturn(this, (DiagonalRightLeft.__proto__ || Object.getPrototypeOf(DiagonalRightLeft)).apply(this, arguments));
+  }
+
+  createClass(DiagonalRightLeft, [{
+    key: 'drawTile',
+    value: function drawTile() {
+      this._context.translate(this._size, 0);
+      this._context.rotate(90 * Math.PI / 180);
+
+      Diagonal.prototype.drawTile.call(this);
+
+      return this._canvas;
+    }
+  }]);
+  return DiagonalRightLeft;
+}(Diagonal);
+
+var Square = function (_Shape) {
+  inherits(Square, _Shape);
+
+  function Square() {
+    classCallCheck(this, Square);
+    return possibleConstructorReturn(this, (Square.__proto__ || Object.getPrototypeOf(Square)).apply(this, arguments));
+  }
+
+  createClass(Square, [{
+    key: 'drawTile',
+    value: function drawTile() {
+      var halfSize = this._size / 2;
+
+      this._context.beginPath();
+
+      this.setFillProps();
+
+      this.drawSquare();
+      this.drawSquare(halfSize, halfSize);
+
+      this._context.fill();
+
+      return this._canvas;
+    }
+  }, {
+    key: 'drawSquare',
+    value: function drawSquare() {
+      var offsetX = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 0;
+      var offsetY = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 0;
+
+      var size = this._size;
+      var halfSize = size / 2;
+      var gap = size / 20;
+
+      this._context.fillRect(offsetX + gap, offsetY + gap, halfSize - gap * 2, halfSize - gap * 2);
+
+      this._context.closePath();
+    }
+  }]);
+  return Square;
+}(Shape);
+
+var Box = function (_Shape) {
+  inherits(Box, _Shape);
+
+  function Box() {
+    classCallCheck(this, Box);
+    return possibleConstructorReturn(this, (Box.__proto__ || Object.getPrototypeOf(Box)).apply(this, arguments));
+  }
+
+  createClass(Box, [{
+    key: 'drawTile',
+    value: function drawTile() {
+      var halfSize = this._size / 2;
+
+      this._context.beginPath();
+
+      this.setStrokeProps();
+
+      this.drawBox();
+      this.drawBox(halfSize, halfSize);
+
+      this._context.stroke();
+
+      return this._canvas;
+    }
+  }, {
+    key: 'drawBox',
+    value: function drawBox() {
+      var offsetX = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 0;
+      var offsetY = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 0;
+
+      var size = this._size;
+      var halfSize = size / 2;
+      var gap = size / 20;
+
+      this._context.strokeRect(offsetX + gap, offsetY + gap, halfSize - gap * 4, halfSize - gap * 4);
+
+      this._context.closePath();
+    }
+  }]);
+  return Box;
+}(Shape);
+
+var Triangle = function (_Shape) {
+  inherits(Triangle, _Shape);
+
+  function Triangle() {
+    classCallCheck(this, Triangle);
+    return possibleConstructorReturn(this, (Triangle.__proto__ || Object.getPrototypeOf(Triangle)).apply(this, arguments));
+  }
+
+  createClass(Triangle, [{
+    key: 'drawTile',
+    value: function drawTile() {
+      var halfSize = this._size / 2;
+
+      this._context.beginPath();
+
+      this.setFillProps();
+
+      this.drawTriangle();
+      this.drawTriangle(halfSize, halfSize);
+
+      this._context.fill();
+
+      return this._canvas;
+    }
+  }, {
+    key: 'drawTriangle',
+    value: function drawTriangle() {
+      var offsetX = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 0;
+      var offsetY = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 0;
+
+      var size = this._size;
+      var halfSize = size / 2;
+      var quarterSize = size / 4;
+
+      this._context.moveTo(quarterSize + offsetX, offsetY);
+      this._context.lineTo(halfSize + offsetX, halfSize + offsetY);
+      this._context.lineTo(offsetX, halfSize + offsetY);
+
+      this._context.closePath();
+    }
+  }]);
+  return Triangle;
+}(Shape);
+
+var TriangleVertical = function (_Triangle) {
+  inherits(TriangleVertical, _Triangle);
+
+  function TriangleVertical() {
+    classCallCheck(this, TriangleVertical);
+    return possibleConstructorReturn(this, (TriangleVertical.__proto__ || Object.getPrototypeOf(TriangleVertical)).apply(this, arguments));
+  }
+
+  createClass(TriangleVertical, [{
+    key: 'drawTile',
+    value: function drawTile() {
+      var size = this._size;
+
+      this._context.translate(size, size);
+      this._context.rotate(180 * Math.PI / 180);
+
+      Triangle.prototype.drawTile.call(this);
+
+      return this._canvas;
+    }
+  }]);
+  return TriangleVertical;
+}(Triangle);
+
+var Diamond = function (_Shape) {
+  inherits(Diamond, _Shape);
+
+  function Diamond() {
+    classCallCheck(this, Diamond);
+    return possibleConstructorReturn(this, (Diamond.__proto__ || Object.getPrototypeOf(Diamond)).apply(this, arguments));
+  }
+
+  createClass(Diamond, [{
+    key: 'drawTile',
+    value: function drawTile() {
+      var halfSize = this._size / 2;
+
+      this._context.beginPath();
+
+      this.setFillProps();
+
+      this.drawDiamond();
+      this.drawDiamond(halfSize, halfSize);
+
+      this._context.fill();
+
+      return this._canvas;
+    }
+  }, {
+    key: 'drawDiamond',
+    value: function drawDiamond() {
+      var offsetX = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 0;
+      var offsetY = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 0;
+
+      var size = this._size;
+      var halfSize = size / 2;
+      var quarterSize = size / 4;
+
+      this._context.moveTo(quarterSize + offsetX, offsetY);
+      this._context.lineTo(halfSize + offsetX, quarterSize + offsetY);
+      this._context.lineTo(quarterSize + offsetX, halfSize + offsetY);
+      this._context.lineTo(offsetX, quarterSize + offsetY);
+
+      this._context.closePath();
+    }
+  }]);
+  return Diamond;
+}(Shape);
+
+var DiamondBox = function (_Diamond) {
+  inherits(DiamondBox, _Diamond);
+
+  function DiamondBox() {
+    classCallCheck(this, DiamondBox);
+    return possibleConstructorReturn(this, (DiamondBox.__proto__ || Object.getPrototypeOf(DiamondBox)).apply(this, arguments));
+  }
+
+  createClass(DiamondBox, [{
+    key: 'drawTile',
+    value: function drawTile() {
+      var halfSize = this._size / 2;
+
+      this._context.beginPath();
+
+      this.setStrokeProps();
+
+      this.drawDiamond();
+      this.drawDiamond(halfSize, halfSize);
+
+      this._context.stroke();
+
+      return this._canvas;
+    }
+  }, {
+    key: 'drawDiamond',
+    value: function drawDiamond() {
+      var offsetX = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 0;
+      var offsetY = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 0;
+
+      var size = this._size;
+      var halfSize = size / 2 - 1;
+      var quarterSize = size / 4;
+
+      this._context.moveTo(quarterSize + offsetX, offsetY + 1);
+      this._context.lineTo(halfSize + offsetX, quarterSize + offsetY);
+      this._context.lineTo(quarterSize + offsetX, halfSize + offsetY);
+      this._context.lineTo(offsetX + 1, quarterSize + offsetY);
+
+      this._context.closePath();
+    }
+  }]);
+  return DiamondBox;
+}(Diamond);
+
+var shapes = {
+  'plus': Plus,
+  'cross': Cross,
+  'dash': Dash,
+  'cross-dash': CrossDash,
+  'dot': Dot,
+  'dot-dash': DotDash,
+  'disc': Disc,
+  'ring': Ring,
+  'line': Line,
+  'line-vertical': VerticalLine,
+  'weave': Weave,
+  'zigzag': Zigzag,
+  'zigzag-vertical': ZigzagVertical,
+  'diagonal': Diagonal,
+  'diagonal-right-left': DiagonalRightLeft,
+  'square': Square,
+  'box': Box,
+  'triangle': Triangle,
+  'triangle-inverted': TriangleVertical,
+  'diamond': Diamond,
+  'diamond-box': DiamondBox
+};
+
+var deprecatedShapes = {
+  'circle': shapes['disc'],
+  'triangle-vertical': shapes['triangle-inverted'],
+  'line-horizontal': shapes['line'],
+  'line-diagonal-lr': shapes['diagonal'],
+  'line-diagonal-rl': shapes['diagonal-right-left'],
+  'zigzag-horizontal': shapes['zigzag'],
+  'diamond-outline': shapes['diamond-box']
+};
+
+var completeShapesList = [];
+
+function getRandomShape() {
+  var excludedShapeTypes = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
+
+  var shapesList = Object.keys(shapes);
+
+  excludedShapeTypes.forEach(function (shapeType) {
+    shapesList.splice(shapesList.indexOf(shapeType), 1);
+  });
+
+  var randomIndex = Math.floor(Math.random() * shapesList.length);
+
+  return shapesList[randomIndex];
+}
+
+Object.assign(completeShapesList, shapes, deprecatedShapes);
+
+function draw() {
+  var shapeType = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'square';
+  var backgroundColor = arguments[1];
+  var patternColor = arguments[2];
+  var size = arguments[3];
+
+  var patternCanvas = document.createElement('canvas');
+  var patternContext = patternCanvas.getContext('2d');
+  var outerSize = size * 2;
+
+  var Shape = completeShapesList[shapeType];
+  var shape = new Shape(size, backgroundColor, patternColor);
+
+  var pattern = patternContext.createPattern(shape.drawTile(), 'repeat');
+
+  patternCanvas.width = outerSize;
+  patternCanvas.height = outerSize;
+
+  pattern.shapeType = shapeType;
+
+  return pattern;
+}
+
+function generate(colorList) {
+  var firstShapeType = void 0;
+  var previousShapeType = void 0;
+
+  return colorList.map(function (color, index, list) {
+    var shapeType = void 0;
+
+    if (index === 0) {
+      shapeType = getRandomShape();
+      previousShapeType = shapeType;
+      firstShapeType = previousShapeType;
+    } else if (index === list.length - 1) {
+      shapeType = getRandomShape([previousShapeType, firstShapeType]);
+    } else {
+      shapeType = getRandomShape([previousShapeType]);
+      previousShapeType = shapeType;
+    }
+
+    return draw(shapeType, color);
+  });
+}
+
+var pattern = {
+  draw: draw,
+  generate: generate
+};
+
+return pattern;
+
+})));
+//# sourceMappingURL=patternomaly.js.map
+
+
+/***/ }),
+/* 468 */
 /***/ (function(module, exports) {
 
 module.exports = function(module) {
@@ -28739,240 +29876,240 @@ module.exports = function(module) {
 
 
 /***/ }),
-/* 467 */
+/* 469 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var map = {
-	"./af": 293,
-	"./af.js": 293,
-	"./ar": 300,
-	"./ar-dz": 294,
-	"./ar-dz.js": 294,
-	"./ar-kw": 295,
-	"./ar-kw.js": 295,
-	"./ar-ly": 296,
-	"./ar-ly.js": 296,
-	"./ar-ma": 297,
-	"./ar-ma.js": 297,
-	"./ar-sa": 298,
-	"./ar-sa.js": 298,
-	"./ar-tn": 299,
-	"./ar-tn.js": 299,
-	"./ar.js": 300,
-	"./az": 301,
-	"./az.js": 301,
-	"./be": 302,
-	"./be.js": 302,
-	"./bg": 303,
-	"./bg.js": 303,
-	"./bn": 304,
-	"./bn.js": 304,
-	"./bo": 305,
-	"./bo.js": 305,
-	"./br": 306,
-	"./br.js": 306,
-	"./bs": 307,
-	"./bs.js": 307,
-	"./ca": 308,
-	"./ca.js": 308,
-	"./cs": 309,
-	"./cs.js": 309,
-	"./cv": 310,
-	"./cv.js": 310,
-	"./cy": 311,
-	"./cy.js": 311,
-	"./da": 312,
-	"./da.js": 312,
-	"./de": 315,
-	"./de-at": 313,
-	"./de-at.js": 313,
-	"./de-ch": 314,
-	"./de-ch.js": 314,
-	"./de.js": 315,
-	"./dv": 316,
-	"./dv.js": 316,
-	"./el": 317,
-	"./el.js": 317,
-	"./en-au": 318,
-	"./en-au.js": 318,
-	"./en-ca": 319,
-	"./en-ca.js": 319,
-	"./en-gb": 320,
-	"./en-gb.js": 320,
-	"./en-ie": 321,
-	"./en-ie.js": 321,
-	"./en-nz": 322,
-	"./en-nz.js": 322,
-	"./eo": 323,
-	"./eo.js": 323,
-	"./es": 325,
-	"./es-do": 324,
-	"./es-do.js": 324,
-	"./es.js": 325,
-	"./et": 326,
-	"./et.js": 326,
-	"./eu": 327,
-	"./eu.js": 327,
-	"./fa": 328,
-	"./fa.js": 328,
-	"./fi": 329,
-	"./fi.js": 329,
-	"./fo": 330,
-	"./fo.js": 330,
-	"./fr": 333,
-	"./fr-ca": 331,
-	"./fr-ca.js": 331,
-	"./fr-ch": 332,
-	"./fr-ch.js": 332,
-	"./fr.js": 333,
-	"./fy": 334,
-	"./fy.js": 334,
-	"./gd": 335,
-	"./gd.js": 335,
-	"./gl": 336,
-	"./gl.js": 336,
-	"./gom-latn": 337,
-	"./gom-latn.js": 337,
-	"./he": 338,
-	"./he.js": 338,
-	"./hi": 339,
-	"./hi.js": 339,
-	"./hr": 340,
-	"./hr.js": 340,
-	"./hu": 341,
-	"./hu.js": 341,
-	"./hy-am": 342,
-	"./hy-am.js": 342,
-	"./id": 343,
-	"./id.js": 343,
-	"./is": 344,
-	"./is.js": 344,
-	"./it": 345,
-	"./it.js": 345,
-	"./ja": 346,
-	"./ja.js": 346,
-	"./jv": 347,
-	"./jv.js": 347,
-	"./ka": 348,
-	"./ka.js": 348,
-	"./kk": 349,
-	"./kk.js": 349,
-	"./km": 350,
-	"./km.js": 350,
-	"./kn": 351,
-	"./kn.js": 351,
-	"./ko": 352,
-	"./ko.js": 352,
-	"./ky": 353,
-	"./ky.js": 353,
-	"./lb": 354,
-	"./lb.js": 354,
-	"./lo": 355,
-	"./lo.js": 355,
-	"./lt": 356,
-	"./lt.js": 356,
-	"./lv": 357,
-	"./lv.js": 357,
-	"./me": 358,
-	"./me.js": 358,
-	"./mi": 359,
-	"./mi.js": 359,
-	"./mk": 360,
-	"./mk.js": 360,
-	"./ml": 361,
-	"./ml.js": 361,
-	"./mr": 362,
-	"./mr.js": 362,
-	"./ms": 364,
-	"./ms-my": 363,
-	"./ms-my.js": 363,
-	"./ms.js": 364,
-	"./my": 365,
-	"./my.js": 365,
-	"./nb": 366,
-	"./nb.js": 366,
-	"./ne": 367,
-	"./ne.js": 367,
-	"./nl": 369,
-	"./nl-be": 368,
-	"./nl-be.js": 368,
-	"./nl.js": 369,
-	"./nn": 370,
-	"./nn.js": 370,
-	"./pa-in": 371,
-	"./pa-in.js": 371,
-	"./pl": 372,
-	"./pl.js": 372,
-	"./pt": 374,
-	"./pt-br": 373,
-	"./pt-br.js": 373,
-	"./pt.js": 374,
-	"./ro": 375,
-	"./ro.js": 375,
-	"./ru": 376,
-	"./ru.js": 376,
-	"./sd": 377,
-	"./sd.js": 377,
-	"./se": 378,
-	"./se.js": 378,
-	"./si": 379,
-	"./si.js": 379,
-	"./sk": 380,
-	"./sk.js": 380,
-	"./sl": 381,
-	"./sl.js": 381,
-	"./sq": 382,
-	"./sq.js": 382,
-	"./sr": 384,
-	"./sr-cyrl": 383,
-	"./sr-cyrl.js": 383,
-	"./sr.js": 384,
-	"./ss": 385,
-	"./ss.js": 385,
-	"./sv": 386,
-	"./sv.js": 386,
-	"./sw": 387,
-	"./sw.js": 387,
-	"./ta": 388,
-	"./ta.js": 388,
-	"./te": 389,
-	"./te.js": 389,
-	"./tet": 390,
-	"./tet.js": 390,
-	"./th": 391,
-	"./th.js": 391,
-	"./tl-ph": 392,
-	"./tl-ph.js": 392,
-	"./tlh": 393,
-	"./tlh.js": 393,
-	"./tr": 394,
-	"./tr.js": 394,
-	"./tzl": 395,
-	"./tzl.js": 395,
-	"./tzm": 397,
-	"./tzm-latn": 396,
-	"./tzm-latn.js": 396,
-	"./tzm.js": 397,
-	"./uk": 398,
-	"./uk.js": 398,
-	"./ur": 399,
-	"./ur.js": 399,
-	"./uz": 401,
-	"./uz-latn": 400,
-	"./uz-latn.js": 400,
-	"./uz.js": 401,
-	"./vi": 402,
-	"./vi.js": 402,
-	"./x-pseudo": 403,
-	"./x-pseudo.js": 403,
-	"./yo": 404,
-	"./yo.js": 404,
-	"./zh-cn": 405,
-	"./zh-cn.js": 405,
-	"./zh-hk": 406,
-	"./zh-hk.js": 406,
-	"./zh-tw": 407,
-	"./zh-tw.js": 407
+	"./af": 296,
+	"./af.js": 296,
+	"./ar": 303,
+	"./ar-dz": 297,
+	"./ar-dz.js": 297,
+	"./ar-kw": 298,
+	"./ar-kw.js": 298,
+	"./ar-ly": 299,
+	"./ar-ly.js": 299,
+	"./ar-ma": 300,
+	"./ar-ma.js": 300,
+	"./ar-sa": 301,
+	"./ar-sa.js": 301,
+	"./ar-tn": 302,
+	"./ar-tn.js": 302,
+	"./ar.js": 303,
+	"./az": 304,
+	"./az.js": 304,
+	"./be": 305,
+	"./be.js": 305,
+	"./bg": 306,
+	"./bg.js": 306,
+	"./bn": 307,
+	"./bn.js": 307,
+	"./bo": 308,
+	"./bo.js": 308,
+	"./br": 309,
+	"./br.js": 309,
+	"./bs": 310,
+	"./bs.js": 310,
+	"./ca": 311,
+	"./ca.js": 311,
+	"./cs": 312,
+	"./cs.js": 312,
+	"./cv": 313,
+	"./cv.js": 313,
+	"./cy": 314,
+	"./cy.js": 314,
+	"./da": 315,
+	"./da.js": 315,
+	"./de": 318,
+	"./de-at": 316,
+	"./de-at.js": 316,
+	"./de-ch": 317,
+	"./de-ch.js": 317,
+	"./de.js": 318,
+	"./dv": 319,
+	"./dv.js": 319,
+	"./el": 320,
+	"./el.js": 320,
+	"./en-au": 321,
+	"./en-au.js": 321,
+	"./en-ca": 322,
+	"./en-ca.js": 322,
+	"./en-gb": 323,
+	"./en-gb.js": 323,
+	"./en-ie": 324,
+	"./en-ie.js": 324,
+	"./en-nz": 325,
+	"./en-nz.js": 325,
+	"./eo": 326,
+	"./eo.js": 326,
+	"./es": 328,
+	"./es-do": 327,
+	"./es-do.js": 327,
+	"./es.js": 328,
+	"./et": 329,
+	"./et.js": 329,
+	"./eu": 330,
+	"./eu.js": 330,
+	"./fa": 331,
+	"./fa.js": 331,
+	"./fi": 332,
+	"./fi.js": 332,
+	"./fo": 333,
+	"./fo.js": 333,
+	"./fr": 336,
+	"./fr-ca": 334,
+	"./fr-ca.js": 334,
+	"./fr-ch": 335,
+	"./fr-ch.js": 335,
+	"./fr.js": 336,
+	"./fy": 337,
+	"./fy.js": 337,
+	"./gd": 338,
+	"./gd.js": 338,
+	"./gl": 339,
+	"./gl.js": 339,
+	"./gom-latn": 340,
+	"./gom-latn.js": 340,
+	"./he": 341,
+	"./he.js": 341,
+	"./hi": 342,
+	"./hi.js": 342,
+	"./hr": 343,
+	"./hr.js": 343,
+	"./hu": 344,
+	"./hu.js": 344,
+	"./hy-am": 345,
+	"./hy-am.js": 345,
+	"./id": 346,
+	"./id.js": 346,
+	"./is": 347,
+	"./is.js": 347,
+	"./it": 348,
+	"./it.js": 348,
+	"./ja": 349,
+	"./ja.js": 349,
+	"./jv": 350,
+	"./jv.js": 350,
+	"./ka": 351,
+	"./ka.js": 351,
+	"./kk": 352,
+	"./kk.js": 352,
+	"./km": 353,
+	"./km.js": 353,
+	"./kn": 354,
+	"./kn.js": 354,
+	"./ko": 355,
+	"./ko.js": 355,
+	"./ky": 356,
+	"./ky.js": 356,
+	"./lb": 357,
+	"./lb.js": 357,
+	"./lo": 358,
+	"./lo.js": 358,
+	"./lt": 359,
+	"./lt.js": 359,
+	"./lv": 360,
+	"./lv.js": 360,
+	"./me": 361,
+	"./me.js": 361,
+	"./mi": 362,
+	"./mi.js": 362,
+	"./mk": 363,
+	"./mk.js": 363,
+	"./ml": 364,
+	"./ml.js": 364,
+	"./mr": 365,
+	"./mr.js": 365,
+	"./ms": 367,
+	"./ms-my": 366,
+	"./ms-my.js": 366,
+	"./ms.js": 367,
+	"./my": 368,
+	"./my.js": 368,
+	"./nb": 369,
+	"./nb.js": 369,
+	"./ne": 370,
+	"./ne.js": 370,
+	"./nl": 372,
+	"./nl-be": 371,
+	"./nl-be.js": 371,
+	"./nl.js": 372,
+	"./nn": 373,
+	"./nn.js": 373,
+	"./pa-in": 374,
+	"./pa-in.js": 374,
+	"./pl": 375,
+	"./pl.js": 375,
+	"./pt": 377,
+	"./pt-br": 376,
+	"./pt-br.js": 376,
+	"./pt.js": 377,
+	"./ro": 378,
+	"./ro.js": 378,
+	"./ru": 379,
+	"./ru.js": 379,
+	"./sd": 380,
+	"./sd.js": 380,
+	"./se": 381,
+	"./se.js": 381,
+	"./si": 382,
+	"./si.js": 382,
+	"./sk": 383,
+	"./sk.js": 383,
+	"./sl": 384,
+	"./sl.js": 384,
+	"./sq": 385,
+	"./sq.js": 385,
+	"./sr": 387,
+	"./sr-cyrl": 386,
+	"./sr-cyrl.js": 386,
+	"./sr.js": 387,
+	"./ss": 388,
+	"./ss.js": 388,
+	"./sv": 389,
+	"./sv.js": 389,
+	"./sw": 390,
+	"./sw.js": 390,
+	"./ta": 391,
+	"./ta.js": 391,
+	"./te": 392,
+	"./te.js": 392,
+	"./tet": 393,
+	"./tet.js": 393,
+	"./th": 394,
+	"./th.js": 394,
+	"./tl-ph": 395,
+	"./tl-ph.js": 395,
+	"./tlh": 396,
+	"./tlh.js": 396,
+	"./tr": 397,
+	"./tr.js": 397,
+	"./tzl": 398,
+	"./tzl.js": 398,
+	"./tzm": 400,
+	"./tzm-latn": 399,
+	"./tzm-latn.js": 399,
+	"./tzm.js": 400,
+	"./uk": 401,
+	"./uk.js": 401,
+	"./ur": 402,
+	"./ur.js": 402,
+	"./uz": 404,
+	"./uz-latn": 403,
+	"./uz-latn.js": 403,
+	"./uz.js": 404,
+	"./vi": 405,
+	"./vi.js": 405,
+	"./x-pseudo": 406,
+	"./x-pseudo.js": 406,
+	"./yo": 407,
+	"./yo.js": 407,
+	"./zh-cn": 408,
+	"./zh-cn.js": 408,
+	"./zh-hk": 409,
+	"./zh-hk.js": 409,
+	"./zh-tw": 410,
+	"./zh-tw.js": 410
 };
 function webpackContext(req) {
 	return __webpack_require__(webpackContextResolve(req));
@@ -28988,7 +30125,7 @@ webpackContext.keys = function webpackContextKeys() {
 };
 webpackContext.resolve = webpackContextResolve;
 module.exports = webpackContext;
-webpackContext.id = 467;
+webpackContext.id = 469;
 
 
 /***/ })

@@ -1,15 +1,15 @@
 webpackJsonp([4],{
 
-/***/ 285:
+/***/ 287:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(49);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__homework__ = __webpack_require__(414);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__profile__ = __webpack_require__(417);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ngx_translate_core__ = __webpack_require__(105);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HomeworkModule", function() { return HomeworkModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ProfileModule", function() { return ProfileModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -20,27 +20,27 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var HomeworkModule = (function () {
-    function HomeworkModule() {
+var ProfileModule = (function () {
+    function ProfileModule() {
     }
-    return HomeworkModule;
+    return ProfileModule;
 }());
-HomeworkModule = __decorate([
+ProfileModule = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["b" /* NgModule */])({
         declarations: [
-            __WEBPACK_IMPORTED_MODULE_2__homework__["a" /* Homework */]
+            __WEBPACK_IMPORTED_MODULE_2__profile__["a" /* Profile */]
         ],
         imports: [
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__homework__["a" /* Homework */]),
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__profile__["a" /* Profile */]),
             __WEBPACK_IMPORTED_MODULE_3__ngx_translate_core__["a" /* TranslateModule */].forChild()
         ],
         exports: [
-            __WEBPACK_IMPORTED_MODULE_2__homework__["a" /* Homework */]
+            __WEBPACK_IMPORTED_MODULE_2__profile__["a" /* Profile */]
         ]
     })
-], HomeworkModule);
+], ProfileModule);
 
-//# sourceMappingURL=homework.module.js.map
+//# sourceMappingURL=profile.module.js.map
 
 /***/ }),
 
@@ -53,7 +53,7 @@ HomeworkModule = __decorate([
 
 var expand = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_animations__["a" /* trigger */])('expand', [
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_animations__["b" /* state */])('true', __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_animations__["c" /* style */])({
-        maxHeight: '7em',
+        maxHeight: '10em',
         opacity: '1',
         padding: '',
         border: '',
@@ -75,7 +75,7 @@ var expand = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_animatio
 
 /***/ }),
 
-/***/ 414:
+/***/ 417:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -83,17 +83,8 @@ var expand = __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_animatio
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(49);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ngx_translate_core__ = __webpack_require__(105);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_store__ = __webpack_require__(106);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_auth__ = __webpack_require__(107);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_animations__ = __webpack_require__(291);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Homework; });
-var __assign = (this && this.__assign) || Object.assign || function(t) {
-    for (var s, i = 1, n = arguments.length; i < n; i++) {
-        s = arguments[i];
-        for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
-            t[p] = s[p];
-    }
-    return t;
-};
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_animations__ = __webpack_require__(291);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Profile; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -143,107 +134,129 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 
 
 
-
-var Homework = (function () {
-    function Homework(nav, navParams, translate, alert, loadingCtrl, store, auth) {
+var Profile = (function () {
+    function Profile(nav, navParams, alert, translate, loadingCtrl, store) {
         this.nav = nav;
         this.navParams = navParams;
-        this.translate = translate;
         this.alert = alert;
+        this.translate = translate;
         this.loadingCtrl = loadingCtrl;
         this.store = store;
-        this.auth = auth;
-        this.homework = [];
-        this.filteredHw = [];
-        this.selectedClass = 'all-classes';
-        this.hideChecked = true;
         this.loading = this.loadingCtrl.create();
+        this.schedules = [];
+        this.selectedSchedule = {
+            type: '',
+            schedule: []
+        };
+        this.missing = [];
+        this.showMissing = false;
+        this.birth = '';
+        this.studentName = '';
+        this.grade = '';
+        this.familyCredit = 0.00;
+        this.studentCredit = 0.00;
+        this.personImage = './assets/placeholder.jpg';
+        this.attendance = [];
+        this.discipline = [];
     }
-    Homework.prototype.ionViewDidEnter = function () {
+    Profile.prototype.ionViewDidLoad = function () {
         return __awaiter(this, void 0, void 0, function () {
-            var hw;
+            var login, missing, schedules, img, records, err_1;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0: return [4 /*yield*/, this.loading.present()];
                     case 1:
                         _a.sent();
-                        return [4 /*yield*/, this.store.get('HOMEWORK', function (_a) {
-                                var newData = _a.newData, _b = _a.oldData, oldData = _b === void 0 ? { homework: [] } : _b;
-                                return (__assign({}, newData, { homework: newData.homework.map(function (item) {
-                                        if (oldData.homework.findIndex(function (el) { return item.lsn_id === el.lsn_id && el.checked; }) > -1) {
-                                            item.checked = true;
-                                        }
-                                        return item;
-                                    }) }));
-                            })];
+                        _a.label = 2;
                     case 2:
-                        hw = _a.sent();
-                        // this.homework serves as a backup
-                        // this.filteredHw is presented in view
-                        this.filteredHw = this.homework = hw.homework.slice(0).reverse();
+                        _a.trys.push([2, 8, , 9]);
+                        return [4 /*yield*/, this.store.get('LOGIN')];
+                    case 3:
+                        login = _a.sent();
+                        this.birth = (login.birthdate || '').replace(/-/ig, ' ');
+                        this.studentName = login.person_name;
+                        this.grade = login.grade;
+                        this.familyCredit = parseFloat(login.credit_family || '0');
+                        this.studentCredit = parseFloat(login.credit_student || '0');
+                        return [4 /*yield*/, this.store.get('MISSING')];
+                    case 4:
+                        missing = _a.sent();
+                        this.missing = missing.missing;
+                        return [4 /*yield*/, this.store.get('SCHEDULES')];
+                    case 5:
+                        schedules = _a.sent();
+                        this.lang = this.translate.currentLang;
+                        this.schedules = schedules;
+                        this.selectedSchedule = schedules[0] || {};
+                        return [4 /*yield*/, this.store.get('IMAGE')];
+                    case 6:
+                        img = _a.sent();
+                        this.personImage = img ? "data:image/jpeg;base64," + img : './assets/placeholder.jpg';
+                        return [4 /*yield*/, this.store.get('RECORDS')];
+                    case 7:
+                        records = _a.sent();
+                        this.attendance = records.attendance;
+                        this.discipline = records.discipline;
+                        return [3 /*break*/, 9];
+                    case 8:
+                        err_1 = _a.sent();
+                        console.warn(err_1);
+                        return [3 /*break*/, 9];
+                    case 9:
                         this.loading.dismiss();
                         return [2 /*return*/];
                 }
             });
         });
     };
-    Homework.prototype.popover = function (e) {
+    Profile.prototype.toggleSchedule = function () {
         var _this = this;
-        this.classes = this.homework
-            .filter(function (el, i, arr) { return arr.findIndex(function (t) { return t.calc_class === el.calc_class; }) === i; })
-            .map(function (el) { return ({
+        var inputs = this.schedules.map(function (el) { return ({
             type: 'radio',
-            label: el.calc_class,
-            value: el.calc_class
+            label: el[_this.lang],
+            value: el.type,
+            checked: el.type === _this.selectedSchedule.type
         }); });
-        this.classes.push({
-            type: 'radio',
-            label: this.translate.instant('HOMEWORK-all-classes'),
-            value: 'all-classes'
-        });
         this.alert.create({
-            title: this.translate.instant('HOMEWORK-title'),
+            title: this.translate.instant('PROFILE-select-schedule'),
             buttons: [
                 this.translate.instant('CANCEL'),
                 {
                     text: 'OK',
-                    handler: function (className) {
-                        _this.selectedClass = className;
-                        if (className === 'all-classes') {
-                            _this.filteredHw = _this.homework;
-                        }
-                        else {
-                            _this.filteredHw = _this.homework.filter(function (hw) { return className === hw.calc_class; });
-                        }
+                    handler: function (type) {
+                        _this.selectedSchedule = _this.schedules.find(function (schedule) { return schedule.type === type; });
                     }
                 }
             ],
-            inputs: this.classes.map(function (button) { return (__assign({}, button, { checked: button.value === _this.selectedClass })); })
+            inputs: inputs
         }).present();
     };
-    Homework.prototype.check = function (item) {
-        var index = this.homework.findIndex(function (el) { return el.lsn_id === item.lsn_id; });
-        this.homework[index] = item;
-        this.store.persist();
+    Profile.prototype.toggleMissing = function () {
+        this.showMissing = !this.showMissing;
     };
-    return Homework;
+    Profile.prototype.goSelected = function (opts) {
+        this.nav.push('Records', opts);
+    };
+    Profile.prototype.goGrades = function () {
+        this.nav.setRoot('Grades');
+    };
+    return Profile;
 }());
-Homework = __decorate([
+Profile = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPage */])(),
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_7" /* Component */])({
-        selector: 'page-homework',template:/*ion-inline-start:"/home/obedm503/projects/ncai-developers/studentaccess/src/pages/homework/homework.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-buttons left>\n      <button ion-button menuToggle>\n        <ion-icon name="menu"></ion-icon>\n      </button>\n    </ion-buttons>\n    <ion-title>{{ \'HOMEWORK-name\' | translate }}</ion-title>\n    <ion-buttons right>\n      <button ion-button (click)="popover($event)">\n        <ion-icon name="more"></ion-icon>\n      </button>\n    </ion-buttons>\n  </ion-navbar>\n</ion-header>\n\n<ion-content>\n  <ion-grid>\n    <ion-row>\n      <ion-col col-12 col-lg-6 col-md-6 offset-md-3 col-sm-12>\n        <ion-list>\n          <ion-item>\n            <ion-label>{{ \'HOMEWORK-hide-checked\' | translate }}</ion-label>\n            <ion-toggle\n              [(ngModel)]="hideChecked"\n              [name]="\'HOMEWORK-hide-checked\' | translate"\n            ></ion-toggle>\n          </ion-item>\n          <ion-item\n            text-wrap\n            *ngFor="let item of filteredHw"\n            [class.dark-gray]="item.lsn_date === store.today"\n            [@expand]="!( item.checked && hideChecked )"\n          >\n            <ion-label>\n              {{ item.calc_date }}\n              <br>\n              <strong>{{ item.calc_class }}: </strong>\n              {{ item.lsn_hw }}\n            </ion-label>\n            <ion-checkbox\n              color="primary"\n              [(ngModel)]="item.checked"\n              (ngModelChange)="check(item)"\n            ></ion-checkbox>\n          </ion-item>\n        </ion-list>\n      </ion-col>\n    </ion-row>\n  </ion-grid>\n</ion-content>\n'/*ion-inline-end:"/home/obedm503/projects/ncai-developers/studentaccess/src/pages/homework/homework.html"*/,
-        animations: [__WEBPACK_IMPORTED_MODULE_5__components_animations__["a" /* expand */]]
+        selector: 'page-profile',template:/*ion-inline-start:"/home/obedm503/projects/ncai-developers/studentaccess/src/pages/profile/profile.html"*/'<ion-header>\n  <ion-navbar>\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>{{ \'PROFILE-name\' | translate }}</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content>\n  <ion-grid>\n    <ion-row>\n      <ion-col col-lg-5 offset-lg-1 col-md-6 col-sm-12 col-12>\n        <ion-card>\n          <ion-item class="dark-gray" [@expand]="!!grade">\n            <ion-row>\n              <ion-col col-5 col-sm-5 col-md-4 col-lg-3>\n                <ion-avatar>\n                  <img [src]="personImage">\n                </ion-avatar>\n              </ion-col>\n              <ion-col col-7 col-sm-7 col-md-8 col-lg-9 class="person-col">\n                <span class="person">\n                  {{ studentName }}\n                  <br>\n                  {{ birth }}\n                  <br>\n                  {{ grade }}\n                  <sup>\n                    {{ \'PROFILE-th\' | translate }}\n                  </sup>\n                  &nbsp;\n                  {{ \'PROFILE-grade\' | translate }}\n                </span>\n              </ion-col>\n            </ion-row>\n          </ion-item>\n          <ion-item>\n            <ion-icon name="person" item-left></ion-icon>\n            {{ \'PROFILE-student-credit\' | translate }}\n            <ion-badge item-right>{{ studentCredit | currency:\'USD\':true:\'1.2-2\' }}</ion-badge>\n          </ion-item>\n          <ion-item>\n            <ion-icon name="people" item-left></ion-icon>\n            {{ \'PROFILE-family-credit\' | translate }}\n            <ion-badge item-right>{{ familyCredit | currency:\'USD\':true:\'1.2-2\' }}</ion-badge>\n          </ion-item>\n          <button ion-item (click)="goSelected({ attendance: attendance })">\n            <ion-icon name="alarm" color="danger" item-left></ion-icon>\n            {{ \'RECORDS-attendance\' | translate }}\n            <ion-badge color="danger" item-right>{{ attendance.length }}</ion-badge>\n          </button>\n          <button ion-item (click)="goSelected({ discipline: discipline })">\n            <ion-icon name="checkmark-circle" color="danger" item-left></ion-icon>\n            {{ \'RECORDS-discipline\' | translate }}\n            <ion-badge color="danger" item-right>{{ discipline.length }}</ion-badge>\n          </button>\n        </ion-card>\n\n        <ion-card class="card-fab">\n          <button class="fab-top-right" ion-fab (click)="toggleMissing()">\n            {{ missing.length }}\n          </button>\n          <ion-card-header>\n            {{ \'PROFILE-missing-assignments\' | translate }}\n          </ion-card-header>\n          <ion-list>\n            <ion-item\n              text-wrap\n              *ngFor="let item of missing"\n              [@expand]="showMissing"\n              class="alternate-colors"\n            >\n              <ion-label>\n                {{ item.calc_date }}\n                <br>\n                <strong>{{ item.calc_class }}: </strong>\n                {{ item.gra_name }}\n                <br>\n                <strong>{{ \'PROFILE-worth\' | translate }}: </strong> {{ item.gra_points }} {{ \'PROFILE-points\' | translate }}\n              </ion-label>\n              <ion-checkbox color="primary"></ion-checkbox>\n            </ion-item>\n          </ion-list>\n          <button ion-item color="secondary" (click)="goGrades()">\n            {{ \'PROFILE-check-grades\' | translate }}\n          </button>\n        </ion-card>\n      </ion-col>\n      <ion-col col-lg-5 col-md-6 col-sm-12 col-12>\n        <ion-card class="card-fab">\n          <button class="fab-top-right" ion-fab (click)="toggleSchedule()">\n            <ion-icon name="swap"></ion-icon>\n          </button>\n\n          <ion-card-header>\n            {{ \'PROFILE-schedule\' | translate }} | {{ selectedSchedule[lang] }}\n          </ion-card-header>\n          <ion-list>\n            <ion-item *ngFor="let item of selectedSchedule.schedule" class="alternate-colors">\n              <ion-row>\n                <ion-col>\n                  {{ item.period }}\n                </ion-col>\n                <ion-col>\n                  {{ item.begin }}\n                  <br>\n                  {{ item.end }}\n                </ion-col>\n              </ion-row>\n            </ion-item>\n          </ion-list>\n        </ion-card>\n      </ion-col>\n    </ion-row>\n  </ion-grid>\n</ion-content>\n'/*ion-inline-end:"/home/obedm503/projects/ncai-developers/studentaccess/src/pages/profile/profile.html"*/,
+        animations: [__WEBPACK_IMPORTED_MODULE_4__components_animations__["a" /* expand */]]
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */],
         __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */],
-        __WEBPACK_IMPORTED_MODULE_2__ngx_translate_core__["c" /* TranslateService */],
         __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* AlertController */],
+        __WEBPACK_IMPORTED_MODULE_2__ngx_translate_core__["c" /* TranslateService */],
         __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* LoadingController */],
-        __WEBPACK_IMPORTED_MODULE_3__providers_store__["a" /* Store */],
-        __WEBPACK_IMPORTED_MODULE_4__providers_auth__["a" /* Auth */]])
-], Homework);
+        __WEBPACK_IMPORTED_MODULE_3__providers_store__["a" /* Store */]])
+], Profile);
 
-//# sourceMappingURL=homework.js.map
+//# sourceMappingURL=profile.js.map
 
 /***/ })
 

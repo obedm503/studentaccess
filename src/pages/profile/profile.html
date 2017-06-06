@@ -12,7 +12,7 @@
     <ion-row>
       <ion-col col-lg-5 offset-lg-1 col-md-6 col-sm-12 col-12>
         <ion-card>
-          <ion-item class="dark-gray">
+          <ion-item class="dark-gray" [@expand]="!!grade">
             <ion-row>
               <ion-col col-5 col-sm-5 col-md-4 col-lg-3>
                 <ion-avatar>
@@ -20,12 +20,17 @@
                 </ion-avatar>
               </ion-col>
               <ion-col col-7 col-sm-7 col-md-8 col-lg-9 class="person-col">
-                <span class="person" [hidden]="!grade">
+                <span class="person">
                   {{ studentName }}
                   <br>
                   {{ birth }}
                   <br>
-                  {{ grade }}{{ 'PROFILE-th-grade' | translate }}
+                  {{ grade }}
+                  <sup>
+                    {{ 'PROFILE-th' | translate }}
+                  </sup>
+                  &nbsp;
+                  {{ 'PROFILE-grade' | translate }}
                 </span>
               </ion-col>
             </ion-row>

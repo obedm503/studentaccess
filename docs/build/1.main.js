@@ -7,8 +7,8 @@ webpackJsonp([1],{
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(49);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__grades__ = __webpack_require__(413);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_components_module__ = __webpack_require__(408);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__grades__ = __webpack_require__(414);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_components_module__ = __webpack_require__(292);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ngx_translate_core__ = __webpack_require__(105);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "GradesModule", function() { return GradesModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -43,13 +43,14 @@ GradesModule = __decorate([
 
 /***/ }),
 
-/***/ 408:
+/***/ 292:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(49);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ribbon_ribbon__ = __webpack_require__(409);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ribbon_ribbon__ = __webpack_require__(294);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__grade_badge_grade_badge__ = __webpack_require__(293);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ComponentsModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -57,6 +58,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -68,11 +70,13 @@ var ComponentsModule = (function () {
 ComponentsModule = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["b" /* NgModule */])({
         declarations: [
-            __WEBPACK_IMPORTED_MODULE_2__ribbon_ribbon__["a" /* Ribbon */]
+            __WEBPACK_IMPORTED_MODULE_2__ribbon_ribbon__["a" /* Ribbon */],
+            __WEBPACK_IMPORTED_MODULE_3__grade_badge_grade_badge__["a" /* GradeBadge */]
         ],
         imports: [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* IonicModule */]],
         exports: [
-            __WEBPACK_IMPORTED_MODULE_2__ribbon_ribbon__["a" /* Ribbon */]
+            __WEBPACK_IMPORTED_MODULE_2__ribbon_ribbon__["a" /* Ribbon */],
+            __WEBPACK_IMPORTED_MODULE_3__grade_badge_grade_badge__["a" /* GradeBadge */]
         ]
     })
 ], ComponentsModule);
@@ -81,7 +85,43 @@ ComponentsModule = __decorate([
 
 /***/ }),
 
-/***/ 409:
+/***/ 293:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return GradeBadge; });
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var GradeBadge = (function () {
+    function GradeBadge() {
+    }
+    return GradeBadge;
+}());
+__decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["v" /* Input */])('grade'),
+    __metadata("design:type", Number)
+], GradeBadge.prototype, "avg", void 0);
+GradeBadge = __decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_7" /* Component */])({
+        selector: 'grade-badge',
+        template: "\n  <ion-badge\n    [hidden]=\"!avg\"\n    [class.fail-background]=\"avg <= 60\"\n    [class.bad-background]=\"avg > 60 && avg < 80\"\n    [class.good-background]=\"avg >= 80 && avg < 95\"\n    [class.best-background]=\"avg >= 95\"\n  >\n    {{ avg }}\n  </ion-badge>\n  "
+    })
+], GradeBadge);
+
+//# sourceMappingURL=grade-badge.js.map
+
+/***/ }),
+
+/***/ 294:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -144,7 +184,7 @@ Ribbon = __decorate([
 
 /***/ }),
 
-/***/ 413:
+/***/ 414:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -210,24 +250,33 @@ var Grades = (function () {
     }
     Grades.prototype.ionViewDidLoad = function () {
         return __awaiter(this, void 0, void 0, function () {
-            var schedule, grades, teachers;
+            var schedule, grades, teachers, err_1;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0: return [4 /*yield*/, this.loading.present()];
                     case 1:
                         _a.sent();
-                        return [4 /*yield*/, this.store.get('SCHEDULE')];
+                        _a.label = 2;
                     case 2:
+                        _a.trys.push([2, 6, , 7]);
+                        return [4 /*yield*/, this.store.get('SCHEDULE')];
+                    case 3:
                         schedule = _a.sent();
                         this.avg = schedule.overall_avg;
                         return [4 /*yield*/, this.store.get('ALLGRADES')];
-                    case 3:
+                    case 4:
                         grades = _a.sent();
                         this.classes = grades.classes;
                         return [4 /*yield*/, this.store.get('TEACHERS')];
-                    case 4:
+                    case 5:
                         teachers = _a.sent();
                         this.teachers = teachers.teachers;
+                        return [3 /*break*/, 7];
+                    case 6:
+                        err_1 = _a.sent();
+                        console.warn(err_1);
+                        return [3 /*break*/, 7];
+                    case 7:
                         this.loading.dismiss();
                         return [2 /*return*/];
                 }
@@ -245,12 +294,13 @@ var Grades = (function () {
 Grades = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPage */])(),
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_7" /* Component */])({
-        selector: 'page-grades',template:/*ion-inline-start:"/home/obedm503/projects/ncai-developers/studentaccess/src/pages/grades/grades.html"*/'<ion-header>\n  <ion-navbar>\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>{{ \'GRADES-name\' | translate }}</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content>\n  <ion-grid>\n    <ion-row>\n      <ion-col col-12 col-lg-6 col-md-6 offset-md-3 col-sm-12>\n        <ribbon [average]="avg"></ribbon>\n        <ion-card *ngFor="let item of classes">\n          <button ion-item [attr.disabled]="teachers.length ? null : \'\'" (click)="goSelected(item)">\n            <b>\n              [{{ item.class_period }}] {{ item.class_name }}<span [hidden]="!item.class_avg">: </span>\n            </b>\n            <span [hidden]="!item.class_avg">\n              {{ item.class_avg }}\n            </span>\n          </button>\n        </ion-card>\n      </ion-col>\n    </ion-row>\n  </ion-grid>\n</ion-content>\n'/*ion-inline-end:"/home/obedm503/projects/ncai-developers/studentaccess/src/pages/grades/grades.html"*/
+        selector: 'page-grades',template:/*ion-inline-start:"/home/obedm503/projects/ncai-developers/studentaccess/src/pages/grades/grades.html"*/'<ion-header>\n  <ion-navbar>\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>{{ \'GRADES-name\' | translate }}</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content>\n  <ion-grid>\n    <ion-row>\n      <ion-col col-12 col-lg-6 col-md-6 offset-md-3 col-sm-12>\n        <ribbon [average]="avg"></ribbon>\n        <ion-card *ngFor="let item of classes" text-wrap>\n          <button ion-item [attr.disabled]="teachers.length ? null : \'\'" (click)="goSelected(item)">\n            <b>\n              [{{ item.class_period }}] {{ item.class_name }}\n            </b>\n            <grade-badge item-right [grade]="item.class_avg"></grade-badge>\n          </button>\n        </ion-card>\n      </ion-col>\n    </ion-row>\n  </ion-grid>\n</ion-content>\n'/*ion-inline-end:"/home/obedm503/projects/ncai-developers/studentaccess/src/pages/grades/grades.html"*/
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* LoadingController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* LoadingController */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__providers_store__["a" /* Store */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__providers_store__["a" /* Store */]) === "function" && _c || Object])
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */],
+        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* LoadingController */],
+        __WEBPACK_IMPORTED_MODULE_2__providers_store__["a" /* Store */]])
 ], Grades);
 
-var _a, _b, _c;
 //# sourceMappingURL=grades.js.map
 
 /***/ })

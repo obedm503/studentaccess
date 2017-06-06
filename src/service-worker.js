@@ -11,6 +11,7 @@ let assets = [
   './build/main.css',
   './build/polyfills.js',
   'index.html',
+  '/',
   'manifest.json',
   './assets/placeholder.jpg',
   './assets/schedules.json',

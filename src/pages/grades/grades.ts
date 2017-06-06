@@ -27,16 +27,18 @@ export class Grades {
 
   async ionViewDidLoad(){
     await this.loading.present();
+    try {
+      let schedule = await this.store.get('SCHEDULE');
+      this.avg = schedule.overall_avg;
 
-    let schedule = await this.store.get('SCHEDULE');
-    this.avg = schedule.overall_avg;
+      let grades = await this.store.get('ALLGRADES');
+      this.classes = grades.classes;
 
-    let grades = await this.store.get('ALLGRADES');
-    this.classes = grades.classes;
-
-    let teachers = await this.store.get('TEACHERS');
-    this.teachers = teachers.teachers;
-
+      let teachers = await this.store.get('TEACHERS');
+      this.teachers = teachers.teachers;
+    } catch(err){
+      console.warn(err);
+    }
     this.loading.dismiss();
   }
   goSelected(item){

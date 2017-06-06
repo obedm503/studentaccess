@@ -49,29 +49,31 @@ export class Profile {
   ){}
   async ionViewDidLoad(){
     await this.loading.present();
+    try {
+      let login = await this.store.get('LOGIN');
+      this.birth = ( login.birthdate || '' ).replace(/-/ig, ' ');
+      this.studentName = login.person_name;
+      this.grade = login.grade;
+      this.familyCredit = parseFloat( login.credit_family || '0' );
+      this.studentCredit = parseFloat( login.credit_student || '0' );
 
-    let login = await this.store.get('LOGIN');
-    this.birth = ( login.birthdate || '' ).replace(/-/ig, ' ');
-    this.studentName = login.person_name;
-    this.grade = login.grade;
-    this.familyCredit = parseFloat( login.credit_family || '0' );
-    this.studentCredit = parseFloat( login.credit_student || '0' );
+      let missing = await this.store.get('MISSING');
+      this.missing = missing.missing;
 
-    let missing = await this.store.get('MISSING');
-    this.missing = missing.missing;
+      let schedules = await this.store.get('SCHEDULES');
+      this.lang = this.translate.currentLang;
+      this.schedules = schedules;
+      this.selectedSchedule = schedules[0] || {};
 
-    let schedules = await this.store.get('SCHEDULES');
-    this.lang = this.translate.currentLang;
-    this.schedules = schedules;
-    this.selectedSchedule = schedules[0] || {};
+      let img = await this.store.get('IMAGE');
+      this.personImage = img ? `data:image/jpeg;base64,${img}` : './assets/placeholder.jpg';
 
-    let img = await this.store.get('IMAGE');
-    this.personImage = img ? `data:image/jpeg;base64,${img}` : './assets/placeholder.jpg';
-
-    let records = await this.store.get('RECORDS');
-    this.attendance = records.attendance;
-    this.discipline = records.discipline;
-
+      let records = await this.store.get('RECORDS');
+      this.attendance = records.attendance;
+      this.discipline = records.discipline;
+    } catch(err){
+      console.warn(err);
+    }
     this.loading.dismiss();
   }
 

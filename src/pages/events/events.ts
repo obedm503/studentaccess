@@ -30,8 +30,12 @@ export class Events {
     this.selected = this.navParams.get('selected');
     if( !this.selected ){
       await this.loading.present();
-      let events = await this.store.get('EVENTS');
-      this.events = events.events;
+      try {
+        let events = await this.store.get('EVENTS');
+        this.events = events.events;
+      } catch(err){
+        console.warn(err);
+      }
       this.loading.dismiss();
     }
   }

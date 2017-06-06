@@ -15,6 +15,10 @@ import { Store } from '../providers/store';
 import { Auth } from '../providers/auth';
 import { State } from '../providers/state';
 
+export function createTranslateLoader(http: Http) {
+    return new TranslateHttpLoader(http, './assets/i18n/', '.json');
+}
+
 @NgModule({
   declarations: [
     StudentAccess
@@ -31,9 +35,7 @@ import { State } from '../providers/state';
     TranslateModule.forRoot({
     loader: {
       provide: TranslateLoader,
-      useFactory: function loader(http: Http){
-        return new TranslateHttpLoader(http, './assets/i18n/', '.json');
-      },
+      useFactory: createTranslateLoader,
       deps: [ Http ]
     }
   })
@@ -48,4 +50,5 @@ import { State } from '../providers/state';
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
-export class StudentAccessModule {}
+// renamed to AppModule to solve prod env bug ¯\_(ツ)_/¯
+export class AppModule {};

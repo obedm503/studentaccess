@@ -34,9 +34,13 @@ export class Staff {
   async ionViewDidLoad(){
     this.selected = this.navParams.get('selected');
     if( !this.selected ){
-      await this.loading.present()
-      let staff = await this.store.get('STAFF');
-      this.filteredStaff = this.staff = staff.staff_list;
+      await this.loading.present();
+      try {
+        let staff = await this.store.get('STAFF');
+        this.filteredStaff = this.staff = staff.staff_list;
+      } catch(err){
+        console.warn(err);
+      }
       this.loading.dismiss();
     }
   }

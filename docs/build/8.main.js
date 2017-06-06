@@ -7,7 +7,7 @@ webpackJsonp([8],{
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(49);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__events__ = __webpack_require__(411);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__events__ = __webpack_require__(412);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ngx_translate_core__ = __webpack_require__(105);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "EventsModule", function() { return EventsModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -40,7 +40,7 @@ EventsModule = __decorate([
 
 /***/ }),
 
-/***/ 411:
+/***/ 412:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -105,22 +105,31 @@ var Events = (function () {
     }
     Events.prototype.ionViewDidLoad = function () {
         return __awaiter(this, void 0, void 0, function () {
-            var events;
+            var events, err_1;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
                         this.selected = this.navParams.get('selected');
-                        if (!!this.selected) return [3 /*break*/, 3];
+                        if (!!this.selected) return [3 /*break*/, 6];
                         return [4 /*yield*/, this.loading.present()];
                     case 1:
                         _a.sent();
-                        return [4 /*yield*/, this.store.get('EVENTS')];
+                        _a.label = 2;
                     case 2:
+                        _a.trys.push([2, 4, , 5]);
+                        return [4 /*yield*/, this.store.get('EVENTS')];
+                    case 3:
                         events = _a.sent();
                         this.events = events.events;
+                        return [3 /*break*/, 5];
+                    case 4:
+                        err_1 = _a.sent();
+                        console.warn(err_1);
+                        return [3 /*break*/, 5];
+                    case 5:
                         this.loading.dismiss();
-                        _a.label = 3;
-                    case 3: return [2 /*return*/];
+                        _a.label = 6;
+                    case 6: return [2 /*return*/];
                 }
             });
         });

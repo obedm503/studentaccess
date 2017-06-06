@@ -12,7 +12,8 @@
   "MENU-logout":"Logout",
 
   "PROFILE-name":"Profile",
-  "PROFILE-th-grade": "th Grade",
+  "PROFILE-th": "th",
+  "PROFILE-grade": "Grade",
   "PROFILE-student-credit":"Student Credit",
   "PROFILE-family-credit": "Family Credit",
   "PROFILE-missing-assignments":"Missing Assignments",
