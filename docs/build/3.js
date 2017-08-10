@@ -1,6 +1,6 @@
 webpackJsonp([3],{
 
-/***/ 289:
+/***/ 291:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -8,7 +8,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "StaffModule", function() { return StaffModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(49);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__staff__ = __webpack_require__(469);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__staff__ = __webpack_require__(471);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ngx_translate_core__ = __webpack_require__(105);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -40,12 +40,12 @@ StaffModule = __decorate([
 
 /***/ }),
 
-/***/ 291:
+/***/ 293:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return expand; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_animations__ = __webpack_require__(205);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_animations__ = __webpack_require__(206);
 
 var expand = Object(__WEBPACK_IMPORTED_MODULE_0__angular_animations__["h" /* trigger */])('expand', [
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_animations__["e" /* state */])('true', Object(__WEBPACK_IMPORTED_MODULE_0__angular_animations__["f" /* style */])({
@@ -71,7 +71,7 @@ var expand = Object(__WEBPACK_IMPORTED_MODULE_0__angular_animations__["h" /* tri
 
 /***/ }),
 
-/***/ 469:
+/***/ 471:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -79,7 +79,8 @@ var expand = Object(__WEBPACK_IMPORTED_MODULE_0__angular_animations__["h" /* tri
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(49);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_store__ = __webpack_require__(106);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_animations__ = __webpack_require__(291);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_log__ = __webpack_require__(205);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_animations__ = __webpack_require__(293);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -128,12 +129,14 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 
 
 
+
 var Staff = (function () {
-    function Staff(nav, navParams, loadingCtrl, store) {
+    function Staff(nav, navParams, loadingCtrl, store, log) {
         this.nav = nav;
         this.navParams = navParams;
         this.loadingCtrl = loadingCtrl;
         this.store = store;
+        this.log = log;
         this.staff = [];
         this.filteredStaff = [];
         this.toggled = false;
@@ -160,7 +163,7 @@ var Staff = (function () {
                         return [3 /*break*/, 5];
                     case 4:
                         err_1 = _a.sent();
-                        console.warn(err_1);
+                        this.log.warn(err_1);
                         return [3 /*break*/, 5];
                     case 5:
                         this.loading.dismiss();
@@ -190,7 +193,7 @@ var Staff = (function () {
             });
         }
         catch (e) {
-            console.warn(e);
+            this.log.warn(e);
         }
     };
     return Staff;
@@ -199,14 +202,12 @@ Staff = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPage */])(),
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
         selector: 'page-staff',template:/*ion-inline-start:"/home/obedm503/projects/ncai-developers/studentaccess/src/pages/staff/staff.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-buttons left>\n      <button ion-button menuToggle>\n        <ion-icon name="menu"></ion-icon>\n      </button>\n    </ion-buttons>\n    <ion-title *ngIf="!selected">\n      {{ \'STAFF-name\' | translate }}\n    </ion-title>\n    <ion-title *ngIf="selected">\n      {{ selected.calc_name }}\n    </ion-title>\n    <ion-buttons right [hidden]="selected">\n      <button ion-button (click)="toggleSearch()">\n        <ion-icon name="search"></ion-icon>\n      </button>\n    </ion-buttons>\n  </ion-navbar>\n</ion-header>\n<ion-content>\n  <ion-toolbar\n    no-border-top\n    color="secondary"\n    [@expand]="toggled"\n  >\n    <ion-searchbar\n      [(ngModel)]="search"\n      (ionInput)="doSearch()"\n      [placeholder]=" \'STAFF-name\' | translate "\n    ></ion-searchbar>\n  </ion-toolbar>\n\n  <ion-grid>\n    <ion-row>\n      <ion-col col-12 col-lg-6 col-md-6 offset-md-3 col-sm-12>\n        <ion-list *ngIf="!selected">\n          <!--<ion-card>-->\n            <ion-item detail-push (click)="goSelected(item)" *ngFor="let item of filteredStaff">\n              <b>{{ item.calc_status }}: </b> {{ item.calc_name }}\n            </ion-item>\n          <!--</ion-card>-->\n        </ion-list>\n\n        <ion-card *ngIf="selected">\n          <ion-card-header>\n            {{ selected.calc_name }} | {{ selected.calc_status }}\n          </ion-card-header>\n          <ion-item text-wrap color="secondary">\n            <ion-row color="secondary" [hidden]="!selected.calc_phone">\n              <b ion-col>\n                {{ \'STAFF-cellphone\' | translate }}:\n              </b>\n              <a ion-col href="tel:{{ selected.calc_phone }}">\n                {{ selected.calc_phone }}\n              </a>\n            </ion-row>\n            <ion-row [hidden]="!selected.calc_homephone">\n              <b ion-col>\n                {{ \'STAFF-homephone\' | translate }}:\n              </b>\n              <a ion-col href="tel:{{ selected.calc_homephone }}">\n                {{ selected.calc_homephone }}\n              </a>\n            </ion-row>\n            <ion-row [hidden]="!selected.calc_email">\n              <b ion-col>\n                {{ \'STAFF-email\' | translate }}:\n              </b>\n              <a ion-col href="mailto:{{ selected.calc_email }}">\n                {{ selected.calc_email }}\n              </a>\n            </ion-row>\n          </ion-item>\n        </ion-card>\n      </ion-col>\n    </ion-row>\n  </ion-grid>\n</ion-content>\n'/*ion-inline-end:"/home/obedm503/projects/ncai-developers/studentaccess/src/pages/staff/staff.html"*/,
-        animations: [__WEBPACK_IMPORTED_MODULE_3__components_animations__["a" /* expand */]]
+        animations: [__WEBPACK_IMPORTED_MODULE_4__components_animations__["a" /* expand */]]
     }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */],
-        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */],
-        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* LoadingController */],
-        __WEBPACK_IMPORTED_MODULE_2__providers_store__["a" /* Store */]])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* LoadingController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* LoadingController */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_2__providers_store__["a" /* Store */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__providers_store__["a" /* Store */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_3__providers_log__["a" /* Log */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__providers_log__["a" /* Log */]) === "function" && _e || Object])
 ], Staff);
 
+var _a, _b, _c, _d, _e;
 //# sourceMappingURL=staff.js.map
 
 /***/ })

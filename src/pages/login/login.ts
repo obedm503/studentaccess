@@ -8,10 +8,13 @@ import {
   IonicPage,
   Events
 } from 'ionic-angular';
+import { TranslateService } from '@ngx-translate/core';
+
 import { Auth } from '../../providers/auth';
 import { Store } from '../../providers/store';
 import { State } from '../../providers/state';
-import { TranslateService } from '@ngx-translate/core';
+import { Log } from '../../providers/log';
+
 
 @IonicPage()
 @Component({
@@ -32,9 +35,10 @@ export class Login {
     public state: State,
     public alertCtrl: AlertController,
     public loadingCtrl: LoadingController,
-    public translate: TranslateService
+    public translate: TranslateService,
+    private log: Log,
   ){
-    console.log('new Login()');
+    this.log.debug('new Login()');
   }
 
   public login() {

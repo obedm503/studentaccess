@@ -7,8 +7,12 @@ import {
   Loading,
   LoadingController
 } from 'ionic-angular';
+
 import { TranslateService } from '@ngx-translate/core';
+
 import { Store } from '../../providers/store';
+import { Log } from '../../providers/log';
+
 import { expand } from '../../components/animations';
 
 @IonicPage()
@@ -45,7 +49,8 @@ export class Profile {
     private alert: AlertController,
     private translate: TranslateService,
     private loadingCtrl: LoadingController,
-    private store: Store
+    private store: Store,
+    private log: Log,
   ){}
   async ionViewDidLoad(){
     await this.loading.present();
@@ -72,7 +77,7 @@ export class Profile {
       this.attendance = records.attendance;
       this.discipline = records.discipline;
     } catch(err){
-      console.warn(err);
+      this.log.warn(err);
     }
     this.loading.dismiss();
   }

@@ -1,6 +1,6 @@
 webpackJsonp([5],{
 
-/***/ 285:
+/***/ 287:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -8,7 +8,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HomeworkModule", function() { return HomeworkModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(49);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__homework__ = __webpack_require__(465);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__homework__ = __webpack_require__(467);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ngx_translate_core__ = __webpack_require__(105);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -44,12 +44,12 @@ HomeworkModule = __decorate([
 
 /***/ }),
 
-/***/ 291:
+/***/ 293:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return expand; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_animations__ = __webpack_require__(205);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_animations__ = __webpack_require__(206);
 
 var expand = Object(__WEBPACK_IMPORTED_MODULE_0__angular_animations__["h" /* trigger */])('expand', [
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_animations__["e" /* state */])('true', Object(__WEBPACK_IMPORTED_MODULE_0__angular_animations__["f" /* style */])({
@@ -75,7 +75,7 @@ var expand = Object(__WEBPACK_IMPORTED_MODULE_0__angular_animations__["h" /* tri
 
 /***/ }),
 
-/***/ 465:
+/***/ 467:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -84,8 +84,8 @@ var expand = Object(__WEBPACK_IMPORTED_MODULE_0__angular_animations__["h" /* tri
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(49);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ngx_translate_core__ = __webpack_require__(105);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_store__ = __webpack_require__(106);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_auth__ = __webpack_require__(107);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_animations__ = __webpack_require__(291);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_log__ = __webpack_require__(205);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_animations__ = __webpack_require__(293);
 var __assign = (this && this.__assign) || Object.assign || function(t) {
     for (var s, i = 1, n = arguments.length; i < n; i++) {
         s = arguments[i];
@@ -145,14 +145,12 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 
 
 var Homework = (function () {
-    function Homework(nav, navParams, translate, alert, loadingCtrl, store, auth) {
-        this.nav = nav;
-        this.navParams = navParams;
+    function Homework(translate, alert, loadingCtrl, store, log) {
         this.translate = translate;
         this.alert = alert;
         this.loadingCtrl = loadingCtrl;
         this.store = store;
-        this.auth = auth;
+        this.log = log;
         this.homework = [];
         this.filteredHw = [];
         this.selectedClass = 'all-classes';
@@ -187,7 +185,7 @@ var Homework = (function () {
                         return [3 /*break*/, 5];
                     case 4:
                         err_1 = _a.sent();
-                        console.warn(err_1);
+                        this.log.warn(err_1);
                         return [3 /*break*/, 5];
                     case 5:
                         this.loading.dismiss();
@@ -243,15 +241,10 @@ Homework = __decorate([
         selector: 'page-homework',template:/*ion-inline-start:"/home/obedm503/projects/ncai-developers/studentaccess/src/pages/homework/homework.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-buttons left>\n      <button ion-button menuToggle>\n        <ion-icon name="menu"></ion-icon>\n      </button>\n    </ion-buttons>\n    <ion-title>{{ \'HOMEWORK-name\' | translate }}</ion-title>\n    <ion-buttons right>\n      <button ion-button (click)="popover($event)">\n        <ion-icon name="more"></ion-icon>\n      </button>\n    </ion-buttons>\n  </ion-navbar>\n</ion-header>\n\n<ion-content>\n  <ion-grid>\n    <ion-row>\n      <ion-col col-12 col-lg-6 col-md-6 offset-md-3 col-sm-12>\n        <ion-list>\n          <ion-item>\n            <ion-label>{{ \'HOMEWORK-hide-checked\' | translate }}</ion-label>\n            <ion-toggle\n              [(ngModel)]="hideChecked"\n              [name]="\'HOMEWORK-hide-checked\' | translate"\n            ></ion-toggle>\n          </ion-item>\n          <ion-item\n            text-wrap\n            *ngFor="let item of filteredHw"\n            [class.dark-gray]="item.lsn_date === store.today"\n            [@expand]="!( item.checked && hideChecked )"\n          >\n            <ion-label>\n              {{ item.calc_date }}\n              <br>\n              <strong>{{ item.calc_class }}: </strong>\n              {{ item.lsn_hw }}\n            </ion-label>\n            <ion-checkbox\n              color="primary"\n              [(ngModel)]="item.checked"\n              (ngModelChange)="check(item)"\n            ></ion-checkbox>\n          </ion-item>\n        </ion-list>\n      </ion-col>\n    </ion-row>\n  </ion-grid>\n</ion-content>\n'/*ion-inline-end:"/home/obedm503/projects/ncai-developers/studentaccess/src/pages/homework/homework.html"*/,
         animations: [__WEBPACK_IMPORTED_MODULE_5__components_animations__["a" /* expand */]]
     }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */],
-        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */],
-        __WEBPACK_IMPORTED_MODULE_2__ngx_translate_core__["c" /* TranslateService */],
-        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */],
-        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* LoadingController */],
-        __WEBPACK_IMPORTED_MODULE_3__providers_store__["a" /* Store */],
-        __WEBPACK_IMPORTED_MODULE_4__providers_auth__["a" /* Auth */]])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__ngx_translate_core__["c" /* TranslateService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__ngx_translate_core__["c" /* TranslateService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* LoadingController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* LoadingController */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_3__providers_store__["a" /* Store */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__providers_store__["a" /* Store */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_4__providers_log__["a" /* Log */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__providers_log__["a" /* Log */]) === "function" && _e || Object])
 ], Homework);
 
+var _a, _b, _c, _d, _e;
 //# sourceMappingURL=homework.js.map
 
 /***/ })

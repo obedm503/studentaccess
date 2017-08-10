@@ -8,6 +8,7 @@ import { TranslateService } from '@ngx-translate/core';
 
 import { Chart } from 'chart.js';
 import { Store } from '../../providers/store';
+import { Log } from '../../providers/log';
 import pattern from 'patternomaly';
 
 @IonicPage()
@@ -24,6 +25,7 @@ export class Cafeteria {
 
   constructor(
     private store: Store,
+    private log: Log,
     private translate: TranslateService,
     private loadingCtrl: LoadingController
   ){}
@@ -39,7 +41,7 @@ export class Cafeteria {
       this.transactions = transactions.transactions.slice(0).reverse().slice(0, 10);
       this.updateChart(this.transactions);
     } catch( err ){
-      console.warn(err);
+      this.log.warn(err);
     }
     this.loading.dismiss();
   }

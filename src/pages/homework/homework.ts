@@ -11,6 +11,8 @@ import { TranslateService } from '@ngx-translate/core';
 
 import { Store } from '../../providers/store';
 import { Auth } from '../../providers/auth';
+import { Log } from '../../providers/log';
+
 import { expand } from '../../components/animations';
 
 @IonicPage()
@@ -28,14 +30,12 @@ export class Homework {
   loading: Loading = this.loadingCtrl.create();
 
   constructor(
-    private nav: NavController,
-    private navParams: NavParams,
     private translate: TranslateService,
     private alert: AlertController,
     private loadingCtrl: LoadingController,
 
     private store: Store,
-    private auth: Auth
+    private log: Log,
   ){}
 
   public async ionViewDidEnter(){
@@ -54,7 +54,7 @@ export class Homework {
       // this.filteredHw is presented in view
       this.filteredHw = this.homework = hw.homework.slice(0).reverse();
     } catch(err){
-      console.warn(err);
+      this.log.warn(err);
     }
     this.loading.dismiss();
   }

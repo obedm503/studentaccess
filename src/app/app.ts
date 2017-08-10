@@ -5,6 +5,7 @@ import { TranslateService } from '@ngx-translate/core';
 
 import { Auth } from '../providers/auth';
 import { State } from '../providers/state';
+import { Log } from '../providers/log';
 
 @Component({
   templateUrl: 'app.html'
@@ -26,6 +27,7 @@ export class StudentAccess {
 
     public auth: Auth,
     public state: State,
+    public log: Log,
     public translate: TranslateService
   ){
     this.loading = this.loadingCtrl.create({
@@ -54,7 +56,7 @@ export class StudentAccess {
           this.logout();
         }
       })
-      .catch(console.warn);
+      .catch(this.log.warn);
 
     this.pages = [
       { title: 'PROFILE-name', component: 'Profile', icon: 'person' },
@@ -79,7 +81,7 @@ export class StudentAccess {
   openPage( page ){
     this.activePage = page;
     this.nav.setRoot(page);
-    console.log('openPage: ', page, 'active Page: ', (this.nav.getActive() || {} as any).name );
+    this.log.debug('openPage: ', page, 'active Page: ', (this.nav.getActive() || {} as any).name );
   }
   logout(){
     this.loading = this.loadingCtrl.create();
@@ -87,7 +89,7 @@ export class StudentAccess {
       .then( () => this.nav.setRoot('Login') )
       .then( () => this.auth.logout() )
       .then( () => this.loading.dismiss() )
-      .catch(console.warn);
+      .catch(this.log.warn);
   }
 
 }
