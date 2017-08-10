@@ -47,7 +47,7 @@ export function createTranslateLoader(http: Http) {
     Auth,
     State,
     HttpModule,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
   ]
 })
 // renamed to AppModule to solve prod env bug ¯\_(ツ)_/¯

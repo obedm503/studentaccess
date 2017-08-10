@@ -7,6 +7,7 @@ self.toolbox.options.cache = {
 
 // pre-cache our key assets
 let assets = [
+  './build/vendor.js',
   './build/main.js',
   './build/main.css',
   './build/polyfills.js',
@@ -19,7 +20,7 @@ let assets = [
   './assets/i18n/es.json',
 ];
 for( let i = 0; i <= 8; i++ ){
-  assets.push(`./build/${i}.main.js`);
+  assets.push(`./build/${i}.js`);
 }
 self.toolbox.precache(assets);
 
