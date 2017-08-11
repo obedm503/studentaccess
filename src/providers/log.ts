@@ -11,7 +11,7 @@ enum levels {
 
 @Injectable()
 export class Log {
-  public level: number = levels.debug;
+  public level: number = levels.error;
   debug(...rest){
     if( this.level < levels.debug){ return; }
     console.debug(`DEBUG [StudentAccess]`, ...rest);
