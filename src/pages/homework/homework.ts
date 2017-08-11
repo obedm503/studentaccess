@@ -69,15 +69,15 @@ export class Homework {
       }) );
     this.classes.push({
       type: 'radio',
-      label: this.translate.instant('HOMEWORK.all-classes'),
+      label: this.translate.instant('HOMEWORK.ALL_CLASSES'),
       value: 'all-classes'
     });
     this.alert.create({
-      title: this.translate.instant('HOMEWORK.title'),
+      title: this.translate.instant('HOMEWORK.TITLE'),
       buttons: [
         this.translate.instant('GLOBAL.CANCEL'),
         {
-          text: 'OK',
+          text: this.translate.instant('GLOBAL.OK'),
           handler: className => {
             this.selectedClass = className;
             if( className === 'all-classes' ){

@@ -1,75 +1,76 @@
 {
   "GLOBAL":{
     "CANCEL": "Cancelar",
+    "OK": "OK",
     "LOGOUT": "Salir",
     "DATE": "Fecha",
     "EMAIL": "Correo Electronico"
   },
   "LOGIN": {
-    "name": "Iniciar sesión",
-    "user-id": "Usuario",
-    "password": "Contraseña",
-    "language": "Idioma",
-    "remember-me": "Recordar mi cuenta",
-    "fail": "Usuario o contraseña incorrectos. Intentelo denuevo.",
-    "no-credentials": "Usuario o contraseña vacios!"
+    "NAME": "Iniciar sesión",
+    "USER_ID": "Usuario",
+    "PASSWORD": "Contraseña",
+    "LANGUAGE": "Idioma",
+    "REMEMBER_ME": "Recordar mi cuenta",
+    "FAIL": "Usuario o contraseña incorrectos. Intentelo denuevo.",
+    "NO_CREDENTIALS": "Usuario o contraseña vacios!"
   },
   "PROFILE": {
-    "name": "Perfil",
-    "th": "to",
-    "grade": "Grado",
-    "student-credit": "Credito del Estudiante",
-    "family-credit": "Credito de la Familia",
-    "missing-assignments": "Asignaturas Pendientes",
-    "worth": "Vale",
-    "points": "Puntos",
-    "check-grades": "Revisar Notas",
-    "schedule": "Horario de Clases",
-    "select-schedule": "Seleccionar Horario"
+    "NAME": "Perfil",
+    "TH": "to",
+    "GRADE": "Grado",
+    "STUDENT_CREDIT": "Credito del Estudiante",
+    "FAMILY_CREDIT": "Credito de la Familia",
+    "MISSING_ASSSIGNMENTS": "Asignaturas Pendientes",
+    "WORTH": "Vale",
+    "POINTS": "Puntos",
+    "CHECK_GRADES": "Revisar Notas",
+    "SCHEDULE": "Horario de Clases",
+    "SELECT_SCHEDULE": "Seleccionar Horario"
   },
   "RECORDS": {
-    "attendance": "Asistencia",
-    "discipline": "Conducta",
-    "category": "Categoria",
-    "quarter": "Quatrimestre",
-    "reason": "Razón",
-    "day": "Dia",
-    "teacher": "Maestro"
+    "ATTENDANCE": "Asistencia",
+    "DISCIPLINE": "Conducta",
+    "CATEGORY": "Categoria",
+    "QUARTER": "Quatrimestre",
+    "REASON": "Razón",
+    "DAY": "Dia",
+    "TEACHER": "Maestro"
   },
   "HOMEWORK": {
-    "name": "Tareas",
-    "title": "Elegir Clase",
-    "all-classes": "Todas las Tareas",
-    "hide-checked": "Ocultar Completadas"
+    "NAME": "Tareas",
+    "HIDE_CHECKED": "Ocultar Completadas",
+    "TITLE": "Elegir Clase",
+    "ALL_CLASSES": "Todas las Tareas"
   },
   "GRADES": {
-    "name": "Notas",
-    "phone": "Telefono",
-    "period": "Periodo",
-    "room": "Aula",
-    "grading-scale": "Escala de Notas",
-    "last-updated": "Ultima Actualizacion",
-    "grade": "Nota"
+    "NAME": "Notas",
+    "PHONE": "Telefono",
+    "PERIOD": "Periodo",
+    "ROOM": "Aula",
+    "GRADING_SCALE": "Escala de Notas",
+    "LAST_UPDATED": "Ultima Actualizacion",
+    "GRADE": "Nota"
   },
   "EVENTS": {
-    "name": "Eventos",
-    "time": "Hora",
-    "location": "Lugar"
+    "NAME": "Eventos",
+    "TIME": "Hora",
+    "LOCATION": "Lugar"
   },
   "CAFETERIA": {
-    "name": "Cafeteria",
-    "todays-lunch": "Almuerzo del Dia",
-    "balance-history": "Historial de Saldo",
-    "transactions": "Últimas 10 Transacciones",
-    "price": "Precio",
-    "date-time": "Fecha/Hora",
-    "client": "Cliente",
-    "product": "Producto",
-    "authorized-by": "Autorizado Por"
+    "NAME": "Cafeteria",
+    "TODAYS_LUNCH": "Almuerzo del Dia",
+    "BALANCE_HISTORY": "Historial de Saldo",
+    "TRANSACTIONS": "Últimas 10 Transacciones",
+    "PRICE": "Precio",
+    "DATE_TIME": "Fecha/Hora",
+    "CLIENT": "Cliente",
+    "PRODUCT": "Producto",
+    "AUTHORIZED_BY": "Autorizado Por"
   },
   "STAFF": {
-    "name": "Personal",
-    "cellphone": "Celular",
-    "homephone": "Convencional"
+    "NAME": "Personal",
+    "CELLPHONE": "Celular",
+    "HOMEPHONE": "Convencional"
   }
 }

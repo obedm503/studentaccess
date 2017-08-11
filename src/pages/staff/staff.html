@@ -6,7 +6,7 @@
       </button>
     </ion-buttons>
     <ion-title *ngIf="!selected">
-      {{ 'STAFF.name' | translate }}
+      {{ 'STAFF.NAME' | translate }}
     </ion-title>
     <ion-title *ngIf="selected">
       {{ selected.calc_name }}
@@ -27,7 +27,7 @@
     <ion-searchbar
       [(ngModel)]="search"
       (ionInput)="doSearch()"
-      [placeholder]=" 'STAFF.name' | translate "
+      [placeholder]=" 'STAFF.NAME' | translate "
     ></ion-searchbar>
   </ion-toolbar>
 
@@ -35,11 +35,9 @@
     <ion-row>
       <ion-col col-12 col-lg-6 col-md-6 offset-md-3 col-sm-12>
         <ion-list *ngIf="!selected">
-          <!--<ion-card>-->
-            <ion-item detail-push (click)="goSelected(item)" *ngFor="let item of filteredStaff">
-              <b>{{ item.calc_status }}: </b> {{ item.calc_name }}
-            </ion-item>
-          <!--</ion-card>-->
+          <ion-item detail-push (click)="goSelected(item)" *ngFor="let item of filteredStaff">
+            <b>{{ item.calc_status }}: </b> {{ item.calc_name }}
+          </ion-item>
         </ion-list>
 
         <ion-card *ngIf="selected">
@@ -49,7 +47,7 @@
           <ion-item text-wrap color="secondary">
             <ion-row color="secondary" [hidden]="!selected.calc_phone">
               <b ion-col>
-                {{ 'STAFF.cellphone' | translate }}:
+                {{ 'STAFF.CELLPHONE' | translate }}:
               </b>
               <a ion-col href="tel:{{ selected.calc_phone }}">
                 {{ selected.calc_phone }}
@@ -57,7 +55,7 @@
             </ion-row>
             <ion-row [hidden]="!selected.calc_homephone">
               <b ion-col>
-                {{ 'STAFF.homephone' | translate }}:
+                {{ 'STAFF.HOMEPHONE' | translate }}:
               </b>
               <a ion-col href="tel:{{ selected.calc_homephone }}">
                 {{ selected.calc_homephone }}
@@ -65,7 +63,7 @@
             </ion-row>
             <ion-row [hidden]="!selected.calc_email">
               <b ion-col>
-                {{ 'STAFF.email' | translate }}:
+                {{ 'GLOBAL.EMAIL' | translate }}:
               </b>
               <a ion-col href="mailto:{{ selected.calc_email }}">
                 {{ selected.calc_email }}

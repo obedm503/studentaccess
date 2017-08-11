@@ -50,13 +50,13 @@ export class Login {
         // this.nav.setRoot('Profile');
         this.events.publish('login', this.user, login, 'Profile');
       } else {
-        this.showError(this.translate.instant('LOGIN.fail'));
+        this.showError(this.translate.instant('LOGIN.FAIL'));
         this.user.password = '';
         this.user.username = '';
       }
     }).catch(err => {
       if( err === null ){
-        this.showError(this.translate.instant('LOGIN.no-credentials'));
+        this.showError(this.translate.instant('LOGIN.NO_CREDENTIALS'));
       } else {
         this.showError(err);
       }

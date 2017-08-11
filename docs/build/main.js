@@ -161,7 +161,7 @@ var Store = (function () {
             return url;
         }
         var extraParams = queryParams.join('&');
-        var user = (this.state.get('USER') || {}).data;
+        var user = (this.state.get('USER') || { data: {} }).data;
         return this.api + "?query=" + query + "&lang=" + user.language + "&username=" + user.username + "&password=" + user.password + "&mode=student&" + extraParams;
     };
     Store.prototype.getUser = function () {
@@ -232,10 +232,10 @@ var Store = (function () {
 }());
 Store = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["B" /* Injectable */])(),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__angular_http__["a" /* Http */], __WEBPACK_IMPORTED_MODULE_1__ionic_storage__["b" /* Storage */], __WEBPACK_IMPORTED_MODULE_5__state__["a" /* State */],
-        __WEBPACK_IMPORTED_MODULE_6__log__["a" /* Log */]])
+    __metadata("design:paramtypes", [typeof (_a = (typeof __WEBPACK_IMPORTED_MODULE_2__angular_http__ !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_http__).Http) === "function" && _a || Object, typeof (_b = (typeof __WEBPACK_IMPORTED_MODULE_1__ionic_storage__ !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__ionic_storage__).Storage) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_5__state__["a" /* State */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__state__["a" /* State */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_6__log__["a" /* Log */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_6__log__["a" /* Log */]) === "function" && _d || Object])
 ], Store);
 
+var _a, _b, _c, _d;
 //# sourceMappingURL=store.js.map
 
 /***/ }),
@@ -296,7 +296,7 @@ var Auth = (function () {
 }());
 Auth = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["B" /* Injectable */])(),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Http */],
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_http__["Http"],
         __WEBPACK_IMPORTED_MODULE_2__store__["a" /* Store */]])
 ], Auth);
 
@@ -525,7 +525,7 @@ AppModule = __decorate([
             __WEBPACK_IMPORTED_MODULE_8__app__["a" /* StudentAccess */]
         ],
         imports: [
-            __WEBPACK_IMPORTED_MODULE_4__angular_http__["b" /* HttpModule */],
+            __WEBPACK_IMPORTED_MODULE_4__angular_http__["HttpModule"],
             __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
             __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser_animations__["a" /* NoopAnimationsModule */],
             __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["e" /* IonicModule */].forRoot(__WEBPACK_IMPORTED_MODULE_8__app__["a" /* StudentAccess */], {}, {
@@ -541,7 +541,7 @@ AppModule = __decorate([
                     { loadChildren: '../pages/staff/staff.module#StaffModule', name: 'Staff', segment: 'staff', priority: 'low', defaultHistory: [] }
                 ]
             }),
-            __WEBPACK_IMPORTED_MODULE_7__ionic_storage__["a" /* IonicStorageModule */].forRoot({
+            __WEBPACK_IMPORTED_MODULE_7__ionic_storage__["IonicStorageModule"].forRoot({
                 name: 'studentaccess',
                 driverOrder: ['indexeddb', 'websql', 'localstorage']
             }),
@@ -549,7 +549,7 @@ AppModule = __decorate([
                 loader: {
                     provide: __WEBPACK_IMPORTED_MODULE_5__ngx_translate_core__["a" /* TranslateLoader */],
                     useFactory: createTranslateLoader,
-                    deps: [__WEBPACK_IMPORTED_MODULE_4__angular_http__["a" /* Http */]]
+                    deps: [__WEBPACK_IMPORTED_MODULE_4__angular_http__["Http"]]
                 }
             })
         ],
@@ -559,7 +559,7 @@ AppModule = __decorate([
             __WEBPACK_IMPORTED_MODULE_9__providers_store__["a" /* Store */],
             __WEBPACK_IMPORTED_MODULE_10__providers_auth__["a" /* Auth */],
             __WEBPACK_IMPORTED_MODULE_11__providers_state__["a" /* State */],
-            __WEBPACK_IMPORTED_MODULE_4__angular_http__["b" /* HttpModule */],
+            __WEBPACK_IMPORTED_MODULE_4__angular_http__["HttpModule"],
             { provide: __WEBPACK_IMPORTED_MODULE_2__angular_core__["v" /* ErrorHandler */], useClass: __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["d" /* IonicErrorHandler */] },
             __WEBPACK_IMPORTED_MODULE_12__providers_log__["a" /* Log */],
         ]
@@ -641,12 +641,12 @@ var StudentAccess = (function () {
         })
             .catch(this.log.warn);
         this.pages = [
-            { title: 'PROFILE.name', component: 'Profile', icon: 'person' },
-            { title: 'HOMEWORK.name', component: 'Homework', icon: 'bookmarks' },
-            { title: 'GRADES.name', component: 'Grades', icon: 'checkmark-circle' },
-            { title: 'EVENTS.name', component: 'Events', icon: 'calendar' },
-            { title: 'CAFETERIA.name', component: 'Cafeteria', icon: 'card' },
-            { title: 'STAFF.name', component: 'Staff', icon: 'people' }
+            { title: 'PROFILE.NAME', component: 'Profile', icon: 'person' },
+            { title: 'HOMEWORK.NAME', component: 'Homework', icon: 'bookmarks' },
+            { title: 'GRADES.NAME', component: 'Grades', icon: 'checkmark-circle' },
+            { title: 'EVENTS.NAME', component: 'Events', icon: 'calendar' },
+            { title: 'CAFETERIA.NAME', component: 'Cafeteria', icon: 'card' },
+            { title: 'STAFF.NAME', component: 'Staff', icon: 'people' }
         ];
     }
     StudentAccess.prototype.login = function (user, login, link) {
@@ -684,7 +684,7 @@ __decorate([
 StudentAccess = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({template:/*ion-inline-start:"/home/obedm503/projects/ncai-developers/studentaccess/src/app/app.html"*/'<ion-menu [content]="content">\n  <ion-content>\n    <ion-list no-lines>\n      <ion-item color="secondary">{{ name }}</ion-item>\n      <ion-item color="primary">{{ username }}@nca.edu.ni</ion-item>\n      <button\n        ion-item\n        [class.light-gray]="item.component !== activePage"\n        [class.dark-gray]="item.component === activePage"\n        menuClose *ngFor="let item of pages"\n        (click)="openPage(item.component)"\n      >\n        <ion-icon class="menu-icon" [name]="item.icon"></ion-icon>\n        {{ item.title | translate }}\n      </button>\n      <button class="light-gray" menuClose ion-item (click)="logout()">\n        <ion-icon class="menu-icon" name="log-out"></ion-icon>\n        {{ \'GLOBAL.LOGOUT\' | translate }}\n      </button>\n    </ion-list>\n  </ion-content>\n\n</ion-menu>\n\n<!-- Disable swipe-to-go-back because it\'s poor UX to combine STGB with side menus -->\n<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>\n'/*ion-inline-end:"/home/obedm503/projects/ncai-developers/studentaccess/src/app/app.html"*/
     }),
-    __metadata("design:paramtypes", [typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* LoadingController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* LoadingController */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* Events */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* Events */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_2__ionic_storage__["b" /* Storage */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__ionic_storage__["b" /* Storage */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_4__providers_auth__["a" /* Auth */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__providers_auth__["a" /* Auth */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_5__providers_state__["a" /* State */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__providers_state__["a" /* State */]) === "function" && _f || Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_6__providers_log__["a" /* Log */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_6__providers_log__["a" /* Log */]) === "function" && _g || Object, typeof (_h = typeof __WEBPACK_IMPORTED_MODULE_3__ngx_translate_core__["c" /* TranslateService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__ngx_translate_core__["c" /* TranslateService */]) === "function" && _h || Object])
+    __metadata("design:paramtypes", [typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* LoadingController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* LoadingController */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* Events */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* Events */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_2__ionic_storage__["Storage"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__ionic_storage__["Storage"]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_4__providers_auth__["a" /* Auth */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__providers_auth__["a" /* Auth */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_5__providers_state__["a" /* State */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__providers_state__["a" /* State */]) === "function" && _f || Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_6__providers_log__["a" /* Log */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_6__providers_log__["a" /* Log */]) === "function" && _g || Object, typeof (_h = typeof __WEBPACK_IMPORTED_MODULE_3__ngx_translate_core__["c" /* TranslateService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__ngx_translate_core__["c" /* TranslateService */]) === "function" && _h || Object])
 ], StudentAccess);
 
 var _a, _b, _c, _d, _e, _f, _g, _h;
@@ -843,7 +843,7 @@ var State = (function () {
 }());
 State = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["B" /* Injectable */])(),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_0__ionic_storage__["b" /* Storage */],
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_0__ionic_storage__["Storage"],
         __WEBPACK_IMPORTED_MODULE_2__log__["a" /* Log */]])
 ], State);
 

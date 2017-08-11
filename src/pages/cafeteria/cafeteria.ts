@@ -36,7 +36,7 @@ export class Cafeteria {
       let menu = await this.store.get('MENU');
       this.menu = menu.menu;
 
-      let transactions = await this.store.get('TRANSACTIONS');
+      let transactions: { transactions: any[] } = await this.store.get('TRANSACTIONS');
       // hard code limit until api is fixed
       this.transactions = transactions.transactions.slice(0).reverse().slice(0, 10);
       this.updateChart(this.transactions);

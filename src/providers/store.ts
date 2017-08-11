@@ -103,7 +103,7 @@ export class Store {
 
     let extraParams = queryParams.join('&');
 
-    let user = (this.state.get('USER') || {} as StoredItem<StoredUser>).data as StoredUser;
+    let user = (this.state.get('USER') || { data: {} } as StoredItem<StoredUser>).data as StoredUser;
     return `${this.api}?query=${query}&lang=${user.language}&username=${user.username}&password=${user.password}&mode=student&${ extraParams }`;
   }
 

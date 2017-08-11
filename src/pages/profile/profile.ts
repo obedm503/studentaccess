@@ -55,7 +55,7 @@ export class Profile {
   async ionViewDidLoad(){
     await this.loading.present();
     try {
-      let login = await this.store.get('LOGIN');
+      let login = await this.store.get('LOGIN') || {};
       this.birth = ( login.birthdate || '' ).replace(/-/ig, ' ');
       this.studentName = login.person_name;
       this.grade = login.grade;
@@ -77,7 +77,7 @@ export class Profile {
       this.attendance = records.attendance;
       this.discipline = records.discipline;
     } catch(err){
-      this.log.warn(err);
+      this.log.error(err);
     }
     this.loading.dismiss();
   }
@@ -91,11 +91,11 @@ export class Profile {
     }) );
 
     this.alert.create({
-      title: this.translate.instant('PROFILE.select-schedule'),
+      title: this.translate.instant('PROFILE.SELECT_SCHEDULE'),
       buttons: [
         this.translate.instant('GLOBAL.CANCEL'),
         {
-          text: 'OK',
+          text: this.translate.instant('GLOBAL.OK'),
           handler: type => {
             this.selectedSchedule = this.schedules.find( schedule => schedule.type === type );
           }

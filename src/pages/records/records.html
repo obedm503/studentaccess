@@ -14,15 +14,15 @@
         <ion-list *ngIf="attendance">
           <ion-card *ngFor="let item of attendance">
             <ion-item [color]="item.at_cat == 'E' ? 'secondary' : 'danger'">
-              {{ 'RECORDS.category' | translate}}: {{ item.at_cat }}
+              {{ 'RECORDS.CATEGORY' | translate}}: {{ item.at_cat }}
               <br>
-              {{ 'RECORDS.quarter' | translate}}: {{ item.at_qtr }}
+              {{ 'RECORDS.QUARTER' | translate}}: {{ item.at_qtr }}
               <br>
-              {{ 'RECORDS.reason' | translate }}: {{ item.calc_cat }}
+              {{ 'RECORDS.REASON' | translate }}: {{ item.calc_cat }}
               <br>
               {{ 'GLOBAL.DATE' | translate }}: {{ item.calc_date }}
               <br>
-              {{ 'RECORDS.day' | translate }}: {{ item.calc_day }}
+              {{ 'RECORDS.DAY' | translate }}: {{ item.calc_day }}
             </ion-item>
           </ion-card>
         </ion-list>
@@ -34,11 +34,11 @@
               <br>
               {{ 'GLOBAL.DATE' | translate }}: {{ item.calc_date }}
               <br>
-              {{ 'RECORDS.teacher' | translate }}: {{ item.calc_teacher }}
+              {{ 'RECORDS.TEACHER' | translate }}: {{ item.calc_teacher }}
               <br>
-              {{ 'RECORDS.reason' | translate }}: {{ item.calc_comment }}
+              {{ 'RECORDS.REASON' | translate }}: {{ item.calc_comment }}
               <br>
-              {{ 'RECORDS.quarter' | translate}}: {{ item.ds_qtr }}
+              {{ 'RECORDS.QUARTER' | translate}}: {{ item.ds_qtr }}
             </ion-item>
           </ion-card>
         </ion-list>

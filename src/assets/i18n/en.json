@@ -1,75 +1,76 @@
 {
   "GLOBAL":{
     "CANCEL": "Cancel",
+    "OK": "OK",
     "LOGOUT": "Logout",
     "DATE": "Date",
     "EMAIL": "Email"
   },
   "LOGIN": {
-    "name": "Login",
-    "user-id": "Username",
-    "password": "Password",
-    "language": "Language",
-    "remember-me": "Keep me logged in",
-    "fail": "Wrong username or password. Try again.",
-    "no-credentials": "Empty username or password!"
+    "NAME": "Login",
+    "USER_ID": "Username",
+    "PASSWORD": "Password",
+    "LANGUAGE": "Language",
+    "REMEMBER_ME": "Keep me logged in",
+    "FAIL": "Wrong username or password. Try again.",
+    "NO_CREDENTIALS": "Empty username or password!"
   },
   "PROFILE": {
-    "name": "Profile",
-    "th": "th",
-    "grade": "Grade",
-    "student-credit": "Student Credit",
-    "family-credit": "Family Credit",
-    "missing-assignments": "Missing Assignments",
-    "worth": "Worth",
-    "points": "Points",
-    "check-grades": "Check your Grades",
-    "schedule": "Class Schedule",
-    "select-schedule": "Select Schedule"
+    "NAME": "Profile",
+    "TH": "th",
+    "GRADE": "Grade",
+    "STUDENT_CREDIT": "Student Credit",
+    "FAMILY_CREDIT": "Family Credit",
+    "MISSING_ASSSIGNMENTS": "Missing Assignments",
+    "WORTH": "Worth",
+    "POINTS": "Points",
+    "CHECK_GRADES": "Check your Grades",
+    "SCHEDULE": "Class Schedule",
+    "SELECT_SCHEDULE": "Select Schedule"
   },
   "RECORDS": {
-    "attendance": "Attendance",
-    "discipline": "Discipline",
-    "category": "Category",
-    "quarter": "Quarter",
-    "reason": "Reason",
-    "day": "Day",
-    "teacher": "Teacher"
+    "ATTENDANCE": "Attendance",
+    "DISCIPLINE": "Discipline",
+    "CATEGORY": "Category",
+    "QUARTER": "Quarter",
+    "REASON": "Reason",
+    "DAY": "Day",
+    "TEACHER": "Teacher"
   },
   "HOMEWORK": {
-    "name": "Homework",
-    "hide-checked": "Hide Checked",
-    "title": "Pick a Class",
-    "all-classes": "All Classes"
+    "NAME": "Homework",
+    "HIDE_CHECKED": "Hide Checked",
+    "TITLE": "Pick a Class",
+    "ALL_CLASSES": "All Classes"
   },
   "GRADES": {
-    "name": "Grades",
-    "phone": "Phone",
-    "period": "Period",
-    "room": "Room",
-    "grading-scale": "Grading Scale",
-    "last-updated": "Last Updated",
-    "grade": "Grade"
+    "NAME": "Grades",
+    "PHONE": "Phone",
+    "PERIOD": "Period",
+    "ROOM": "Room",
+    "GRADING_SCALE": "Grading Scale",
+    "LAST_UPDATED": "Last Updated",
+    "GRADE": "Grade"
   },
   "EVENTS": {
-    "name": "Events",
-    "time": "Time",
-    "location": "Location"
+    "NAME": "Events",
+    "TIME": "Time",
+    "LOCATION": "Location"
   },
   "CAFETERIA": {
-    "name": "Cafeteria",
-    "todays-lunch": "Today's lunch",
-    "balance-history": "Balance History",
-    "transactions": "Last 10 Transactions",
-    "price": "Price",
-    "date-time": "Date/Time",
-    "client": "Client",
-    "product": "Product",
-    "authorized-by": "Authorized By"
+    "NAME": "Cafeteria",
+    "TODAYS_LUNCH": "Today's lunch",
+    "BALANCE_HISTORY": "Balance History",
+    "TRANSACTIONS": "Last 10 Transactions",
+    "PRICE": "Price",
+    "DATE_TIME": "Date/Time",
+    "CLIENT": "Client",
+    "PRODUCT": "Product",
+    "AUTHORIZED_BY": "Authorized By"
   },
   "STAFF": {
-    "name": "Staff",
-    "cellphone": "Cellphone",
-    "homephone": "Homephone"
+    "NAME": "Staff",
+    "CELLPHONE": "Cellphone",
+    "HOMEPHONE": "Homephone"
   }
 }
