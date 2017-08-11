@@ -6,7 +6,7 @@
       </button>
     </ion-buttons>
     <ion-title *ngIf="!selected">
-      {{ 'STAFF-name' | translate }}
+      {{ 'STAFF.name' | translate }}
     </ion-title>
     <ion-title *ngIf="selected">
       {{ selected.calc_name }}
@@ -27,7 +27,7 @@
     <ion-searchbar
       [(ngModel)]="search"
       (ionInput)="doSearch()"
-      [placeholder]=" 'STAFF-name' | translate "
+      [placeholder]=" 'STAFF.name' | translate "
     ></ion-searchbar>
   </ion-toolbar>
 
@@ -49,7 +49,7 @@
           <ion-item text-wrap color="secondary">
             <ion-row color="secondary" [hidden]="!selected.calc_phone">
               <b ion-col>
-                {{ 'STAFF-cellphone' | translate }}:
+                {{ 'STAFF.cellphone' | translate }}:
               </b>
               <a ion-col href="tel:{{ selected.calc_phone }}">
                 {{ selected.calc_phone }}
@@ -57,7 +57,7 @@
             </ion-row>
             <ion-row [hidden]="!selected.calc_homephone">
               <b ion-col>
-                {{ 'STAFF-homephone' | translate }}:
+                {{ 'STAFF.homephone' | translate }}:
               </b>
               <a ion-col href="tel:{{ selected.calc_homephone }}">
                 {{ selected.calc_homephone }}
@@ -65,7 +65,7 @@
             </ion-row>
             <ion-row [hidden]="!selected.calc_email">
               <b ion-col>
-                {{ 'STAFF-email' | translate }}:
+                {{ 'STAFF.email' | translate }}:
               </b>
               <a ion-col href="mailto:{{ selected.calc_email }}">
                 {{ selected.calc_email }}

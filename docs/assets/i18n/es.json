@@ -1,68 +1,75 @@
 {
-  "CANCEL":"Cancelar",
-
-  "LOGIN-name":"Iniciar sesión",
-  "LOGIN-user-id":"Usuario",
-  "LOGIN-password":"Contraseña",
-  "LOGIN-language":"Idioma",
-  "LOGIN-remember-me":"Recordar mi cuenta",
-  "LOGIN-fail":"Usuario o contraseña incorrectos. Intentelo denuevo.",
-  "LOGIN-no-credentials":"Usuario o contraseña vacios!",
-
-  "MENU-logout":"Salir",
-
-  "PROFILE-name":"Perfil",
-  "PROFILE-th": "to",
-  "PROFILE-grade": "Grado",
-  "PROFILE-student-credit":"Credito del Estudiante",
-  "PROFILE-family-credit": "Credito de la Familia",
-  "PROFILE-missing-assignments":"Asignaturas Pendientes",
-  "PROFILE-worth":"Vale",
-  "PROFILE-points":"Puntos",
-  "PROFILE-check-grades":"Revisar Notas",
-  "PROFILE-schedule":"Horario de Clases",
-  "PROFILE-select-schedule":"Seleccionar Horario",
-
-  "RECORDS-attendance":"Asistencia",
-  "RECORDS-discipline":"Conducta",
-  "RECORDS-category":"Categoria",
-  "RECORDS-quarter":"Quatrimestre",
-  "RECORDS-reason":"Razón",
-  "RECORDS-date":"Fecha",
-  "RECORDS-day":"Dia",
-  "RECORDS-teacher":"Maestro",
-
-  "HOMEWORK-name":"Tareas",
-  "HOMEWORK-title":"Elegir Clase",
-  "HOMEWORK-all-classes":"Todas las Tareas",
-  "HOMEWORK-hide-checked":"Ocultar Completadas",
-
-  "GRADES-name":"Notas",
-  "GRADES-email":"Correo Electronico",
-  "GRADES-phone":"Telefono",
-  "GRADES-period":"Periodo",
-  "GRADES-room":"Aula",
-  "GRADES-grading-scale":"Escala de Notas",
-  "GRADES-last-updated":"Ultima Actualizacion",
-  "GRADES-grade":"Nota",
-
-  "EVENTS-name":"Eventos",
-  "EVENTS-date":"Fecha",
-  "EVENTS-time":"Hora",
-  "EVENTS-location":"Lugar",
-
-  "CAFETERIA-name":"Cafeteria",
-  "CAFETERIA-todays-lunch":"Almuerzo del Dia",
-  "CAFETERIA-balance-history":"Historial de Saldo",
-  "CAFETERIA-transactions":"Últimas 10 Transacciones",
-  "CAFETERIA-price":"Precio",
-  "CAFETERIA-date-time":"Fecha/Hora",
-  "CAFETERIA-client":"Cliente",
-  "CAFETERIA-product":"Producto",
-  "CAFETERIA-authorized-by":"Autorizado Por",
-
-  "STAFF-name":"Personal",
-  "STAFF-cellphone":"Celular",
-  "STAFF-homephone":"Convencional",
-  "STAFF-email":"Correo Electronico"
+  "GLOBAL":{
+    "CANCEL": "Cancelar",
+    "LOGOUT": "Salir",
+    "DATE": "Fecha",
+    "EMAIL": "Correo Electronico"
+  },
+  "LOGIN": {
+    "name": "Iniciar sesión",
+    "user-id": "Usuario",
+    "password": "Contraseña",
+    "language": "Idioma",
+    "remember-me": "Recordar mi cuenta",
+    "fail": "Usuario o contraseña incorrectos. Intentelo denuevo.",
+    "no-credentials": "Usuario o contraseña vacios!"
+  },
+  "PROFILE": {
+    "name": "Perfil",
+    "th": "to",
+    "grade": "Grado",
+    "student-credit": "Credito del Estudiante",
+    "family-credit": "Credito de la Familia",
+    "missing-assignments": "Asignaturas Pendientes",
+    "worth": "Vale",
+    "points": "Puntos",
+    "check-grades": "Revisar Notas",
+    "schedule": "Horario de Clases",
+    "select-schedule": "Seleccionar Horario"
+  },
+  "RECORDS": {
+    "attendance": "Asistencia",
+    "discipline": "Conducta",
+    "category": "Categoria",
+    "quarter": "Quatrimestre",
+    "reason": "Razón",
+    "day": "Dia",
+    "teacher": "Maestro"
+  },
+  "HOMEWORK": {
+    "name": "Tareas",
+    "title": "Elegir Clase",
+    "all-classes": "Todas las Tareas",
+    "hide-checked": "Ocultar Completadas"
+  },
+  "GRADES": {
+    "name": "Notas",
+    "phone": "Telefono",
+    "period": "Periodo",
+    "room": "Aula",
+    "grading-scale": "Escala de Notas",
+    "last-updated": "Ultima Actualizacion",
+    "grade": "Nota"
+  },
+  "EVENTS": {
+    "name": "Eventos",
+    "time": "Hora",
+    "location": "Lugar"
+  },
+  "CAFETERIA": {
+    "name": "Cafeteria",
+    "todays-lunch": "Almuerzo del Dia",
+    "balance-history": "Historial de Saldo",
+    "transactions": "Últimas 10 Transacciones",
+    "price": "Precio",
+    "date-time": "Fecha/Hora",
+    "client": "Cliente",
+    "product": "Producto",
+    "authorized-by": "Autorizado Por"
+  },
+  "STAFF": {
+    "name": "Personal",
+    "cellphone": "Celular",
+    "homephone": "Convencional"
+  }
 }

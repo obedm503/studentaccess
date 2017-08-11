@@ -1,68 +1,75 @@
 {
-  "CANCEL":"Cancel",
-
-  "LOGIN-name":"Login",
-  "LOGIN-user-id":"UserID",
-  "LOGIN-password":"Password",
-  "LOGIN-language":"Language",
-  "LOGIN-remember-me":"Keep me logged in",
-  "LOGIN-fail":"Wrong UserID or password. Try again.",
-  "LOGIN-no-credentials":"Empty UserID or password!",
-
-  "MENU-logout":"Logout",
-
-  "PROFILE-name":"Profile",
-  "PROFILE-th": "th",
-  "PROFILE-grade": "Grade",
-  "PROFILE-student-credit":"Student Credit",
-  "PROFILE-family-credit": "Family Credit",
-  "PROFILE-missing-assignments":"Missing Assignments",
-  "PROFILE-worth":"Worth",
-  "PROFILE-points":"Points",
-  "PROFILE-check-grades":"Check your Grades",
-  "PROFILE-schedule":"Class Schedule",
-  "PROFILE-select-schedule":"Select Schedule",
-  "HOMEWORK-hide-checked":"Hide Checked",
-
-  "RECORDS-attendance":"Attendance",
-  "RECORDS-discipline":"Discipline",
-  "RECORDS-category":"Category",
-  "RECORDS-quarter":"Quarter",
-  "RECORDS-reason":"Reason",
-  "RECORDS-date":"Date",
-  "RECORDS-day":"Day",
-  "RECORDS-teacher":"Teacher",
-
-  "HOMEWORK-name":"Homework",
-  "HOMEWORK-title":"Pick a Class",
-  "HOMEWORK-all-classes":"All Classes",
-
-  "GRADES-name":"Grades",
-  "GRADES-email":"Email",
-  "GRADES-phone":"Phone",
-  "GRADES-period":"Period",
-  "GRADES-room":"Room",
-  "GRADES-grading-scale":"Grading Scale",
-  "GRADES-last-updated":"Last Updated",
-  "GRADES-grade":"Grade",
-
-  "EVENTS-name":"Events",
-  "EVENTS-date":"Date",
-  "EVENTS-time":"Time",
-  "EVENTS-location":"Location",
-
-  "CAFETERIA-name":"Cafeteria",
-  "CAFETERIA-todays-lunch":"Today's lunch",
-  "CAFETERIA-balance-history":"Balance History",
-  "CAFETERIA-transactions":"Last 10 Transactions",
-  "CAFETERIA-price":"Price",
-  "CAFETERIA-date-time":"Date/Time",
-  "CAFETERIA-client":"Client",
-  "CAFETERIA-product":"Product",
-  "CAFETERIA-authorized-by":"Authorized By",
-
-  "STAFF-name":"Staff",
-  "STAFF-cellphone":"Cellphone",
-  "STAFF-homephone":"Homephone",
-  "STAFF-email":"Email"
+  "GLOBAL":{
+    "CANCEL": "Cancel",
+    "LOGOUT": "Logout",
+    "DATE": "Date",
+    "EMAIL": "Email"
+  },
+  "LOGIN": {
+    "name": "Login",
+    "user-id": "Username",
+    "password": "Password",
+    "language": "Language",
+    "remember-me": "Keep me logged in",
+    "fail": "Wrong username or password. Try again.",
+    "no-credentials": "Empty username or password!"
+  },
+  "PROFILE": {
+    "name": "Profile",
+    "th": "th",
+    "grade": "Grade",
+    "student-credit": "Student Credit",
+    "family-credit": "Family Credit",
+    "missing-assignments": "Missing Assignments",
+    "worth": "Worth",
+    "points": "Points",
+    "check-grades": "Check your Grades",
+    "schedule": "Class Schedule",
+    "select-schedule": "Select Schedule"
+  },
+  "RECORDS": {
+    "attendance": "Attendance",
+    "discipline": "Discipline",
+    "category": "Category",
+    "quarter": "Quarter",
+    "reason": "Reason",
+    "day": "Day",
+    "teacher": "Teacher"
+  },
+  "HOMEWORK": {
+    "name": "Homework",
+    "hide-checked": "Hide Checked",
+    "title": "Pick a Class",
+    "all-classes": "All Classes"
+  },
+  "GRADES": {
+    "name": "Grades",
+    "phone": "Phone",
+    "period": "Period",
+    "room": "Room",
+    "grading-scale": "Grading Scale",
+    "last-updated": "Last Updated",
+    "grade": "Grade"
+  },
+  "EVENTS": {
+    "name": "Events",
+    "time": "Time",
+    "location": "Location"
+  },
+  "CAFETERIA": {
+    "name": "Cafeteria",
+    "todays-lunch": "Today's lunch",
+    "balance-history": "Balance History",
+    "transactions": "Last 10 Transactions",
+    "price": "Price",
+    "date-time": "Date/Time",
+    "client": "Client",
+    "product": "Product",
+    "authorized-by": "Authorized By"
+  },
+  "STAFF": {
+    "name": "Staff",
+    "cellphone": "Cellphone",
+    "homephone": "Homephone"
+  }
 }

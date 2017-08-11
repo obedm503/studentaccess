@@ -1,8 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Storage } from '@ionic/storage';
-import { Events } from 'ionic-angular';
-
-import { Http } from '@angular/http';
+import * as Storage from '@ionic/storage';
+import * as Http from '@angular/http';
 import 'rxjs/add/operator/toPromise';
 
 import currentWeekNumber from 'current-week-number';
@@ -18,13 +16,12 @@ export class Store {
   private keys: IKey[];
 
   constructor(
-    private http: Http,
-    private storage: Storage,
-    public state: State,
-    private events: Events,
+    private http: Http.Http,
+    private storage: Storage.Storage,
+    private state: State,
     private log: Log,
   ){
-    this.log.debug('new Store()');
+    this.log.info('new Store()');
     let month = ('0' + ( this.date.getMonth() + 1 ).toString() ).slice(-2);
     let day = ('0' + this.date.getDate().toString() ).slice(-2);
     let year = this.date.getFullYear().toString();
@@ -145,7 +142,7 @@ export class Store {
       data: user
     });
   }
-  public clear(): Promise<null> {
+  public clear(): Promise<void> {
     return this.storage.clear().then( () => {
       this.log.debug('cleared storage')
       return this.state.clear();

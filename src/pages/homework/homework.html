@@ -5,7 +5,7 @@
         <ion-icon name="menu"></ion-icon>
       </button>
     </ion-buttons>
-    <ion-title>{{ 'HOMEWORK-name' | translate }}</ion-title>
+    <ion-title>{{ 'HOMEWORK.name' | translate }}</ion-title>
     <ion-buttons right>
       <button ion-button (click)="popover($event)">
         <ion-icon name="more"></ion-icon>
@@ -20,10 +20,10 @@
       <ion-col col-12 col-lg-6 col-md-6 offset-md-3 col-sm-12>
         <ion-list>
           <ion-item>
-            <ion-label>{{ 'HOMEWORK-hide-checked' | translate }}</ion-label>
+            <ion-label>{{ 'HOMEWORK.hide-checked' | translate }}</ion-label>
             <ion-toggle
               [(ngModel)]="hideChecked"
-              [name]="'HOMEWORK-hide-checked' | translate"
+              [name]="'HOMEWORK.hide-checked' | translate"
             ></ion-toggle>
           </ion-item>
           <ion-item

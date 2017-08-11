@@ -38,7 +38,7 @@ export class Login {
     public translate: TranslateService,
     private log: Log,
   ){
-    this.log.debug('new Login()');
+    this.log.info('new Login()');
   }
 
   public login() {
@@ -50,13 +50,13 @@ export class Login {
         // this.nav.setRoot('Profile');
         this.events.publish('login', this.user, login, 'Profile');
       } else {
-        this.showError(this.translate.instant('LOGIN-fail'));
+        this.showError(this.translate.instant('LOGIN.fail'));
         this.user.password = '';
         this.user.username = '';
       }
     }).catch(err => {
       if( err === null ){
-        this.showError(this.translate.instant('LOGIN-no-credentials'));
+        this.showError(this.translate.instant('LOGIN.no-credentials'));
       } else {
         this.showError(err);
       }

@@ -84,7 +84,7 @@ export class State {
     private storage: Storage,
     private log: Log,
   ){
-    this.log.debug('new State()')
+    this.log.info('new State()')
   }
 
   public get(key: string): StoredItem<any> {

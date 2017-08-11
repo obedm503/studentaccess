@@ -91,9 +91,9 @@ export class Profile {
     }) );
 
     this.alert.create({
-      title: this.translate.instant('PROFILE-select-schedule'),
+      title: this.translate.instant('PROFILE.select-schedule'),
       buttons: [
-        this.translate.instant('CANCEL'),
+        this.translate.instant('GLOBAL.CANCEL'),
         {
           text: 'OK',
           handler: type => {

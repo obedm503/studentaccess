@@ -7,14 +7,13 @@ webpackJsonp([9],{
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Store; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__ionic_storage__ = __webpack_require__(44);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(49);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_http__ = __webpack_require__(83);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_toPromise__ = __webpack_require__(259);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_toPromise___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_toPromise__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_current_week_number__ = __webpack_require__(261);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_current_week_number___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_current_week_number__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__state__ = __webpack_require__(50);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__log__ = __webpack_require__(205);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_http__ = __webpack_require__(83);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_toPromise__ = __webpack_require__(259);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_toPromise___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_toPromise__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_current_week_number__ = __webpack_require__(261);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_current_week_number___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_current_week_number__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__state__ = __webpack_require__(50);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__log__ = __webpack_require__(205);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -66,17 +65,15 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 
 
 
-
 var Store = (function () {
-    function Store(http, storage, state, events, log) {
+    function Store(http, storage, state, log) {
         this.http = http;
         this.storage = storage;
         this.state = state;
-        this.events = events;
         this.log = log;
         this.date = new Date();
         this.api = 'https://db.nca.edu.ni/api/api_ewapp.php';
-        this.log.debug('new Store()');
+        this.log.info('new Store()');
         var month = ('0' + (this.date.getMonth() + 1).toString()).slice(-2);
         var day = ('0' + this.date.getDate().toString()).slice(-2);
         var year = this.date.getFullYear().toString();
@@ -134,7 +131,7 @@ var Store = (function () {
                             comparator = this.date.getDate() === new Date(storeItem.date).getDate();
                             break;
                         case 'WEEK':
-                            comparator = __WEBPACK_IMPORTED_MODULE_5_current_week_number___default()(this.date) === __WEBPACK_IMPORTED_MODULE_5_current_week_number___default()(new Date(storeItem.date));
+                            comparator = __WEBPACK_IMPORTED_MODULE_4_current_week_number___default()(this.date) === __WEBPACK_IMPORTED_MODULE_4_current_week_number___default()(new Date(storeItem.date));
                             break;
                         case 'MONTH':
                             comparator = this.date.getMonth() === new Date(storeItem.date).getMonth();
@@ -235,10 +232,10 @@ var Store = (function () {
 }());
 Store = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["B" /* Injectable */])(),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_3__angular_http__["a" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__angular_http__["a" /* Http */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__ionic_storage__["b" /* Storage */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__ionic_storage__["b" /* Storage */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_6__state__["a" /* State */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_6__state__["a" /* State */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["b" /* Events */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["b" /* Events */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_7__log__["a" /* Log */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_7__log__["a" /* Log */]) === "function" && _e || Object])
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__angular_http__["a" /* Http */], __WEBPACK_IMPORTED_MODULE_1__ionic_storage__["b" /* Storage */], __WEBPACK_IMPORTED_MODULE_5__state__["a" /* State */],
+        __WEBPACK_IMPORTED_MODULE_6__log__["a" /* Log */]])
 ], Store);
 
-var _a, _b, _c, _d, _e;
 //# sourceMappingURL=store.js.map
 
 /***/ }),
@@ -623,6 +620,7 @@ var StudentAccess = (function () {
         // load translations in background
         translate.getTranslation('en');
         translate.getTranslation('es');
+        translate.getTranslation('ko');
         var preferedLang = navigator.language.slice(0, 2);
         if (preferedLang !== 'en' && preferedLang !== 'es') {
             preferedLang = 'en';
@@ -643,12 +641,12 @@ var StudentAccess = (function () {
         })
             .catch(this.log.warn);
         this.pages = [
-            { title: 'PROFILE-name', component: 'Profile', icon: 'person' },
-            { title: 'HOMEWORK-name', component: 'Homework', icon: 'bookmarks' },
-            { title: 'GRADES-name', component: 'Grades', icon: 'checkmark-circle' },
-            { title: 'EVENTS-name', component: 'Events', icon: 'calendar' },
-            { title: 'CAFETERIA-name', component: 'Cafeteria', icon: 'card' },
-            { title: 'STAFF-name', component: 'Staff', icon: 'people' }
+            { title: 'PROFILE.name', component: 'Profile', icon: 'person' },
+            { title: 'HOMEWORK.name', component: 'Homework', icon: 'bookmarks' },
+            { title: 'GRADES.name', component: 'Grades', icon: 'checkmark-circle' },
+            { title: 'EVENTS.name', component: 'Events', icon: 'calendar' },
+            { title: 'CAFETERIA.name', component: 'Cafeteria', icon: 'card' },
+            { title: 'STAFF.name', component: 'Staff', icon: 'people' }
         ];
     }
     StudentAccess.prototype.login = function (user, login, link) {
@@ -684,7 +682,7 @@ __decorate([
     __metadata("design:type", typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* Nav */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* Nav */]) === "function" && _a || Object)
 ], StudentAccess.prototype, "nav", void 0);
 StudentAccess = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({template:/*ion-inline-start:"/home/obedm503/projects/ncai-developers/studentaccess/src/app/app.html"*/'<ion-menu [content]="content">\n  <ion-content>\n    <ion-list no-lines>\n      <ion-item color="secondary">{{ name }}</ion-item>\n      <ion-item color="primary">{{ username }}@nca.edu.ni</ion-item>\n      <button\n        ion-item\n        [class.light-gray]="item.component !== activePage"\n        [class.dark-gray]="item.component === activePage"\n        menuClose *ngFor="let item of pages"\n        (click)="openPage(item.component)"\n      >\n        <ion-icon class="menu-icon" [name]="item.icon"></ion-icon>\n        {{ item.title | translate }}\n      </button>\n      <button class="light-gray" menuClose ion-item (click)="logout()">\n        <ion-icon class="menu-icon" name="log-out"></ion-icon>\n        {{ \'MENU-logout\' | translate }}\n      </button>\n    </ion-list>\n  </ion-content>\n\n</ion-menu>\n\n<!-- Disable swipe-to-go-back because it\'s poor UX to combine STGB with side menus -->\n<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>\n'/*ion-inline-end:"/home/obedm503/projects/ncai-developers/studentaccess/src/app/app.html"*/
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({template:/*ion-inline-start:"/home/obedm503/projects/ncai-developers/studentaccess/src/app/app.html"*/'<ion-menu [content]="content">\n  <ion-content>\n    <ion-list no-lines>\n      <ion-item color="secondary">{{ name }}</ion-item>\n      <ion-item color="primary">{{ username }}@nca.edu.ni</ion-item>\n      <button\n        ion-item\n        [class.light-gray]="item.component !== activePage"\n        [class.dark-gray]="item.component === activePage"\n        menuClose *ngFor="let item of pages"\n        (click)="openPage(item.component)"\n      >\n        <ion-icon class="menu-icon" [name]="item.icon"></ion-icon>\n        {{ item.title | translate }}\n      </button>\n      <button class="light-gray" menuClose ion-item (click)="logout()">\n        <ion-icon class="menu-icon" name="log-out"></ion-icon>\n        {{ \'GLOBAL.LOGOUT\' | translate }}\n      </button>\n    </ion-list>\n  </ion-content>\n\n</ion-menu>\n\n<!-- Disable swipe-to-go-back because it\'s poor UX to combine STGB with side menus -->\n<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>\n'/*ion-inline-end:"/home/obedm503/projects/ncai-developers/studentaccess/src/app/app.html"*/
     }),
     __metadata("design:paramtypes", [typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* LoadingController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* LoadingController */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* Events */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* Events */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_2__ionic_storage__["b" /* Storage */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__ionic_storage__["b" /* Storage */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_4__providers_auth__["a" /* Auth */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__providers_auth__["a" /* Auth */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_5__providers_state__["a" /* State */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__providers_state__["a" /* State */]) === "function" && _f || Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_6__providers_log__["a" /* Log */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_6__providers_log__["a" /* Log */]) === "function" && _g || Object, typeof (_h = typeof __WEBPACK_IMPORTED_MODULE_3__ngx_translate_core__["c" /* TranslateService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__ngx_translate_core__["c" /* TranslateService */]) === "function" && _h || Object])
 ], StudentAccess);
@@ -791,7 +789,7 @@ var State = (function () {
         this.TEACHERS = null;
         this.SCHEDULE = null;
         this.ALLGRADES = null;
-        this.log.debug('new State()');
+        this.log.info('new State()');
     }
     State.prototype.get = function (key) {
         this.log.debug("State.get('" + key + "')", this[key]);
@@ -845,10 +843,10 @@ var State = (function () {
 }());
 State = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["B" /* Injectable */])(),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_0__ionic_storage__["b" /* Storage */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__ionic_storage__["b" /* Storage */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__log__["a" /* Log */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__log__["a" /* Log */]) === "function" && _b || Object])
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_0__ionic_storage__["b" /* Storage */],
+        __WEBPACK_IMPORTED_MODULE_2__log__["a" /* Log */]])
 ], State);
 
-var _a, _b;
 //# sourceMappingURL=state.js.map
 
 /***/ })
