@@ -1,13 +1,12 @@
 import { Injectable } from '@angular/core';
-import { Storage } from '@ionic/storage';
-import { Events } from 'ionic-angular';
-
-import { Http } from '@angular/http';
+import * as Storage from '@ionic/storage';
+import * as Http from '@angular/http';
 import 'rxjs/add/operator/toPromise';
 
 import currentWeekNumber from 'current-week-number';
 
 import { State } from './state';
+import { Log } from './log';
 
 @Injectable()
 export class Store {
@@ -17,12 +16,12 @@ export class Store {
   private keys: IKey[];
 
   constructor(
-    private http: Http,
-    private storage: Storage,
-    public state: State,
-    private events: Events
+    private http: Http.Http,
+    private storage: Storage.Storage,
+    private state: State,
+    private log: Log,
   ){
-    console.log('new Store()');
+    this.log.info('new Store()');
     let month = ('0' + ( this.date.getMonth() + 1 ).toString() ).slice(-2);
     let day = ('0' + this.date.getDate().toString() ).slice(-2);
     let year = this.date.getFullYear().toString();
@@ -54,7 +53,7 @@ export class Store {
         return modifiedData;
       })
       .catch( err => {
-        console.warn(err);
+        this.log.warn(err);
         return oldData;
       });
   }
@@ -94,7 +93,7 @@ export class Store {
         return this.fromApi( keyItem, modifier, storeItem.data );
       }
     } catch(e){
-      console.warn(e);
+      this.log.warn(e);
       return;
     }
   }
@@ -104,7 +103,7 @@ export class Store {
 
     let extraParams = queryParams.join('&');
 
-    let user = (this.state.get('USER') || {} as StoredItem<StoredUser>).data as StoredUser;
+    let user = (this.state.get('USER') || { data: {} } as StoredItem<StoredUser>).data as StoredUser;
     return `${this.api}?query=${query}&lang=${user.language}&username=${user.username}&password=${user.password}&mode=student&${ extraParams }`;
   }
 
@@ -115,7 +114,7 @@ export class Store {
       if( !user ){
         let state = await this.storage.get('STATE');
         user = state.USER;
-        console.log('getUser: ',state)
+        this.log.debug('getUser: ',state)
       }
       if( user && this.date.getMonth() === new Date(user.date).getMonth() ){
         return user.data;
@@ -123,7 +122,7 @@ export class Store {
         return null;
       }
     } catch(e){
-      console.warn(e);
+      this.log.warn(e);
     }
   }
   public async getLogin(){
@@ -143,9 +142,9 @@ export class Store {
       data: user
     });
   }
-  public clear(): Promise<null> {
+  public clear(): Promise<void> {
     return this.storage.clear().then( () => {
-      console.log('cleared storage')
+      this.log.debug('cleared storage')
       return this.state.clear();
     });
   }

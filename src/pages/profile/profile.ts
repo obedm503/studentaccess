@@ -7,8 +7,12 @@ import {
   Loading,
   LoadingController
 } from 'ionic-angular';
+
 import { TranslateService } from '@ngx-translate/core';
+
 import { Store } from '../../providers/store';
+import { Log } from '../../providers/log';
+
 import { expand } from '../../components/animations';
 
 @IonicPage()
@@ -45,12 +49,13 @@ export class Profile {
     private alert: AlertController,
     private translate: TranslateService,
     private loadingCtrl: LoadingController,
-    private store: Store
+    private store: Store,
+    private log: Log,
   ){}
   async ionViewDidLoad(){
     await this.loading.present();
     try {
-      let login = await this.store.get('LOGIN');
+      let login = await this.store.get('LOGIN') || {};
       this.birth = ( login.birthdate || '' ).replace(/-/ig, ' ');
       this.studentName = login.person_name;
       this.grade = login.grade;
@@ -72,7 +77,7 @@ export class Profile {
       this.attendance = records.attendance;
       this.discipline = records.discipline;
     } catch(err){
-      console.warn(err);
+      this.log.error(err);
     }
     this.loading.dismiss();
   }
@@ -86,11 +91,11 @@ export class Profile {
     }) );
 
     this.alert.create({
-      title: this.translate.instant('PROFILE-select-schedule'),
+      title: this.translate.instant('PROFILE.SELECT_SCHEDULE'),
       buttons: [
-        this.translate.instant('CANCEL'),
+        this.translate.instant('GLOBAL.CANCEL'),
         {
-          text: 'OK',
+          text: this.translate.instant('GLOBAL.OK'),
           handler: type => {
             this.selectedSchedule = this.schedules.find( schedule => schedule.type === type );
           }

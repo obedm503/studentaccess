@@ -1,7 +1,8 @@
 {
   "name": "StudentAccess",
+  "short_name": "StudentAccess",
   "description":"NCAI Student Information Client",
-  "start_url": "index.html",
+  "start_url": "/",
   "display": "standalone",
   "icons": [{
     "src": "assets/icon.png",

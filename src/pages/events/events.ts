@@ -8,6 +8,7 @@ import {
 } from 'ionic-angular';
 
 import { Store } from '../../providers/store';
+import { Log } from '../../providers/log';
 
 @IonicPage()
 @Component({
@@ -23,7 +24,8 @@ export class Events {
     private nav: NavController,
     private navParams: NavParams,
     private loadingCtrl: LoadingController,
-    private store: Store
+    private store: Store,
+    private log: Log,
   ){}
 
   async ionViewDidLoad(){
@@ -34,7 +36,7 @@ export class Events {
         let events = await this.store.get('EVENTS');
         this.events = events.events;
       } catch(err){
-        console.warn(err);
+        this.log.warn(err);
       }
       this.loading.dismiss();
     }

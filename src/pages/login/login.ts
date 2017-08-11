@@ -8,10 +8,13 @@ import {
   IonicPage,
   Events
 } from 'ionic-angular';
+import { TranslateService } from '@ngx-translate/core';
+
 import { Auth } from '../../providers/auth';
 import { Store } from '../../providers/store';
 import { State } from '../../providers/state';
-import { TranslateService } from '@ngx-translate/core';
+import { Log } from '../../providers/log';
+
 
 @IonicPage()
 @Component({
@@ -32,9 +35,10 @@ export class Login {
     public state: State,
     public alertCtrl: AlertController,
     public loadingCtrl: LoadingController,
-    public translate: TranslateService
+    public translate: TranslateService,
+    private log: Log,
   ){
-    console.log('new Login()');
+    this.log.info('new Login()');
   }
 
   public login() {
@@ -46,13 +50,13 @@ export class Login {
         // this.nav.setRoot('Profile');
         this.events.publish('login', this.user, login, 'Profile');
       } else {
-        this.showError(this.translate.instant('LOGIN-fail'));
+        this.showError(this.translate.instant('LOGIN.FAIL'));
         this.user.password = '';
         this.user.username = '';
       }
     }).catch(err => {
       if( err === null ){
-        this.showError(this.translate.instant('LOGIN-no-credentials'));
+        this.showError(this.translate.instant('LOGIN.NO_CREDENTIALS'));
       } else {
         this.showError(err);
       }

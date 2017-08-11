@@ -1,68 +1,76 @@
 {
-  "CANCEL":"Cancelar",
-
-  "LOGIN-name":"Iniciar sesión",
-  "LOGIN-user-id":"Usuario",
-  "LOGIN-password":"Contraseña",
-  "LOGIN-language":"Idioma",
-  "LOGIN-remember-me":"Recordar mi cuenta",
-  "LOGIN-fail":"Usuario o contraseña incorrectos. Intentelo denuevo.",
-  "LOGIN-no-credentials":"Usuario o contraseña vacios!",
-
-  "MENU-logout":"Salir",
-
-  "PROFILE-name":"Perfil",
-  "PROFILE-th": "to",
-  "PROFILE-grade": "Grado",
-  "PROFILE-student-credit":"Credito del Estudiante",
-  "PROFILE-family-credit": "Credito de la Familia",
-  "PROFILE-missing-assignments":"Asignaturas Pendientes",
-  "PROFILE-worth":"Vale",
-  "PROFILE-points":"Puntos",
-  "PROFILE-check-grades":"Revisar Notas",
-  "PROFILE-schedule":"Horario de Clases",
-  "PROFILE-select-schedule":"Seleccionar Horario",
-
-  "RECORDS-attendance":"Asistencia",
-  "RECORDS-discipline":"Conducta",
-  "RECORDS-category":"Categoria",
-  "RECORDS-quarter":"Quatrimestre",
-  "RECORDS-reason":"Razón",
-  "RECORDS-date":"Fecha",
-  "RECORDS-day":"Dia",
-  "RECORDS-teacher":"Maestro",
-
-  "HOMEWORK-name":"Tareas",
-  "HOMEWORK-title":"Elegir Clase",
-  "HOMEWORK-all-classes":"Todas las Tareas",
-  "HOMEWORK-hide-checked":"Ocultar Completadas",
-
-  "GRADES-name":"Notas",
-  "GRADES-email":"Correo Electronico",
-  "GRADES-phone":"Telefono",
-  "GRADES-period":"Periodo",
-  "GRADES-room":"Aula",
-  "GRADES-grading-scale":"Escala de Notas",
-  "GRADES-last-updated":"Ultima Actualizacion",
-  "GRADES-grade":"Nota",
-
-  "EVENTS-name":"Eventos",
-  "EVENTS-date":"Fecha",
-  "EVENTS-time":"Hora",
-  "EVENTS-location":"Lugar",
-
-  "CAFETERIA-name":"Cafeteria",
-  "CAFETERIA-todays-lunch":"Almuerzo del Dia",
-  "CAFETERIA-balance-history":"Historial de Saldo",
-  "CAFETERIA-transactions":"Últimas 10 Transacciones",
-  "CAFETERIA-price":"Precio",
-  "CAFETERIA-date-time":"Fecha/Hora",
-  "CAFETERIA-client":"Cliente",
-  "CAFETERIA-product":"Producto",
-  "CAFETERIA-authorized-by":"Autorizado Por",
-
-  "STAFF-name":"Personal",
-  "STAFF-cellphone":"Celular",
-  "STAFF-homephone":"Convencional",
-  "STAFF-email":"Correo Electronico"
+  "GLOBAL":{
+    "CANCEL": "Cancelar",
+    "OK": "OK",
+    "LOGOUT": "Salir",
+    "DATE": "Fecha",
+    "EMAIL": "Correo Electronico"
+  },
+  "LOGIN": {
+    "NAME": "Iniciar sesión",
+    "USER_ID": "Usuario",
+    "PASSWORD": "Contraseña",
+    "LANGUAGE": "Idioma",
+    "REMEMBER_ME": "Recordar mi cuenta",
+    "FAIL": "Usuario o contraseña incorrectos. Intentelo denuevo.",
+    "NO_CREDENTIALS": "Usuario o contraseña vacios!"
+  },
+  "PROFILE": {
+    "NAME": "Perfil",
+    "TH": "to",
+    "GRADE": "Grado",
+    "STUDENT_CREDIT": "Credito del Estudiante",
+    "FAMILY_CREDIT": "Credito de la Familia",
+    "MISSING_ASSSIGNMENTS": "Asignaturas Pendientes",
+    "WORTH": "Vale",
+    "POINTS": "Puntos",
+    "CHECK_GRADES": "Revisar Notas",
+    "SCHEDULE": "Horario de Clases",
+    "SELECT_SCHEDULE": "Seleccionar Horario"
+  },
+  "RECORDS": {
+    "ATTENDANCE": "Asistencia",
+    "DISCIPLINE": "Conducta",
+    "CATEGORY": "Categoria",
+    "QUARTER": "Quatrimestre",
+    "REASON": "Razón",
+    "DAY": "Dia",
+    "TEACHER": "Maestro"
+  },
+  "HOMEWORK": {
+    "NAME": "Tareas",
+    "HIDE_CHECKED": "Ocultar Completadas",
+    "TITLE": "Elegir Clase",
+    "ALL_CLASSES": "Todas las Tareas"
+  },
+  "GRADES": {
+    "NAME": "Notas",
+    "PHONE": "Telefono",
+    "PERIOD": "Periodo",
+    "ROOM": "Aula",
+    "GRADING_SCALE": "Escala de Notas",
+    "LAST_UPDATED": "Ultima Actualizacion",
+    "GRADE": "Nota"
+  },
+  "EVENTS": {
+    "NAME": "Eventos",
+    "TIME": "Hora",
+    "LOCATION": "Lugar"
+  },
+  "CAFETERIA": {
+    "NAME": "Cafeteria",
+    "TODAYS_LUNCH": "Almuerzo del Dia",
+    "BALANCE_HISTORY": "Historial de Saldo",
+    "TRANSACTIONS": "Últimas 10 Transacciones",
+    "PRICE": "Precio",
+    "DATE_TIME": "Fecha/Hora",
+    "CLIENT": "Cliente",
+    "PRODUCT": "Producto",
+    "AUTHORIZED_BY": "Autorizado Por"
+  },
+  "STAFF": {
+    "NAME": "Personal",
+    "CELLPHONE": "Celular",
+    "HOMEPHONE": "Convencional"
+  }
 }

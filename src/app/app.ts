@@ -5,6 +5,7 @@ import { TranslateService } from '@ngx-translate/core';
 
 import { Auth } from '../providers/auth';
 import { State } from '../providers/state';
+import { Log } from '../providers/log';
 
 @Component({
   templateUrl: 'app.html'
@@ -26,6 +27,7 @@ export class StudentAccess {
 
     public auth: Auth,
     public state: State,
+    public log: Log,
     public translate: TranslateService
   ){
     this.loading = this.loadingCtrl.create({
@@ -36,6 +38,7 @@ export class StudentAccess {
     // load translations in background
     translate.getTranslation('en');
     translate.getTranslation('es');
+    translate.getTranslation('ko');
     let preferedLang = navigator.language.slice(0,2);
     if( preferedLang !== 'en' && preferedLang !== 'es' ){
       preferedLang = 'en';
@@ -54,15 +57,15 @@ export class StudentAccess {
           this.logout();
         }
       })
-      .catch(console.warn);
+      .catch(this.log.warn);
 
     this.pages = [
-      { title: 'PROFILE-name', component: 'Profile', icon: 'person' },
-      { title: 'HOMEWORK-name', component: 'Homework', icon: 'bookmarks' },
-      { title: 'GRADES-name', component: 'Grades', icon: 'checkmark-circle' },
-      { title: 'EVENTS-name', component: 'Events', icon: 'calendar' },
-      { title: 'CAFETERIA-name', component: 'Cafeteria', icon: 'card' },
-      { title: 'STAFF-name', component: 'Staff', icon: 'people' }
+      { title: 'PROFILE.NAME', component: 'Profile', icon: 'person' },
+      { title: 'HOMEWORK.NAME', component: 'Homework', icon: 'bookmarks' },
+      { title: 'GRADES.NAME', component: 'Grades', icon: 'checkmark-circle' },
+      { title: 'EVENTS.NAME', component: 'Events', icon: 'calendar' },
+      { title: 'CAFETERIA.NAME', component: 'Cafeteria', icon: 'card' },
+      { title: 'STAFF.NAME', component: 'Staff', icon: 'people' }
     ];
   }
   login( user, login, link? ){
@@ -79,7 +82,7 @@ export class StudentAccess {
   openPage( page ){
     this.activePage = page;
     this.nav.setRoot(page);
-    console.log('openPage: ', page, 'active Page: ', (this.nav.getActive() || {} as any).name );
+    this.log.debug('openPage: ', page, 'active Page: ', (this.nav.getActive() || {} as any).name );
   }
   logout(){
     this.loading = this.loadingCtrl.create();
@@ -87,7 +90,7 @@ export class StudentAccess {
       .then( () => this.nav.setRoot('Login') )
       .then( () => this.auth.logout() )
       .then( () => this.loading.dismiss() )
-      .catch(console.warn);
+      .catch(this.log.warn);
   }
 
 }

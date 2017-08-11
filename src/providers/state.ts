@@ -1,6 +1,8 @@
 import { Storage } from '@ionic/storage';
 import { Injectable } from '@angular/core';
 
+import { Log } from './log';
+
 @Injectable()
 export class State {
   public remember: boolean = true;
@@ -78,26 +80,29 @@ export class State {
   private SCHEDULE: StoredItem<any> = null;
   private ALLGRADES: StoredItem<any> = null;
 
-  constructor(private storage: Storage){
-    console.log('new State()')
+  constructor(
+    private storage: Storage,
+    private log: Log,
+  ){
+    this.log.info('new State()')
   }
 
   public get(key: string): StoredItem<any> {
-    console.log(`State.get('${key}')`, this[key])
+    this.log.debug(`State.get('${key}')`, this[key])
     return this[key];
   }
   public set(key: string, value: StoredItem<any>): void {
     // ignore null and undefined
     if( !value ){ return; }
 
-    console.log(`State.set('${key}')`, value)
+    this.log.debug(`State.set('${key}')`, value)
     this[key] = value;
     this.save();
   }
   public save(): void {
     if( !this.remember ){ return; }
 
-    console.log('State.save()')
+    this.log.debug('State.save()')
     this.keys.forEach( ({ key }) => {
       let value = this[key];
       if( value ){
@@ -109,7 +114,7 @@ export class State {
     let proms = this.keys.map( ({ key }) => this.storage.get(key));
 
     return Promise.all(proms).then( state => {
-      console.log('State.load() ', state);
+      this.log.debug('State.load() ', state);
       let reduced = state.reduce( (accumulator, el, i) => {
         accumulator[ this.keys[i].key ] = el;
         return accumulator;
@@ -117,7 +122,7 @@ export class State {
       // load state into memory
       Object.assign(this, reduced);
       return reduced;
-    }).catch(console.warn);
+    }).catch(this.log.warn);
   }
   public clear(){
     this.keys.forEach( key => this[key.key] = null );

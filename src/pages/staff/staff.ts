@@ -8,6 +8,8 @@ import {
 } from 'ionic-angular';
 
 import { Store } from '../../providers/store';
+import { Log } from '../../providers/log';
+
 import { expand } from '../../components/animations';
 
 @IonicPage()
@@ -28,7 +30,8 @@ export class Staff {
     private nav: NavController,
     private navParams: NavParams,
     private loadingCtrl: LoadingController,
-    private store: Store
+    private store: Store,
+    private log: Log,
   ){}
 
   async ionViewDidLoad(){
@@ -39,7 +42,7 @@ export class Staff {
         let staff = await this.store.get('STAFF');
         this.filteredStaff = this.staff = staff.staff_list;
       } catch(err){
-        console.warn(err);
+        this.log.warn(err);
       }
       this.loading.dismiss();
     }
@@ -64,7 +67,7 @@ export class Staff {
         el.calc_status.toLowerCase().indexOf( query ) > -1
       );
     } catch(e){
-      console.warn(e);
+      this.log.warn(e);
     }
   }
 }

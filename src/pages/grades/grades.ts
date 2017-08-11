@@ -7,6 +7,7 @@ import {
 } from 'ionic-angular';
 
 import { Store } from '../../providers/store';
+import { Log } from '../../providers/log';
 
 @IonicPage()
 @Component({
@@ -22,7 +23,8 @@ export class Grades {
   constructor(
     private nav: NavController,
     private loadingCtrl: LoadingController,
-    private store: Store
+    private store: Store,
+    private log: Log,
   ){}
 
   async ionViewDidLoad(){
@@ -37,7 +39,7 @@ export class Grades {
       let teachers = await this.store.get('TEACHERS');
       this.teachers = teachers.teachers;
     } catch(err){
-      console.warn(err);
+      this.log.warn(err);
     }
     this.loading.dismiss();
   }

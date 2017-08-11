@@ -19,6 +19,6 @@ export class Records {
   ionViewDidEnter() {
     this.discipline = this.navParams.get('discipline');
     this.attendance = this.navParams.get('attendance');
-    this.title = this.attendance ? 'RECORDS-attendance' : 'RECORDS-discipline';
+    this.title = this.attendance ? 'RECORDS.ATTENDANCE' : 'RECORDS.DISCIPLINE';
   }
 }

@@ -4,7 +4,7 @@
       <ion-icon name="menu"></ion-icon>
     </button>
     <ion-title *ngIf="!selected">
-      {{ 'EVENTS-name' | translate }}
+      {{ 'EVENTS.NAME' | translate }}
     </ion-title>
     <ion-title *ngIf="selected">
       {{ selected.calc_subject }}
@@ -33,7 +33,7 @@
               </ion-row>
               <ion-row [hidden]="!item.calc_location">
                 <ion-col>
-                  {{ 'EVENTS-location' | translate }}:
+                  {{ 'EVENTS.LOCATION' | translate }}:
                 </ion-col>
                 <ion-col>
                   {{ item.calc_location }}
@@ -41,7 +41,7 @@
               </ion-row>
               <ion-row [hidden]="!item.calc_ev_time_start">
                 <ion-col>
-                  {{ 'EVENTS-time' | translate }}:
+                  {{ 'EVENTS.TIME' | translate }}:
                 </ion-col>
                 <ion-col>
                   {{ item.calc_ev_time_start }}
@@ -62,7 +62,7 @@
             <ion-item color="secondary">
               <ion-row [hidden]="!selected.calc_ev_date_start">
                 <ion-col>
-                  <b>{{ 'EVENTS-date' | translate }}:</b>
+                  <b>{{ 'GLOBAL.DATE' | translate }}:</b>
                 </ion-col>
                 <ion-col>
                   {{ selected.calc_ev_date_start }}
@@ -70,7 +70,7 @@
               </ion-row>
               <ion-row [hidden]="!selected.calc_ev_time_start">
                 <ion-col>
-                  <b>{{ 'EVENTS-time' | translate }}:</b>
+                  <b>{{ 'EVENTS.TIME' | translate }}:</b>
                 </ion-col>
                 <ion-col>
                   {{ selected.calc_ev_time_start }}
@@ -78,7 +78,7 @@
               </ion-row>
               <ion-row [hidden]="!selected.calc_location">
                 <ion-col>
-                  <b>{{ 'EVENTS-location' | translate }}:</b>
+                  <b>{{ 'EVENTS.LOCATION' | translate }}:</b>
                 </ion-col>
                 <ion-col >
                   {{ selected.calc_location }}
