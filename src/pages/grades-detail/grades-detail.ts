@@ -29,6 +29,6 @@ export class GradesDetail {
     this.teacher = this.navParams
       .get('teachers')
       .find( el => el.teacher_id === this.class.class_teacher_id );
-    this.teacherPic = this.teacher ? `data:image/jpeg;base64,${this.teacher.teacher_pic}` : this.teacherPic;
+    this.teacherPic = this.teacher && this.teacher.teacher_pic ? `data:image/jpeg;base64,${this.teacher.teacher_pic}` : this.teacherPic;
   }
 }
