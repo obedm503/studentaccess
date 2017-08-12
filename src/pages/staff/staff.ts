@@ -21,9 +21,9 @@ import { expand } from '../../components/animations';
 export class Staff {
   public staff: any[] = [];
   public filteredStaff: any[] = [];
-  public selected;
-  public toggled: boolean = false;
-  public search;
+  public activePerson: string;
+  public showSearch: boolean = false;
+  public search: string;
   private loading: Loading = this.loadingCtrl.create();
 
   constructor(
@@ -35,27 +35,27 @@ export class Staff {
   ){}
 
   async ionViewDidLoad(){
-    this.selected = this.navParams.get('selected');
-    if( !this.selected ){
-      await this.loading.present();
-      try {
-        let staff = await this.store.get('STAFF');
-        this.filteredStaff = this.staff = staff.staff_list;
-      } catch(err){
-        this.log.warn(err);
-      }
-      this.loading.dismiss();
+    await this.loading.present();
+    try {
+      let staff = await this.store.get('STAFF');
+      this.filteredStaff = this.staff = staff.staff_list;
+    } catch(err){
+      this.log.warn(err);
     }
+    this.loading.dismiss();
   }
-  goSelected(item){
-    this.nav.push('Staff', {
-      selected: item
-    });
+  select(item){
+    if( this.activePerson === item ){
+      this.activePerson = undefined;
+    } else {
+      this.activePerson = item;
+    }
   }
 
   toggleSearch(){
-    this.toggled = !this.toggled;
-    if( !this.toggled && this.filteredStaff !== this.staff ){
+    this.showSearch = !this.showSearch;
+    if( !this.showSearch && this.filteredStaff !== this.staff ){
+      this.search = '';
       this.filteredStaff = this.staff;
     }
   }
@@ -67,7 +67,7 @@ export class Staff {
         el.calc_status.toLowerCase().indexOf( query ) > -1
       );
     } catch(e){
-      this.log.warn(e);
+      this.log.error(e);
     }
   }
 }

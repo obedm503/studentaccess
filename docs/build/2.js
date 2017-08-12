@@ -1,1 +1,248 @@
-webpackJsonp([2],{190:function(l,n,u){"use strict";function a(l){return e._31(0,[(l()(),e._8(0,null,null,34,"ion-item",[["class","alternate-colors item item-block"],["text-wrap",""]],null,null,null,T.b,T.a)),e._7(1097728,null,3,P.a,[M.a,S.a,e.l,e.I,[2,x.a]],null,null),e._27(335544320,11,{contentLabel:0}),e._27(603979776,12,{_buttons:1}),e._27(603979776,13,{_icons:1}),e._7(16384,null,0,O.a,[],null,null),(l()(),e._29(2,["\n              "])),(l()(),e._8(0,null,2,26,"ion-row",[["class","row"]],null,null,null,null,null)),e._7(16384,null,0,L.a,[],null,null),(l()(),e._29(null,["\n                "])),(l()(),e._8(0,null,null,5,"ion-col",[["class","col"]],null,null,null,null,null)),e._7(16384,null,0,E.a,[],null,null),(l()(),e._29(null,["\n                  "])),(l()(),e._8(0,null,null,1,"b",[],null,null,null,null,null)),(l()(),e._29(null,["\n                    ","\n                  "])),(l()(),e._29(null,["\n                "])),(l()(),e._29(null,["\n                "])),(l()(),e._8(0,null,null,15,"ion-col",[["class","col"]],null,null,null,null,null)),e._7(16384,null,0,E.a,[],null,null),(l()(),e._29(null,["\n                  "])),(l()(),e._8(0,null,null,1,"b",[],null,null,null,null,null)),(l()(),e._29(null,["",":"])),(l()(),e._29(null,[" ","\n                  "])),(l()(),e._8(0,null,null,8,"div",[],[[8,"hidden",0]],null,null,null,null)),(l()(),e._29(null,["\n                    "])),(l()(),e._8(0,null,null,2,"b",[],null,null,null,null,null)),(l()(),e._29(null,["",":"])),e._23(131072,$.a,[p.a,e.h]),(l()(),e._29(null,[" ","/","\n                    "])),(l()(),e._8(0,null,null,1,"span",[],[[2,"fail-grade",null],[2,"bad-grade",null],[2,"good-grade",null],[2,"best-grade",null]],null,null,null,null)),(l()(),e._29(null,["(",")"])),(l()(),e._29(null,["\n                  "])),(l()(),e._29(null,["\n                "])),(l()(),e._29(null,["\n              "])),(l()(),e._29(2,["\n            "]))],null,function(l,n){l(n,14,0,n.context.$implicit.calc_date),l(n,21,0,n.context.$implicit.grc_code),l(n,22,0,n.context.$implicit.gra_name),l(n,23,0,!n.context.$implicit.calc_percent),l(n,26,0,e._30(n,26,0,e._21(n,27).transform("GRADES.GRADE"))),l(n,28,0,n.context.$implicit.grs_score,n.context.$implicit.gra_points),l(n,29,0,n.context.$implicit.grs_score/n.context.$implicit.gra_points*100<=60,n.context.$implicit.grs_score/n.context.$implicit.gra_points*100>60&&n.context.$implicit.grs_score/n.context.$implicit.gra_points*100<80,n.context.$implicit.grs_score/n.context.$implicit.gra_points*100>=80&&n.context.$implicit.grs_score/n.context.$implicit.gra_points<.95,n.context.$implicit.grs_score/n.context.$implicit.gra_points*100>=95),l(n,30,0,n.context.$implicit.calc_percent)})}function t(l){return e._31(0,[(l()(),e._8(0,null,null,20,"ion-header",[],null,null,null,null,null)),e._7(16384,null,0,D.a,[S.a,e.l,e.I,[2,A.a]],null,null),(l()(),e._29(null,["\n  "])),(l()(),e._8(0,null,null,16,"ion-navbar",[["class","toolbar"]],[[8,"hidden",0],[2,"statusbar-padding",null]],null,null,C.b,C.a)),e._7(49152,null,0,R.a,[G.a,[2,A.a],[2,j.a],S.a,e.l,e.I],null,null),(l()(),e._29(3,["\n    "])),(l()(),e._8(0,null,0,8,"button",[["ion-button",""],["menuToggle",""]],[[8,"hidden",0]],[[null,"click"]],function(l,n,u){var a=!0;return"click"===n&&(a=!1!==e._21(l,8).toggle()&&a),a},B.b,B.a)),e._7(1097728,[[1,4]],0,F.a,[[8,""],S.a,e.l,e.I],null,null),e._7(1064960,null,0,N.a,[H.a,[2,A.a],[2,F.a],[2,R.a]],{menuToggle:[0,"menuToggle"]},null),e._7(16384,null,1,z.a,[S.a,e.l,e.I,[2,U.a],[2,R.a]],null,null),e._27(603979776,1,{_buttons:1}),(l()(),e._29(0,["\n      "])),(l()(),e._8(0,null,0,1,"ion-icon",[["name","menu"],["role","img"]],[[2,"hide",null]],null,null,null,null)),e._7(147456,null,0,q.a,[S.a,e.l,e.I],{name:[0,"name"]},null),(l()(),e._29(0,["\n    "])),(l()(),e._29(3,["\n    "])),(l()(),e._8(0,null,3,2,"ion-title",[],null,null,null,K.b,K.a)),e._7(49152,null,0,V.a,[S.a,e.l,e.I,[2,U.a],[2,R.a]],null,null),(l()(),e._29(0,["",""])),(l()(),e._29(3,["\n  "])),(l()(),e._29(null,["\n"])),(l()(),e._29(null,["\n\n"])),(l()(),e._8(0,null,null,169,"ion-content",[],[[2,"statusbar-padding",null]],null,null,Y.b,Y.a)),e._7(4374528,null,0,Z.a,[S.a,J.a,Q.a,e.l,e.I,G.a,W.a,e.B,[2,A.a],[2,j.a]],null,null),(l()(),e._29(1,["\n  "])),(l()(),e._8(0,null,1,165,"ion-grid",[["class","grid"]],null,null,null,null,null)),e._7(16384,null,0,X.a,[],null,null),(l()(),e._29(null,["\n    "])),(l()(),e._8(0,null,null,161,"ion-row",[["class","row"]],null,null,null,null,null)),e._7(16384,null,0,L.a,[],null,null),(l()(),e._29(null,["\n      "])),(l()(),e._8(0,null,null,137,"ion-col",[["class","col"],["col-12",""],["col-sm-12",""]],[[1,"col-lg-5",0],[1,"offset-lg-1",0],[1,"col-lg-6",0],[1,"offset-lg-3",0],[1,"col-md-5",0],[1,"offset-md-1",0],[1,"col-md-6",0],[1,"offset-md-3",0]],null,null,null,null)),e._7(16384,null,0,E.a,[],null,null),(l()(),e._29(null,["\n        "])),(l()(),e._8(0,null,null,49,"ion-card",[],null,null,null,null,null)),e._7(16384,null,0,ll.a,[S.a,e.l,e.I],null,null),(l()(),e._29(null,["\n          "])),(l()(),e._8(0,null,null,45,"ion-item",[["class","dark-gray item item-block"],["text-wrap",""]],null,null,null,T.b,T.a)),e._7(1097728,null,3,P.a,[M.a,S.a,e.l,e.I,[2,x.a]],null,null),e._27(335544320,2,{contentLabel:0}),e._27(603979776,3,{_buttons:1}),e._27(603979776,4,{_icons:1}),e._7(16384,null,0,O.a,[],null,null),(l()(),e._29(2,["\n            "])),(l()(),e._8(0,null,2,37,"ion-row",[["class","row"]],null,null,null,null,null)),e._7(16384,null,0,L.a,[],null,null),(l()(),e._29(null,["\n              "])),(l()(),e._8(0,null,null,8,"ion-col",[["class","col"],["col-5",""],["col-lg-3",""],["col-md-4",""],["col-sm-5",""]],null,null,null,null,null)),e._7(16384,null,0,E.a,[],null,null),(l()(),e._29(null,["\n                "])),(l()(),e._8(0,null,null,4,"ion-avatar",[],null,null,null,null,null)),e._7(16384,null,0,nl.a,[],null,null),(l()(),e._29(null,["\n                  "])),(l()(),e._8(0,null,null,0,"img",[],[[8,"src",4]],null,null,null,null)),(l()(),e._29(null,["\n                "])),(l()(),e._29(null,["\n              "])),(l()(),e._29(null,["\n              "])),(l()(),e._8(0,null,null,23,"ion-col",[["class","person-col col"],["col-7",""],["col-lg-9",""],["col-md-8",""],["col-sm-7",""]],null,null,null,null,null)),e._7(16384,null,0,E.a,[],null,null),(l()(),e._29(null,["\n                "])),(l()(),e._8(0,null,null,19,"span",[["class","person"]],null,null,null,null,null)),(l()(),e._29(null,["\n                  ","\n                  "])),(l()(),e._8(0,null,null,7,"span",[],[[8,"hidden",0]],null,null,null,null)),(l()(),e._29(null,["\n                    "])),(l()(),e._8(0,null,null,0,"br",[],null,null,null,null,null)),(l()(),e._29(null,["\n                    ",":\n                    "])),e._23(131072,$.a,[p.a,e.h]),(l()(),e._8(0,null,null,1,"a",[],[[8,"href",4]],null,null,null,null)),(l()(),e._29(null,["\n                      ","\n                    "])),(l()(),e._29(null,["\n                  "])),(l()(),e._29(null,["\n                  "])),(l()(),e._8(0,null,null,7,"span",[],[[8,"hidden",0]],null,null,null,null)),(l()(),e._29(null,["\n                    "])),(l()(),e._8(0,null,null,0,"br",[],null,null,null,null,null)),(l()(),e._29(null,["\n                    ",":\n                    "])),e._23(131072,$.a,[p.a,e.h]),(l()(),e._8(0,null,null,1,"a",[],[[8,"href",4]],null,null,null,null)),(l()(),e._29(null,["\n                      ","\n                    "])),(l()(),e._29(null,["\n                  "])),(l()(),e._29(null,["\n                "])),(l()(),e._29(null,["\n              "])),(l()(),e._29(null,["\n            "])),(l()(),e._29(2,["\n          "])),(l()(),e._29(null,["\n        "])),(l()(),e._29(null,["\n\n        "])),(l()(),e._8(0,null,null,82,"ion-card",[],null,null,null,null,null)),e._7(16384,null,0,ll.a,[S.a,e.l,e.I],null,null),(l()(),e._29(null,["\n          "])),(l()(),e._8(0,null,null,10,"ion-card-header",[["class","item item-block"],["ion-item",""]],null,null,null,T.b,T.a)),e._7(16384,null,0,ul.a,[S.a,e.l,e.I],null,null),e._7(1097728,null,3,P.a,[M.a,S.a,e.l,e.I,[2,x.a]],null,null),e._27(335544320,5,{contentLabel:0}),e._27(603979776,6,{_buttons:1}),e._27(603979776,7,{_icons:1}),e._7(16384,null,0,O.a,[],null,null),(l()(),e._29(2,["\n            ","\n            "])),(l()(),e._8(0,null,4,1,"grade-badge",[["item-right",""]],null,null,null,al.b,al.a)),e._7(49152,null,0,tl.a,[],{avg:[0,"avg"]},null),(l()(),e._29(2,["\n          "])),(l()(),e._29(null,["\n          "])),(l()(),e._8(0,null,null,2,"ion-card-content",[],[[8,"hidden",0]],null,null,null,null)),e._7(16384,null,0,el.a,[S.a,e.l,e.I],null,null),(l()(),e._29(null,["\n            ","\n          "])),(l()(),e._29(null,["\n          "])),(l()(),e._8(0,null,null,62,"ion-item",[["class","item item-block"],["color","secondary"],["text-wrap",""]],null,null,null,T.b,T.a)),e._7(1097728,null,3,P.a,[M.a,S.a,e.l,e.I,[2,x.a]],{color:[0,"color"]},null),e._27(335544320,8,{contentLabel:0}),e._27(603979776,9,{_buttons:1}),e._27(603979776,10,{_icons:1}),e._7(16384,null,0,O.a,[],null,null),(l()(),e._29(2,["\n            "])),(l()(),e._8(0,null,2,15,"ion-row",[["class","row"]],[[8,"hidden",0]],null,null,null,null)),e._7(16384,null,0,L.a,[],null,null),(l()(),e._29(null,["\n              "])),(l()(),e._8(0,null,null,3,"b",[["class","col"],["ion-col",""]],null,null,null,null,null)),e._7(16384,null,0,E.a,[],null,null),(l()(),e._29(null,["\n                ","\n              "])),e._23(131072,$.a,[p.a,e.h]),(l()(),e._29(null,["\n              "])),(l()(),e._8(0,null,null,6,"ion-col",[["class","col"]],null,null,null,null,null)),e._7(16384,null,0,E.a,[],null,null),(l()(),e._29(null,["\n                "])),(l()(),e._8(0,null,null,2,"ion-badge",[],null,null,null,null,null)),e._7(16384,null,0,_l.a,[S.a,e.l,e.I],null,null),(l()(),e._29(null,["",""])),(l()(),e._29(null,["\n              "])),(l()(),e._29(null,["\n            "])),(l()(),e._29(2,["\n            "])),(l()(),e._8(0,null,2,11,"ion-row",[["class","row"]],[[8,"hidden",0]],null,null,null,null)),e._7(16384,null,0,L.a,[],null,null),(l()(),e._29(null,["\n              "])),(l()(),e._8(0,null,null,3,"b",[["class","col"],["ion-col",""]],null,null,null,null,null)),e._7(16384,null,0,E.a,[],null,null),(l()(),e._29(null,["\n                ","\n              "])),e._23(131072,$.a,[p.a,e.h]),(l()(),e._29(null,["\n              "])),(l()(),e._8(0,null,null,2,"ion-col",[["class","col"]],null,null,null,null,null)),e._7(16384,null,0,E.a,[],null,null),(l()(),e._29(null,["\n                ","\n              "])),(l()(),e._29(null,["\n            "])),(l()(),e._29(2,["\n            "])),(l()(),e._8(0,null,2,11,"ion-row",[["class","row"]],[[8,"hidden",0]],null,null,null,null)),e._7(16384,null,0,L.a,[],null,null),(l()(),e._29(null,["\n              "])),(l()(),e._8(0,null,null,3,"b",[["class","col"],["ion-col",""]],null,null,null,null,null)),e._7(16384,null,0,E.a,[],null,null),(l()(),e._29(null,["\n                ","\n              "])),e._23(131072,$.a,[p.a,e.h]),(l()(),e._29(null,["\n              "])),(l()(),e._8(0,null,null,2,"ion-col",[["class","col"]],null,null,null,null,null)),e._7(16384,null,0,E.a,[],null,null),(l()(),e._29(null,["\n                ","\n              "])),(l()(),e._29(null,["\n            "])),(l()(),e._29(2,["\n            "])),(l()(),e._8(0,null,2,11,"ion-row",[["class","row"]],[[8,"hidden",0]],null,null,null,null)),e._7(16384,null,0,L.a,[],null,null),(l()(),e._29(null,["\n              "])),(l()(),e._8(0,null,null,3,"b",[["class","col"],["ion-col",""]],null,null,null,null,null)),e._7(16384,null,0,E.a,[],null,null),(l()(),e._29(null,["\n                ","\n              "])),e._23(131072,$.a,[p.a,e.h]),(l()(),e._29(null,["\n              "])),(l()(),e._8(0,null,null,2,"ion-col",[["class","col"]],null,null,null,null,null)),e._7(16384,null,0,E.a,[],null,null),(l()(),e._29(null,["\n                ","\n              "])),(l()(),e._29(null,["\n            "])),(l()(),e._29(2,["\n          "])),(l()(),e._29(null,["\n        "])),(l()(),e._29(null,["\n      "])),(l()(),e._29(null,["\n      "])),(l()(),e._8(0,null,null,18,"ion-col",[["class","col"],["col-12",""],["col-lg-5",""],["col-md-5",""],["col-sm-12",""]],[[8,"hidden",0]],null,null,null,null)),e._7(16384,null,0,E.a,[],null,null),(l()(),e._29(null,["\n        "])),(l()(),e._8(0,null,null,14,"ion-card",[],null,null,null,null,null)),e._7(16384,null,0,ll.a,[S.a,e.l,e.I],null,null),(l()(),e._29(null,["\n          "])),(l()(),e._8(0,null,null,3,"ion-card-header",[],null,null,null,null,null)),e._7(16384,null,0,ul.a,[S.a,e.l,e.I],null,null),(l()(),e._29(null,["\n            ","\n          "])),e._23(131072,$.a,[p.a,e.h]),(l()(),e._29(null,["\n          "])),(l()(),e._8(0,null,null,5,"ion-list",[],null,null,null,null,null)),e._7(16384,null,0,ol.a,[S.a,e.l,e.I,J.a,sl.j,Q.a],null,null),(l()(),e._29(null,["\n            "])),(l()(),e._4(16777216,null,null,1,null,a)),e._7(802816,null,0,c.h,[e.S,e.P,e.u],{ngForOf:[0,"ngForOf"]},null),(l()(),e._29(null,["\n          "])),(l()(),e._29(null,["\n        "])),(l()(),e._29(null,["\n      "])),(l()(),e._29(null,["\n    "])),(l()(),e._29(null,["\n  "])),(l()(),e._29(1,["\n"])),(l()(),e._29(null,["\n"]))],function(l,n){var u=n.component;l(n,8,0,"");l(n,13,0,"menu"),l(n,97,0,u.class.class_avg);l(n,105,0,"secondary"),l(n,185,0,u.grades)},function(l,n){var u=n.component;l(n,3,0,e._21(n,4)._hidden,e._21(n,4)._sbPadding),l(n,6,0,e._21(n,8).isHidden),l(n,12,0,e._21(n,13)._hidden),l(n,18,0,u.class.class_name),l(n,22,0,e._21(n,23).statusbarPadding),l(n,31,0,u.grades.length?"":null,u.grades.length?"":null,u.grades.length?null:"",u.grades.length?null:"",u.grades.length?"":null,u.grades.length?"":null,u.grades.length?null:"",u.grades.length?null:""),l(n,53,0,u.teacherPic),l(n,61,0,u.teacher.teacher_name),l(n,62,0,!u.teacher.teacher_email),l(n,65,0,e._30(n,65,0,e._21(n,66).transform("GLOBAL.EMAIL"))),l(n,67,0,e._12(1,"mailto:",u.teacher.teacher_email,"")),l(n,68,0,u.teacher.teacher_email),l(n,71,0,!u.teacher.teacher_phone),l(n,74,0,e._30(n,74,0,e._21(n,75).transform("GRADES.PHONE"))),l(n,76,0,e._12(1,"tel:",u.teacher.teacher_phone,"")),l(n,77,0,u.teacher.teacher_phone),l(n,95,0,u.class.class_name),l(n,100,0,!u.class.class_description),l(n,102,0,u.class.class_description),l(n,111,0,!u.class.class_period),l(n,116,0,e._30(n,116,0,e._21(n,117).transform("GRADES.PERIOD"))),l(n,124,0,u.class.class_period),l(n,128,0,!u.class.class_room),l(n,133,0,e._30(n,133,0,e._21(n,134).transform("GRADES.ROOM"))),l(n,138,0,u.class.class_room),l(n,141,0,!u.class.class_scale),l(n,146,0,e._30(n,146,0,e._21(n,147).transform("GRADES.GRADING_SCALE"))),l(n,151,0,u.class.class_scale),l(n,154,0,!u.class.class_updated),l(n,159,0,e._30(n,159,0,e._21(n,160).transform("GRADES.LAST_UPDATED"))),l(n,164,0,u.class.class_updated),l(n,170,0,!u.grades.length),l(n,178,0,e._30(n,178,0,e._21(n,179).transform("GRADES.NAME")))})}Object.defineProperty(n,"__esModule",{value:!0});var e=u(0),_=(u(94),u(69)),o=function(){function l(l,n){this.navParams=l,this.store=n,this.class={class_name:"",class_teacher_id:"",grades:[]},this.teacher={teacher_pic:""},this.grades=[],this.teacherPic="./assets/placeholder.jpg"}return l.prototype.ionViewDidLoad=function(){var l=this;this.class=this.navParams.get("class"),this.grades=this.class.grades.slice(0).reverse(),this.teacher=this.navParams.get("teachers").find(function(n){return n.teacher_id===l.class.class_teacher_id}),this.teacherPic=this.teacher?"data:image/jpeg;base64,"+this.teacher.teacher_pic:this.teacherPic},l}(),s=u(200),i=u(68),r=function(){return function(){}}(),c=u(14),d=u(15),h=u(99),g=u(48),b=u(50),m=u(49),p=u(25),f=u(144),v=u(145),k=u(146),I=u(147),w=u(148),y=u(149),T=u(101),P=u(16),M=u(11),S=u(1),x=u(33),O=u(46),L=u(98),E=u(96),$=u(71),D=u(100),A=u(4),C=u(197),R=u(34),G=u(7),j=u(20),B=u(67),F=u(19),N=u(102),H=u(18),z=u(103),U=u(45),q=u(31),K=u(198),V=u(95),Y=u(150),Z=u(26),J=u(3),Q=u(8),W=u(13),X=u(97),ll=u(104),nl=u(110),ul=u(105),al=u(203),tl=u(199),el=u(109),_l=u(106),ol=u(51),sl=u(5),il=u(12),rl=[],cl=e._6({encapsulation:2,styles:rl,data:{}}),dl=e._5("page-grades-detail",o,function(l){return e._31(0,[(l()(),e._8(0,null,null,1,"page-grades-detail",[],null,null,null,t,cl)),e._7(49152,null,0,o,[il.a,_.a],null,null)],null,null)},{},{},[]),hl=u(70),gl=u(47);u.d(n,"GradesDetailModuleNgFactory",function(){return pl});var bl=this&&this.__extends||function(){var l=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(l,n){l.__proto__=n}||function(l,n){for(var u in n)n.hasOwnProperty(u)&&(l[u]=n[u])};return function(n,u){function a(){this.constructor=n}l(n,u),n.prototype=null===u?Object.create(u):(a.prototype=u.prototype,new a)}}(),ml=function(l){function n(n){return l.call(this,n,[f.a,v.a,k.a,I.a,w.a,y.a,dl],[])||this}return bl(n,l),Object.defineProperty(n.prototype,"_NgLocalization_9",{get:function(){return null==this.__NgLocalization_9&&(this.__NgLocalization_9=new c.j(this.parent.get(e.w))),this.__NgLocalization_9},enumerable:!0,configurable:!0}),Object.defineProperty(n.prototype,"_ɵi_10",{get:function(){return null==this.__ɵi_10&&(this.__ɵi_10=new d.s),this.__ɵi_10},enumerable:!0,configurable:!0}),Object.defineProperty(n.prototype,"_FormBuilder_11",{get:function(){return null==this.__FormBuilder_11&&(this.__FormBuilder_11=new d.d),this.__FormBuilder_11},enumerable:!0,configurable:!0}),Object.defineProperty(n.prototype,"_TranslateLoader_13",{get:function(){return null==this.__TranslateLoader_13&&(this.__TranslateLoader_13=new g.a),this.__TranslateLoader_13},enumerable:!0,configurable:!0}),Object.defineProperty(n.prototype,"_TranslateParser_14",{get:function(){return null==this.__TranslateParser_14&&(this.__TranslateParser_14=new b.a),this.__TranslateParser_14},enumerable:!0,configurable:!0}),Object.defineProperty(n.prototype,"_MissingTranslationHandler_15",{get:function(){return null==this.__MissingTranslationHandler_15&&(this.__MissingTranslationHandler_15=new m.a),this.__MissingTranslationHandler_15},enumerable:!0,configurable:!0}),Object.defineProperty(n.prototype,"_TranslateService_17",{get:function(){return null==this.__TranslateService_17&&(this.__TranslateService_17=new p.a(this.parent.get(hl.a),this._TranslateLoader_13,this._TranslateParser_14,this._MissingTranslationHandler_15,this._USE_STORE_16)),this.__TranslateService_17},enumerable:!0,configurable:!0}),n.prototype.createInternal=function(){return this._CommonModule_0=new c.b,this._ɵba_1=new d.q,this._FormsModule_2=new d.e,this._ReactiveFormsModule_3=new d.o,this._IonicModule_4=new h.a,this._ComponentsModule_5=new s.a,this._IonicPageModule_6=new h.b,this._TranslateModule_7=new i.a,this._GradesDetailModule_8=new r,this._LAZY_LOADED_TOKEN_12=o,this._USE_STORE_16=void 0,this._GradesDetailModule_8},n.prototype.getInternal=function(l,n){return l===c.b?this._CommonModule_0:l===d.q?this._ɵba_1:l===d.e?this._FormsModule_2:l===d.o?this._ReactiveFormsModule_3:l===h.a?this._IonicModule_4:l===s.a?this._ComponentsModule_5:l===h.b?this._IonicPageModule_6:l===i.a?this._TranslateModule_7:l===r?this._GradesDetailModule_8:l===c.k?this._NgLocalization_9:l===d.s?this._ɵi_10:l===d.d?this._FormBuilder_11:l===gl.a?this._LAZY_LOADED_TOKEN_12:l===g.b?this._TranslateLoader_13:l===b.b?this._TranslateParser_14:l===m.b?this._MissingTranslationHandler_15:l===p.b?this._USE_STORE_16:l===p.a?this._TranslateService_17:n},n.prototype.destroyInternal=function(){},n}(e._3),pl=new e.y(ml,r)},197:function(l,n,u){"use strict";function a(l){return t._31(0,[(l()(),t._8(0,null,null,1,"div",[["class","toolbar-background"]],null,null,null,null,null)),t._7(278528,null,0,e.g,[t.u,t.v,t.l,t.I],{klass:[0,"klass"],ngClass:[1,"ngClass"]},null),(l()(),t._8(0,null,null,8,"button",[["class","back-button"],["ion-button","bar-button"]],[[8,"hidden",0]],[[null,"click"]],function(l,n,u){var a=!0,t=l.component;return"click"===n&&(a=!1!==t.backButtonClick(u)&&a),a},o.b,o.a)),t._7(278528,null,0,e.g,[t.u,t.v,t.l,t.I],{klass:[0,"klass"],ngClass:[1,"ngClass"]},null),t._7(1097728,null,0,s.a,[[8,"bar-button"],i.a,t.l,t.I],null,null),(l()(),t._8(0,null,0,2,"ion-icon",[["class","back-button-icon"],["role","img"]],[[2,"hide",null]],null,null,null,null)),t._7(278528,null,0,e.g,[t.u,t.v,t.l,t.I],{klass:[0,"klass"],ngClass:[1,"ngClass"]},null),t._7(147456,null,0,r.a,[i.a,t.l,t.I],{name:[0,"name"]},null),(l()(),t._8(0,null,0,2,"span",[["class","back-button-text"]],null,null,null,null,null)),t._7(278528,null,0,e.g,[t.u,t.v,t.l,t.I],{klass:[0,"klass"],ngClass:[1,"ngClass"]},null),(l()(),t._29(null,["",""])),t._20(null,0),t._20(null,1),t._20(null,2),(l()(),t._8(0,null,null,2,"div",[["class","toolbar-content"]],null,null,null,null,null)),t._7(278528,null,0,e.g,[t.u,t.v,t.l,t.I],{klass:[0,"klass"],ngClass:[1,"ngClass"]},null),t._20(null,3)],function(l,n){var u=n.component;l(n,1,0,"toolbar-background","toolbar-background-"+u._mode);l(n,3,0,"back-button","back-button-"+u._mode);l(n,6,0,"back-button-icon","back-button-icon-"+u._mode),l(n,7,0,u._bbIcon);l(n,9,0,"back-button-text","back-button-text-"+u._mode);l(n,15,0,"toolbar-content","toolbar-content-"+u._mode)},function(l,n){var u=n.component;l(n,2,0,u._hideBb),l(n,5,0,t._21(n,7)._hidden),l(n,10,0,u._backText)})}u.d(n,"a",function(){return b}),n.b=a;var t=u(0),e=u(14),_=u(34),o=u(67),s=u(19),i=u(1),r=u(31),c=u(7),d=u(4),h=u(20),g=[],b=t._6({encapsulation:2,styles:g,data:{}});t._5("ion-navbar",_.a,function(l){return t._31(0,[(l()(),t._8(0,null,null,1,"ion-navbar",[["class","toolbar"]],[[8,"hidden",0],[2,"statusbar-padding",null]],null,null,a,b)),t._7(49152,null,0,_.a,[c.a,[2,d.a],[2,h.a],i.a,t.l,t.I],null,null)],null,function(l,n){l(n,0,0,t._21(n,1)._hidden,t._21(n,1)._sbPadding)})},{color:"color",mode:"mode",hideBackButton:"hideBackButton"},{},["[menuToggle],ion-buttons[left]","ion-buttons[start]","ion-buttons[end],ion-buttons[right]","*"])},198:function(l,n,u){"use strict";function a(l){return t._31(2,[(l()(),t._8(0,null,null,2,"div",[["class","toolbar-title"]],null,null,null,null,null)),t._7(278528,null,0,e.g,[t.u,t.v,t.l,t.I],{klass:[0,"klass"],ngClass:[1,"ngClass"]},null),t._20(null,0)],function(l,n){l(n,1,0,"toolbar-title","toolbar-title-"+n.component._mode)},null)}u.d(n,"a",function(){return c}),n.b=a;var t=u(0),e=u(14),_=u(95),o=u(1),s=u(45),i=u(34),r=[],c=t._6({encapsulation:2,styles:r,data:{}});t._5("ion-title",_.a,function(l){return t._31(0,[(l()(),t._8(0,null,null,1,"ion-title",[],null,null,null,a,c)),t._7(49152,null,0,_.a,[o.a,t.l,t.I,[2,s.a],[2,i.a]],null,null)],null,null)},{color:"color",mode:"mode"},{},["*"])},199:function(l,n,u){"use strict";u.d(n,"a",function(){return a});u(0);var a=function(){return function(){}}()},200:function(l,n,u){"use strict";u.d(n,"a",function(){return a});u(0),u(94),u(201),u(199);var a=function(){return function(){}}()},201:function(l,n,u){"use strict";u.d(n,"a",function(){return a});u(0);var a=function(){function l(){}return l.prototype.ngOnChanges=function(l){var n=l.avg.currentValue;null===n?(this.avg="$$.$",this.setState("owe")):n<=60?this.setState("fail"):n>60&&n<80?this.setState("bad"):n>=80&&n<95?this.setState("good"):n>=95?this.setState("best"):(this.avg="??.?",this.setState("none"))},l.prototype.setState=function(l){this.circle=l+"-circle",this.ribbon=l+"-ribbon"},l}()},203:function(l,n,u){"use strict";function a(l){return t._31(0,[(l()(),t._29(null,["\n  "])),(l()(),t._8(0,null,null,2,"ion-badge",[],[[8,"hidden",0],[2,"fail-background",null],[2,"bad-background",null],[2,"good-background",null],[2,"best-background",null]],null,null,null,null)),t._7(16384,null,0,e.a,[_.a,t.l,t.I],null,null),(l()(),t._29(null,["\n    ","\n  "])),(l()(),t._29(null,["\n  "]))],null,function(l,n){var u=n.component;l(n,1,0,!u.avg,u.avg<=60,u.avg>60&&u.avg<80,u.avg>=80&&u.avg<95,u.avg>=95),l(n,3,0,u.avg)})}u.d(n,"a",function(){return i}),n.b=a;var t=u(0),e=u(106),_=u(1),o=u(199),s=[],i=t._6({encapsulation:2,styles:s,data:{}});t._5("grade-badge",o.a,function(l){return t._31(0,[(l()(),t._8(0,null,null,1,"grade-badge",[],null,null,null,a,i)),t._7(49152,null,0,o.a,[],null,null)],null,null)},{avg:"grade"},{},[])}});
+webpackJsonp([2],{
+
+/***/ 296:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "GradesDetailModule", function() { return GradesDetailModule; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(109);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__grades_detail__ = __webpack_require__(476);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_components_module__ = __webpack_require__(304);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ngx_translate_core__ = __webpack_require__(110);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+
+
+
+
+var GradesDetailModule = (function () {
+    function GradesDetailModule() {
+    }
+    GradesDetailModule = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["L" /* NgModule */])({
+            declarations: [
+                __WEBPACK_IMPORTED_MODULE_2__grades_detail__["a" /* GradesDetail */]
+            ],
+            imports: [
+                __WEBPACK_IMPORTED_MODULE_3__components_components_module__["a" /* ComponentsModule */],
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__grades_detail__["a" /* GradesDetail */]),
+                __WEBPACK_IMPORTED_MODULE_4__ngx_translate_core__["b" /* TranslateModule */].forChild()
+            ],
+            exports: [
+                __WEBPACK_IMPORTED_MODULE_2__grades_detail__["a" /* GradesDetail */]
+            ]
+        })
+    ], GradesDetailModule);
+    return GradesDetailModule;
+}());
+
+//# sourceMappingURL=grades-detail.module.js.map
+
+/***/ }),
+
+/***/ 304:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ComponentsModule; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(109);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ribbon_ribbon__ = __webpack_require__(305);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__grade_badge_grade_badge__ = __webpack_require__(306);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+
+
+
+var ComponentsModule = (function () {
+    function ComponentsModule() {
+    }
+    ComponentsModule = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["L" /* NgModule */])({
+            declarations: [
+                __WEBPACK_IMPORTED_MODULE_2__ribbon_ribbon__["a" /* Ribbon */],
+                __WEBPACK_IMPORTED_MODULE_3__grade_badge_grade_badge__["a" /* GradeBadge */]
+            ],
+            imports: [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicModule */]],
+            exports: [
+                __WEBPACK_IMPORTED_MODULE_2__ribbon_ribbon__["a" /* Ribbon */],
+                __WEBPACK_IMPORTED_MODULE_3__grade_badge_grade_badge__["a" /* GradeBadge */]
+            ]
+        })
+    ], ComponentsModule);
+    return ComponentsModule;
+}());
+
+//# sourceMappingURL=components.module.js.map
+
+/***/ }),
+
+/***/ 305:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Ribbon; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var Ribbon = (function () {
+    function Ribbon() {
+    }
+    Ribbon.prototype.ngOnChanges = function (changes) {
+        var avg = changes.avg.currentValue;
+        if (avg === null) {
+            this.avg = '$$.$';
+            this.setState('owe');
+        }
+        else if (avg <= 60) {
+            this.setState('fail');
+        }
+        else if (avg > 60 && avg < 80) {
+            this.setState('bad');
+        }
+        else if (avg >= 80 && avg < 95) {
+            this.setState('good');
+        }
+        else if (avg >= 95) {
+            this.setState('best');
+        }
+        else {
+            this.avg = '??.?';
+            this.setState('none');
+        }
+    };
+    Ribbon.prototype.setState = function (state) {
+        this.circle = state + "-circle";
+        this.ribbon = state + "-ribbon";
+    };
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["E" /* Input */])('average'),
+        __metadata("design:type", Number)
+    ], Ribbon.prototype, "avg", void 0);
+    Ribbon = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+            selector: 'ribbon',
+            template: "\n  <div class=\"protector\">\n    <div class=\"ribbon {{ ribbon }}\">\n      <div class=\"circle {{ circle }}\">\n        <span class=\"text\">\n          {{ avg }}\n        </span>\n      </div>\n    </div>\n  </div>\n  "
+        })
+    ], Ribbon);
+    return Ribbon;
+}());
+
+//# sourceMappingURL=ribbon.js.map
+
+/***/ }),
+
+/***/ 306:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return GradeBadge; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var GradeBadge = (function () {
+    function GradeBadge() {
+    }
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["E" /* Input */])('grade'),
+        __metadata("design:type", Number)
+    ], GradeBadge.prototype, "avg", void 0);
+    GradeBadge = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+            selector: 'grade-badge',
+            template: "\n  <ion-badge\n    [hidden]=\"!avg\"\n    [class.fail-background]=\"avg <= 60\"\n    [class.bad-background]=\"avg > 60 && avg < 80\"\n    [class.good-background]=\"avg >= 80 && avg < 95\"\n    [class.best-background]=\"avg >= 95\"\n  >\n    {{ avg }}\n  </ion-badge>\n  "
+        })
+    ], GradeBadge);
+    return GradeBadge;
+}());
+
+//# sourceMappingURL=grade-badge.js.map
+
+/***/ }),
+
+/***/ 476:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return GradesDetail; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(109);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_store__ = __webpack_require__(111);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var GradesDetail = (function () {
+    function GradesDetail(navParams, store) {
+        this.navParams = navParams;
+        this.store = store;
+        this.class = { class_name: '', class_teacher_id: '', grades: [] };
+        this.teacher = { teacher_pic: '' };
+        this.grades = [];
+        this.teacherPic = './assets/placeholder.jpg';
+    }
+    GradesDetail.prototype.ionViewDidLoad = function () {
+        var _this = this;
+        this.class = this.navParams.get('class');
+        this.grades = this.class.grades.slice(0).reverse();
+        this.teacher = this.navParams
+            .get('teachers')
+            .find(function (el) { return el.teacher_id === _this.class.class_teacher_id; });
+        this.teacherPic = this.teacher ? "data:image/jpeg;base64," + this.teacher.teacher_pic : this.teacherPic;
+    };
+    GradesDetail = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPage */])({
+            defaultHistory: ['Grades'],
+            segment: 'grades' // same as 'Grades' url to help with deeplinks
+        }),
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+            selector: 'page-grades-detail',template:/*ion-inline-start:"/home/obedm503/projects/ncai-developers/studentaccess/src/pages/grades-detail/grades-detail.html"*/'<ion-header>\n  <ion-navbar>\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>{{ class.class_name }}</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content>\n  <ion-grid>\n    <ion-row>\n      <ion-col\n        [attr.col-lg-5]="grades.length ? \'\' : null"\n        [attr.offset-lg-1]="grades.length ? \'\' : null"\n        [attr.col-lg-6]="!grades.length ? \'\' : null"\n        [attr.offset-lg-3]="!grades.length ? \'\' : null"\n\n        [attr.col-md-5]="grades.length ? \'\' : null"\n        [attr.offset-md-1]="grades.length ? \'\' : null"\n        [attr.col-md-6]="!grades.length ? \'\' : null"\n        [attr.offset-md-3]="!grades.length ? \'\' : null"\n\n        col-sm-12 col-12\n      >\n        <ion-card>\n          <ion-item class="dark-gray" text-wrap>\n            <ion-row>\n              <ion-col col-5 col-sm-5 col-md-4 col-lg-3>\n                <ion-avatar>\n                  <img [src]="teacherPic">\n                </ion-avatar>\n              </ion-col>\n              <ion-col col-7 col-sm-7 col-md-8 col-lg-9 class="person-col">\n                <span class="person">\n                  {{ teacher.teacher_name }}\n                  <span [hidden]="!teacher.teacher_email">\n                    <br>\n                    {{ \'GLOBAL.EMAIL\' | translate }}:\n                    <a href="mailto:{{ teacher.teacher_email }}">\n                      {{ teacher.teacher_email }}\n                    </a>\n                  </span>\n                  <span [hidden]="!teacher.teacher_phone">\n                    <br>\n                    {{ \'GRADES.PHONE\' | translate }}:\n                    <a href="tel:{{ teacher.teacher_phone }}">\n                      {{ teacher.teacher_phone }}\n                    </a>\n                  </span>\n                </span>\n              </ion-col>\n            </ion-row>\n          </ion-item>\n        </ion-card>\n\n        <ion-card>\n          <ion-card-header ion-item>\n            {{ class.class_name }}\n            <grade-badge item-right [grade]="class.class_avg"></grade-badge>\n          </ion-card-header>\n          <ion-card-content [hidden]="!class.class_description">\n            {{ class.class_description }}\n          </ion-card-content>\n          <ion-item text-wrap color="secondary">\n            <ion-row [hidden]="!class.class_period">\n              <b ion-col>\n                {{ \'GRADES.PERIOD\' | translate }}\n              </b>\n              <ion-col>\n                <ion-badge>{{ class.class_period }}</ion-badge>\n              </ion-col>\n            </ion-row>\n            <ion-row [hidden]="!class.class_room">\n              <b ion-col>\n                {{ \'GRADES.ROOM\' | translate }}\n              </b>\n              <ion-col>\n                {{ class.class_room }}\n              </ion-col>\n            </ion-row>\n            <ion-row [hidden]="!class.class_scale">\n              <b ion-col>\n                {{ \'GRADES.GRADING_SCALE\' | translate }}\n              </b>\n              <ion-col>\n                {{ class.class_scale }}\n              </ion-col>\n            </ion-row>\n            <ion-row [hidden]="!class.class_updated">\n              <b ion-col>\n                {{ \'GRADES.LAST_UPDATED\' | translate }}\n              </b>\n              <ion-col>\n                {{ class.class_updated }}\n              </ion-col>\n            </ion-row>\n          </ion-item>\n        </ion-card>\n      </ion-col>\n      <ion-col col-lg-5 col-md-5 col-sm-12 col-12 [hidden]="!grades.length">\n        <ion-card>\n          <ion-card-header>\n            {{ \'GRADES.NAME\' | translate }}\n          </ion-card-header>\n          <ion-list>\n            <ion-item text-wrap *ngFor="let item of grades" class="alternate-colors">\n              <ion-row>\n                <ion-col>\n                  <b>\n                    {{ item.calc_date }}\n                  </b>\n                </ion-col>\n                <ion-col>\n                  <b>{{ item.grc_code }}:</b> {{ item.gra_name }}\n                  <div [hidden]="!item.calc_percent">\n                    <b>{{ \'GRADES.GRADE\' | translate }}:</b> {{ item.grs_score }}/{{ item.gra_points }}\n                    <span\n                      [class.fail-grade]="(item.grs_score/item.gra_points)*100 <= 60"\n                      [class.bad-grade]="(item.grs_score/item.gra_points)*100 > 60 && (item.grs_score/item.gra_points)*100 < 80"\n                      [class.good-grade]="(item.grs_score/item.gra_points)*100 >= 80 && (item.grs_score/item.gra_points) < .95"\n                      [class.best-grade]="(item.grs_score/item.gra_points)*100 >= 95"\n                    >({{ item.calc_percent }})</span>\n                  </div>\n                </ion-col>\n              </ion-row>\n            </ion-item>\n          </ion-list>\n        </ion-card>\n      </ion-col>\n    </ion-row>\n  </ion-grid>\n</ion-content>\n'/*ion-inline-end:"/home/obedm503/projects/ncai-developers/studentaccess/src/pages/grades-detail/grades-detail.html"*/,
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */],
+            __WEBPACK_IMPORTED_MODULE_2__providers_store__["a" /* Store */]])
+    ], GradesDetail);
+    return GradesDetail;
+}());
+
+//# sourceMappingURL=grades-detail.js.map
+
+/***/ })
+
+});
+//# sourceMappingURL=2.js.map

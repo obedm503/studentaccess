@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import {  logLevel } from 'aurelia-logging';
 
 enum levels {
   none = 0,
@@ -11,7 +10,7 @@ enum levels {
 
 @Injectable()
 export class Log {
-  public level: number = levels.error;
+  public level: number = levels.debug;
   debug(...rest){
     if( this.level < levels.debug){ return; }
     console.debug(`DEBUG [StudentAccess]`, ...rest);
