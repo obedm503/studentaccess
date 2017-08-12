@@ -588,6 +588,7 @@ var StudentAccess = (function () {
         ];
     }
     StudentAccess.prototype.login = function (user, login, link) {
+        this.log.info(user, login, link);
         this.username = user.username;
         this.name = login.person_name;
         this.translate.use(user.language);
@@ -614,21 +615,16 @@ var StudentAccess = (function () {
             .catch(this.log.warn);
     };
     __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_14" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* Nav */]),
-        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* Nav */])
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_14" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* Nav */]),
+        __metadata("design:type", typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* Nav */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* Nav */]) === "function" && _a || Object)
     ], StudentAccess.prototype, "nav", void 0);
     StudentAccess = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({template:/*ion-inline-start:"/home/obedm503/projects/ncai-developers/studentaccess/src/app/app.html"*/'<ion-menu [content]="content">\n  <ion-content>\n    <ion-list no-lines>\n      <ion-item color="secondary">{{ name }}</ion-item>\n      <ion-item color="primary">{{ username }}@nca.edu.ni</ion-item>\n      <button\n        ion-item\n        [class.light-gray]="item.component !== activePage"\n        [class.dark-gray]="item.component === activePage"\n        menuClose *ngFor="let item of pages"\n        (click)="openPage(item.component)"\n      >\n        <ion-icon class="menu-icon" [name]="item.icon"></ion-icon>\n        {{ item.title | translate }}\n      </button>\n      <button class="light-gray" menuClose ion-item (click)="logout()">\n        <ion-icon class="menu-icon" name="log-out"></ion-icon>\n        {{ \'GLOBAL.LOGOUT\' | translate }}\n      </button>\n    </ion-list>\n  </ion-content>\n\n</ion-menu>\n\n<!-- Disable swipe-to-go-back because it\'s poor UX to combine STGB with side menus -->\n<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>\n'/*ion-inline-end:"/home/obedm503/projects/ncai-developers/studentaccess/src/app/app.html"*/
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* LoadingController */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* Events */],
-            __WEBPACK_IMPORTED_MODULE_2__ionic_storage__["b" /* Storage */],
-            __WEBPACK_IMPORTED_MODULE_4__providers_auth__["a" /* Auth */],
-            __WEBPACK_IMPORTED_MODULE_5__providers_state__["a" /* State */],
-            __WEBPACK_IMPORTED_MODULE_6__providers_log__["a" /* Log */],
-            __WEBPACK_IMPORTED_MODULE_3__ngx_translate_core__["c" /* TranslateService */]])
+        __metadata("design:paramtypes", [typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* LoadingController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* LoadingController */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* Events */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* Events */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_2__ionic_storage__["b" /* Storage */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__ionic_storage__["b" /* Storage */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_4__providers_auth__["a" /* Auth */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__providers_auth__["a" /* Auth */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_5__providers_state__["a" /* State */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__providers_state__["a" /* State */]) === "function" && _f || Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_6__providers_log__["a" /* Log */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_6__providers_log__["a" /* Log */]) === "function" && _g || Object, typeof (_h = typeof __WEBPACK_IMPORTED_MODULE_3__ngx_translate_core__["c" /* TranslateService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__ngx_translate_core__["c" /* TranslateService */]) === "function" && _h || Object])
     ], StudentAccess);
     return StudentAccess;
+    var _a, _b, _c, _d, _e, _f, _g, _h;
 }());
 
 //# sourceMappingURL=app.js.map

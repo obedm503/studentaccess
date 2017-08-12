@@ -297,7 +297,7 @@ var Grades = (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
             selector: 'page-grades',template:/*ion-inline-start:"/home/obedm503/projects/ncai-developers/studentaccess/src/pages/grades/grades.html"*/'<ion-header>\n  <ion-navbar>\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>{{ \'GRADES.NAME\' | translate }}</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content>\n  <ion-grid>\n    <ion-row>\n      <ion-col col-12 col-lg-6 col-md-6 offset-md-3 col-sm-12>\n        <ribbon [average]="avg"></ribbon>\n        <ion-card *ngFor="let item of classes" text-wrap>\n          <button ion-item [attr.disabled]="teachers.length ? null : \'\'" (click)="goSelected(item)">\n            <b>\n              [{{ item.class_period }}] {{ item.class_name }}\n            </b>\n            <grade-badge item-right [grade]="item.class_avg"></grade-badge>\n          </button>\n        </ion-card>\n      </ion-col>\n    </ion-row>\n  </ion-grid>\n</ion-content>\n'/*ion-inline-end:"/home/obedm503/projects/ncai-developers/studentaccess/src/pages/grades/grades.html"*/
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */],
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavController */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* LoadingController */],
             __WEBPACK_IMPORTED_MODULE_2__providers_store__["a" /* Store */],
             __WEBPACK_IMPORTED_MODULE_3__providers_log__["a" /* Log */]])

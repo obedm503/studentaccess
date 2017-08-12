@@ -69,6 +69,7 @@ export class StudentAccess {
     ];
   }
   login( user, login, link? ){
+    this.log.info(user, login, link);
     this.username = user.username;
     this.name = login.person_name;
     this.translate.use(user.language);
