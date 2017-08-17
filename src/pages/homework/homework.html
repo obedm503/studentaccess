@@ -12,6 +12,16 @@
       </button>
     </ion-buttons>
   </ion-navbar>
+
+  <ion-toolbar color="light">
+    <ion-title>{{ 'HOMEWORK.HIDE_CHECKED' | translate }}</ion-title>
+    <ion-buttons end>
+      <ion-toggle
+        [(ngModel)]="hideChecked"
+        [name]="'HOMEWORK.HIDE_CHECKED' | translate"
+      ></ion-toggle>
+    </ion-buttons>
+  </ion-toolbar>
 </ion-header>
 
 <ion-content>
@@ -23,13 +33,6 @@
     <ion-row>
       <ion-col col-12 col-lg-6 col-md-6 offset-md-3 col-sm-12>
         <ion-list>
-          <ion-item>
-            <ion-label>{{ 'HOMEWORK.HIDE_CHECKED' | translate }}</ion-label>
-            <ion-toggle
-              [(ngModel)]="hideChecked"
-              [name]="'HOMEWORK.HIDE_CHECKED' | translate"
-            ></ion-toggle>
-          </ion-item>
           <ion-item
             text-wrap
             *ngFor="let item of filteredHw"

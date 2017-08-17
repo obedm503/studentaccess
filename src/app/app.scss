@@ -15,17 +15,17 @@
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
 .dark-gray {
-  background-color: $dark-gray;
+  background-color: map-get($colors, dark-gray);
 }
 .light-gray {
-  background-color: $light-gray;
+  background-color: map-get($colors, light-gray);
 }
 .alternate-colors {
   &:nth-child(even) {
     background-color: #FFF
   }
   &:nth-child(odd) {
-    background-color: $light-gray;
+    background-color: map-get($colors, light-gray);
   }
 }
 
