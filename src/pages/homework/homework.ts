@@ -5,7 +5,8 @@ import {
   NavParams,
   AlertController,
   Loading,
-  LoadingController
+  LoadingController,
+  Refresher,
 } from 'ionic-angular';
 import { TranslateService } from '@ngx-translate/core';
 
@@ -40,23 +41,30 @@ export class Homework {
 
   public async ionViewDidEnter(){
     await this.loading.present();
+    this.getHomework();
+    this.loading.dismiss();
+  }
+  async getHomework( refresh = false ){
     try {
-      let hw = await this.store.get('HOMEWORK', ({ newData, oldData = { homework: [] } }) => ({
-        ...newData,
-        homework: newData.homework.map( item => {
-          if( oldData.homework.findIndex( el => item.lsn_id === el.lsn_id && el.checked )  > -1 ){
-            item.checked = true;
-          }
-          return item;
-        } )
-      }) );
+      let hw = await this.store.get(
+        'HOMEWORK',
+        ({ newData, oldData = { homework: [] } }) => ({
+          ...newData,
+          homework: newData.homework.map( item => {
+            if( oldData.homework.find( el => item.lsn_id === el.lsn_id && el.checked ) ){
+              item.checked = true;
+            }
+            return item;
+          } )
+        }),
+        refresh,
+      );
       // this.homework serves as a backup
       // this.filteredHw is presented in view
       this.filteredHw = this.homework = hw.homework.slice(0).reverse();
     } catch(err){
       this.log.warn(err);
     }
-    this.loading.dismiss();
   }
 
   popover(e){
@@ -98,5 +106,10 @@ export class Homework {
     let index = this.homework.findIndex( el => el.lsn_id === item.lsn_id );
     this.homework[index] = item;
     this.store.persist();
+  }
+
+  async refreshHomework( refresher: Refresher ){
+    await this.getHomework(true);
+    refresher.complete();
   }
 }

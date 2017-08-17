@@ -1,16 +1,16 @@
 webpackJsonp([2],{
 
-/***/ 296:
+/***/ 297:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "GradesDetailModule", function() { return GradesDetailModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(109);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__grades_detail__ = __webpack_require__(476);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_components_module__ = __webpack_require__(304);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ngx_translate_core__ = __webpack_require__(110);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(110);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__grades_detail__ = __webpack_require__(477);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_components_module__ = __webpack_require__(305);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ngx_translate_core__ = __webpack_require__(111);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -47,15 +47,15 @@ var GradesDetailModule = (function () {
 
 /***/ }),
 
-/***/ 304:
+/***/ 305:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ComponentsModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(109);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ribbon_ribbon__ = __webpack_require__(305);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__grade_badge_grade_badge__ = __webpack_require__(306);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(110);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ribbon_ribbon__ = __webpack_require__(306);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__grade_badge_grade_badge__ = __webpack_require__(307);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -89,7 +89,7 @@ var ComponentsModule = (function () {
 
 /***/ }),
 
-/***/ 305:
+/***/ 306:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -152,7 +152,7 @@ var Ribbon = (function () {
 
 /***/ }),
 
-/***/ 306:
+/***/ 307:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -188,14 +188,14 @@ var GradeBadge = (function () {
 
 /***/ }),
 
-/***/ 476:
+/***/ 477:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return GradesDetail; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(109);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_store__ = __webpack_require__(111);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(110);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_store__ = __webpack_require__(112);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -234,10 +234,10 @@ var GradesDetail = (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
             selector: 'page-grades-detail',template:/*ion-inline-start:"/home/obedm503/projects/ncai-developers/studentaccess/src/pages/grades-detail/grades-detail.html"*/'<ion-header>\n  <ion-navbar>\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>{{ class.class_name }}</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content>\n  <ion-grid>\n    <ion-row>\n      <ion-col\n        [attr.col-lg-5]="grades.length ? \'\' : null"\n        [attr.offset-lg-1]="grades.length ? \'\' : null"\n        [attr.col-lg-6]="!grades.length ? \'\' : null"\n        [attr.offset-lg-3]="!grades.length ? \'\' : null"\n\n        [attr.col-md-5]="grades.length ? \'\' : null"\n        [attr.offset-md-1]="grades.length ? \'\' : null"\n        [attr.col-md-6]="!grades.length ? \'\' : null"\n        [attr.offset-md-3]="!grades.length ? \'\' : null"\n\n        col-sm-12 col-12\n      >\n        <ion-card>\n          <ion-item class="dark-gray" text-wrap>\n            <ion-row>\n              <ion-col col-5 col-sm-5 col-md-4 col-lg-3>\n                <ion-avatar>\n                  <img [src]="teacherPic">\n                </ion-avatar>\n              </ion-col>\n              <ion-col col-7 col-sm-7 col-md-8 col-lg-9 class="person-col">\n                <span class="person">\n                  {{ teacher.teacher_name }}\n                  <span [hidden]="!teacher.teacher_email">\n                    <br>\n                    {{ \'GLOBAL.EMAIL\' | translate }}:\n                    <a href="mailto:{{ teacher.teacher_email }}">\n                      {{ teacher.teacher_email }}\n                    </a>\n                  </span>\n                  <span [hidden]="!teacher.teacher_phone">\n                    <br>\n                    {{ \'GRADES.PHONE\' | translate }}:\n                    <a href="tel:{{ teacher.teacher_phone }}">\n                      {{ teacher.teacher_phone }}\n                    </a>\n                  </span>\n                </span>\n              </ion-col>\n            </ion-row>\n          </ion-item>\n        </ion-card>\n\n        <ion-card>\n          <ion-card-header ion-item>\n            {{ class.class_name }}\n            <grade-badge item-right [grade]="class.class_avg"></grade-badge>\n          </ion-card-header>\n          <ion-card-content [hidden]="!class.class_description">\n            {{ class.class_description }}\n          </ion-card-content>\n          <ion-item text-wrap color="secondary">\n            <ion-row [hidden]="!class.class_period">\n              <b ion-col>\n                {{ \'GRADES.PERIOD\' | translate }}\n              </b>\n              <ion-col>\n                <ion-badge>{{ class.class_period }}</ion-badge>\n              </ion-col>\n            </ion-row>\n            <ion-row [hidden]="!class.class_room">\n              <b ion-col>\n                {{ \'GRADES.ROOM\' | translate }}\n              </b>\n              <ion-col>\n                {{ class.class_room }}\n              </ion-col>\n            </ion-row>\n            <ion-row [hidden]="!class.class_scale">\n              <b ion-col>\n                {{ \'GRADES.GRADING_SCALE\' | translate }}\n              </b>\n              <ion-col>\n                {{ class.class_scale }}\n              </ion-col>\n            </ion-row>\n            <ion-row [hidden]="!class.class_updated">\n              <b ion-col>\n                {{ \'GRADES.LAST_UPDATED\' | translate }}\n              </b>\n              <ion-col>\n                {{ class.class_updated }}\n              </ion-col>\n            </ion-row>\n          </ion-item>\n        </ion-card>\n      </ion-col>\n      <ion-col col-lg-5 col-md-5 col-sm-12 col-12 [hidden]="!grades.length">\n        <ion-card>\n          <ion-card-header>\n            {{ \'GRADES.NAME\' | translate }}\n          </ion-card-header>\n          <ion-list>\n            <ion-item text-wrap *ngFor="let item of grades" class="alternate-colors">\n              <ion-row>\n                <ion-col>\n                  <b>\n                    {{ item.calc_date }}\n                  </b>\n                </ion-col>\n                <ion-col>\n                  <b>{{ item.grc_code }}:</b> {{ item.gra_name }}\n                  <div [hidden]="!item.calc_percent">\n                    <b>{{ \'GRADES.GRADE\' | translate }}:</b> {{ item.grs_score }}/{{ item.gra_points }}\n                    <span\n                      [class.fail-grade]="(item.grs_score/item.gra_points)*100 <= 60"\n                      [class.bad-grade]="(item.grs_score/item.gra_points)*100 > 60 && (item.grs_score/item.gra_points)*100 < 80"\n                      [class.good-grade]="(item.grs_score/item.gra_points)*100 >= 80 && (item.grs_score/item.gra_points) < .95"\n                      [class.best-grade]="(item.grs_score/item.gra_points)*100 >= 95"\n                    >({{ item.calc_percent }})</span>\n                  </div>\n                </ion-col>\n              </ion-row>\n            </ion-item>\n          </ion-list>\n        </ion-card>\n      </ion-col>\n    </ion-row>\n  </ion-grid>\n</ion-content>\n'/*ion-inline-end:"/home/obedm503/projects/ncai-developers/studentaccess/src/pages/grades-detail/grades-detail.html"*/,
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavParams */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__providers_store__["a" /* Store */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__providers_store__["a" /* Store */]) === "function" && _b || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavParams */],
+            __WEBPACK_IMPORTED_MODULE_2__providers_store__["a" /* Store */]])
     ], GradesDetail);
     return GradesDetail;
-    var _a, _b;
 }());
 
 //# sourceMappingURL=grades-detail.js.map

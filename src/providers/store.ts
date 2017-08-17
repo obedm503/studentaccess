@@ -59,7 +59,7 @@ export class Store {
       });
   }
 
-  public async get( key: string, modifier?: Function ): Promise<any> {
+  public async get( key: string, modifier?: Function, refresh = false ): Promise<any> {
     try {
       if( key === 'USER' ){ return this.getUser(); }
 
@@ -73,22 +73,22 @@ export class Store {
         return this.fromApi( keyItem, modifier );
       }
 
-      let comparator: boolean;
+      let valid: boolean;
       switch( keyItem.valid ){
         case 'DAY':
-          comparator = this.date.getDate() === new Date(storeItem.date).getDate();
+          valid = this.date.getDate() === new Date(storeItem.date).getDate();
           break;
         case 'WEEK':
-          comparator = currentWeekNumber(this.date) === currentWeekNumber( new Date(storeItem.date) );
+          valid = currentWeekNumber(this.date) === currentWeekNumber( new Date(storeItem.date) );
           break;
         case 'MONTH':
-          comparator = this.date.getMonth() === new Date(storeItem.date).getMonth();
+          valid = this.date.getMonth() === new Date(storeItem.date).getMonth();
           break;
         default:
           throw Error('Store: Unknown Mode');
       }
       //check validity
-      if( comparator ){
+      if( valid && !refresh ){
         return storeItem.data;
       } else {
         return this.fromApi( keyItem, modifier, storeItem.data );
