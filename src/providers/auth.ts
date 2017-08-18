@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { Http } from '@angular/http';
 import 'rxjs/add/operator/toPromise';
 import 'rxjs/add/operator/do';
 
@@ -19,7 +19,7 @@ export class Auth {
   currentUser: User;
 
   constructor(
-    private http: HttpClient,
+    private http: Http,
     private store: Store,
     private log: Log,
   ){}
@@ -29,8 +29,8 @@ export class Auth {
       return Promise.reject(null);
     }
     return this.http.get(`https://db.nca.edu.ni/api/api_ewapp.php?mode=student&query=login&username=${credentials.username}&password=${credentials.password}&lang=${credentials.language}`)
-      .do(res => this.log.warn(res))
-      .toPromise();
+      .toPromise()
+      .then( res => res.json());
   }
 
   public getUser(): Promise<User> {

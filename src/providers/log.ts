@@ -10,6 +10,7 @@ enum levels {
 
 @Injectable()
 export class Log {
+  // public level: number = levels.none;
   public level: number = levels.debug;
   debug(...rest){
     if( this.level < levels.debug){ return; }
