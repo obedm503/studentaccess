@@ -40,6 +40,37 @@ EventsModule = __decorate([
 
 /***/ }),
 
+/***/ 295:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return expand; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_animations__ = __webpack_require__(207);
+
+var expand = Object(__WEBPACK_IMPORTED_MODULE_0__angular_animations__["h" /* trigger */])('expand', [
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_animations__["e" /* state */])('true', Object(__WEBPACK_IMPORTED_MODULE_0__angular_animations__["f" /* style */])({
+        maxHeight: '10em',
+        opacity: '1',
+        padding: '',
+        border: '',
+        minHeight: '',
+        transition: 'all 250ms cubic-bezier(0.420, 0.000, 0.580, 1.000)'
+    })),
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_animations__["e" /* state */])('false', Object(__WEBPACK_IMPORTED_MODULE_0__angular_animations__["f" /* style */])({
+        maxHeight: '0',
+        opacity: '.7',
+        padding: '0',
+        border: 'none',
+        minHeight: '0',
+        transition: 'all 250ms cubic-bezier(0.420, 0.000, 0.580, 1.000)'
+    })),
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_animations__["g" /* transition */])('void => *', Object(__WEBPACK_IMPORTED_MODULE_0__angular_animations__["c" /* animate */])('0s')),
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_animations__["g" /* transition */])('* <=> *', Object(__WEBPACK_IMPORTED_MODULE_0__angular_animations__["c" /* animate */])('250ms ease-in-out'))
+]);
+//# sourceMappingURL=animations.js.map
+
+/***/ }),
+
 /***/ 466:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -49,6 +80,7 @@ EventsModule = __decorate([
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(105);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_store__ = __webpack_require__(107);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_log__ = __webpack_require__(30);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_animations__ = __webpack_require__(295);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -97,6 +129,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 
 
 
+
 var Events = (function () {
     function Events(nav, navParams, loadingCtrl, store, log) {
         this.nav = nav;
@@ -137,25 +170,29 @@ var Events = (function () {
             });
         });
     };
-    Events.prototype.goSelected = function (item) {
-        this.nav.push('Events', {
-            selected: item
-        });
+    Events.prototype.goSelected = function (id) {
+        if (this.selected === id) {
+            this.selected = '';
+        }
+        else {
+            this.selected = id;
+        }
+        // this.nav.push('Events', {
+        //   selected: item
+        // });
     };
     return Events;
 }());
 Events = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPage */])(),
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-events',template:/*ion-inline-start:"/home/obedm503/projects/ncai-developers/studentaccess/src/pages/events/events.html"*/'<ion-header>\n  <ion-navbar>\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title *ngIf="!selected">\n      {{ \'EVENTS.NAME\' | translate }}\n    </ion-title>\n    <ion-title *ngIf="selected">\n      {{ selected.calc_subject }}\n    </ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content>\n  <ion-grid>\n    <ion-row>\n      <ion-col col-12 col-lg-6 col-md-6 offset-md-3 col-sm-12>\n        <ion-list *ngIf="!selected">\n          <ion-card text-wrap\n            *ngFor="let item of events"\n            (click)="goSelected(item)"\n            [class.dark-gray]="item.ev_date_start === store.today"\n          >\n            <ion-card-content>\n              <ion-row [hidden]="!item.calc_ev_date_start && !item.calc_subject">\n                <ion-col>\n                  <b [hidden]="!item.calc_ev_date_start">{{ item.calc_ev_date_start }}:</b>\n                </ion-col>\n                <ion-col>\n                  {{ item.calc_subject }}\n                </ion-col>\n              </ion-row>\n              <ion-row [hidden]="!item.calc_location">\n                <ion-col>\n                  {{ \'EVENTS.LOCATION\' | translate }}:\n                </ion-col>\n                <ion-col>\n                  {{ item.calc_location }}\n                </ion-col>\n              </ion-row>\n              <ion-row [hidden]="!item.calc_ev_time_start">\n                <ion-col>\n                  {{ \'EVENTS.TIME\' | translate }}:\n                </ion-col>\n                <ion-col>\n                  {{ item.calc_ev_time_start }}\n                </ion-col>\n              </ion-row>\n            </ion-card-content>\n          </ion-card>\n        </ion-list>\n\n        <ion-card *ngIf="selected">\n          <ion-card-header text-wrap>\n            {{ selected.calc_subject }}\n          </ion-card-header>\n          <ion-card-content [hidden]="!selected.calc_text">\n            {{ selected.calc_text }}\n          </ion-card-content>\n          <ion-list>\n            <ion-item color="secondary">\n              <ion-row [hidden]="!selected.calc_ev_date_start">\n                <ion-col>\n                  <b>{{ \'GLOBAL.DATE\' | translate }}:</b>\n                </ion-col>\n                <ion-col>\n                  {{ selected.calc_ev_date_start }}\n                </ion-col>\n              </ion-row>\n              <ion-row [hidden]="!selected.calc_ev_time_start">\n                <ion-col>\n                  <b>{{ \'EVENTS.TIME\' | translate }}:</b>\n                </ion-col>\n                <ion-col>\n                  {{ selected.calc_ev_time_start }}\n                </ion-col>\n              </ion-row>\n              <ion-row [hidden]="!selected.calc_location">\n                <ion-col>\n                  <b>{{ \'EVENTS.LOCATION\' | translate }}:</b>\n                </ion-col>\n                <ion-col >\n                  {{ selected.calc_location }}\n                </ion-col>\n              </ion-row>\n            </ion-item>\n          </ion-list>\n        </ion-card>\n      </ion-col>\n    </ion-row>\n  </ion-grid>\n</ion-content>\n'/*ion-inline-end:"/home/obedm503/projects/ncai-developers/studentaccess/src/pages/events/events.html"*/
+        selector: 'page-events',template:/*ion-inline-start:"/home/obedm503/projects/ncai-developers/studentaccess/src/pages/events/events.html"*/'<ion-header>\n  <ion-navbar>\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title *ngIf="!selected">\n      {{ \'EVENTS.NAME\' | translate }}\n    </ion-title>\n    <ion-title *ngIf="selected">\n      {{ selected.calc_subject }}\n    </ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content>\n  <ion-grid>\n    <ion-row>\n      <ion-col col-12 col-lg-6 col-md-6 offset-md-3 col-sm-12>\n        <ion-list>\n\n          <ion-card text-wrap\n            *ngFor="let item of events"\n            [class.dark-gray]="item.ev_date_start === store.today"\n          >\n            <button\n              ion-item\n              (click)="goSelected(item.ev_id)"\n              [class.dark-gray]="item.ev_date_start === store.today"\n            >\n              <b ion-col [hidden]="!item.calc_ev_date_start">\n                {{ item.calc_ev_date_start }}:\n              </b>\n              <ion-col>\n                {{ item.calc_subject }}\n              </ion-col>\n            </button>\n\n            <ion-item\n              [@expand]="item.calc_text && item.ev_id === selected"\n              [class.dark-gray]="item.ev_date_start === store.today"\n            >\n              {{ item.calc_text }}\n            </ion-item>\n\n            <ion-item color="secondary" [@expand]="item.ev_id === selected && (!!item.calc_ev_time_start || !!item.calc_location)">\n              <!-- <ion-row [hidden]="!item.calc_ev_date_start && !item.calc_subject">\n                <ion-col>\n                  <b [hidden]="!item.calc_ev_date_start">{{ item.calc_ev_date_start }}:</b>\n                </ion-col>\n                <ion-col>\n                  {{ item.calc_subject }}\n                </ion-col>\n              </ion-row> -->\n              <ion-row [hidden]="!item.calc_ev_time_start">\n                <ion-col>\n                  {{ \'EVENTS.TIME\' | translate }}:\n                </ion-col>\n                <ion-col>\n                  {{ item.calc_ev_time_start }}\n                </ion-col>\n              </ion-row>\n              <ion-row [hidden]="!item.calc_location">\n                <ion-col>\n                  {{ \'EVENTS.LOCATION\' | translate }}:\n                </ion-col>\n                <ion-col>\n                  {{ item.calc_location }}\n                </ion-col>\n              </ion-row>\n            </ion-item>\n          </ion-card>\n        </ion-list>\n\n        <!-- <ion-card *ngIf="selected">\n          <ion-card-header text-wrap>\n            {{ selected.calc_subject }}\n          </ion-card-header>\n          <ion-card-content [hidden]="!selected.calc_text">\n            {{ selected.calc_text }}\n          </ion-card-content>\n          <ion-list>\n            <ion-item color="secondary">\n              <ion-row [hidden]="!selected.calc_ev_date_start">\n                <ion-col>\n                  <b>{{ \'GLOBAL.DATE\' | translate }}:</b>\n                </ion-col>\n                <ion-col>\n                  {{ selected.calc_ev_date_start }}\n                </ion-col>\n              </ion-row>\n              <ion-row [hidden]="!selected.calc_ev_time_start">\n                <ion-col>\n                  <b>{{ \'EVENTS.TIME\' | translate }}:</b>\n                </ion-col>\n                <ion-col>\n                  {{ selected.calc_ev_time_start }}\n                </ion-col>\n              </ion-row>\n              <ion-row [hidden]="!selected.calc_location">\n                <ion-col>\n                  <b>{{ \'EVENTS.LOCATION\' | translate }}:</b>\n                </ion-col>\n                <ion-col >\n                  {{ selected.calc_location }}\n                </ion-col>\n              </ion-row>\n            </ion-item>\n          </ion-list>\n        </ion-card> -->\n      </ion-col>\n    </ion-row>\n  </ion-grid>\n</ion-content>\n'/*ion-inline-end:"/home/obedm503/projects/ncai-developers/studentaccess/src/pages/events/events.html"*/,
+        animations: [__WEBPACK_IMPORTED_MODULE_4__components_animations__["a" /* expand */]],
     }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavController */],
-        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavParams */],
-        __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* LoadingController */],
-        __WEBPACK_IMPORTED_MODULE_2__providers_store__["a" /* Store */],
-        __WEBPACK_IMPORTED_MODULE_3__providers_log__["a" /* Log */]])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* LoadingController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* LoadingController */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_2__providers_store__["a" /* Store */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__providers_store__["a" /* Store */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_3__providers_log__["a" /* Log */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__providers_log__["a" /* Log */]) === "function" && _e || Object])
 ], Events);
 
+var _a, _b, _c, _d, _e;
 //# sourceMappingURL=events.js.map
 
 /***/ })
