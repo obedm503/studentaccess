@@ -9,10 +9,10 @@
   },
   "scripts": {
     "lint": "ionic-app-scripts lint",
-    "publish": "ionic serve -b -d",
     "clean": "ionic-app-scripts clean",
     "build": "rm -rf ./docs/ && ionic-app-scripts build --prod",
-    "start": "rm -rf ./docs/ && ionic-app-scripts serve"
+    "start": "rm -rf ./docs/ && ionic-app-scripts serve",
+    "deploy": "npm run build && ./deploy.sh"
   },
   "dependencies": {
     "@angular/animations": "4.1.3",
