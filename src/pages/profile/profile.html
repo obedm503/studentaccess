@@ -42,22 +42,32 @@
           <ion-item>
             <ion-icon name="person" item-left></ion-icon>
             {{ 'PROFILE.STUDENT_CREDIT' | translate }}
-            <ion-badge item-right>{{ studentCredit | currency:'USD':true:'1.2-2' }}</ion-badge>
+            <ion-badge
+              [color]=" studentCredit === 0 ? 'warning' : (studentCredit ? 'success' : 'danger') "
+              item-right
+            >
+              {{ studentCredit | currency:'USD':true:'1.2-2' }}
+            </ion-badge>
           </ion-item>
           <ion-item>
             <ion-icon name="people" item-left></ion-icon>
             {{ 'PROFILE.FAMILY_CREDIT' | translate }}
-            <ion-badge item-right>{{ familyCredit | currency:'USD':true:'1.2-2' }}</ion-badge>
+            <ion-badge
+              [color]=" familyCredit === 0 ? 'warning' : (familyCredit ? 'success' : 'danger') "
+              item-right
+            >
+              {{ familyCredit | currency:'USD':true:'1.2-2' }}
+            </ion-badge>
           </ion-item>
           <button ion-item (click)="goSelected({ attendance: attendance })">
             <ion-icon name="alarm" color="danger" item-left></ion-icon>
             {{ 'RECORDS.ATTENDANCE' | translate }}
-            <ion-badge color="danger" item-right>{{ attendance.length }}</ion-badge>
+            <ion-badge [color]=" attendance.length ? 'danger' : 'success' " item-right>{{ attendance.length }}</ion-badge>
           </button>
           <button ion-item (click)="goSelected({ discipline: discipline })">
             <ion-icon name="checkmark-circle" color="danger" item-left></ion-icon>
             {{ 'RECORDS.DISCIPLINE' | translate }}
-            <ion-badge color="danger" item-right>{{ discipline.length }}</ion-badge>
+            <ion-badge [color]=" discipline.length ? 'danger' : 'success' " item-right>{{ discipline.length }}</ion-badge>
           </button>
         </ion-card>
 
