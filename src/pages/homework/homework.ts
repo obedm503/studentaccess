@@ -41,10 +41,10 @@ export class Homework {
 
   public async ionViewDidEnter(){
     await this.loading.present();
-    this.getHomework();
+    await this.get();
     this.loading.dismiss();
   }
-  async getHomework( refresh = false ){
+  async get( refresh = false ){
     try {
       let hw = await this.store.get(
         'HOMEWORK',
@@ -108,8 +108,8 @@ export class Homework {
     this.store.persist();
   }
 
-  async refreshHomework( refresher: Refresher ){
-    await this.getHomework(true);
+  async refresh( refresher: Refresher ){
+    await this.get(true);
     refresher.complete();
   }
 }

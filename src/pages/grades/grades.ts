@@ -3,7 +3,8 @@ import {
   IonicPage,
   NavController,
   Loading,
-  LoadingController
+  LoadingController,
+  Refresher,
 } from 'ionic-angular';
 
 import { Store } from '../../providers/store';
@@ -29,11 +30,16 @@ export class Grades {
 
   async ionViewDidLoad(){
     await this.loading.present();
+    await this.get();
+    this.loading.dismiss();
+  }
+
+  async get( refresh = false ){
     try {
       let schedule = await this.store.get('SCHEDULE');
       this.avg = schedule.overall_avg;
 
-      let grades = await this.store.get('ALLGRADES');
+      let grades = await this.store.get('ALLGRADES', undefined, refresh);
       this.classes = grades.classes;
 
       let teachers = await this.store.get('TEACHERS');
@@ -41,8 +47,13 @@ export class Grades {
     } catch(err){
       this.log.warn(err);
     }
-    this.loading.dismiss();
   }
+
+  async refresh( refresher: Refresher ){
+    await this.get(true);
+    refresher.complete();
+  }
+
   goSelected(item){
     this.nav.push('GradesDetail', {
       class: item,
