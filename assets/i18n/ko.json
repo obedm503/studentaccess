@@ -1,0 +1,76 @@
+{
+  "GLOBAL":{
+    "CANCEL": "취소",
+    "OK": "승인",
+    "LOGOUT": "로그 아웃",
+    "DATE": "날짜",
+    "EMAIL": "이메일"
+  },
+  "LOGIN": {
+    "NAME": "로그인",
+    "USER_ID": "사용자 이름",
+    "PASSWORD": "암호",
+    "LANGUAGE": "언어",
+    "REMEMBER_ME": "나를 로그인 유지",
+    "FAIL": "잘못된 사용자 이름 또는 암호. 다시 시도하십시오.",
+    "NO_CREDENTIALS": "빈 사용자 이름 또는 암호!"
+  },
+  "PROFILE": {
+    "NAME": "유저 프로필",
+    "TH": "일",
+    "GRADE": "학년",
+    "STUDENT_CREDIT": "학생 학점",
+    "FAMILY_CREDIT": "가족 신용",
+    "MISSING_ASSSIGNMENTS": "누락 된 과제",
+    "WORTH": "가치",
+    "POINTS": "전철기",
+    "CHECK_GRADES": "성적 확인하기",
+    "SCHEDULE": "수업 시간표",
+    "SELECT_SCHEDULE": "일정 선택"
+  },
+  "RECORDS": {
+    "ATTENDANCE": "출석",
+    "DISCIPLINE": "징계",
+    "CATEGORY": "범주",
+    "QUARTER": "쿼터",
+    "REASON": "이유",
+    "DAY": "하루",
+    "TEACHER": "선생"
+  },
+  "HOMEWORK": {
+    "NAME": "숙제",
+    "HIDE_CHECKED": "체크 숨기기",
+    "TITLE": "클래스 선택",
+    "ALL_CLASSES": "모든 수업"
+  },
+  "GRADES": {
+    "NAME": "성적",
+    "PHONE": "전화",
+    "PERIOD": "기간",
+    "ROOM": "교실",
+    "GRADING_SCALE": "채점 척도",
+    "LAST_UPDATED": "마지막 업데이트",
+    "GRADE": "학년"
+  },
+  "EVENTS": {
+    "NAME": "사건",
+    "TIME": "시각",
+    "LOCATION": "위치"
+  },
+  "CAFETERIA": {
+    "NAME": "카페테리아",
+    "TODAYS_LUNCH": "오늘의 점심",
+    "BALANCE_HISTORY": "균형 역사",
+    "TRANSACTIONS": "최근 10 건의 거래",
+    "PRICE": "가격",
+    "DATE_TIME": "날짜/시각",
+    "CLIENT": "고객",
+    "PRODUCT": "생성물",
+    "AUTHORIZED_BY": "권한을 부여받은"
+  },
+  "STAFF": {
+    "NAME": "직원",
+    "CELLPHONE": "핸드폰 줄",
+    "HOMEPHONE": "집 전화"
+  }
+}
