@@ -10,8 +10,9 @@ enum levels {
 
 @Injectable()
 export class Log {
-  // public level: number = levels.none;
-  public level: number = levels.debug;
+  // todo: should be replaced with ionic env variable
+  public level: number = levels.error;
+  // public level: number = levels.debug;
   debug(...rest){
     if( this.level < levels.debug){ return; }
     console.debug(`DEBUG [StudentAccess]`, ...rest);

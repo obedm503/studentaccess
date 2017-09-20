@@ -2,7 +2,8 @@
 importScripts('./build/sw-toolbox.js');
 
 self.toolbox.options.cache = {
-  name: 'studentaccess-2017-06-06'
+  //todo: should be replaced with ionic env variable
+  name: 'studentaccess-2017-09-20',
 };
 
 // pre-cache our key assets
@@ -19,7 +20,7 @@ let assets = [
   './assets/i18n/en.json',
   './assets/i18n/es.json',
 ];
-for( let i = 0; i <= 8; i++ ){
+for( let i = 0; i < 9; i++ ){
   assets.push(`./build/${i}.js`);
 }
 self.toolbox.precache(assets);
