@@ -17,6 +17,9 @@
 .dark-gray {
   background-color: map-get($colors, dark-gray);
 }
+.gray {
+  background-color: map-get($colors, gray);
+}
 .light-gray {
   background-color: map-get($colors, light-gray);
 }

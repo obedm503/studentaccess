@@ -68,8 +68,8 @@ export class Profile {
       this.familyCredit = parseFloat( login.credit_family || '0' );
       this.studentCredit = parseFloat( login.credit_student || '0' );
 
-      let missing = await this.store.get('MISSING', undefined, refresh);
-      this.missing = missing.missing;
+      let missing = await this.store.get('MISSING', undefined, refresh) || {};
+      this.missing = missing.missing || [];
 
       let schedules = await this.store.get('SCHEDULES');
       this.lang = this.translate.currentLang;

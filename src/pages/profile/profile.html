@@ -16,7 +16,7 @@
     <ion-row>
       <ion-col col-lg-5 offset-lg-1 col-md-6 col-sm-12 col-12>
         <ion-card>
-          <ion-item class="dark-gray" [@expand]="!!grade">
+          <ion-item class="gray">
             <ion-row>
               <ion-col col-5 col-sm-5 col-md-4 col-lg-3>
                 <ion-avatar>
@@ -28,44 +28,46 @@
                   {{ studentName }}
                   <br>
                   {{ birth }}
-                  <br>
-                  {{ grade }}
-                  <sup>
-                    {{ 'PROFILE.TH' | translate }}
-                  </sup>
-                  &nbsp;
-                  {{ 'PROFILE.GRADE' | translate }}
+                  <span [hidden]="!grade">
+                    <br>
+                    {{ grade }}
+                    <sup>
+                      {{ 'PROFILE.TH' | translate }}
+                    </sup>
+                    &nbsp;
+                    {{ 'PROFILE.GRADE' | translate }}
+                  </span>
                 </span>
               </ion-col>
             </ion-row>
           </ion-item>
           <ion-item>
-            <ion-icon name="person" item-left></ion-icon>
+            <ion-icon name="person" color="dark-gray" item-left></ion-icon>
             {{ 'PROFILE.STUDENT_CREDIT' | translate }}
             <ion-badge
-              [color]=" studentCredit === 0 ? 'warning' : (studentCredit ? 'success' : 'danger') "
+              [color]=" studentCredit ? 'success' : 'danger' "
               item-right
             >
               {{ studentCredit | currency:'USD':true:'1.2-2' }}
             </ion-badge>
           </ion-item>
           <ion-item>
-            <ion-icon name="people" item-left></ion-icon>
+            <ion-icon name="people" color="dark-gray" item-left></ion-icon>
             {{ 'PROFILE.FAMILY_CREDIT' | translate }}
             <ion-badge
-              [color]=" familyCredit === 0 ? 'warning' : (familyCredit ? 'success' : 'danger') "
+              [color]=" familyCredit ? 'success' : 'danger' "
               item-right
             >
               {{ familyCredit | currency:'USD':true:'1.2-2' }}
             </ion-badge>
           </ion-item>
           <button ion-item (click)="goSelected({ attendance: attendance })">
-            <ion-icon name="alarm" color="danger" item-left></ion-icon>
+            <ion-icon name="alarm" color="dark-gray" item-left></ion-icon>
             {{ 'RECORDS.ATTENDANCE' | translate }}
-            <ion-badge [color]=" attendance.length ? 'danger' : 'success' " item-right>{{ attendance.length }}</ion-badge>
+            <ion-badge color="primary" item-right>{{ attendance.length }}</ion-badge>
           </button>
           <button ion-item (click)="goSelected({ discipline: discipline })">
-            <ion-icon name="checkmark-circle" color="danger" item-left></ion-icon>
+            <ion-icon name="checkmark-circle" color="dark-gray" item-left></ion-icon>
             {{ 'RECORDS.DISCIPLINE' | translate }}
             <ion-badge [color]=" discipline.length ? 'danger' : 'success' " item-right>{{ discipline.length }}</ion-badge>
           </button>

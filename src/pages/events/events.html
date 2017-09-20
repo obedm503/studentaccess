@@ -19,12 +19,12 @@
             *ngFor="let item of events"
           >
             <ion-card-header tappable text-wrap (click)="goSelected(item.ev_id)"
-            [class.dark-gray]="item.ev_date_start === store.today">
+            [class.gray]="item.ev_date_start === store.today">
               <b [hidden]="!item.calc_ev_date_start">{{ item.calc_ev_date_start }}: </b>
               {{ item.calc_subject }}
             </ion-card-header>
             <ion-card-content [@expand]="item.calc_text && item.ev_id === selected"
-            [class.dark-gray]="item.ev_date_start === store.today">
+            [class.gray]="item.ev_date_start === store.today">
               {{ item.calc_text }}
             </ion-card-content>
 

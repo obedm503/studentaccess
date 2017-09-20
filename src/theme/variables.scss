@@ -34,7 +34,8 @@ $colors: (
   light:      #f4f4f4,
   dark:       #222,
 
-  dark-gray: #b6b6b6,
+  dark-gray: #616161,
+  gray: #b6b6b6,
   light-gray: #dbdbdb,
 );
 
@@ -87,9 +88,9 @@ $background-wp-color: map-get($colors, light-gray);
 $toolbar-background: map-get($colors, secondary);
 
 //card background
-$card-md-background-color: #fff;
-$card-ios-background-color: #fff;
-$card-wp-background-color: #fff;
+$card-md-background-color: map-get($colors, white);
+$card-ios-background-color: map-get($colors, white);
+$card-wp-background-color: map-get($colors, white);
 
 // show right arrow on clickable items
 $item-md-detail-push-show: true;
