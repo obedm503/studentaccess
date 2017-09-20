@@ -10,10 +10,13 @@ import {
 import { Store } from '../../providers/store';
 import { Log } from '../../providers/log';
 
+import { expand } from '../../components/animations';
+
 @IonicPage()
 @Component({
   selector: 'page-events',
-  templateUrl: 'events.html'
+  templateUrl: 'events.html',
+  animations: [ expand ],
 })
 export class Events {
   public events;
@@ -41,10 +44,15 @@ export class Events {
       this.loading.dismiss();
     }
   }
-  goSelected(item){
-    this.nav.push('Events', {
-      selected: item
-    });
+  goSelected(id){
+    if( this.selected === id ){
+      this.selected = '';
+    } else {
+      this.selected = id;
+    }
+    // this.nav.push('Events', {
+    //   selected: item
+    // });
   }
 
 }

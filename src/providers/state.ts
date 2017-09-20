@@ -34,7 +34,7 @@ export class State {
       key: 'TRANSACTIONS',
       query: 'credit',
       queryParams: ['history=10'],
-      valid: 'MONTH'
+      valid: 'DAY'
     }, {
       key: 'MENU',
       query: 'cafeteria',

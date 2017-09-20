@@ -6,7 +6,8 @@ import {
   LoadingController,
   Loading,
   IonicPage,
-  Events
+  Events,
+  MenuController,
 } from 'ionic-angular';
 import { TranslateService } from '@ngx-translate/core';
 
@@ -27,18 +28,28 @@ export class Login {
   remember: boolean = true;
 
   constructor(
-    public events: Events,
-    public nav: NavController,
-    public navParams: NavParams,
-    public auth: Auth,
-    public store: Store,
-    public state: State,
-    public alertCtrl: AlertController,
-    public loadingCtrl: LoadingController,
-    public translate: TranslateService,
+    private events: Events,
+    private nav: NavController,
+    private navParams: NavParams,
+    private auth: Auth,
+    private store: Store,
+    private state: State,
+    private alert: AlertController,
+    private loadingCtrl: LoadingController,
+    private translate: TranslateService,
     private log: Log,
+    private menuCtrl: MenuController,
   ){
     this.log.info('new Login()');
+  }
+
+  // disable sidemenu on login page
+  ionViewWillEnter(){
+    this.menuCtrl.swipeEnable(false);
+  }
+  // reenable sidemenu
+  ionViewWillLeave(){
+    this.menuCtrl.swipeEnable(true);
   }
 
   public login() {
@@ -77,10 +88,12 @@ export class Login {
   showError(text) {
     this.loading.dismiss();
 
-    this.alertCtrl.create({
+    this.alert.create({
       title: 'Error',
       subTitle: text,
-      buttons: ['OK']
+      buttons: [
+        this.translate.instant('GLOBAL.OK')
+      ]
     }).present();
   }
 }

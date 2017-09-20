@@ -6,15 +6,15 @@
       <button
         ion-item
         [class.light-gray]="item.component !== activePage"
-        [class.dark-gray]="item.component === activePage"
+        [class.gray]="item.component === activePage"
         menuClose *ngFor="let item of pages"
         (click)="openPage(item.component)"
       >
-        <ion-icon class="menu-icon" [name]="item.icon"></ion-icon>
+        <ion-icon class="menu-icon" color="dark" [name]="item.icon"></ion-icon>
         {{ item.title | translate }}
       </button>
       <button class="light-gray" menuClose ion-item (click)="logout()">
-        <ion-icon class="menu-icon" name="log-out"></ion-icon>
+        <ion-icon class="menu-icon" color="dark" name="log-out"></ion-icon>
         {{ 'GLOBAL.LOGOUT' | translate }}
       </button>
     </ion-list>

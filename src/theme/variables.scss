@@ -25,10 +25,18 @@ $font-path: "../assets/fonts";
 $colors: (
   primary:    #448AFF,
   secondary:  #009688,
+
+  success: #41D041,
+  warning: #F5F526,
   danger:     #f53d3d,
+
+  white: white,
   light:      #f4f4f4,
   dark:       #222,
-  white: white
+
+  dark-gray: #616161,
+  gray: #b6b6b6,
+  light-gray: #dbdbdb,
 );
 
 // colors ordered from lightest to darkest
@@ -71,25 +79,23 @@ $grade-colors: (
   )
 );
 
-$dark-gray: #b6b6b6;
-$light-gray: #dbdbdb;
-
 // app background
-$background-ios-color: $light-gray;
-$background-md-color: $light-gray;
-$background-wp-color: $light-gray;
+$background-ios-color: map-get($colors, light-gray);
+$background-md-color: map-get($colors, light-gray);
+$background-wp-color: map-get($colors, light-gray);
 
-// $toolbar-background: #009688;
+// navbar background
 $toolbar-background: map-get($colors, secondary);
 
 //card background
-$card-md-background-color: #fff;
-$card-ios-background-color: #fff;
-$card-wp-background-color: #fff;
+$card-md-background-color: map-get($colors, white);
+$card-ios-background-color: map-get($colors, white);
+$card-wp-background-color: map-get($colors, white);
 
 // show right arrow on clickable items
 $item-md-detail-push-show: true;
 $item-wp-detail-push-show: true;
+$item-ios-detail-push-show: true;
 
 $badge-font-size: 1.6rem;
 

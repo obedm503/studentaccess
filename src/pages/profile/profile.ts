@@ -5,7 +5,8 @@ import {
   NavParams,
   AlertController,
   Loading,
-  LoadingController
+  LoadingController,
+  Refresher,
 } from 'ionic-angular';
 
 import { TranslateService } from '@ngx-translate/core';
@@ -54,16 +55,21 @@ export class Profile {
   ){}
   async ionViewDidLoad(){
     await this.loading.present();
+    await this.get();
+    this.loading.dismiss();
+  }
+
+  async get( refresh = false ){
     try {
-      let login = await this.store.get('LOGIN') || {};
+      let login = await this.store.get('LOGIN', undefined, refresh) || {};
       this.birth = ( login.birthdate || '' ).replace(/-/ig, ' ');
       this.studentName = login.person_name;
       this.grade = login.grade;
       this.familyCredit = parseFloat( login.credit_family || '0' );
       this.studentCredit = parseFloat( login.credit_student || '0' );
 
-      let missing = await this.store.get('MISSING');
-      this.missing = missing.missing;
+      let missing = await this.store.get('MISSING', undefined, refresh) || {};
+      this.missing = missing.missing || [];
 
       let schedules = await this.store.get('SCHEDULES');
       this.lang = this.translate.currentLang;
@@ -73,13 +79,17 @@ export class Profile {
       let img = await this.store.get('IMAGE');
       this.personImage = img ? `data:image/jpeg;base64,${img}` : './assets/placeholder.jpg';
 
-      let records = await this.store.get('RECORDS');
+      let records = await this.store.get('RECORDS', undefined, refresh);
       this.attendance = records.attendance;
       this.discipline = records.discipline;
     } catch(err){
       this.log.error(err);
     }
-    this.loading.dismiss();
+  }
+
+  async refresh( refresher: Refresher ){
+    await this.get(true);
+    refresher.complete();
   }
 
   toggleSchedule(){

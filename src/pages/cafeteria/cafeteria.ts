@@ -2,7 +2,8 @@ import { Component, ViewChild } from '@angular/core';
 import {
   IonicPage,
   Loading,
-  LoadingController
+  LoadingController,
+  Refresher,
 } from 'ionic-angular';
 import { TranslateService } from '@ngx-translate/core';
 
@@ -32,18 +33,27 @@ export class Cafeteria {
 
   async ionViewDidEnter(){
     await this.loading.present();
+    await this.get();
+    this.loading.dismiss();
+  }
+
+  async get( refresh = false ){
     try {
       let menu = await this.store.get('MENU');
       this.menu = menu.menu;
 
-      let transactions: { transactions: any[] } = await this.store.get('TRANSACTIONS');
+      let transactions: { transactions: any[] } = await this.store.get('TRANSACTIONS', undefined, refresh );
       // hard code limit until api is fixed
       this.transactions = transactions.transactions.slice(0).reverse().slice(0, 10);
       this.updateChart(this.transactions);
     } catch( err ){
       this.log.warn(err);
     }
-    this.loading.dismiss();
+  }
+
+  async refresh( refresher: Refresher ){
+    await this.get(true);
+    refresher.complete();
   }
   updateChart(transactions: any[]){
     Chart.Line(this.canvas.nativeElement, {
