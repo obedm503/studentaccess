@@ -23,8 +23,11 @@
               <b [hidden]="!item.calc_ev_date_start">{{ item.calc_ev_date_start }}: </b>
               {{ item.calc_subject }}
             </ion-card-header>
-            <ion-card-content [@expand]="item.calc_text && item.ev_id === selected"
-            [class.gray]="item.ev_date_start === store.today">
+            <ion-card-content
+              [@expand]="item.calc_text && item.ev_id === selected"
+              [class.gray]="item.ev_date_start === store.today"
+            >
+              <!-- fix: still expands even when calc_text is null -->
               {{ item.calc_text }}
             </ion-card-content>
 
