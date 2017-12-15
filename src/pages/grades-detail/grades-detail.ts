@@ -5,7 +5,10 @@ import { Store } from '../../providers/store';
 
 @IonicPage({
   defaultHistory: ['Grades'],
-  segment: 'grades' // same as 'Grades' url to help with deeplinks
+  // same as 'Grades' url to help with deeplinks
+  // bug introduced in 3.x https://github.com/ionic-team/ionic-app-scripts/issues/1260
+  // added / as workaround
+  segment: 'grades/',
 })
 @Component({
   selector: 'page-grades-detail',
@@ -21,14 +24,14 @@ export class GradesDetail {
   constructor(
     public navParams: NavParams,
     public store: Store
-  ){}
+  ) { }
 
-  ionViewDidLoad(){
+  ionViewDidLoad() {
     this.class = this.navParams.get('class');
     this.grades = this.class.grades.slice(0).reverse();
     this.teacher = this.navParams
       .get('teachers')
-      .find( el => el.teacher_id === this.class.class_teacher_id );
+      .find(el => el.teacher_id === this.class.class_teacher_id);
     this.teacherPic = this.teacher && this.teacher.teacher_pic ? `data:image/jpeg;base64,${this.teacher.teacher_pic}` : this.teacherPic;
   }
 }
