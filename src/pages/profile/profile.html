@@ -48,7 +48,7 @@
               [color]=" studentCredit ? 'success' : 'danger' "
               item-right
             >
-              {{ studentCredit | currency:'USD':true:'1.2-2' }}
+              {{ studentCredit | currency:'USD':'symbol':'1.2-2' }}
             </ion-badge>
           </ion-item>
           <ion-item>
@@ -58,7 +58,7 @@
               [color]=" familyCredit ? 'success' : 'danger' "
               item-right
             >
-              {{ familyCredit | currency:'USD':true:'1.2-2' }}
+              {{ familyCredit | currency:'USD':'symbol':'1.2-2' }}
             </ion-badge>
           </ion-item>
           <button ion-item (click)="goSelected({ attendance: attendance })">

@@ -3,7 +3,9 @@ import { IonicPage, NavParams } from 'ionic-angular';
 
 @IonicPage({
   defaultHistory: ['Profile'],
-  segment: 'profile'
+  // bug introduced in 3.x https://github.com/ionic-team/ionic-app-scripts/issues/1260
+  // added / as workaround
+  segment: 'profile/'
 })
 @Component({
   selector: 'page-records',

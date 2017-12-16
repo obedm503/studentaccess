@@ -1,8 +1,6 @@
 import { Injectable } from '@angular/core';
 import * as Storage from '@ionic/storage';
-import { Http } from '@angular/http';
-import 'rxjs/add/operator/toPromise';
-import 'rxjs/add/operator/do';
+import { HttpClient } from "@angular/common/http";
 
 import currentWeekNumber from 'current-week-number';
 
@@ -17,7 +15,7 @@ export class Store {
   private keys: IKey[];
 
   constructor(
-    private http: Http,
+    private http: HttpClient,
     private storage: Storage.Storage,
     private state: State,
     private log: Log,
@@ -31,9 +29,8 @@ export class Store {
   }
   private fromApi( el: IKey, modifier: Function, oldData?: any ): Promise<any> {
     let url = this.buildUrl( el.url, el.query, el.queryParams );
-    return this.http.get(url)
+    return this.http.get(url, { responseType: 'text' })
       .toPromise()
-      .then( res => res.text())
       .then( text => {
         try {
           let json: object = JSON.parse(text);
