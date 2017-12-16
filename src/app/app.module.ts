@@ -5,8 +5,7 @@ import {
 } from '@angular/platform-browser/animations';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
-// import { HttpClientModule, HttpClient } from '@angular/common/http';
-import { HttpModule, Http } from '@angular/http';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
 
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
@@ -20,8 +19,7 @@ import { Auth } from '../providers/auth';
 import { State } from '../providers/state';
 import { Log } from '../providers/log';
 
-// export function createTranslateLoader(http: HttpClient) {
-export function createTranslateLoader(http: Http) {
+export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
 
@@ -30,7 +28,6 @@ export function createTranslateLoader(http: Http) {
     StudentAccess
   ],
   imports: [
-    HttpModule,
     BrowserModule,
     // NoopAnimationsModule works but BrowserAnimationsModule doesn't
     NoopAnimationsModule,
@@ -38,26 +35,27 @@ export function createTranslateLoader(http: Http) {
     IonicModule.forRoot(StudentAccess),
     IonicStorageModule.forRoot({
       name: 'studentaccess',
-      driverOrder: ['indexeddb','websql','localstorage']
+      driverOrder: ['indexeddb', 'websql', 'localstorage']
     }),
     TranslateModule.forRoot({
-    loader: {
-      provide: TranslateLoader,
-      useFactory: createTranslateLoader,
-      deps: [ Http ]
-    }
-  })
+      loader: {
+        provide: TranslateLoader,
+        useFactory: createTranslateLoader,
+        deps: [HttpClient],
+      }
+    }),
+    HttpClientModule,
   ],
-  bootstrap: [ IonicApp ],
-  entryComponents: [ StudentAccess ],
+  bootstrap: [IonicApp],
+  entryComponents: [StudentAccess],
   providers: [
     Store,
     Auth,
     State,
-    HttpModule,
-    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    HttpClientModule,
+    { provide: ErrorHandler, useClass: IonicErrorHandler },
     Log,
   ]
 })
 // renamed to AppModule to solve prod env bug ¯\_(ツ)_/¯
-export class AppModule {};
+export class AppModule { };
