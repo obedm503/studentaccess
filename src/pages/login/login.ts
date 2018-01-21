@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import {
   NavController,
-  NavParams,
   AlertController,
   LoadingController,
   Loading,
@@ -30,7 +29,6 @@ export class Login {
   constructor(
     private events: Events,
     private nav: NavController,
-    private navParams: NavParams,
     private auth: Auth,
     private store: Store,
     private state: State,

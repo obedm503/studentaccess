@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import {
   IonicPage,
   NavController,
-  NavParams,
   AlertController,
   Loading,
   LoadingController,
@@ -46,7 +45,6 @@ export class Profile {
 
   constructor(
     private nav: NavController,
-    private navParams: NavParams,
     private alert: AlertController,
     private translate: TranslateService,
     private loadingCtrl: LoadingController,
