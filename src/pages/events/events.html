@@ -24,10 +24,9 @@
               {{ item.calc_subject }}
             </ion-card-header>
             <ion-card-content
-              [@expand]="item.calc_text && item.ev_id === selected"
+              [@expand]="!!item.calc_text && item.ev_id === selected"
               [class.gray]="item.ev_date_start === store.today"
             >
-              <!-- fix: still expands even when calc_text is null -->
               {{ item.calc_text }}
             </ion-card-content>
 
@@ -49,46 +48,9 @@
                 </ion-col>
               </ion-item>
             </ion-list>
-
           </ion-card>
-        </ion-list>
 
-        <!-- <ion-card *ngIf="selected">
-          <ion-card-header text-wrap>
-            {{ selected.calc_subject }}
-          </ion-card-header>
-          <ion-card-content [hidden]="!selected.calc_text">
-            {{ selected.calc_text }}
-          </ion-card-content>
-          <ion-list>
-            <ion-item color="secondary">
-              <ion-row [hidden]="!selected.calc_ev_date_start">
-                <ion-col>
-                  <b>{{ 'GLOBAL.DATE' | translate }}:</b>
-                </ion-col>
-                <ion-col>
-                  {{ selected.calc_ev_date_start }}
-                </ion-col>
-              </ion-row>
-              <ion-row [hidden]="!selected.calc_ev_time_start">
-                <ion-col>
-                  <b>{{ 'EVENTS.TIME' | translate }}:</b>
-                </ion-col>
-                <ion-col>
-                  {{ selected.calc_ev_time_start }}
-                </ion-col>
-              </ion-row>
-              <ion-row [hidden]="!selected.calc_location">
-                <ion-col>
-                  <b>{{ 'EVENTS.LOCATION' | translate }}:</b>
-                </ion-col>
-                <ion-col >
-                  {{ selected.calc_location }}
-                </ion-col>
-              </ion-row>
-            </ion-item>
-          </ion-list>
-        </ion-card> -->
+        </ion-list>
       </ion-col>
     </ion-row>
   </ion-grid>

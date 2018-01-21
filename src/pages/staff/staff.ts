@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import {
   IonicPage,
   NavController,
-  NavParams,
   Loading,
   LoadingController
 } from 'ionic-angular';
@@ -28,7 +27,6 @@ export class Staff {
 
   constructor(
     private nav: NavController,
-    private navParams: NavParams,
     private loadingCtrl: LoadingController,
     private store: Store,
     private log: Log,

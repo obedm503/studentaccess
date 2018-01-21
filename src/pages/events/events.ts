@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import {
   IonicPage,
   NavController,
-  NavParams,
   Loading,
   LoadingController
 } from 'ionic-angular';
@@ -25,24 +24,20 @@ export class Events {
 
   constructor(
     private nav: NavController,
-    private navParams: NavParams,
     private loadingCtrl: LoadingController,
     private store: Store,
     private log: Log,
   ){}
 
   async ionViewDidLoad(){
-    this.selected = this.navParams.get('selected');
-    if( !this.selected ){
-      await this.loading.present();
-      try {
-        let events = await this.store.get('EVENTS');
-        this.events = events.events;
-      } catch(err){
-        this.log.warn(err);
-      }
-      this.loading.dismiss();
+    await this.loading.present();
+    try {
+      let events = await this.store.get('EVENTS');
+      this.events = events.events;
+    } catch(err){
+      this.log.warn(err);
     }
+    this.loading.dismiss();
   }
   goSelected(id){
     if( this.selected === id ){
@@ -50,9 +45,6 @@ export class Events {
     } else {
       this.selected = id;
     }
-    // this.nav.push('Events', {
-    //   selected: item
-    // });
   }
 
 }
