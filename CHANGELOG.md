@@ -24,6 +24,10 @@ For some guidelines see [keepachangelog.com].
 - PROFILE: missing homeworks highlighting
 - LOGIN: language select always shows english after logout from spanish-selected session
 
+## 2018-01-20
+# Fix
+- EVENTS(#17): event cards without `calc_text` are slightly taller than the "closed" cards
+
 ## 2017-06-06
 # Fix
 - GRADES, GRADES-DETAILS: badge font is larger
