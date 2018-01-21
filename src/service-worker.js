@@ -3,7 +3,7 @@ importScripts('./build/sw-toolbox.js');
 
 self.toolbox.options.cache = {
   //todo: should be replaced with ionic env variable
-  name: 'studentaccess-2017-12-15.1',
+  name: 'studentaccess-2018-01-20',
 };
 
 // pre-cache our key assets
