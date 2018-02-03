@@ -1,6 +1,7 @@
 <ion-header>
   <ion-navbar>
-    <button ion-button menuToggle>
+    <button ion-button
+            menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
     <ion-title>{{ 'CAFETERIA.NAME' | translate }}</ion-title>
@@ -13,20 +14,10 @@
   </ion-refresher>
 
   <ion-grid>
-    <ion-row>
-      <ion-col col-lg-5 offset-lg-1 col-md-6 [attr.offset-md-3]="transactions.length ? null : '' " col-sm-12 col-12>
+    <ion-row [hidden]="!transactions.length">
+      <ion-col col-lg-10
+               offset-lg-1>
         <ion-card>
-          <ion-card-header>
-            {{ 'CAFETERIA.TODAYS_LUNCH' | translate }}
-          </ion-card-header>
-          <ion-list>
-            <ion-item *ngFor="let item of menu" class="alternate-colors">
-              <b>{{ item.calc_date }}:</b> {{ item.calc_menu }}
-            </ion-item>
-          </ion-list>
-        </ion-card>
-
-        <ion-card [hidden]="!transactions.length">
           <ion-card-header>
             {{ 'CAFETERIA.BALANCE_HISTORY' | translate }}
           </ion-card-header>
@@ -35,13 +26,39 @@
           </ion-card-content>
         </ion-card>
       </ion-col>
-      <ion-col col-lg-5 col-md-6 col-sm-12 col-12 [hidden]="!transactions.length">
+    </ion-row>
+
+    <ion-row>
+      <ion-col col-lg-5
+               offset-lg-1
+               col-md-6
+               [attr.offset-md-3]="transactions.length ? null : '' "
+               col-sm-12
+               col-12>
+        <ion-card>
+          <ion-card-header>
+            {{ 'CAFETERIA.TODAYS_LUNCH' | translate }}
+          </ion-card-header>
+          <ion-list>
+            <ion-item *ngFor="let item of menu"
+                      class="alternate-colors">
+              <b>{{ item.calc_date }}:</b> {{ item.calc_menu }}
+            </ion-item>
+          </ion-list>
+        </ion-card>
+      </ion-col>
+      <ion-col col-lg-5
+               col-md-6
+               col-sm-12
+               col-12
+               [hidden]="!transactions.length">
         <ion-card>
           <ion-card-header>
             {{ 'CAFETERIA.TRANSACTIONS' | translate }}
           </ion-card-header>
           <ion-list>
-            <ion-item *ngFor="let item of transactions" class="alternate-colors">
+            <ion-item *ngFor="let item of transactions"
+                      class="alternate-colors">
               <ion-row [hidden]="!item.credhist_method">
                 <b ion-col>
                   {{ 'CAFETERIA.CLIENT' | translate }}
