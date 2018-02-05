@@ -15,15 +15,13 @@
                 <ion-label floating>
                   {{ 'LOGIN.USER_ID' | translate }}
                 </ion-label>
-                <ion-input minlength="7" maxlength="8" type="text" name="username" [(ngModel)]="user.username" required></ion-input>
+                <ion-input type="text" name="username" [(ngModel)]="user.username" required></ion-input>
               </ion-item>
               <ion-item>
                 <ion-label floating>
                   {{ 'LOGIN.PASSWORD' | translate }}
                 </ion-label>
                 <ion-input
-                  minlength="7"
-                  maxlength="7"
                   type="password"
                   name="password"
                   [(ngModel)]="user.password"
