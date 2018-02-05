@@ -7,54 +7,62 @@
 <ion-content>
   <ion-grid>
     <ion-row>
-      <ion-col col-12 col-lg-6 col-md-6 offset-md-3 col-sm-12>
-        <form (ngSubmit)="login()" #registerForm="ngForm">
+      <ion-col col-12
+               col-lg-6
+               col-md-6
+               offset-md-3
+               col-sm-12>
+        <form (ngSubmit)="login()"
+              #registerForm="ngForm">
           <ion-row>
             <ion-col>
               <ion-item>
                 <ion-label floating>
                   {{ 'LOGIN.USER_ID' | translate }}
                 </ion-label>
-                <ion-input minlength="7" maxlength="8" type="text" name="username" [(ngModel)]="user.username" required></ion-input>
+                <ion-input type="text"
+                           name="username"
+                           [(ngModel)]="user.username"
+                           required></ion-input>
               </ion-item>
               <ion-item>
                 <ion-label floating>
                   {{ 'LOGIN.PASSWORD' | translate }}
                 </ion-label>
-                <ion-input
-                  minlength="7"
-                  maxlength="7"
-                  type="password"
-                  name="password"
-                  [(ngModel)]="user.password"
-                  required
-                ></ion-input>
+                <ion-input type="password"
+                           name="password"
+                           [(ngModel)]="user.password"
+                           required></ion-input>
               </ion-item>
               <ion-item>
                 <ion-label>{{ 'LOGIN.LANGUAGE' | translate }}</ion-label>
-                <ion-select
-                  [(ngModel)]="user.language"
-                  [name]=" 'LOGIN.LANGUAGE' | translate"
-                  [cancelText]=" 'GLOBAL.CANCEL' | translate"
-                  [okText]=" 'GLOBAL.OK' | translate"
-                >
-                  <ion-option value="en" (ionSelect)="selectLang('en')">English</ion-option>
-                  <ion-option value="es" (ionSelect)="selectLang('es')">Español</ion-option>
-                  <ion-option value="ko" (ionSelect)="selectLang('ko')">한국인</ion-option>
+                <ion-select [(ngModel)]="user.language"
+                            [name]=" 'LOGIN.LANGUAGE' | translate"
+                            [cancelText]=" 'GLOBAL.CANCEL' | translate"
+                            [okText]=" 'GLOBAL.OK' | translate">
+                  <ion-option value="en"
+                              (ionSelect)="selectLang('en')">English</ion-option>
+                  <ion-option value="es"
+                              (ionSelect)="selectLang('es')">Español</ion-option>
+                  <ion-option value="ko"
+                              (ionSelect)="selectLang('ko')">한국인</ion-option>
                 </ion-select>
               </ion-item>
               <ion-item>
                 <ion-label>{{ 'LOGIN.REMEMBER_ME' | translate }}</ion-label>
-                <ion-toggle
-                  [(ngModel)]="remember"
-                  [name]="'LOGIN.REMEMBER_ME' | translate"
-                ></ion-toggle>
+                <ion-toggle [(ngModel)]="remember"
+                            [name]="'LOGIN.REMEMBER_ME' | translate"></ion-toggle>
               </ion-item>
             </ion-col>
           </ion-row>
           <ion-row>
             <ion-col class="signup-col">
-              <button color="secondary" ion-button class="submit-btn" full type="submit" [disabled]="!registerForm.form.valid">
+              <button color="secondary"
+                      ion-button
+                      class="submit-btn"
+                      full
+                      type="submit"
+                      [disabled]="!registerForm.form.valid">
                 {{ 'LOGIN.NAME' | translate }}
               </button>
             </ion-col>

@@ -6,6 +6,10 @@ import {
   transition
 } from '@angular/animations';
 
+const expandTransition = ['max-height', 'opacity', 'padding', 'border', 'min-height']
+  .map(prop => `${prop} 250ms cubic-bezier(0.420, 0.000, 0.580, 1.000)`)
+  .join(', ');
+
 export const expand = trigger('expand', [
   state('true', style({
     maxHeight: '10em',
@@ -13,7 +17,7 @@ export const expand = trigger('expand', [
     padding: '',
     border: '',
     minHeight: '',
-    transition: 'all 250ms cubic-bezier(0.420, 0.000, 0.580, 1.000)'
+    transition: expandTransition,
   })),
   state('false', style({
     maxHeight: '0',
@@ -21,8 +25,7 @@ export const expand = trigger('expand', [
     padding: '0',
     border: 'none',
     minHeight: '0',
-    transition: 'all 250ms cubic-bezier(0.420, 0.000, 0.580, 1.000)'
+    transition: expandTransition,
   })),
-  transition('void => *', animate('0s')),
-  transition('* <=> *', animate('250ms ease-in-out'))
+  transition('* <=> *', animate('250ms'))
 ]);
