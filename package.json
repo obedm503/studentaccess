@@ -11,7 +11,7 @@
     "lint": "ionic-app-scripts lint",
     "clean": "ionic-app-scripts clean",
     "build": "rm -rf ./www/ && ionic-app-scripts build --prod",
-    "start": "rm -rf ./www/ && ionic-app-scripts serve",
+    "start": "rm -rf ./www/ && ionic-app-scripts serve -b",
     "deploy": "npm run build && ./deploy.sh"
   },
   "dependencies": {
