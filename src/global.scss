@@ -14,6 +14,15 @@
 @import './theme/font';
 
 @import './theme/variables';
+@each $key, $value in $grade-colors {
+  .#{$key}-grade {
+    color: map-get($value, circle);
+    font-weight: bold;
+  }
+  .#{$key}-background {
+    background-color: map-get($value, circle);
+  }
+}
 
 .dark-gray {
   background-color: var(--ion-color-dark);
