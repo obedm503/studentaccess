@@ -3,8 +3,12 @@
     <ion-menu>
       <ion-content>
         <ion-list>
-          <ion-item color="secondary">{{ name }}</ion-item>
-          <ion-item color="primary">{{ username }}@nca.edu.ni</ion-item>
+          <ion-item color="secondary">
+            <ion-label>{{ name }}</ion-label>
+          </ion-item>
+          <ion-item color="primary">
+            <ion-label>{{ username }}@nca.edu.ni</ion-label>
+          </ion-item>
 
           <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages">
             <ion-item [routerDirection]="'root'" [routerLink]="[p.url]">

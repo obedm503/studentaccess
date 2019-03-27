@@ -41,7 +41,9 @@
           </ion-card-header>
           <ion-list>
             <ion-item *ngFor="let item of menu" class="alternate-colors">
-              <b>{{ item.calc_date }}:</b> {{ item.calc_menu }}
+              <ion-label>
+                <b>{{ item.calc_date }}:</b> {{ item.calc_menu }}
+              </ion-label>
             </ion-item>
           </ion-list>
         </ion-card>

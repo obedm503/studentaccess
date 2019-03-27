@@ -42,48 +42,47 @@
                   !!item.calc_email)
               "
             >
-              <ion-item
-                ion-row
-                text-wrap
-                color="secondary"
-                [hidden]="!item.calc_phone"
-              >
-                <ion-col>
-                  <b>{{ 'STAFF.CELLPHONE' | translate }}:</b>
-                </ion-col>
-                <ion-col>
-                  <a href="tel:{{ item.calc_phone }}">{{ item.calc_phone }}</a>
-                </ion-col>
+              <ion-item text-wrap color="secondary" [hidden]="!item.calc_phone">
+                <ion-row>
+                  <ion-col>
+                    <b>{{ 'STAFF.CELLPHONE' | translate }}:</b>
+                  </ion-col>
+                  <ion-col>
+                    <a href="tel:{{ item.calc_phone }}">{{
+                      item.calc_phone
+                    }}</a>
+                  </ion-col>
+                </ion-row>
               </ion-item>
+
               <ion-item
-                ion-row
                 text-wrap
                 color="secondary"
                 [hidden]="!item.calc_homephone"
               >
-                <ion-col>
-                  <b>{{ 'STAFF.HOMEPHONE' | translate }}:</b>
-                </ion-col>
-                <ion-col>
-                  <a href="tel:{{ item.calc_homephone }}">
-                    {{ item.calc_homephone }}
-                  </a>
-                </ion-col>
+                <ion-row>
+                  <ion-col>
+                    <b>{{ 'STAFF.HOMEPHONE' | translate }}:</b>
+                  </ion-col>
+                  <ion-col>
+                    <a href="tel:{{ item.calc_homephone }}">
+                      {{ item.calc_homephone }}
+                    </a>
+                  </ion-col>
+                </ion-row>
               </ion-item>
-              <ion-item
-                ion-row
-                text-wrap
-                color="secondary"
-                [hidden]="!item.calc_email"
-              >
-                <ion-col>
-                  <b>{{ 'GLOBAL.EMAIL' | translate }}:</b>
-                </ion-col>
-                <ion-col>
-                  <a href="mailto:{{ item.calc_email }}">
-                    {{ item.calc_email }}
-                  </a>
-                </ion-col>
+
+              <ion-item text-wrap color="secondary" [hidden]="!item.calc_email">
+                <ion-row>
+                  <ion-col>
+                    <b>{{ 'GLOBAL.EMAIL' | translate }}:</b>
+                  </ion-col>
+                  <ion-col>
+                    <a href="mailto:{{ item.calc_email }}">
+                      {{ item.calc_email }}
+                    </a>
+                  </ion-col>
+                </ion-row>
               </ion-item>
             </ion-list>
           </ion-card>

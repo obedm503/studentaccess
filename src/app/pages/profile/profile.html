@@ -47,42 +47,47 @@
               </ion-col>
             </ion-row>
           </ion-item>
+
           <ion-item>
-            <ion-icon name="person" color="dark-gray" item-left></ion-icon>
-            {{ 'PROFILE.STUDENT_CREDIT' | translate }}
+            <ion-icon name="person" color="dark-gray" slot="start"></ion-icon>
+            <ion-label>{{ 'PROFILE.STUDENT_CREDIT' | translate }}</ion-label>
             <ion-badge
               [color]="studentCredit ? 'success' : 'danger'"
-              item-right
+              slot="end"
             >
               {{ studentCredit | currency: 'USD':'symbol':'1.2-2' }}
             </ion-badge>
           </ion-item>
+
           <ion-item>
-            <ion-icon name="people" color="dark-gray" item-left></ion-icon>
-            {{ 'PROFILE.FAMILY_CREDIT' | translate }}
-            <ion-badge [color]="familyCredit ? 'success' : 'danger'" item-right>
+            <ion-icon name="people" color="dark-gray" slot="start"></ion-icon>
+            <ion-label>{{ 'PROFILE.FAMILY_CREDIT' | translate }}</ion-label>
+            <ion-badge [color]="familyCredit ? 'success' : 'danger'" slot="end">
               {{ familyCredit | currency: 'USD':'symbol':'1.2-2' }}
             </ion-badge>
           </ion-item>
+
           <ion-item (click)="goSelected({ attendance: attendance })">
-            <ion-icon name="alarm" color="dark-gray" item-left></ion-icon>
-            {{ 'RECORDS.ATTENDANCE' | translate }}
-            <ion-badge color="primary" item-right>{{
-              attendance.length
-            }}</ion-badge>
+            <ion-icon name="alarm" color="dark-gray" slot="start"></ion-icon>
+            <ion-label>{{ 'RECORDS.ATTENDANCE' | translate }}</ion-label>
+            <ion-badge color="primary" slot="end">
+              {{ attendance.length }}
+            </ion-badge>
           </ion-item>
+
           <ion-item (click)="goSelected({ discipline: discipline })">
             <ion-icon
               name="checkmark-circle"
               color="dark-gray"
-              item-left
+              slot="start"
             ></ion-icon>
-            {{ 'RECORDS.DISCIPLINE' | translate }}
+            <ion-label>{{ 'RECORDS.DISCIPLINE' | translate }}</ion-label>
             <ion-badge
               [color]="discipline.length ? 'danger' : 'success'"
-              item-right
-              >{{ discipline.length }}</ion-badge
+              slot="end"
             >
+              {{ discipline.length }}
+            </ion-badge>
           </ion-item>
         </ion-card>
 
@@ -113,7 +118,9 @@
             </ion-item>
           </ion-list>
           <ion-item color="secondary" (click)="goGrades()">
-            {{ 'PROFILE.CHECK_GRADES' | translate }}
+            <ion-label>
+              {{ 'PROFILE.CHECK_GRADES' | translate }}
+            </ion-label>
           </ion-item>
         </ion-card>
       </ion-col>

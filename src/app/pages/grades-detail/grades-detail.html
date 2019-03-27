@@ -61,7 +61,7 @@
 
         <ion-card>
           <ion-item>
-            {{ class.class_name }}
+            <ion-label>{{ class.class_name }}</ion-label>
             <grade-badge item-right [grade]="class.class_avg"></grade-badge>
           </ion-item>
           <ion-card-content [hidden]="!class.class_description">
@@ -70,9 +70,7 @@
           <ion-item text-wrap color="secondary">
             <ion-row [hidden]="!class.class_period">
               <ion-col>
-                <b>
-                  {{ 'GRADES.PERIOD' | translate }}
-                </b>
+                <b>{{ 'GRADES.PERIOD' | translate }}</b>
               </ion-col>
               <ion-col>
                 <ion-badge>{{ class.class_period }}</ion-badge>
@@ -81,9 +79,7 @@
 
             <ion-row [hidden]="!class.class_room">
               <ion-col>
-                <b>
-                  {{ 'GRADES.ROOM' | translate }}
-                </b>
+                <b>{{ 'GRADES.ROOM' | translate }}</b>
               </ion-col>
               <ion-col>
                 {{ class.class_room }}

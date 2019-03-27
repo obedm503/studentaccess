@@ -21,7 +21,9 @@
             [attr.disabled]="teachers.length ? null : ''"
             (click)="goSelected(item)"
           >
-            <b> [{{ item.class_period }}] {{ item.class_name }} </b>
+            <ion-label>
+              <b>[{{ item.class_period }}] {{ item.class_name }}</b>
+            </ion-label>
             <grade-badge item-right [grade]="item.class_avg"></grade-badge>
           </ion-item>
         </ion-card>

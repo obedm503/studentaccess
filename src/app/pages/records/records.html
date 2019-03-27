@@ -14,15 +14,17 @@
         <ion-list *ngIf="attendance">
           <ion-card *ngFor="let item of attendance">
             <ion-item [color]="item.at_cat == 'E' ? 'secondary' : 'danger'">
-              {{ 'RECORDS.CATEGORY' | translate }}: {{ item.at_cat }}
-              <br />
-              {{ 'RECORDS.QUARTER' | translate }}: {{ item.at_qtr }}
-              <br />
-              {{ 'RECORDS.REASON' | translate }}: {{ item.calc_cat }}
-              <br />
-              {{ 'GLOBAL.DATE' | translate }}: {{ item.calc_date }}
-              <br />
-              {{ 'RECORDS.DAY' | translate }}: {{ item.calc_day }}
+              <ion-label>
+                {{ 'RECORDS.CATEGORY' | translate }}: {{ item.at_cat }}
+                <br />
+                {{ 'RECORDS.QUARTER' | translate }}: {{ item.at_qtr }}
+                <br />
+                {{ 'RECORDS.REASON' | translate }}: {{ item.calc_cat }}
+                <br />
+                {{ 'GLOBAL.DATE' | translate }}: {{ item.calc_date }}
+                <br />
+                {{ 'RECORDS.DAY' | translate }}: {{ item.calc_day }}
+              </ion-label>
             </ion-item>
           </ion-card>
         </ion-list>
@@ -30,15 +32,17 @@
         <ion-list *ngIf="discipline">
           <ion-card *ngFor="let item of discipline">
             <ion-item [color]="item.ds_cat == 'L' ? 'secondary' : 'danger'">
-              {{ item.ds_cat }}: {{ item.calc_cat }}
-              <br />
-              {{ 'GLOBAL.DATE' | translate }}: {{ item.calc_date }}
-              <br />
-              {{ 'RECORDS.TEACHER' | translate }}: {{ item.calc_teacher }}
-              <br />
-              {{ 'RECORDS.REASON' | translate }}: {{ item.calc_comment }}
-              <br />
-              {{ 'RECORDS.QUARTER' | translate }}: {{ item.ds_qtr }}
+              <ion-label>
+                {{ item.ds_cat }}: {{ item.calc_cat }}
+                <br />
+                {{ 'GLOBAL.DATE' | translate }}: {{ item.calc_date }}
+                <br />
+                {{ 'RECORDS.TEACHER' | translate }}: {{ item.calc_teacher }}
+                <br />
+                {{ 'RECORDS.REASON' | translate }}: {{ item.calc_comment }}
+                <br />
+                {{ 'RECORDS.QUARTER' | translate }}: {{ item.ds_qtr }}
+              </ion-label>
             </ion-item>
           </ion-card>
         </ion-list>

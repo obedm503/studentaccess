@@ -38,26 +38,24 @@
               "
             >
               <ion-item
-                ion-row
                 text-wrap
                 color="secondary"
                 [hidden]="!item.calc_ev_time_start"
               >
-                <ion-col> {{ 'EVENTS.TIME' | translate }}: </ion-col>
-                <ion-col>
-                  {{ item.calc_ev_time_start }}
-                </ion-col>
+                <ion-row>
+                  <ion-col>{{ 'EVENTS.TIME' | translate }}:</ion-col>
+                  <ion-col>{{ item.calc_ev_time_start }}</ion-col>
+                </ion-row>
               </ion-item>
               <ion-item
-                ion-row
                 text-wrap
                 color="secondary"
                 [hidden]="!item.calc_location"
               >
-                <ion-col> {{ 'EVENTS.LOCATION' | translate }}: </ion-col>
-                <ion-col>
-                  {{ item.calc_location }}
-                </ion-col>
+                <ion-row>
+                  <ion-col>{{ 'EVENTS.LOCATION' | translate }}:</ion-col>
+                  <ion-col>{{ item.calc_location }}</ion-col>
+                </ion-row>
               </ion-item>
             </ion-list>
           </ion-card>
