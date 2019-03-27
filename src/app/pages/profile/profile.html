@@ -3,7 +3,7 @@
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
-    
+
     <ion-title>{{ 'PROFILE.NAME' | translate }}</ion-title>
   </ion-toolbar>
 </ion-header>
@@ -17,7 +17,7 @@
     <ion-row>
       <ion-col size-lg="5" offset-lg="1" size-md="6" size-sm="12" size="12">
         <ion-card>
-          <ion-item class="gray">
+          <ion-item color="medium">
             <ion-row>
               <ion-col size="5" size-sm="5" size-md="4" size-lg="3">
                 <ion-avatar>
@@ -50,7 +50,7 @@
           </ion-item>
 
           <ion-item>
-            <ion-icon name="person" color="dark-gray" slot="start"></ion-icon>
+            <ion-icon name="person" color="dark" slot="start"></ion-icon>
             <ion-label>{{ 'PROFILE.STUDENT_CREDIT' | translate }}</ion-label>
             <ion-badge
               [color]="studentCredit ? 'success' : 'danger'"
@@ -61,7 +61,7 @@
           </ion-item>
 
           <ion-item>
-            <ion-icon name="people" color="dark-gray" slot="start"></ion-icon>
+            <ion-icon name="people" color="dark" slot="start"></ion-icon>
             <ion-label>{{ 'PROFILE.FAMILY_CREDIT' | translate }}</ion-label>
             <ion-badge [color]="familyCredit ? 'success' : 'danger'" slot="end">
               {{ familyCredit | currency: 'USD':'symbol':'1.2-2' }}
@@ -69,7 +69,7 @@
           </ion-item>
 
           <ion-item (click)="goSelected({ attendance: attendance })">
-            <ion-icon name="alarm" color="dark-gray" slot="start"></ion-icon>
+            <ion-icon name="alarm" color="dark" slot="start"></ion-icon>
             <ion-label>{{ 'RECORDS.ATTENDANCE' | translate }}</ion-label>
             <ion-badge color="primary" slot="end">
               {{ attendance.length }}
@@ -79,7 +79,7 @@
           <ion-item (click)="goSelected({ discipline: discipline })">
             <ion-icon
               name="checkmark-circle"
-              color="dark-gray"
+              color="dark"
               slot="start"
             ></ion-icon>
             <ion-label>{{ 'RECORDS.DISCIPLINE' | translate }}</ion-label>
