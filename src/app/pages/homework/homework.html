@@ -1,0 +1,59 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+
+    <ion-title>{{ 'HOMEWORK.NAME' | translate }}</ion-title>
+
+    <ion-buttons slot="end">
+      <ion-button (click)="popover($event)">
+        <ion-icon name="more"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+
+  <ion-toolbar color="light">
+    <ion-title>{{ 'HOMEWORK.HIDE_CHECKED' | translate }}</ion-title>
+
+    <ion-buttons slot="end">
+      <ion-toggle
+        [(ngModel)]="hideChecked"
+        [name]="'HOMEWORK.HIDE_CHECKED' | translate"
+      ></ion-toggle>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-refresher (ionRefresh)="refresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col col-12 col-lg-6 col-md-6 offset-md-3 col-sm-12>
+        <ion-list>
+          <ion-item
+            text-wrap
+            *ngFor="let item of filteredHw"
+            [class.gray]="item.lsn_date === store.today"
+            [@expand]="!(item.checked && hideChecked)"
+          >
+            <ion-label>
+              {{ item.calc_date }}
+              <br />
+              <strong>{{ item.calc_class }}: </strong>
+              {{ item.lsn_hw }}
+            </ion-label>
+            <ion-checkbox
+              color="primary"
+              [(ngModel)]="item.checked"
+              (ngModelChange)="check(item)"
+            ></ion-checkbox>
+          </ion-item>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

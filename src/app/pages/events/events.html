@@ -1,0 +1,68 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>{{ 'EVENTS.NAME' | translate }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col col-12 col-lg-6 col-md-6 offset-md-3 col-sm-12>
+        <ion-list>
+          <ion-card text-wrap *ngFor="let item of events">
+            <ion-card-header
+              tappable
+              text-wrap
+              (click)="goSelected(item.ev_id)"
+              [class.gray]="item.ev_date_start === store.today"
+            >
+              <b [hidden]="!item.calc_ev_date_start"
+                >{{ item.calc_ev_date_start }}:
+              </b>
+              {{ item.calc_subject }}
+            </ion-card-header>
+            <ion-card-content
+              [@expand]="!!item.calc_text && item.ev_id === selected"
+              [class.gray]="item.ev_date_start === store.today"
+            >
+              {{ item.calc_text }}
+            </ion-card-content>
+
+            <ion-list
+              [@expand]="
+                item.ev_id === selected &&
+                (!!item.calc_ev_time_start || !!item.calc_location)
+              "
+            >
+              <ion-item
+                ion-row
+                text-wrap
+                color="secondary"
+                [hidden]="!item.calc_ev_time_start"
+              >
+                <ion-col> {{ 'EVENTS.TIME' | translate }}: </ion-col>
+                <ion-col>
+                  {{ item.calc_ev_time_start }}
+                </ion-col>
+              </ion-item>
+              <ion-item
+                ion-row
+                text-wrap
+                color="secondary"
+                [hidden]="!item.calc_location"
+              >
+                <ion-col> {{ 'EVENTS.LOCATION' | translate }}: </ion-col>
+                <ion-col>
+                  {{ item.calc_location }}
+                </ion-col>
+              </ion-item>
+            </ion-list>
+          </ion-card>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
