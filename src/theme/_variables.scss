@@ -1,5 +1,3 @@
-$badge-font-size: 1.6rem;
-
 // colors ordered from lightest to darkest
 $grade-colors: (
   none: (
@@ -39,27 +37,3 @@ $grade-colors: (
     circleTails: #17753f,
   ),
 );
-
-@each $key, $value in $grade-colors {
-  .#{$key}-grade {
-    color: map-get($value, circle);
-    font-weight: bold;
-  }
-  .#{$key}-background {
-    background-color: map-get($value, circle);
-  }
-}
-
-// $colors: (
-//   primary: #448aff,
-//   secondary: #009688,
-//   success: #41d041,
-//   warning: #f5f526,
-//   danger: #f53d3d,
-//   white: white,
-//   light: #f4f4f4,
-//   dark: #222,
-//   dark-gray: #616161,
-//   gray: #b6b6b6,
-//   light-gray: #dbdbdb,
-// );
