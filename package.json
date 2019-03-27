@@ -4,6 +4,7 @@
   "homepage": "https://ncai-developers.github.io/studentaccess/",
   "private": true,
   "scripts": {
+    "migration": "tslint -c ionic-migration.json -p tsconfig.json",
     "deploy": "npm run build && ./deploy.sh",
     "start": "ng serve --host=0.0.0.0 --port=8100",
     "build": "ng build --prod --service-worker",
