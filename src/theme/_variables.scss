@@ -1,0 +1,65 @@
+$badge-font-size: 1.6rem;
+
+// colors ordered from lightest to darkest
+$grade-colors: (
+  none: (
+    circle: #ff751a,
+    ribbon: #ff6600,
+    ribbonTails: #e65c00,
+    circleTails: #a5480b,
+  ),
+  owe: (
+    circle: #1ac6ff,
+    ribbon: #00bfff,
+    ribbonTails: #00ace6,
+    circleTails: #0c627f,
+  ),
+  fail: (
+    circle: #e3301c,
+    ribbon: #cc2b19,
+    ribbonTails: #b62616,
+    circleTails: #72180d,
+  ),
+  bad: (
+    circle: #a05fb9,
+    ribbon: #954eb1,
+    ribbonTails: #8646a0,
+    circleTails: #4f2d5b,
+  ),
+  good: (
+    circle: #2981bc,
+    ribbon: #2573a7,
+    ribbonTails: #206592,
+    circleTails: #144260,
+  ),
+  best: (
+    circle: #2ecc71,
+    ribbon: #2abb67,
+    ribbonTails: #27ae60,
+    circleTails: #17753f,
+  ),
+);
+
+@each $key, $value in $grade-colors {
+  .#{$key}-grade {
+    color: map-get($value, circle);
+    font-weight: bold;
+  }
+  .#{$key}-background {
+    background-color: map-get($value, circle);
+  }
+}
+
+// $colors: (
+//   primary: #448aff,
+//   secondary: #009688,
+//   success: #41d041,
+//   warning: #f5f526,
+//   danger: #f53d3d,
+//   white: white,
+//   light: #f4f4f4,
+//   dark: #222,
+//   dark-gray: #616161,
+//   gray: #b6b6b6,
+//   light-gray: #dbdbdb,
+// );
