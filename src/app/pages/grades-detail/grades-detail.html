@@ -11,26 +11,32 @@
   <ion-grid>
     <ion-row>
       <ion-col
-        [attr.col-lg-5]="grades.length ? '' : null"
-        [attr.offset-lg-1]="grades.length ? '' : null"
-        [attr.col-lg-6]="!grades.length ? '' : null"
-        [attr.offset-lg-3]="!grades.length ? '' : null"
-        [attr.col-md-5]="grades.length ? '' : null"
-        [attr.offset-md-1]="grades.length ? '' : null"
-        [attr.col-md-6]="!grades.length ? '' : null"
-        [attr.offset-md-3]="!grades.length ? '' : null"
-        col-sm-12
-        col-12
+        [sizeLg]="grades.length ? 5 : null"
+        [offsetLg]="grades.length ? 1 : null"
+        [sizeLg]="!grades.length ? 6 : null"
+        [offsetLg]="!grades.length ? 3 : null"
+        [sizeMd]="grades.length ? 5 : null"
+        [offsetMd]="grades.length ? 1 : null"
+        [sizeMd]="!grades.length ? 6 : null"
+        [offsetMd]="!grades.length ? 3 : null"
+        size-sm="12"
+        size="12"
       >
         <ion-card>
           <ion-item class="gray" text-wrap>
             <ion-row>
-              <ion-col col-5 col-sm-5 col-md-4 col-lg-3>
+              <ion-col size="5" size-sm="5" size-md="4" size-lg="3">
                 <ion-avatar>
                   <img [src]="teacherPic" />
                 </ion-avatar>
               </ion-col>
-              <ion-col col-7 col-sm-7 col-md-8 col-lg-9 class="person-col">
+              <ion-col
+                size="7"
+                size-sm="7"
+                size-md="8"
+                size-lg="9"
+                class="person-col"
+              >
                 <span class="person">
                   {{ teacher.teacher_name }}
                   <span [hidden]="!teacher.teacher_email">
@@ -54,50 +60,62 @@
         </ion-card>
 
         <ion-card>
-          <ion-card-header ion-item>
+          <ion-item>
             {{ class.class_name }}
             <grade-badge item-right [grade]="class.class_avg"></grade-badge>
-          </ion-card-header>
+          </ion-item>
           <ion-card-content [hidden]="!class.class_description">
             {{ class.class_description }}
           </ion-card-content>
           <ion-item text-wrap color="secondary">
             <ion-row [hidden]="!class.class_period">
-              <b ion-col>
-                {{ 'GRADES.PERIOD' | translate }}
-              </b>
+              <ion-col>
+                <b>
+                  {{ 'GRADES.PERIOD' | translate }}
+                </b>
+              </ion-col>
               <ion-col>
                 <ion-badge>{{ class.class_period }}</ion-badge>
               </ion-col>
             </ion-row>
+
             <ion-row [hidden]="!class.class_room">
-              <b ion-col>
-                {{ 'GRADES.ROOM' | translate }}
-              </b>
+              <ion-col>
+                <b>
+                  {{ 'GRADES.ROOM' | translate }}
+                </b>
+              </ion-col>
               <ion-col>
                 {{ class.class_room }}
               </ion-col>
             </ion-row>
+
             <ion-row [hidden]="!class.class_scale">
-              <b ion-col>
-                {{ 'GRADES.GRADING_SCALE' | translate }}
-              </b>
               <ion-col>
-                {{ class.class_scale }}
+                <b>
+                  {{ 'GRADES.GRADING_SCALE' | translate }}
+                </b>
               </ion-col>
+              <ion-col> {{ class.class_scale }} </ion-col>
             </ion-row>
+
             <ion-row [hidden]="!class.class_updated">
-              <b ion-col>
-                {{ 'GRADES.LAST_UPDATED' | translate }}
-              </b>
               <ion-col>
-                {{ class.class_updated }}
+                <b>{{ 'GRADES.LAST_UPDATED' | translate }}</b>
               </ion-col>
+              <ion-col>{{ class.class_updated }}</ion-col>
             </ion-row>
           </ion-item>
         </ion-card>
       </ion-col>
-      <ion-col col-lg-5 col-md-5 col-sm-12 col-12 [hidden]="!grades.length">
+
+      <ion-col
+        size-lg="5"
+        size-md="5"
+        size-sm="12"
+        size="12"
+        [hidden]="!grades.length"
+      >
         <ion-card>
           <ion-card-header>
             {{ 'GRADES.NAME' | translate }}

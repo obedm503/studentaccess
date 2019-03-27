@@ -48,10 +48,12 @@
                 color="secondary"
                 [hidden]="!item.calc_phone"
               >
-                <b ion-col> {{ 'STAFF.CELLPHONE' | translate }}: </b>
-                <a ion-col href="tel:{{ item.calc_phone }}">
-                  {{ item.calc_phone }}
-                </a>
+                <ion-col>
+                  <b>{{ 'STAFF.CELLPHONE' | translate }}:</b>
+                </ion-col>
+                <ion-col>
+                  <a href="tel:{{ item.calc_phone }}">{{ item.calc_phone }}</a>
+                </ion-col>
               </ion-item>
               <ion-item
                 ion-row
@@ -59,10 +61,14 @@
                 color="secondary"
                 [hidden]="!item.calc_homephone"
               >
-                <b ion-col> {{ 'STAFF.HOMEPHONE' | translate }}: </b>
-                <a ion-col href="tel:{{ item.calc_homephone }}">
-                  {{ item.calc_homephone }}
-                </a>
+                <ion-col>
+                  <b>{{ 'STAFF.HOMEPHONE' | translate }}:</b>
+                </ion-col>
+                <ion-col>
+                  <a href="tel:{{ item.calc_homephone }}">
+                    {{ item.calc_homephone }}
+                  </a>
+                </ion-col>
               </ion-item>
               <ion-item
                 ion-row
@@ -70,10 +76,14 @@
                 color="secondary"
                 [hidden]="!item.calc_email"
               >
-                <b ion-col> {{ 'GLOBAL.EMAIL' | translate }}: </b>
-                <a ion-col href="mailto:{{ item.calc_email }}">
-                  {{ item.calc_email }}
-                </a>
+                <ion-col>
+                  <b>{{ 'GLOBAL.EMAIL' | translate }}:</b>
+                </ion-col>
+                <ion-col>
+                  <a href="mailto:{{ item.calc_email }}">
+                    {{ item.calc_email }}
+                  </a>
+                </ion-col>
               </ion-item>
             </ion-list>
           </ion-card>

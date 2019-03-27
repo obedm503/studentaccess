@@ -14,7 +14,7 @@
 
   <ion-grid>
     <ion-row [hidden]="!transactions.length">
-      <ion-col col-lg-10 offset-lg-1>
+      <ion-col size-lg="10" offset-lg="1">
         <ion-card>
           <ion-card-header>
             {{ 'CAFETERIA.BALANCE_HISTORY' | translate }}
@@ -28,12 +28,12 @@
 
     <ion-row>
       <ion-col
-        col-lg-5
-        offset-lg-1
-        col-md-6
-        [attr.offset-md-3]="transactions.length ? null : ''"
-        col-sm-12
-        col-12
+        size-lg="5"
+        offset-lg="1"
+        size-md="6"
+        [offsetMd]="transactions.length ? null : 3"
+        size-sm="12"
+        size="12"
       >
         <ion-card>
           <ion-card-header>
@@ -47,10 +47,10 @@
         </ion-card>
       </ion-col>
       <ion-col
-        col-lg-5
-        col-md-6
-        col-sm-12
-        col-12
+        size-lg="5"
+        size-md="6"
+        size-sm="12"
+        size="12"
         [hidden]="!transactions.length"
       >
         <ion-card>
@@ -63,33 +63,45 @@
               class="alternate-colors"
             >
               <ion-row [hidden]="!item.credhist_method">
-                <b ion-col>
-                  {{ 'CAFETERIA.CLIENT' | translate }}
-                </b>
+                <ion-col>
+                  <b>{{ 'CAFETERIA.CLIENT' | translate }}</b>
+                </ion-col>
                 <ion-col>
                   {{ item.credhist_method }}
                 </ion-col>
               </ion-row>
+
               <ion-row [hidden]="!item.credhist_description">
-                <b ion-col> {{ 'CAFETERIA.PRODUCT' | translate }}: </b>
+                <ion-col>
+                  <b>{{ 'CAFETERIA.PRODUCT' | translate }}:</b>
+                </ion-col>
                 <ion-col>
                   {{ item.credhist_description }}
                 </ion-col>
               </ion-row>
+
               <ion-row [hidden]="!item.credhist_authorized">
-                <b ion-col> {{ 'CAFETERIA.AUTHORIZED_BY' | translate }}: </b>
+                <ion-col>
+                  <b>{{ 'CAFETERIA.AUTHORIZED_BY' | translate }}: </b>
+                </ion-col>
                 <ion-col>
                   {{ item.credhist_authorized }}
                 </ion-col>
               </ion-row>
+
               <ion-row [hidden]="!item.credhist_authorized">
-                <b ion-col> {{ 'CAFETERIA.DATE_TIME' | translate }}: </b>
+                <ion-col>
+                  <b>{{ 'CAFETERIA.DATE_TIME' | translate }}: </b>
+                </ion-col>
                 <ion-col>
                   {{ item.credhist_datetime }}
                 </ion-col>
               </ion-row>
+
               <ion-row [hidden]="!item.credhist_debit">
-                <b ion-col> {{ 'CAFETERIA.PRICE' | translate }}: </b>
+                <ion-col>
+                  <b>{{ 'CAFETERIA.PRICE' | translate }}: </b>
+                </ion-col>
                 <ion-col>
                   {{ item.credhist_debit | currency: 'USD':'symbol':'1.2-2' }}
                 </ion-col>
