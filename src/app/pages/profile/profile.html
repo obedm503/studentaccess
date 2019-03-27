@@ -14,16 +14,22 @@
 
   <ion-grid>
     <ion-row>
-      <ion-col col-lg-5 offset-lg-1 col-md-6 col-sm-12 col-12>
+      <ion-col size-lg="5" offset-lg="1" size-md="6" size-sm="12" size="12">
         <ion-card>
           <ion-item class="gray">
             <ion-row>
-              <ion-col col-5 col-sm-5 col-md-4 col-lg-3>
+              <ion-col size="5" size-sm="5" size-md="4" size-lg="3">
                 <ion-avatar>
                   <img [src]="personImage" />
                 </ion-avatar>
               </ion-col>
-              <ion-col col-7 col-sm-7 col-md-8 col-lg-9 class="person-col">
+              <ion-col
+                size="7"
+                size-sm="7"
+                size-md="8"
+                size-lg="9"
+                class="person-col"
+              >
                 <span class="person">
                   {{ studentName }}
                   <br />
@@ -58,14 +64,14 @@
               {{ familyCredit | currency: 'USD':'symbol':'1.2-2' }}
             </ion-badge>
           </ion-item>
-          <button ion-item (click)="goSelected({ attendance: attendance })">
+          <ion-item (click)="goSelected({ attendance: attendance })">
             <ion-icon name="alarm" color="dark-gray" item-left></ion-icon>
             {{ 'RECORDS.ATTENDANCE' | translate }}
             <ion-badge color="primary" item-right>{{
               attendance.length
             }}</ion-badge>
-          </button>
-          <button ion-item (click)="goSelected({ discipline: discipline })">
+          </ion-item>
+          <ion-item (click)="goSelected({ discipline: discipline })">
             <ion-icon
               name="checkmark-circle"
               color="dark-gray"
@@ -77,13 +83,13 @@
               item-right
               >{{ discipline.length }}</ion-badge
             >
-          </button>
+          </ion-item>
         </ion-card>
 
         <ion-card class="card-fab">
-          <button class="fab-top-right" ion-fab (click)="toggleMissing()">
+          <ion-fab-button class="fab-top-right" (click)="toggleMissing()">
             {{ missing.length }}
-          </button>
+          </ion-fab-button>
           <ion-card-header>
             {{ 'PROFILE.MISSING_ASSSIGNMENTS' | translate }}
           </ion-card-header>
@@ -106,16 +112,16 @@
               <ion-checkbox color="primary"></ion-checkbox>
             </ion-item>
           </ion-list>
-          <button ion-item color="secondary" (click)="goGrades()">
+          <ion-item color="secondary" (click)="goGrades()">
             {{ 'PROFILE.CHECK_GRADES' | translate }}
-          </button>
+          </ion-item>
         </ion-card>
       </ion-col>
-      <ion-col col-lg-5 col-md-6 col-sm-12 col-12>
+      <ion-col size-lg="5" size-md="6" size-sm="12" size="12">
         <ion-card class="card-fab">
-          <button class="fab-top-right" ion-fab (click)="toggleSchedule()">
+          <ion-fab-button class="fab-top-right" (click)="toggleSchedule()">
             <ion-icon name="swap"></ion-icon>
-          </button>
+          </ion-fab-button>
 
           <ion-card-header>
             {{ 'PROFILE.SCHEDULE' | translate }} | {{ selectedSchedule[lang] }}

@@ -14,17 +14,16 @@
 
   <ion-grid>
     <ion-row>
-      <ion-col col-12 col-lg-6 col-md-6 offset-md-3 col-sm-12>
+      <ion-col size="12" size-lg="6" size-md="6" offset-md="3" size-sm="12">
         <ribbon [average]="avg"></ribbon>
         <ion-card *ngFor="let item of classes" text-wrap>
-          <button
-            ion-item
+          <ion-item
             [attr.disabled]="teachers.length ? null : ''"
             (click)="goSelected(item)"
           >
             <b> [{{ item.class_period }}] {{ item.class_name }} </b>
             <grade-badge item-right [grade]="item.class_avg"></grade-badge>
-          </button>
+          </ion-item>
         </ion-card>
       </ion-col>
     </ion-row>
