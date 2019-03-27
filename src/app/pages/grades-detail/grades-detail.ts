@@ -7,11 +7,26 @@ import { NavParams } from '@ionic/angular';
   styleUrls: ['grades-detail.scss'],
 })
 export class GradesDetail implements OnInit {
-  public class = { class_name: '', class_teacher_id: '', grades: [] };
-  public teacher = { teacher_pic: '' };
-  public grades: any[] = [];
-  public teacherPic = 'assets/placeholder.jpg';
-  public fabBackground: string;
+  class = {
+    class_name: '',
+    class_teacher_id: '',
+    grades: [],
+    class_avg: '',
+    class_description: '',
+    class_period: '',
+    class_room: '',
+    class_scale: '',
+    class_updated: '',
+  };
+  teacher = {
+    teacher_pic: '',
+    teacher_email: '',
+    teacher_name: '',
+    teacher_phone: '',
+  };
+  grades: any[] = [];
+  teacherPic = 'assets/placeholder.jpg';
+  fabBackground: string;
 
   constructor(private navParams: NavParams) {}
 
