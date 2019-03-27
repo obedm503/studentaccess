@@ -11,23 +11,4 @@
   For more info on type definition files, check out the Typescript docs here:
   https://www.typescriptlang.org/docs/handbook/declaration-files/introduction.html
 */
-declare module '*';
-
-interface StoredItem<t> {
-  data: t,
-  date: Date
-}
-
-interface IKey {
-  key: string,
-  valid: string,
-  query?: string,
-  url?: string,
-  queryParams?: string[]
-}
-
-interface StoredUser {
-  username: string,
-  password: string,
-  language: string
-}
+declare module 'current-week-number';
