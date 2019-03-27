@@ -21,8 +21,8 @@ interface StoredUser {
 
 @Injectable({ providedIn: 'root' })
 export class Store {
+  today: string;
   private date: Date = new Date();
-  public today: string;
   private api: string = 'https://db.nca.edu.ni/api/api_ewapp.php';
   private keys: Key[];
 

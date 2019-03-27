@@ -11,10 +11,10 @@ import pattern from 'patternomaly';
   templateUrl: 'cafeteria.html',
 })
 export class Cafeteria implements OnInit {
-  public chart: any;
+  chart: any;
   @ViewChild('chart') canvas: any;
-  public transactions: any[] = [];
-  public menu: any[] = [];
+  transactions: any[] = [];
+  menu: any[] = [];
 
   constructor(
     private store: Store,

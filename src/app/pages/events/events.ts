@@ -10,13 +10,13 @@ import { Store } from '../../services/store';
   animations: [expand],
 })
 export class Events implements OnInit {
-  public events;
-  public selected: string;
+  events;
+  selected: string;
 
   constructor(
     private loadingCtrl: LoadingController,
-    private store: Store,
     private log: Log,
+    public store: Store,
   ) {}
 
   async ngOnInit() {

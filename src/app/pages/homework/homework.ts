@@ -32,8 +32,8 @@ export class Homework implements OnInit {
     private translate: TranslateService,
     private alert: AlertController,
     private loadingCtrl: LoadingController,
-    private store: Store,
     private log: Log,
+    public store: Store,
   ) {}
 
   async ngOnInit() {

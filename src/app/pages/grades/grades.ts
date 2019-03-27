@@ -9,9 +9,9 @@ import { Store } from '../../services/store';
   templateUrl: 'grades.html',
 })
 export class Grades implements OnInit {
-  public classes: any[] = [];
-  public avg;
-  private teachers: any[] = [];
+  classes: any[] = [];
+  avg;
+  teachers: any[] = [];
 
   constructor(
     private loadingCtrl: LoadingController,

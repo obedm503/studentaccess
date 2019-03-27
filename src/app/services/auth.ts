@@ -16,7 +16,7 @@ export class Auth {
 
   constructor(private http: HttpClient, private store: Store) {}
 
-  public login(credentials): Promise<any> {
+  login(credentials): Promise<any> {
     if (!credentials.username || !credentials.password) {
       return Promise.reject(null);
     }
@@ -29,11 +29,11 @@ export class Auth {
       .toPromise();
   }
 
-  public getUser(): Promise<User> {
+  getUser(): Promise<User> {
     return Promise.resolve(this.currentUser || this.store.get('USER'));
   }
 
-  public async logout(): Promise<null> {
+  async logout(): Promise<null> {
     await this.store.clear();
     return (this.currentUser = null);
   }

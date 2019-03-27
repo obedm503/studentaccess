@@ -63,7 +63,7 @@ export class Login implements OnInit, OnDestroy {
     }
   }
 
-  public selectLang(lang: string) {
+  selectLang(lang: string) {
     this.translate.use(lang);
   }
 

@@ -33,8 +33,8 @@ export type StoredItem<T> = {
 
 @Injectable({ providedIn: 'root' })
 export class State {
-  public remember: boolean = true;
-  public keys: Key[] = [
+  remember: boolean = true;
+  keys: Key[] = [
     {
       key: 'USER',
       valid: 'MONTH',

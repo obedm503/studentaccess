@@ -11,7 +11,7 @@ enum LogLevel {
 
 @Injectable({ providedIn: 'root' })
 export class Log {
-  public level: LogLevel = LogLevel[environment.logLevel];
+  level: LogLevel = LogLevel[environment.logLevel];
   debug(...rest) {
     if (this.level < LogLevel.debug) {
       return;
