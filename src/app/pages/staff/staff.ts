@@ -11,11 +11,11 @@ import { Store } from '../../services/store';
   animations: [expand],
 })
 export class Staff implements OnInit {
-  public staff: any[] = [];
-  public filteredStaff: any[] = [];
-  public activePerson: string;
-  public showSearch: boolean = false;
-  public search: string;
+  staff: any[] = [];
+  filteredStaff: any[] = [];
+  activePerson: string;
+  showSearch: boolean = false;
+  search: string;
 
   constructor(
     private loadingCtrl: LoadingController,

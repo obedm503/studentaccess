@@ -8,7 +8,7 @@
       {{ 'STAFF.NAME' | translate }}
     </ion-title>
 
-    <ion-buttons slot="end" [hidden]="selected">
+    <ion-buttons slot="end" [hidden]="!!activePerson">
       <ion-button (click)="toggleSearch()">
         <ion-icon name="search"></ion-icon>
       </ion-button>
