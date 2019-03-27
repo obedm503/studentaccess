@@ -6,7 +6,7 @@
   "scripts": {
     "deploy": "npm run build && ./deploy.sh",
     "start": "ng serve --host=0.0.0.0 --port=8100",
-    "build": "ng build",
+    "build": "ng build --prod --service-worker",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
@@ -19,7 +19,9 @@
     "@angular/http": "^7.2.2",
     "@angular/platform-browser": "^7.2.2",
     "@angular/platform-browser-dynamic": "^7.2.2",
+    "@angular/pwa": "0.12",
     "@angular/router": "^7.2.2",
+    "@angular/service-worker": "^7.2.2",
     "@ionic/angular": "^4.1.0",
     "@ionic/storage": "^2.2.0",
     "@ngx-translate/core": "^11.0.1",
