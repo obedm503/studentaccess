@@ -114,7 +114,7 @@ export class Homework implements OnInit {
 
     await alert.present();
   }
-  public check(item) {
+  check(item) {
     const index = this.homework.findIndex(el => el.lsn_id === item.lsn_id);
     this.homework[index] = item;
     this.store.persist();
