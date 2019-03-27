@@ -40,16 +40,11 @@
                   [name]="'LOGIN.LANGUAGE' | translate"
                   [cancelText]="'GLOBAL.CANCEL' | translate"
                   [okText]="'GLOBAL.OK' | translate"
+                  (ionChange)="langChanged($event)"
                 >
-                  <ion-select-option value="en" (ionSelect)="selectLang('en')"
-                    >English</ion-select-option
-                  >
-                  <ion-select-option value="es" (ionSelect)="selectLang('es')"
-                    >Español</ion-select-option
-                  >
-                  <ion-select-option value="ko" (ionSelect)="selectLang('ko')"
-                    >한국인</ion-select-option
-                  >
+                  <ion-select-option value="en">English</ion-select-option>
+                  <ion-select-option value="es">Español</ion-select-option>
+                  <ion-select-option value="ko">한국인</ion-select-option>
                 </ion-select>
               </ion-item>
               <ion-item>

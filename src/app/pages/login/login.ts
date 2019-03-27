@@ -63,8 +63,8 @@ export class Login implements OnInit, OnDestroy {
     }
   }
 
-  selectLang(lang: string) {
-    this.translate.use(lang);
+  langChanged({ detail }: CustomEvent) {
+    this.translate.use(detail.value);
   }
 
   async showLoading() {
