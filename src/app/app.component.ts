@@ -12,13 +12,6 @@ import { State } from './services/state';
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
-  styles: [
-    `
-      ion-split-pane {
-        --border: none;
-      }
-    `,
-  ],
 })
 export class AppComponent {
   username: string = '';

@@ -81,6 +81,10 @@
 //   light-gray: #dbdbdb,
 // );
 
+// no border between side-menu and content
+ion-split-pane {
+  --border: none !important;
+}
 
 // // navbar background
 // $toolbar-background: map-get($colors, secondary);
@@ -98,6 +102,5 @@ ion-toolbar {
 // $item-md-detail-push-show: true;
 // $item-wp-detail-push-show: true;
 // $item-ios-detail-push-show: true;
-
 
 // $badge-font-size: 1.6rem;
