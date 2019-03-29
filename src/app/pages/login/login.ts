@@ -48,7 +48,7 @@ export class Login implements OnInit, OnDestroy {
       if (login.login_status) {
         this.store.setUser(this.user);
         // this.nav.setRoot('Profile');
-        this.events.publish('login', this.user, login, 'Profile');
+        this.events.publish('login', this.user, login, 'profile');
       } else {
         this.user.password = '';
         this.user.username = '';
