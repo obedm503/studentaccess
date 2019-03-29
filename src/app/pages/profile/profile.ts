@@ -18,12 +18,16 @@ import { Store } from '../../services/store';
   animations: [expand],
 })
 export class Profile implements OnInit {
-  schedules: any[] = [];
+  schedules: Array<{
+    en: string;
+    es: string;
+    schedule: any[];
+    type: string;
+  }> = [];
   selectedSchedule = {
     type: '',
     schedule: [],
   };
-  lang: string;
 
   missing: any[] = [];
   showMissing: boolean = false;
@@ -40,7 +44,7 @@ export class Profile implements OnInit {
 
   constructor(
     private alert: AlertController,
-    private translate: TranslateService,
+    public translate: TranslateService,
     private loadingCtrl: LoadingController,
     private store: Store,
     private log: Log,
@@ -66,7 +70,6 @@ export class Profile implements OnInit {
       const missing = (await this.store.get('MISSING', { refresh })) || {};
       this.missing = missing.missing || [];
 
-      this.lang = this.translate.currentLang;
       const schedules = await this.store.get<any[]>('SCHEDULES');
       if (schedules) {
         this.schedules = schedules;
@@ -96,7 +99,7 @@ export class Profile implements OnInit {
   async toggleSchedule() {
     const inputs: AlertInput[] = this.schedules.map(el => ({
       type: 'radio' as 'radio',
-      label: el[this.lang],
+      label: el[this.translate.currentLang],
       value: el.type,
       checked: el.type === this.selectedSchedule.type,
     }));

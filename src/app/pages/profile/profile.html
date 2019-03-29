@@ -15,38 +15,35 @@
 
   <ion-grid>
     <ion-row>
-      <ion-col size-lg="5" offset-lg="1" size-md="6" size-sm="12" size="12">
+      <ion-col size="12" size-md="6" size-lg="5" offset-lg="1">
         <ion-card>
           <ion-item color="medium">
-            <ion-row>
-              <ion-col size="5" size-sm="5" size-md="4" size-lg="3">
-                <ion-avatar>
-                  <img [src]="personImage" />
-                </ion-avatar>
-              </ion-col>
-              <ion-col
-                size="7"
-                size-sm="7"
-                size-md="8"
-                size-lg="9"
-                class="person-col"
-              >
-                <span class="person">
-                  {{ studentName }}
-                  <br />
-                  {{ birth }}
-                  <span [hidden]="!grade">
+            <ion-grid>
+              <ion-row>
+                <ion-col size="5" size-md="4" size-lg="3">
+                  <ion-avatar>
+                    <img [src]="personImage" />
+                  </ion-avatar>
+                </ion-col>
+
+                <ion-col size="7" size-md="8" size-lg="9" class="person-col">
+                  <span class="person">
+                    {{ studentName }}
                     <br />
-                    {{ grade }}
-                    <sup>
-                      {{ 'PROFILE.TH' | translate }}
-                    </sup>
-                    &nbsp;
-                    {{ 'PROFILE.GRADE' | translate }}
+                    {{ birth }}
+                    <span [hidden]="!grade">
+                      <br />
+                      {{ grade }}
+                      <sup>
+                        {{ 'PROFILE.TH' | translate }}
+                      </sup>
+                      &nbsp;
+                      {{ 'PROFILE.GRADE' | translate }}
+                    </span>
                   </span>
-                </span>
-              </ion-col>
-            </ion-row>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
           </ion-item>
 
           <ion-item>
@@ -132,23 +129,26 @@
           </ion-fab-button>
 
           <ion-card-header>
-            {{ 'PROFILE.SCHEDULE' | translate }} | {{ selectedSchedule[lang] }}
+            {{ 'PROFILE.SCHEDULE' | translate }} |
+            {{ selectedSchedule[translate.currentLang] }}
           </ion-card-header>
           <ion-list>
             <ion-item
               *ngFor="let item of selectedSchedule.schedule"
               class="alternate-colors"
             >
-              <ion-row>
-                <ion-col>
-                  {{ item.period }}
-                </ion-col>
-                <ion-col>
-                  {{ item.begin }}
-                  <br />
-                  {{ item.end }}
-                </ion-col>
-              </ion-row>
+              <ion-grid>
+                <ion-row>
+                  <ion-col>
+                    {{ item.period }}
+                  </ion-col>
+                  <ion-col>
+                    {{ item.begin }}
+                    <br />
+                    {{ item.end }}
+                  </ion-col>
+                </ion-row>
+              </ion-grid>
             </ion-item>
           </ion-list>
         </ion-card>
