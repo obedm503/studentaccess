@@ -1,8 +1,10 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { NavigationEnd, Router } from '@angular/router';
 import { Events, LoadingController } from '@ionic/angular';
 import { Storage } from '@ionic/storage';
 import { TranslateService } from '@ngx-translate/core';
+import { Observable } from 'rxjs';
+import { filter, map } from 'rxjs/operators';
 import { Auth } from './services/auth';
 import { Log } from './services/log';
 import { State } from './services/state';
@@ -24,6 +26,7 @@ export class AppComponent {
     { title: 'STAFF.NAME', url: 'staff', icon: 'people' },
   ];
   loading: HTMLIonLoadingElement;
+  currentRoute: Observable<string>;
 
   constructor(
     private loadingCtrl: LoadingController,
@@ -37,9 +40,14 @@ export class AppComponent {
   ) {
     this.init();
 
-    this.events.subscribe('login', (user, login, link) =>
-      this.login(user, login, link),
+    this.currentRoute = router.events.pipe(
+      filter(event => event instanceof NavigationEnd),
+      map((event: NavigationEnd) => event.urlAfterRedirects),
     );
+  }
+
+  getIconColor(url: string, currentRoute: string) {
+    return '/' + url === currentRoute ? 'dark' : 'medium';
   }
 
   async init() {
