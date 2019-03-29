@@ -31,6 +31,8 @@ export type StoredItem<T> = {
   date: Date;
 };
 
+type Cache = Record<KeyName, StoredItem<any>>;
+
 @Injectable({ providedIn: 'root' })
 export class State {
   remember: boolean = true;
@@ -107,7 +109,7 @@ export class State {
     },
   ];
 
-  private cache: Record<KeyName, StoredItem<any>> = {} as any;
+  private cache: Cache = {} as any;
 
   constructor(private storage: Storage, private log: Log) {
     this.log.info('new State()');
@@ -142,17 +144,20 @@ export class State {
       }),
     );
   }
-  async load(): Promise<any> {
+  async load(): Promise<Cache> {
     try {
-      const state = await Promise.all(
+      const state: StoredItem<any>[] = await Promise.all(
         this.keys.map(({ key }) => this.storage.get(key)),
       );
 
       this.log.debug('State.load() ', state);
-      const reduced = state.reduce((accumulator, el, i) => {
-        accumulator[this.keys[i].key] = el;
-        return accumulator;
-      }, {});
+      const reduced = state.reduce(
+        (accumulator, el, i) => {
+          accumulator[this.keys[i].key] = el;
+          return accumulator;
+        },
+        {} as Cache,
+      );
 
       // load state into memory
       Object.assign(this.cache, reduced);
