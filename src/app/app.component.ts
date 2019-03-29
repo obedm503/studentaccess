@@ -40,6 +40,10 @@ export class AppComponent {
   ) {
     this.init();
 
+    this.events.subscribe('login', (user, login, link) =>
+      this.login(user, login, link),
+    );
+
     this.currentRoute = router.events.pipe(
       filter(event => event instanceof NavigationEnd),
       map((event: NavigationEnd) => event.urlAfterRedirects),
