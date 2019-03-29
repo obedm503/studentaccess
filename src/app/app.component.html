@@ -1,14 +1,17 @@
 <ion-app>
   <ion-split-pane>
     <ion-menu>
+      <ion-header>
+        <ion-toolbar>
+          <ion-title>{{ name }}</ion-title>
+        </ion-toolbar>
+      </ion-header>
+
       <ion-content>
-        <ion-list>
-          <ion-item color="secondary">
-            <ion-label>{{ name }}</ion-label>
-          </ion-item>
-          <ion-item color="primary">
+        <ion-list lines="none">
+          <ion-list-header>
             <ion-label>{{ username }}@nca.edu.ni</ion-label>
-          </ion-item>
+          </ion-list-header>
 
           <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages">
             <ion-item [routerDirection]="'root'" [routerLink]="[p.url]">
