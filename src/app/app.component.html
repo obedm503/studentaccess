@@ -22,14 +22,12 @@
             </ion-item>
           </ion-menu-toggle>
 
-          <ion-menu-toggle>
-            <ion-item (click)="logout()">
-              <ion-icon slot="start" name="log-out" color="dark"></ion-icon>
-              <ion-label>
-                {{ 'GLOBAL.LOGOUT' | translate }}
-              </ion-label>
-            </ion-item>
-          </ion-menu-toggle>
+          <ion-item button (click)="logout()">
+            <ion-icon slot="start" name="log-out" color="medium"></ion-icon>
+            <ion-label>
+              {{ 'GLOBAL.LOGOUT' | translate }}
+            </ion-label>
+          </ion-item>
         </ion-list>
       </ion-content>
     </ion-menu>
