@@ -36,8 +36,7 @@ export class Cafeteria implements OnInit {
 
       const transactions: { transactions: any[] } = await this.store.get(
         'TRANSACTIONS',
-        undefined,
-        refresh,
+        { refresh },
       );
       // hard code limit until api is fixed
       this.transactions = transactions.transactions

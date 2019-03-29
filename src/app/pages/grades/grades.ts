@@ -32,7 +32,7 @@ export class Grades implements OnInit {
       const { overall_avg } = await this.store.get('SCHEDULE');
       this.avg = overall_avg;
 
-      const { classes } = await this.store.get('ALLGRADES', undefined, refresh);
+      const { classes } = await this.store.get('ALLGRADES', { refresh });
       this.classes = classes;
 
       const { teachers } = await this.store.get('TEACHERS');

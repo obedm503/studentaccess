@@ -56,15 +56,14 @@ export class Profile implements OnInit {
 
   async get(refresh = false) {
     try {
-      const login = (await this.store.get('LOGIN', undefined, refresh)) || {};
+      const login = (await this.store.get('LOGIN', { refresh })) || {};
       this.birth = (login.birthdate || '').replace(/-/gi, ' ');
       this.studentName = login.person_name;
       this.grade = login.grade;
       this.familyCredit = parseFloat(login.credit_family || '0');
       this.studentCredit = parseFloat(login.credit_student || '0');
 
-      const missing =
-        (await this.store.get('MISSING', undefined, refresh)) || {};
+      const missing = (await this.store.get('MISSING', { refresh })) || {};
       this.missing = missing.missing || [];
 
       this.lang = this.translate.currentLang;
@@ -79,7 +78,7 @@ export class Profile implements OnInit {
         ? `data:image/jpeg;base64,${img}`
         : 'assets/placeholder.jpg';
 
-      const records = await this.store.get('RECORDS', undefined, refresh);
+      const records = await this.store.get('RECORDS', { refresh });
       if (records) {
         this.attendance = records.attendance;
         this.discipline = records.discipline;

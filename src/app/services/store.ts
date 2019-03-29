@@ -19,6 +19,8 @@ interface StoredUser {
   language: string;
 }
 
+type Modifier<T> = (args: { newData: T; oldData: T }) => T;
+
 @Injectable({ providedIn: 'root' })
 export class Store {
   today: string;
@@ -42,7 +44,7 @@ export class Store {
 
   async fromApi<T = any>(
     el: Key,
-    modifier: (args: { newData: T; oldData: T }) => T,
+    modifier: Modifier<T>,
     oldData?: T,
   ): Promise<T> {
     const url = this.buildUrl(el.url, el.query, el.queryParams);
@@ -77,8 +79,13 @@ export class Store {
 
   async get<T = any>(
     key: KeyName,
-    modifier?: (args: { newData: T; oldData: T }) => T,
-    refresh = false,
+    {
+      modifier,
+      refresh = false,
+    }: {
+      modifier?: Modifier<T>;
+      refresh?: boolean;
+    } = {},
   ): Promise<T | undefined> {
     try {
       if (key === 'USER') {

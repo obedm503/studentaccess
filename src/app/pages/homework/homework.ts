@@ -45,9 +45,9 @@ export class Homework implements OnInit {
 
   async get(refresh = false) {
     try {
-      const hw = await this.store.get(
-        'HOMEWORK',
-        ({ newData, oldData = { homework: [] } }) => ({
+      const hw = await this.store.get('HOMEWORK', {
+        refresh,
+        modifier: ({ newData, oldData = { homework: [] } }) => ({
           ...newData,
           homework: newData.homework.map(item => {
             if (
@@ -60,8 +60,7 @@ export class Homework implements OnInit {
             return item;
           }),
         }),
-        refresh,
-      );
+      });
       // this.homework serves as a backup
       // this.filteredHw is presented in view
       this.filteredHw = this.homework = hw.homework.slice(0).reverse();
