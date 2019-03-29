@@ -36,6 +36,10 @@ export class AppComponent {
     private router: Router,
   ) {
     this.init();
+
+    this.events.subscribe('login', (user, login, link) =>
+      this.login(user, login, link),
+    );
   }
 
   async init() {
@@ -51,15 +55,11 @@ export class AppComponent {
       preferedLang = 'en';
     }
     this.translate.setDefaultLang(preferedLang);
-    this.events.subscribe('login', (user, login, link) =>
-      this.login(user, login, link),
-    );
 
     try {
       await this.storage.ready();
-      const fromStorage = await this.state.load();
+      const state = await this.state.load();
       await this.loading.dismiss();
-      const state = fromStorage as any;
       if (state && state.USER && state.LOGIN) {
         this.login(state.USER.data, state.LOGIN.data);
       } else {
