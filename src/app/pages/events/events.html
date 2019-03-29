@@ -13,12 +13,15 @@
     <ion-row>
       <ion-col size="12" size-lg="6" size-md="6" offset-md="3" size-sm="12">
         <ion-list>
-          <ion-card text-wrap *ngFor="let item of events">
+          <ion-card
+            *ngFor="let item of events"
+            [color]="item.ev_date_start === store.today ? 'medium' : ''"
+            text-wrap
+          >
             <ion-card-header
               tappable
               text-wrap
               (click)="goSelected(item.ev_id)"
-              [class.gray]="item.ev_date_start === store.today"
             >
               <b [hidden]="!item.calc_ev_date_start"
                 >{{ item.calc_ev_date_start }}:
@@ -27,7 +30,6 @@
             </ion-card-header>
             <ion-card-content
               [@expand]="!!item.calc_text && item.ev_id === selected"
-              [class.gray]="item.ev_date_start === store.today"
             >
               {{ item.calc_text }}
             </ion-card-content>

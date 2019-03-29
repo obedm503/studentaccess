@@ -37,7 +37,7 @@
           <ion-item
             text-wrap
             *ngFor="let item of filteredHw"
-            [class.gray]="item.lsn_date === store.today"
+            [color]="item.lsn_date === store.today ? 'medium' : ''"
             [@expand]="!(item.checked && hideChecked)"
           >
             <ion-label>
