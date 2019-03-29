@@ -35,8 +35,8 @@ export class Login implements OnInit, OnDestroy {
     await this.menuCtrl.enable(false);
   }
   async ngOnDestroy() {
-    // reenable sidemenu
-    await this.menuCtrl.enable(false);
+    // re-enable sidemenu after login
+    await this.menuCtrl.enable(true);
   }
 
   async login() {
@@ -54,7 +54,9 @@ export class Login implements OnInit, OnDestroy {
         this.user.username = '';
         await this.showError(this.translate.instant('LOGIN.FAIL'));
       }
+      await this.loading.dismiss();
     } catch (err) {
+      await this.loading.dismiss();
       if (err === null) {
         await this.showError(this.translate.instant('LOGIN.NO_CREDENTIALS'));
       } else {
