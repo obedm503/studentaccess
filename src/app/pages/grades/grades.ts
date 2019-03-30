@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { IonRefresher, LoadingController, NavController } from '@ionic/angular';
+import { IonRefresher, LoadingController } from '@ionic/angular';
 import { Log } from '../../services/log';
 import { Store } from '../../services/store';
 
@@ -8,7 +8,7 @@ import { Store } from '../../services/store';
   selector: 'page-grades',
   templateUrl: 'grades.html',
 })
-export class Grades implements OnInit {
+export class Grades {
   classes: any[] = [];
   avg;
   teachers: any[] = [];
@@ -20,7 +20,7 @@ export class Grades implements OnInit {
     private router: Router,
   ) {}
 
-  async ngOnInit() {
+  async ionViewDidEnter() {
     const loading = await this.loadingCtrl.create();
     await loading.present();
     await this.get();

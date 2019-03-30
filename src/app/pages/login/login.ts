@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import {
   AlertController,
   Events,
@@ -14,7 +14,7 @@ import { Store } from '../../services/store';
   selector: 'page-login',
   templateUrl: 'login.html',
 })
-export class Login implements OnInit, OnDestroy {
+export class Login {
   loading: HTMLIonLoadingElement;
   user = { username: '', password: '', language: 'en' };
   remember: boolean = true;
@@ -30,11 +30,11 @@ export class Login implements OnInit, OnDestroy {
     private menuCtrl: MenuController,
   ) {}
 
-  async ngOnInit() {
+  async ionViewWillEnter() {
     // disable sidemenu on login page
     await this.menuCtrl.enable(false);
   }
-  async ngOnDestroy() {
+  async ionViewWillLeave() {
     // re-enable sidemenu after login
     await this.menuCtrl.enable(true);
   }

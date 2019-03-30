@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { NavParams } from '@ionic/angular';
 
 @Component({
@@ -6,7 +6,7 @@ import { NavParams } from '@ionic/angular';
   templateUrl: 'grades-detail.html',
   styleUrls: ['grades-detail.scss'],
 })
-export class GradesDetail implements OnInit {
+export class GradesDetail {
   class = {
     class_name: '',
     class_teacher_id: '',
@@ -30,7 +30,7 @@ export class GradesDetail implements OnInit {
 
   constructor(private navParams: NavParams) {}
 
-  ngOnInit() {
+  ionViewDidEnter() {
     this.class = this.navParams.get('class');
     this.grades = this.class.grades.slice(0).reverse();
     this.teacher = this.navParams

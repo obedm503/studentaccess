@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import {
   AlertController,
@@ -17,7 +17,7 @@ import { Store } from '../../services/store';
   styleUrls: ['profile.scss'],
   animations: [expand],
 })
-export class Profile implements OnInit {
+export class Profile {
   schedules: Array<{
     en: string;
     es: string;
@@ -51,7 +51,7 @@ export class Profile implements OnInit {
     private router: Router,
   ) {}
 
-  async ngOnInit() {
+  async ionViewDidEnter() {
     const loading = await this.loadingCtrl.create();
     await loading.present();
     await this.get();

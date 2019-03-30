@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { LoadingController } from '@ionic/angular';
 import { expand } from '../../components/animations';
 import { Log } from '../../services/log';
@@ -10,7 +10,7 @@ import { Store } from '../../services/store';
   styleUrls: ['staff.scss'],
   animations: [expand],
 })
-export class Staff implements OnInit {
+export class Staff {
   staff: any[] = [];
   filteredStaff: any[] = [];
   activePerson: string;
@@ -23,7 +23,7 @@ export class Staff implements OnInit {
     private log: Log,
   ) {}
 
-  async ngOnInit() {
+  async ionViewDidEnter() {
     const loading = await this.loadingCtrl.create();
     await loading.present();
     try {

@@ -1,16 +1,15 @@
-import { Component, ViewChild, OnInit } from '@angular/core';
-import { LoadingController, IonRefresher } from '@ionic/angular';
-
+import { Component, ViewChild } from '@angular/core';
+import { IonRefresher, LoadingController } from '@ionic/angular';
 import { Chart } from 'chart.js';
-import { Store } from '../../services/store';
-import { Log } from '../../services/log';
 import pattern from 'patternomaly';
+import { Log } from '../../services/log';
+import { Store } from '../../services/store';
 
 @Component({
   selector: 'page-cafeteria',
   templateUrl: 'cafeteria.html',
 })
-export class Cafeteria implements OnInit {
+export class Cafeteria {
   chart: any;
   @ViewChild('chart') canvas: any;
   transactions: any[] = [];
@@ -22,7 +21,7 @@ export class Cafeteria implements OnInit {
     private loadingCtrl: LoadingController,
   ) {}
 
-  async ngOnInit() {
+  async ionViewDidEnter() {
     const loading = await this.loadingCtrl.create();
     await loading.present();
     await this.get();

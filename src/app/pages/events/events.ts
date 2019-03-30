@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { LoadingController } from '@ionic/angular';
 import { expand } from '../../components/animations';
 import { Log } from '../../services/log';
@@ -9,7 +9,7 @@ import { Store } from '../../services/store';
   templateUrl: 'events.html',
   animations: [expand],
 })
-export class Events implements OnInit {
+export class Events {
   events;
   selected: string;
 
@@ -19,7 +19,7 @@ export class Events implements OnInit {
     public store: Store,
   ) {}
 
-  async ngOnInit() {
+  async ionViewDidEnter() {
     const loading = await this.loadingCtrl.create();
     await loading.present();
     try {

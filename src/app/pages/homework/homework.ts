@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import {
   AlertController,
   IonRefresher,
@@ -15,7 +15,7 @@ import { Store } from '../../services/store';
   styleUrls: ['homework.scss'],
   animations: [expand],
 })
-export class Homework implements OnInit {
+export class Homework {
   homework: Array<{
     calc_class: string;
     calc_date: string;
@@ -36,7 +36,7 @@ export class Homework implements OnInit {
     public store: Store,
   ) {}
 
-  async ngOnInit() {
+  async ionViewDidEnter() {
     const loading = await this.loadingCtrl.create();
     await loading.present();
     await this.get();
