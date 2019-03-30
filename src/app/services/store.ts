@@ -3,9 +3,9 @@ import { Injectable } from '@angular/core';
 import { Storage } from '@ionic/storage';
 import currentWeekNumber from 'current-week-number';
 import { Log } from './log';
-import { Key, KeyName, State, StoredItem } from './state';
+import { Key, KeyName, KEYS, State, StoredItem } from './state';
 
-const tryParse = (text: string): any => {
+const tryParse = (text: string) => {
   try {
     return JSON.parse(text);
   } catch {
@@ -21,12 +21,12 @@ interface StoredUser {
 
 type Modifier<T> = (args: { newData: T; oldData: T }) => T;
 
+const API = 'https://db.nca.edu.ni/api/api_ewapp.php';
+
 @Injectable({ providedIn: 'root' })
 export class Store {
   today: string;
   private date: Date = new Date();
-  private api: string = 'https://db.nca.edu.ni/api/api_ewapp.php';
-  private keys: Key[];
 
   constructor(
     private http: HttpClient,
@@ -35,14 +35,21 @@ export class Store {
     private log: Log,
   ) {
     this.log.info('new Store()');
-    const month = ('0' + (this.date.getMonth() + 1).toString()).slice(-2);
-    const day = ('0' + this.date.getDate().toString()).slice(-2);
-    const year = this.date.getFullYear().toString();
-    this.today = `${year}-${month}-${day}`;
-    this.keys = this.state.keys;
+    const local = new Date();
+    local.setUTCHours(
+      this.date.getHours(),
+      this.date.getMinutes(),
+      this.date.getSeconds(),
+      this.date.getMilliseconds(),
+    );
+    this.today = local.toISOString().slice(0, 10);
   }
 
-  async fromApi<T = any>(
+  async ready() {
+    await this.state.ready();
+  }
+
+  private async fromApi<T = any>(
     el: Key,
     modifier: Modifier<T>,
     oldData?: T,
@@ -87,47 +94,48 @@ export class Store {
       refresh?: boolean;
     } = {},
   ): Promise<T | undefined> {
-    try {
-      if (key === 'USER') {
-        return this.getUser();
-      }
+    await this.ready();
 
-      // from the state
-      const storeItem = this.state.get(key);
-
-      const keyItem = this.keys.find(el => el.key === key);
-
-      // not in memory, not in storage, from api
-      if (!storeItem) {
-        return this.fromApi(keyItem, modifier);
-      }
-
-      let valid: boolean;
-      switch (keyItem.valid) {
-        case 'DAY':
-          valid = this.date.getDate() === new Date(storeItem.date).getDate();
-          break;
-        case 'WEEK':
-          valid =
-            currentWeekNumber(this.date) ===
-            currentWeekNumber(new Date(storeItem.date));
-          break;
-        case 'MONTH':
-          valid = this.date.getMonth() === new Date(storeItem.date).getMonth();
-          break;
-        default:
-          throw Error('Store: Unknown Mode');
-      }
-      //check validity
-      if (valid && !refresh) {
-        return storeItem.data;
-      } else {
-        return this.fromApi(keyItem, modifier, storeItem.data);
-      }
-    } catch (e) {
-      this.log.warn(e);
-      return;
+    if (key === 'USER') {
+      return this.getUser();
     }
+
+    // from the state
+    const storeItem = this.state.get(key);
+
+    const keyItem = KEYS.find(el => el.key === key);
+
+    // not in memory, not in storage, from api
+    if (!storeItem) {
+      return this.fromApi(keyItem, modifier);
+    }
+
+    let valid: boolean;
+    switch (keyItem.valid) {
+      case 'DAY':
+        valid = this.date.getDate() === new Date(storeItem.date).getDate();
+        break;
+      case 'WEEK':
+        valid =
+          currentWeekNumber(this.date) ===
+          currentWeekNumber(new Date(storeItem.date));
+        break;
+      case 'MONTH':
+        valid = this.date.getMonth() === new Date(storeItem.date).getMonth();
+        break;
+      default:
+        throw Error('Store: Unknown Mode');
+    }
+
+    let data: T;
+    //check validity
+    if (valid && !refresh) {
+      data = storeItem.data;
+    } else {
+      data = await this.fromApi(keyItem, modifier, storeItem.data);
+    }
+
+    return data;
   }
 
   private buildUrl(
@@ -147,7 +155,7 @@ export class Store {
     }
 
     const user = data.data;
-    return `${this.api}?query=${query}&lang=${user.language}&username=${
+    return `${API}?query=${query}&lang=${user.language}&username=${
       user.username
     }&password=${user.password}&mode=student&${extraParams}`;
   }
@@ -158,7 +166,6 @@ export class Store {
       if (!user) {
         const state: Record<KeyName, any> = await this.storage.get('STATE');
         user = state.USER;
-        this.log.debug('getUser: ', state);
       }
       if (user && this.date.getMonth() === new Date(user.date).getMonth()) {
         return user.data;

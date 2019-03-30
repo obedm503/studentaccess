@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
 import { Events, LoadingController } from '@ionic/angular';
-import { Storage } from '@ionic/storage';
 import { TranslateService } from '@ngx-translate/core';
 import { Observable } from 'rxjs';
 import { filter, map } from 'rxjs/operators';
@@ -31,7 +30,6 @@ export class AppComponent {
   constructor(
     private loadingCtrl: LoadingController,
     private events: Events,
-    private storage: Storage,
     private auth: Auth,
     private state: State,
     private log: Log,
@@ -68,18 +66,15 @@ export class AppComponent {
     }
     this.translate.setDefaultLang(preferedLang);
 
-    try {
-      await this.storage.ready();
-      const state = await this.state.load();
-      await this.loading.dismiss();
-      if (state && state.USER && state.LOGIN) {
-        this.login(state.USER.data, state.LOGIN.data);
-      } else {
-        this.logout();
-      }
-    } catch (e) {
-      this.log.error(e);
+    const state = await this.state.ready();
+
+    if (state && state.USER && state.LOGIN) {
+      await this.login(state.USER.data, state.LOGIN.data, 'profile');
+    } else {
+      await this.logout();
     }
+
+    await this.loading.dismiss();
   }
 
   async login(user, login, link?) {
