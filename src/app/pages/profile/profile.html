@@ -16,35 +16,33 @@
   <ion-grid>
     <ion-row>
       <ion-col size="12" size-md="6" size-lg="5" offset-lg="1">
-        <ion-card>
-          <ion-item color="medium" lines="none">
-            <ion-grid>
-              <ion-row>
-                <ion-col size="5" size-md="4" size-lg="3">
-                  <ion-avatar>
-                    <img [src]="personImage" />
-                  </ion-avatar>
-                </ion-col>
+        <ion-card color="medium">
+          <ion-grid>
+            <ion-row>
+              <ion-col size="5" size-md="4" size-lg="3">
+                <ion-avatar>
+                  <img [src]="personImage" />
+                </ion-avatar>
+              </ion-col>
 
-                <ion-col size="7" size-md="8" size-lg="9" class="person-col">
-                  <span class="person">
-                    {{ studentName }}
+              <ion-col size="7" size-md="8" size-lg="9" class="person-col">
+                <span class="person">
+                  {{ studentName }}
+                  <br />
+                  {{ birth }}
+                  <span [hidden]="!grade">
                     <br />
-                    {{ birth }}
-                    <span [hidden]="!grade">
-                      <br />
-                      {{ grade }}
-                      <sup>
-                        {{ 'PROFILE.TH' | translate }}
-                      </sup>
-                      &nbsp;
-                      {{ 'PROFILE.GRADE' | translate }}
-                    </span>
+                    {{ grade }}
+                    <sup>
+                      {{ 'PROFILE.TH' | translate }}
+                    </sup>
+                    &nbsp;
+                    {{ 'PROFILE.GRADE' | translate }}
                   </span>
-                </ion-col>
-              </ion-row>
-            </ion-grid>
-          </ion-item>
+                </span>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
 
           <ion-item>
             <ion-icon name="person" color="dark" slot="start"></ion-icon>
@@ -150,18 +148,20 @@
               *ngFor="let item of selectedSchedule.schedule"
               class="alternate-colors"
             >
-              <ion-grid>
-                <ion-row>
-                  <ion-col>
-                    {{ item.period }}
-                  </ion-col>
-                  <ion-col>
-                    {{ item.begin }}
-                    <br />
-                    {{ item.end }}
-                  </ion-col>
-                </ion-row>
-              </ion-grid>
+              <ion-label>
+                <ion-grid>
+                  <ion-row>
+                    <ion-col>
+                      {{ item.period }}
+                    </ion-col>
+                    <ion-col>
+                      {{ item.begin }}
+                      <br />
+                      {{ item.end }}
+                    </ion-col>
+                  </ion-row>
+                </ion-grid>
+              </ion-label>
             </ion-item>
           </ion-list>
         </ion-card>
