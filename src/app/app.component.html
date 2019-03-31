@@ -13,8 +13,8 @@
             <ion-label>{{ username }}@nca.edu.ni</ion-label>
           </ion-list-header>
 
-          <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages">
-            <ion-item [routerDirection]="'root'" [routerLink]="[p.url]">
+          <ion-menu-toggle [autoHide]="false" *ngFor="let p of appPages">
+            <ion-item [routerDirection]="'root'" (click)="openPage(p.url)">
               <ion-icon
                 slot="start"
                 [name]="p.icon"

@@ -52,6 +52,10 @@ export class AppComponent {
     return '/' + url === currentRoute ? 'dark' : 'medium';
   }
 
+  openPage(url: string) {
+    this.router.navigate([url]);
+  }
+
   async init() {
     this.loading = await this.loadingCtrl.create();
     await this.loading.present();
@@ -69,7 +73,7 @@ export class AppComponent {
     const state = await this.state.ready();
 
     if (state && state.USER && state.LOGIN) {
-      await this.login(state.USER.data, state.LOGIN.data, 'profile');
+      await this.login(state.USER.data, state.LOGIN.data);
     } else {
       await this.logout();
     }
@@ -84,7 +88,7 @@ export class AppComponent {
 
     let url = link;
     if (!link) {
-      url = location.hash.slice(2);
+      url = location.pathname.slice(1);
     }
     await this.router.navigate([url]);
   }
