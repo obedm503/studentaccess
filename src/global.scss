@@ -44,14 +44,8 @@ ion-card + .card-fab {
   overflow: visible;
 }
 
-.fab-top-right {
-  position: absolute;
-  top: -26px;
-  right: 8px;
-
-  * {
-    font-size: 1.3rem;
-  }
+ion-fab * {
+  font-size: 1.3rem;
 }
 
 .person-col {

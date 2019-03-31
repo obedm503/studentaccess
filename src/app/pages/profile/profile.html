@@ -17,7 +17,7 @@
     <ion-row>
       <ion-col size="12" size-md="6" size-lg="5" offset-lg="1">
         <ion-card>
-          <ion-item color="medium">
+          <ion-item color="medium" lines="none">
             <ion-grid>
               <ion-row>
                 <ion-col size="5" size-md="4" size-lg="3">
@@ -90,16 +90,22 @@
         </ion-card>
 
         <ion-card class="card-fab">
-          <ion-fab-button class="fab-top-right" (click)="toggleMissing()">
-            {{ missing.length }}
-          </ion-fab-button>
+          <ion-fab vertical="top" horizontal="end" edge slot="fixed">
+            <ion-fab-button (click)="toggleMissing()">
+              {{ missing.length }}
+            </ion-fab-button>
+          </ion-fab>
+
           <ion-card-header>
-            {{ 'PROFILE.MISSING_ASSSIGNMENTS' | translate }}
+            <ion-card-title>
+              {{ 'PROFILE.MISSING_ASSSIGNMENTS' | translate }}
+            </ion-card-title>
           </ion-card-header>
-          <ion-list>
+
+          <ion-list [attr.hidden]="missing.length ? 'true' : ''">
             <ion-item
-              text-wrap
               *ngFor="let item of missing"
+              text-wrap
               [@expand]="showMissing"
               class="alternate-colors"
             >
@@ -115,6 +121,7 @@
               <ion-checkbox color="primary"></ion-checkbox>
             </ion-item>
           </ion-list>
+
           <ion-item color="secondary" (click)="goGrades()">
             <ion-label>
               {{ 'PROFILE.CHECK_GRADES' | translate }}
@@ -122,17 +129,23 @@
           </ion-item>
         </ion-card>
       </ion-col>
+
       <ion-col size-lg="5" size-md="6" size-sm="12" size="12">
         <ion-card class="card-fab">
-          <ion-fab-button class="fab-top-right" (click)="toggleSchedule()">
-            <ion-icon name="swap"></ion-icon>
-          </ion-fab-button>
+          <ion-fab vertical="top" horizontal="end" edge slot="fixed">
+            <ion-fab-button (click)="toggleSchedule()">
+              <ion-icon name="swap"></ion-icon>
+            </ion-fab-button>
+          </ion-fab>
 
           <ion-card-header>
-            {{ 'PROFILE.SCHEDULE' | translate }} |
-            {{ selectedSchedule[translate.currentLang] }}
+            <ion-card-title>
+              {{ 'PROFILE.SCHEDULE' | translate }} |
+              {{ selectedSchedule[translate.currentLang] }}
+            </ion-card-title>
           </ion-card-header>
-          <ion-list>
+
+          <ion-list lines="none">
             <ion-item
               *ngFor="let item of selectedSchedule.schedule"
               class="alternate-colors"
