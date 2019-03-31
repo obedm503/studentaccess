@@ -35,16 +35,15 @@
       <ion-col size="12" size-lg="6" size-md="6" offset-md="3" size-sm="12">
         <ion-list>
           <ion-item
-            text-wrap
             *ngFor="let item of filteredHw"
-            [color]="item.lsn_date === store.today ? 'medium' : ''"
+            [color]="item.pb_lsn_date === store.today ? 'medium' : ''"
             [@expand]="!(item.checked && hideChecked)"
           >
-            <ion-label>
+            <ion-label text-wrap>
               {{ item.calc_date }}
               <br />
               <strong>{{ item.calc_class }}: </strong>
-              {{ item.lsn_hw }}
+              {{ item.pb_lsn_homework }}
             </ion-label>
             <ion-checkbox
               color="primary"

@@ -9,6 +9,15 @@ import { expand } from '../../components/animations';
 import { Log } from '../../services/log';
 import { Store } from '../../services/store';
 
+type Hw = {
+  calc_class: string;
+  calc_date: string;
+  pb_lsn_date: string;
+  pb_lsn_homework: string;
+  pb_lsn_id: string;
+  checked: boolean;
+};
+
 @Component({
   selector: 'page-homework',
   templateUrl: 'homework.html',
@@ -16,15 +25,9 @@ import { Store } from '../../services/store';
   animations: [expand],
 })
 export class Homework {
-  homework: Array<{
-    calc_class: string;
-    calc_date: string;
-    lsn_date: string;
-    lsn_hw: string;
-    lsn_id: string;
-  }> = [];
+  homework: Hw[] = [];
   classes: any[];
-  filteredHw: any[] = [];
+  filteredHw: Hw[] = [];
   selectedClass: string = 'all-classes';
   hideChecked: boolean = true;
 
@@ -114,7 +117,9 @@ export class Homework {
     await alert.present();
   }
   check(item) {
-    const index = this.homework.findIndex(el => el.lsn_id === item.lsn_id);
+    const index = this.homework.findIndex(
+      el => el.pb_lsn_id === item.pb_lsn_id,
+    );
     this.homework[index] = item;
     this.store.persist();
   }
