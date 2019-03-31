@@ -3,7 +3,7 @@
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
-    
+
     <ion-title>{{ 'GRADES.NAME' | translate }}</ion-title>
   </ion-toolbar>
 </ion-header>
@@ -15,19 +15,27 @@
 
   <ion-grid>
     <ion-row>
-      <ion-col size="12" size-lg="6" size-md="6" offset-md="3" size-sm="12">
+      <ion-col size="12" size-lg="6" size-md="6" offset-md="3">
         <ribbon [average]="avg"></ribbon>
-        <ion-card *ngFor="let item of classes" text-wrap>
+
+        <ion-list>
           <ion-item
+            *ngFor="let item of classes"
             [attr.disabled]="teachers.length ? null : ''"
             (click)="goSelected(item)"
+            detail
           >
-            <ion-label>
+            <ion-label text-wrap>
               <b>[{{ item.class_period }}] {{ item.class_name }}</b>
             </ion-label>
-            <grade-badge item-right [grade]="item.class_avg"></grade-badge>
+
+            <grade-badge
+              style="margin: 11px 8px 10px 8px"
+              slot="end"
+              [grade]="item.class_avg"
+            ></grade-badge>
           </ion-item>
-        </ion-card>
+        </ion-list>
       </ion-col>
     </ion-row>
   </ion-grid>
