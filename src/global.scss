@@ -24,15 +24,6 @@
   }
 }
 
-.alternate-colors {
-  &:nth-child(even) {
-    background-color: #fff;
-  }
-  &:nth-child(odd) {
-    background-color: var(--ion-color-light);
-  }
-}
-
 .menu-icon {
   margin-right: 10px;
 }
@@ -52,12 +43,17 @@ ion-card + .card-fab {
   position: relative;
   overflow: visible;
 }
+
 .fab-top-right {
-  font-size: 20px;
   position: absolute;
   top: -26px;
   right: 8px;
+
+  * {
+    font-size: 1.3rem;
+  }
 }
+
 .person-col {
   line-height: 110px;
 

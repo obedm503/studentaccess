@@ -103,4 +103,19 @@ ion-toolbar {
 // $item-wp-detail-push-show: true;
 // $item-ios-detail-push-show: true;
 
-// $badge-font-size: 1.6rem;
+ion-item.alternate-colors {
+  &:nth-child(even) {
+    --background: #ffffff;
+  }
+  &:nth-child(odd) {
+    --background: var(--ion-color-light);
+  }
+}
+
+ion-badge {
+  font-size: 1rem;
+  --padding-top: 3px;
+  --padding-bottom: 3px;
+  --padding-start: 8px;
+  --padding-end: 8px;
+}
