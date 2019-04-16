@@ -5,14 +5,14 @@
         <ion-toolbar>
           <ion-title>{{ name }}</ion-title>
         </ion-toolbar>
-
-        <ion-toolbar color="light">
-          <ion-title>{{ username }}@nca.edu.ni</ion-title>
-        </ion-toolbar>
       </ion-header>
 
       <ion-content>
         <ion-list lines="none">
+          <ion-list-header>
+            {{ username }}@nca.edu.ni
+          </ion-list-header>
+
           <ion-menu-toggle [autoHide]="false" *ngFor="let p of appPages">
             <ion-item [routerDirection]="'root'" (click)="openPage(p.url)">
               <ion-icon
