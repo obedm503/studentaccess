@@ -3,7 +3,7 @@
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
-    
+
     <ion-title>{{ 'CAFETERIA.NAME' | translate }}</ion-title>
   </ion-toolbar>
 </ion-header>
@@ -18,7 +18,9 @@
       <ion-col size-lg="10" offset-lg="1">
         <ion-card>
           <ion-card-header>
-            {{ 'CAFETERIA.BALANCE_HISTORY' | translate }}
+            <ion-card-title>
+              {{ 'CAFETERIA.BALANCE_HISTORY' | translate }}
+            </ion-card-title>
           </ion-card-header>
           <ion-card-content>
             <canvas #chart></canvas>
@@ -38,17 +40,19 @@
       >
         <ion-card>
           <ion-card-header>
-            {{ 'CAFETERIA.TODAYS_LUNCH' | translate }}
+            <ion-card-title>
+              {{ 'CAFETERIA.TODAYS_LUNCH' | translate }}
+            </ion-card-title>
           </ion-card-header>
-          <ion-list>
-            <ion-item *ngFor="let item of menu" class="alternate-colors">
-              <ion-label>
-                <b>{{ item.calc_date }}:</b> {{ item.calc_menu }}
-              </ion-label>
-            </ion-item>
-          </ion-list>
+
+          <ion-item *ngFor="let item of menu" class="alternate-colors">
+            <ion-label>
+              <b>{{ item.calc_date | date }}</b> {{ item.calc_menu }}
+            </ion-label>
+          </ion-item>
         </ion-card>
       </ion-col>
+
       <ion-col
         size-lg="5"
         size-md="6"
@@ -58,59 +62,61 @@
       >
         <ion-card>
           <ion-card-header>
-            {{ 'CAFETERIA.TRANSACTIONS' | translate }}
+            <ion-card-title>
+              {{ 'CAFETERIA.TRANSACTIONS' | translate }}
+            </ion-card-title>
           </ion-card-header>
-          <ion-list>
-            <ion-item
-              *ngFor="let item of transactions"
-              class="alternate-colors"
-            >
-              <ion-row [hidden]="!item.credhist_method">
-                <ion-col>
-                  <b>{{ 'CAFETERIA.CLIENT' | translate }}</b>
-                </ion-col>
-                <ion-col>
-                  {{ item.credhist_method }}
-                </ion-col>
-              </ion-row>
 
-              <ion-row [hidden]="!item.credhist_description">
-                <ion-col>
-                  <b>{{ 'CAFETERIA.PRODUCT' | translate }}:</b>
-                </ion-col>
-                <ion-col>
-                  {{ item.credhist_description }}
-                </ion-col>
-              </ion-row>
+          <ion-item *ngFor="let item of transactions" class="alternate-colors">
+            <ion-label>
+              <ion-grid>
+                <ion-row [hidden]="!item.credhist_method">
+                  <ion-col>
+                    <b>{{ 'CAFETERIA.CLIENT' | translate }}</b>
+                  </ion-col>
+                  <ion-col>
+                    {{ item.credhist_method }}
+                  </ion-col>
+                </ion-row>
 
-              <ion-row [hidden]="!item.credhist_authorized">
-                <ion-col>
-                  <b>{{ 'CAFETERIA.AUTHORIZED_BY' | translate }}: </b>
-                </ion-col>
-                <ion-col>
-                  {{ item.credhist_authorized }}
-                </ion-col>
-              </ion-row>
+                <ion-row [hidden]="!item.credhist_description">
+                  <ion-col>
+                    <b>{{ 'CAFETERIA.PRODUCT' | translate }}</b>
+                  </ion-col>
+                  <ion-col>
+                    {{ item.credhist_description }}
+                  </ion-col>
+                </ion-row>
 
-              <ion-row [hidden]="!item.credhist_authorized">
-                <ion-col>
-                  <b>{{ 'CAFETERIA.DATE_TIME' | translate }}: </b>
-                </ion-col>
-                <ion-col>
-                  {{ item.credhist_datetime }}
-                </ion-col>
-              </ion-row>
+                <ion-row [hidden]="!item.credhist_authorized">
+                  <ion-col>
+                    <b>{{ 'CAFETERIA.AUTHORIZED_BY' | translate }}</b>
+                  </ion-col>
+                  <ion-col>
+                    {{ item.credhist_authorized }}
+                  </ion-col>
+                </ion-row>
 
-              <ion-row [hidden]="!item.credhist_debit">
-                <ion-col>
-                  <b>{{ 'CAFETERIA.PRICE' | translate }}: </b>
-                </ion-col>
-                <ion-col>
-                  {{ item.credhist_debit | currency: 'USD':'symbol':'1.2-2' }}
-                </ion-col>
-              </ion-row>
-            </ion-item>
-          </ion-list>
+                <ion-row [hidden]="!item.credhist_authorized">
+                  <ion-col>
+                    <b>{{ 'CAFETERIA.DATE_TIME' | translate }}</b>
+                  </ion-col>
+                  <ion-col>
+                    {{ item.credhist_datetime | date }}
+                  </ion-col>
+                </ion-row>
+
+                <ion-row [hidden]="!item.credhist_debit">
+                  <ion-col>
+                    <b>{{ 'CAFETERIA.PRICE' | translate }}</b>
+                  </ion-col>
+                  <ion-col>
+                    {{ item.credhist_debit | currency: 'USD':'symbol':'1.2-2' }}
+                  </ion-col>
+                </ion-row>
+              </ion-grid>
+            </ion-label>
+          </ion-item>
         </ion-card>
       </ion-col>
     </ion-row>
