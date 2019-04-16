@@ -31,7 +31,7 @@ export class Events {
     await loading.dismiss();
   }
 
-  goSelected(id: string) {
+  expand(id: string) {
     if (this.selected === id) {
       this.selected = '';
     } else {
