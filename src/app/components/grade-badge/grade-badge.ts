@@ -3,13 +3,7 @@ import { Component, Input } from '@angular/core';
 @Component({
   selector: 'grade-badge',
   template: `
-    <ion-badge
-      [hidden]="!avg"
-      [class.fail-background]="avg <= 60"
-      [class.bad-background]="avg > 60 && avg < 80"
-      [class.good-background]="avg >= 80 && avg < 95"
-      [class.best-background]="avg >= 95"
-    >
+    <ion-badge [hidden]="!avg" [className]="background(avg)">
       {{ avg }}
     </ion-badge>
   `,
@@ -17,4 +11,21 @@ import { Component, Input } from '@angular/core';
 export class GradeBadge {
   @Input('grade')
   avg: number;
+
+  background(avg: number): string {
+    return `${GradeBadge.color(avg)}-background`;
+  }
+
+  static color(avg: number): string {
+    if (avg >= 95) {
+      return 'best';
+    }
+    if (avg >= 80) {
+      return 'good';
+    }
+    if (avg >= 60) {
+      return 'bad';
+    }
+    return 'fail';
+  }
 }
