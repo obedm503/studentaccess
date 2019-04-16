@@ -15,12 +15,14 @@
 
 @import './theme/variables';
 @each $key, $value in $grade-colors {
+  $color: map-get($value, circle);
+
   .#{$key}-grade {
-    color: map-get($value, circle);
+    color: $color;
     font-weight: bold;
   }
   .#{$key}-background {
-    background-color: map-get($value, circle);
+    background-color: $color;
   }
 }
 

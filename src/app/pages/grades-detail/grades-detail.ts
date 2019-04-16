@@ -4,7 +4,6 @@ import { NavParams } from '@ionic/angular';
 @Component({
   selector: 'page-grades-detail',
   templateUrl: 'grades-detail.html',
-  styleUrls: ['grades-detail.scss'],
 })
 export class GradesDetail {
   class = {
