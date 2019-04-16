@@ -77,10 +77,11 @@ export class GradesDetail {
       // using observable simply because angular router uses observables for the routeMap
       const data$ = this.route.paramMap.pipe(
         map((params: ParamMap) => {
-          const [room, period] = params.get('classId').split('-');
+          const [teacherId, room] = params.get('classId').split('-');
 
           const currentClass = classes.find(
-            item => item.class_room === room && item.class_period === period,
+            item =>
+              item.class_room === room && item.class_teacher_id === teacherId,
           );
           const currentTeacher =
             currentClass &&
@@ -96,9 +97,11 @@ export class GradesDetail {
         }),
       );
 
-      this.class$ = data$.pipe(map(data => data.currentClass));
+      this.class$ = data$.pipe(
+        map(data => data.currentClass),
+        filter(Boolean),
+      );
       this.grades$ = this.class$.pipe(
-        filter(data => !!data.grades),
         map(data => data.grades.slice(0).reverse()),
       );
       this.teacher$ = data$.pipe(map(data => data.currentTeacher));
