@@ -57,7 +57,9 @@
 
         <ion-card>
           <ion-item>
-            <ion-label>{{ (class$ | async).class_name }}</ion-label>
+            <ion-label>
+              {{ (class$ | async).class_name }}
+            </ion-label>
             <grade-badge
               slot="end"
               [grade]="(class$ | async).class_avg"
@@ -119,7 +121,9 @@
       >
         <ion-card>
           <ion-card-header>
-            {{ 'GRADES.NAME' | translate }}
+            <ion-card-title>
+              {{ 'GRADES.NAME' | translate }}
+            </ion-card-title>
           </ion-card-header>
           <ion-list>
             <ion-item
