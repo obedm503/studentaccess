@@ -24,7 +24,7 @@ const routes: Routes = [
     loadChildren: './pages/homework/homework.module#HomeworkModule',
   },
   {
-    path: 'grades/:class',
+    path: 'grades/:classId',
     loadChildren:
       './pages/grades-detail/grades-detail.module#GradesDetailModule',
   },

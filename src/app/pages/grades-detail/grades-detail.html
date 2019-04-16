@@ -2,10 +2,10 @@
   <ion-toolbar>
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
-      <ion-back-button></ion-back-button>
+      <ion-back-button defaultHref="/grades"></ion-back-button>
     </ion-buttons>
 
-    <ion-title>{{ class.class_name }}</ion-title>
+    <ion-title>{{ (class$ | async).class_name }}</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -13,96 +13,99 @@
   <ion-grid>
     <ion-row>
       <ion-col
-        [sizeLg]="grades.length ? 5 : null"
-        [offsetLg]="grades.length ? 1 : null"
-        [sizeLg]="!grades.length ? 6 : null"
-        [offsetLg]="!grades.length ? 3 : null"
-        [sizeMd]="grades.length ? 5 : null"
-        [offsetMd]="grades.length ? 1 : null"
-        [sizeMd]="!grades.length ? 6 : null"
-        [offsetMd]="!grades.length ? 3 : null"
+        [sizeLg]="(grades$ | async).length ? 5 : null"
+        [offsetLg]="(grades$ | async).length ? 1 : null"
+        [sizeLg]="!(grades$ | async).length ? 6 : null"
+        [offsetLg]="!(grades$ | async).length ? 3 : null"
+        [sizeMd]="(grades$ | async).length ? 5 : null"
+        [offsetMd]="(grades$ | async).length ? 1 : null"
+        [sizeMd]="!(grades$ | async).length ? 6 : null"
+        [offsetMd]="!(grades$ | async).length ? 3 : null"
         size-sm="12"
         size="12"
       >
-        <ion-card>
-          <ion-item text-wrap color="medium">
+        <ion-card color="light">
+          <ion-grid>
             <ion-row>
-              <ion-col size="5" size-sm="5" size-md="4" size-lg="3">
+              <ion-col size="5" size-md="4" size-lg="3">
                 <ion-avatar>
-                  <img [src]="teacherPic" />
+                  <img [src]="teacherPic$ | async" />
                 </ion-avatar>
               </ion-col>
-              <ion-col
-                size="7"
-                size-sm="7"
-                size-md="8"
-                size-lg="9"
-                class="person-col"
-              >
+              <ion-col size="7" size-md="8" size-lg="9" class="person-col">
                 <span class="person">
-                  {{ teacher.teacher_name }}
-                  <span [hidden]="!teacher.teacher_email">
+                  {{ (teacher$ | async).teacher_name }}
+                  <span [hidden]="!(teacher$ | async).teacher_email">
                     <br />
                     {{ 'GLOBAL.EMAIL' | translate }}:
-                    <a href="mailto:{{ teacher.teacher_email }}">
-                      {{ teacher.teacher_email }}
+                    <a href="mailto:{{ (teacher$ | async).teacher_email }}">
+                      {{ (teacher$ | async).teacher_email }}
                     </a>
                   </span>
-                  <span [hidden]="!teacher.teacher_phone">
+                  <span [hidden]="!(teacher$ | async).teacher_phone">
                     <br />
                     {{ 'GRADES.PHONE' | translate }}:
-                    <a href="tel:{{ teacher.teacher_phone }}">
-                      {{ teacher.teacher_phone }}
+                    <a href="tel:{{ (teacher$ | async).teacher_phone }}">
+                      {{ (teacher$ | async).teacher_phone }}
                     </a>
                   </span>
                 </span>
               </ion-col>
             </ion-row>
-          </ion-item>
+          </ion-grid>
         </ion-card>
 
         <ion-card>
           <ion-item>
-            <ion-label>{{ class.class_name }}</ion-label>
-            <grade-badge item-right [grade]="class.class_avg"></grade-badge>
+            <ion-label>{{ (class$ | async).class_name }}</ion-label>
+            <grade-badge
+              slot="end"
+              [grade]="(class$ | async).class_avg"
+            ></grade-badge>
           </ion-item>
-          <ion-card-content [hidden]="!class.class_description">
-            {{ class.class_description }}
+
+          <ion-card-content [hidden]="!(class$ | async).class_description">
+            {{ (class$ | async).class_description }}
           </ion-card-content>
+
           <ion-item text-wrap color="secondary">
-            <ion-row [hidden]="!class.class_period">
-              <ion-col>
-                <b>{{ 'GRADES.PERIOD' | translate }}</b>
-              </ion-col>
-              <ion-col>
-                <ion-badge>{{ class.class_period }}</ion-badge>
-              </ion-col>
-            </ion-row>
+            <ion-label>
+              <ion-grid>
+                <ion-row [hidden]="!(class$ | async).class_period">
+                  <ion-col>
+                    <b>{{ 'GRADES.PERIOD' | translate }}</b>
+                  </ion-col>
+                  <ion-col>
+                    <ion-badge>{{ (class$ | async).class_period }}</ion-badge>
+                  </ion-col>
+                </ion-row>
 
-            <ion-row [hidden]="!class.class_room">
-              <ion-col>
-                <b>{{ 'GRADES.ROOM' | translate }}</b>
-              </ion-col>
-              <ion-col>
-                {{ class.class_room }}
-              </ion-col>
-            </ion-row>
+                <ion-row [hidden]="!(class$ | async).class_room">
+                  <ion-col>
+                    <b>{{ 'GRADES.ROOM' | translate }}</b>
+                  </ion-col>
+                  <ion-col>
+                    {{ (class$ | async).class_room }}
+                  </ion-col>
+                </ion-row>
 
-            <ion-row [hidden]="!class.class_scale">
-              <ion-col>
-                <b>
-                  {{ 'GRADES.GRADING_SCALE' | translate }}
-                </b>
-              </ion-col>
-              <ion-col> {{ class.class_scale }} </ion-col>
-            </ion-row>
+                <ion-row [hidden]="!(class$ | async).class_scale">
+                  <ion-col>
+                    <b>
+                      {{ 'GRADES.GRADING_SCALE' | translate }}
+                    </b>
+                  </ion-col>
+                  <ion-col> {{ (class$ | async).class_scale }} </ion-col>
+                </ion-row>
 
-            <ion-row [hidden]="!class.class_updated">
-              <ion-col>
-                <b>{{ 'GRADES.LAST_UPDATED' | translate }}</b>
-              </ion-col>
-              <ion-col>{{ class.class_updated }}</ion-col>
-            </ion-row>
+                <ion-row [hidden]="!(class$ | async).class_updated">
+                  <ion-col>
+                    <b>{{ 'GRADES.LAST_UPDATED' | translate }}</b>
+                  </ion-col>
+                  <ion-col>{{ (class$ | async).class_updated }}</ion-col>
+                </ion-row>
+              </ion-grid>
+            </ion-label>
           </ion-item>
         </ion-card>
       </ion-col>
@@ -112,7 +115,7 @@
         size-md="5"
         size-sm="12"
         size="12"
-        [hidden]="!grades.length"
+        [hidden]="!(grades$ | async).length"
       >
         <ion-card>
           <ion-card-header>
@@ -121,40 +124,29 @@
           <ion-list>
             <ion-item
               text-wrap
-              *ngFor="let item of grades"
+              *ngFor="let item of (grades$ | async)"
               class="alternate-colors"
-            >
-              <ion-row>
-                <ion-col>
-                  <b>
-                    {{ item.calc_date }}
-                  </b>
-                </ion-col>
-                <ion-col>
-                  <b>{{ item.grc_code }}:</b> {{ item.gra_name }}
-                  <div [hidden]="!item.calc_percent">
-                    <b>{{ 'GRADES.GRADE' | translate }}:</b>
-                    {{ item.grs_score }}/{{ item.gra_points }}
-                    <span
-                      [class.fail-grade]="
-                        (item.grs_score / item.gra_points) * 100 <= 60
-                      "
-                      [class.bad-grade]="
-                        (item.grs_score / item.gra_points) * 100 > 60 &&
-                        (item.grs_score / item.gra_points) * 100 < 80
-                      "
-                      [class.good-grade]="
-                        (item.grs_score / item.gra_points) * 100 >= 80 &&
-                        item.grs_score / item.gra_points < 0.95
-                      "
-                      [class.best-grade]="
-                        (item.grs_score / item.gra_points) * 100 >= 95
-                      "
-                      >({{ item.calc_percent }})</span
-                    >
-                  </div>
-                </ion-col>
-              </ion-row>
+              ><ion-label>
+                <ion-grid>
+                  <ion-row>
+                    <ion-col>
+                      <b>
+                        {{ item.calc_date }}
+                      </b>
+                    </ion-col>
+                    <ion-col>
+                      <b>{{ item.grc_code }}:</b> {{ item.gra_name }}
+                      <div [hidden]="!item.calc_percent">
+                        <b>{{ 'GRADES.GRADE' | translate }}:</b>
+                        {{ item.grs_score }}/{{ item.gra_points }}
+                        <span [className]="gradeColor(item)">
+                          ({{ item.calc_percent }})
+                        </span>
+                      </div>
+                    </ion-col>
+                  </ion-row>
+                </ion-grid>
+              </ion-label>
             </ion-item>
           </ion-list>
         </ion-card>

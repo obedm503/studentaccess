@@ -48,12 +48,6 @@ export class Grades {
   }
 
   goSelected(item) {
-    this.router.navigate(['grades', item.class_id], {
-      queryParams: { teachers: this.teachers },
-    });
-    // this.nav.push('GradesDetail', {
-    //   class: item,
-    //   teachers: this.teachers,
-    // });
+    this.router.navigate(['grades', `${item.class_room}-${item.class_period}`]);
   }
 }
