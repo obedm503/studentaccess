@@ -1,18 +1,3 @@
 a {
   color: var(--ion-color-light);
-  &:hover {
-    opacity: 1;
-  }
-}
-
-ion-grid.grid,
-ion-row.row,
-ion-col.col {
-  padding: 0;
-}
-
-.list-ios,
-.list-md,
-.list-wp {
-  margin-bottom: 0;
 }

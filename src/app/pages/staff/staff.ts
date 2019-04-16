@@ -1,8 +1,18 @@
 import { Component } from '@angular/core';
 import { LoadingController } from '@ionic/angular';
+import { SearchbarChangeEventDetail } from '@ionic/core';
 import { expand } from '../../components/animations';
 import { Log } from '../../services/log';
 import { Store } from '../../services/store';
+
+type Person = {
+  calc_email: string;
+  calc_homephone: string;
+  calc_name: string;
+  calc_phone: string;
+  calc_status: string;
+  t_id: string;
+};
 
 @Component({
   selector: 'page-staff',
@@ -11,11 +21,10 @@ import { Store } from '../../services/store';
   animations: [expand],
 })
 export class Staff {
-  staff: any[] = [];
-  filteredStaff: any[] = [];
+  staff: Person[] = [];
+  filteredStaff: Person[] = [];
   activePerson: string;
   showSearch: boolean = false;
-  search: string;
 
   constructor(
     private loadingCtrl: LoadingController,
@@ -45,17 +54,20 @@ export class Staff {
   toggleSearch() {
     this.showSearch = !this.showSearch;
     if (!this.showSearch && this.filteredStaff !== this.staff) {
-      this.search = '';
       this.filteredStaff = this.staff;
     }
   }
-  doSearch() {
+  
+  doSearch({ detail }: CustomEvent<SearchbarChangeEventDetail>) {
     try {
-      const query: string = this.search.toLowerCase().trim();
+      const query: string = detail.value.toLowerCase().trim();
       this.filteredStaff = this.staff.filter(
         el =>
-          el.calc_name.toLowerCase().indexOf(query) > -1 ||
-          el.calc_status.toLowerCase().indexOf(query) > -1,
+          el.calc_name.toLowerCase().includes(query) ||
+          el.calc_status.toLowerCase().includes(query) ||
+          el.calc_email.toLowerCase().includes(query) ||
+          el.calc_homephone.toLowerCase().includes(query) ||
+          el.calc_phone.toLowerCase().includes(query),
       );
     } catch (e) {
       this.log.error(e);
