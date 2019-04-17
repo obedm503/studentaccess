@@ -71,7 +71,7 @@
           </ion-card-content>
 
           <ion-item text-wrap color="secondary">
-            <ion-label>
+            <ion-label text-wrap>
               <ion-grid>
                 <ion-row [hidden]="!(class$ | async).class_period">
                   <ion-col>
@@ -104,7 +104,7 @@
                   <ion-col>
                     <b>{{ 'GRADES.LAST_UPDATED' | translate }}</b>
                   </ion-col>
-                  <ion-col>{{ (class$ | async).class_updated }}</ion-col>
+                  <ion-col>{{ (class$ | async).class_updated | date }}</ion-col>
                 </ion-row>
               </ion-grid>
             </ion-label>
@@ -130,12 +130,13 @@
               text-wrap
               *ngFor="let item of (grades$ | async)"
               class="alternate-colors"
-              ><ion-label>
+            >
+              <ion-label text-wrap>
                 <ion-grid>
                   <ion-row>
                     <ion-col>
                       <b>
-                        {{ item.calc_date }}
+                        {{ item.calc_date | date }}
                       </b>
                     </ion-col>
                     <ion-col>
