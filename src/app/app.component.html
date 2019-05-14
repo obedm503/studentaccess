@@ -1,0 +1,39 @@
+<ion-app>
+  <ion-split-pane>
+    <ion-menu>
+      <ion-header>
+        <ion-toolbar>
+          <ion-title>{{ name }}</ion-title>
+        </ion-toolbar>
+      </ion-header>
+
+      <ion-content>
+        <ion-list lines="none">
+          <ion-list-header>
+            <ion-label>{{ username }}@nca.edu.ni</ion-label>
+          </ion-list-header>
+
+          <ion-menu-toggle [autoHide]="false" *ngFor="let p of appPages">
+            <ion-item [routerDirection]="'root'" (click)="openPage(p.url)">
+              <ion-icon
+                slot="start"
+                [name]="p.icon"
+                [color]="getIconColor(p.url, currentRoute | async)"
+              ></ion-icon>
+              <ion-label>{{ p.title | translate }}</ion-label>
+            </ion-item>
+          </ion-menu-toggle>
+
+          <ion-item button (click)="logout()">
+            <ion-icon slot="start" name="log-out" color="medium"></ion-icon>
+            <ion-label>
+              {{ 'GLOBAL.LOGOUT' | translate }}
+            </ion-label>
+          </ion-item>
+        </ion-list>
+      </ion-content>
+    </ion-menu>
+
+    <ion-router-outlet main></ion-router-outlet>
+  </ion-split-pane>
+</ion-app>

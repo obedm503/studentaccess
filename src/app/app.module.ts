@@ -1,61 +1,58 @@
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import {
-  NoopAnimationsModule,
-  // BrowserAnimationsModule
-} from '@angular/platform-browser/animations';
-import { ErrorHandler, NgModule } from '@angular/core';
-import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
-import { HttpClientModule, HttpClient } from '@angular/common/http';
-
-import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
-import { TranslateHttpLoader } from '@ngx-translate/http-loader';
-
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { RouteReuseStrategy } from '@angular/router';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { IonicStorageModule } from '@ionic/storage';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { environment } from '../environments/environment';
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
+import { Auth } from './services/auth';
+import { Log } from './services/log';
+import { State } from './services/state';
+import { Store } from './services/store';
 
-import { StudentAccess } from './app';
-
-import { Store } from '../providers/store';
-import { Auth } from '../providers/auth';
-import { State } from '../providers/state';
-import { Log } from '../providers/log';
-
-export function createTranslateLoader(http: HttpClient) {
+export function httpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
 
 @NgModule({
-  declarations: [
-    StudentAccess
-  ],
+  declarations: [AppComponent],
+  entryComponents: [],
   imports: [
     BrowserModule,
-    // NoopAnimationsModule works but BrowserAnimationsModule doesn't
-    NoopAnimationsModule,
-    // BrowserAnimationsModule,
-    IonicModule.forRoot(StudentAccess),
     IonicStorageModule.forRoot({
       name: 'studentaccess',
-      driverOrder: ['indexeddb', 'websql', 'localstorage']
+      driverOrder: ['indexeddb', 'websql', 'localstorage'],
     }),
+    NoopAnimationsModule,
+    // BrowserAnimationsModule,
+    IonicModule.forRoot(),
+    AppRoutingModule,
+    HttpClientModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
-        useFactory: createTranslateLoader,
+        useFactory: httpLoaderFactory,
         deps: [HttpClient],
-      }
+      },
     }),
-    HttpClientModule,
+    ServiceWorkerModule.register('ngsw-worker.js', {
+      enabled: environment.production,
+    }),
   ],
-  bootstrap: [IonicApp],
-  entryComponents: [StudentAccess],
   providers: [
+    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     Store,
     Auth,
     State,
     HttpClientModule,
-    { provide: ErrorHandler, useClass: IonicErrorHandler },
     Log,
-  ]
+  ],
+  bootstrap: [AppComponent],
 })
-// renamed to AppModule to solve prod env bug ¯\_(ツ)_/¯
-export class AppModule { };
+export class AppModule {}

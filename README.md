@@ -1,12 +1,54 @@
+# StudentAccess
+
 Authors: obedm503 (https://obedm503.github.io/)
 Advisors: Scotty
 
->make sure to have [ionic](https://ionicframework.com/docs/cli/), [cordova](https://www.npmjs.com/package/cordova), and [yarn](https://www.npmjs.com/package/yarn) installed [globally](https://docs.npmjs.com/getting-started/installing-npm-packages-globally)
+## Development
 
+### Required dependencies
+
+- [node](https://nodejs.org/en/download/)
+- [yarn](https://yarnpkg.com/en/docs/install)
+
+### Getting Started
+
+**Clone the repository**
+
+```sh
+git clone https://github.com/ncai-developers/studentaccess.git
 ```
+
+**Change to `development` branch**
+
+```sh
+git checkout development
+```
+
+**Install dependencies**
+
+```sh
 yarn install
 ```
-then
+
+**Start development server**
+
+```sh
+yarn dev
 ```
-ionic serve
+
+### Other Scripts
+
+**Lint source files**
+
+```sh
+yarn lint
+```
+
+**Build the project.**
+
+This is only in development.
+The CD server takes care of building the project for deployment.
+
+```sh
+yarn build
 ```

@@ -1,0 +1,60 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+
+    <ion-title>{{ 'EVENTS.NAME' | translate }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col size="12" size-lg="6" size-md="6" offset-md="3" size-sm="12">
+        <ion-list>
+          <ion-card
+            *ngFor="let item of events"
+            [color]="item.ev_date_start === store.today ? 'medium' : ''"
+          >
+            <ion-card-header text-wrap (click)="expand(item.ev_id)">
+              <ion-card-title>
+                {{ item.calc_subject }}
+              </ion-card-title>
+              <ion-card-subtitle [hidden]="!item.calc_ev_date_start">
+                {{ item.calc_ev_date_start }}
+              </ion-card-subtitle>
+            </ion-card-header>
+            <ion-card-content
+              [@expand]="!!item.calc_text && item.ev_id === selected"
+            >
+              {{ item.calc_text }}
+            </ion-card-content>
+
+            <ion-item
+              color="secondary"
+              [@expand]="
+                item.ev_id === selected &&
+                (!!item.calc_ev_time_start || !!item.calc_location)
+              "
+            >
+              <ion-label text-wrap>
+                <ion-grid>
+                  <ion-row [hidden]="!item.calc_ev_time_start">
+                    <ion-col>{{ 'EVENTS.TIME' | translate }}</ion-col>
+                    <ion-col>{{ item.calc_ev_time_start }}</ion-col>
+                  </ion-row>
+
+                  <ion-row [hidden]="!item.calc_location">
+                    <ion-col>{{ 'EVENTS.LOCATION' | translate }}</ion-col>
+                    <ion-col>{{ item.calc_location }}</ion-col>
+                  </ion-row>
+                </ion-grid>
+              </ion-label>
+            </ion-item>
+          </ion-card>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

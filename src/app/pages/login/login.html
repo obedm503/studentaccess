@@ -1,0 +1,78 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>StudentAccess</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col size="12" size-md="6" offset-md="3">
+        <form (ngSubmit)="login()" #registerForm="ngForm">
+          <ion-row>
+            <ion-col>
+              <ion-item>
+                <ion-label position="floating" color="medium">
+                  {{ 'LOGIN.USER_ID' | translate }}
+                </ion-label>
+                <ion-input
+                  type="text"
+                  name="username"
+                  [(ngModel)]="user.username"
+                  required
+                ></ion-input>
+              </ion-item>
+              <ion-item>
+                <ion-label position="floating" color="medium">
+                  {{ 'LOGIN.PASSWORD' | translate }}
+                </ion-label>
+                <ion-input
+                  type="password"
+                  name="password"
+                  [(ngModel)]="user.password"
+                  required
+                ></ion-input>
+              </ion-item>
+              <ion-item>
+                <ion-label color="medium">
+                  {{ 'LOGIN.LANGUAGE' | translate }}
+                </ion-label>
+                <ion-select
+                  [(ngModel)]="user.language"
+                  [name]="'LOGIN.LANGUAGE' | translate"
+                  [cancelText]="'GLOBAL.CANCEL' | translate"
+                  [okText]="'GLOBAL.OK' | translate"
+                  (ionChange)="langChanged($event)"
+                >
+                  <ion-select-option value="en">English</ion-select-option>
+                  <ion-select-option value="es">Español</ion-select-option>
+                  <ion-select-option value="ko">한국인</ion-select-option>
+                </ion-select>
+              </ion-item>
+              <ion-item>
+                <ion-label>{{ 'LOGIN.REMEMBER_ME' | translate }}</ion-label>
+                <ion-toggle
+                  [(ngModel)]="remember"
+                  [name]="'LOGIN.REMEMBER_ME' | translate"
+                ></ion-toggle>
+              </ion-item>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col class="signup-col">
+              <ion-button
+                color="secondary"
+                class="submit-btn"
+                expand="full"
+                type="submit"
+                [disabled]="!registerForm.form.valid"
+              >
+                {{ 'LOGIN.NAME' | translate }}
+              </ion-button>
+            </ion-col>
+          </ion-row>
+        </form>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
