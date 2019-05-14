@@ -7,7 +7,7 @@ import { Component, Input, OnChanges } from '@angular/core';
       <div class="ribbon {{ ribbon }}">
         <div class="circle {{ circle }}">
           <span class="text">
-            {{ avg }}
+            {{ average }}
           </span>
         </div>
       </div>
@@ -16,16 +16,16 @@ import { Component, Input, OnChanges } from '@angular/core';
   styleUrls: ['ribbon.scss'],
 })
 export class Ribbon implements OnChanges {
-  @Input('average')
-  avg: number;
+  @Input()
+  average: number;
   circle: string;
   ribbon: string;
 
   ngOnChanges(changes) {
-    let avg: number = changes.avg.currentValue;
-    
+    const avg: number = changes.average.currentValue;
+
     if (avg === null) {
-      this.avg = '$$.$' as any;
+      this.average = '$$.$' as any;
       this.setState('owe');
     } else if (avg <= 60) {
       this.setState('fail');
@@ -36,7 +36,7 @@ export class Ribbon implements OnChanges {
     } else if (avg >= 95) {
       this.setState('best');
     } else {
-      this.avg = '??.?' as any;
+      this.average = '??.?' as any;
       this.setState('none');
     }
   }

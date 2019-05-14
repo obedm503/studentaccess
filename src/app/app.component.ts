@@ -13,8 +13,8 @@ import { State } from './services/state';
   templateUrl: 'app.component.html',
 })
 export class AppComponent {
-  username: string = '';
-  name: string = '';
+  username = '';
+  name = '';
 
   appPages = [
     { title: 'PROFILE.NAME', url: 'profile', icon: 'person' },
