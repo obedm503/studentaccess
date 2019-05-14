@@ -1,12 +1,12 @@
 {
   "name": "studentaccess",
   "author": "obedm503 (https://obedm503.github.io)",
-  "homepage": "https://ncai-developers.github.io/studentaccess/",
+  "homepage": "https://studentaccess.netlify.com",
   "private": true,
   "scripts": {
-    "migration": "tslint -c ionic-migration.json -p tsconfig.json",
     "dev": "ng serve --host=0.0.0.0 --port=8100",
     "build": "ng build --prod --service-worker",
+    "migration": "tslint -c ionic-migration.json -p tsconfig.json",
     "lint": "ng lint"
   },
   "dependencies": {
