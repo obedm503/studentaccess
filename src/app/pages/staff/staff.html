@@ -28,7 +28,7 @@
     <ion-row>
       <ion-col size="12" size-lg="6" size-md="6" offset-md="3" size-sm="12">
         <ion-list>
-          <ion-card *ngFor="let item of filteredStaff">
+          <ion-card *ngFor="let item of filteredStaff" button>
             <ion-card-header (click)="select(item.t_id)">
               <ion-card-title>
                 {{ item.calc_name }}

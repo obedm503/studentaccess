@@ -14,7 +14,11 @@
           </ion-list-header>
 
           <ion-menu-toggle [autoHide]="false" *ngFor="let p of appPages">
-            <ion-item [routerDirection]="'root'" (click)="openPage(p.url)">
+            <ion-item
+              button
+              [routerDirection]="'root'"
+              (click)="openPage(p.url)"
+            >
               <ion-icon
                 slot="start"
                 [name]="p.icon"

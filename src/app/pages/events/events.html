@@ -15,6 +15,7 @@
         <ion-list>
           <ion-card
             *ngFor="let item of events"
+            button
             [color]="item.ev_date_start === store.today ? 'medium' : ''"
           >
             <ion-card-header text-wrap (click)="expand(item.ev_id)">

@@ -23,6 +23,7 @@
             *ngFor="let item of classes"
             [attr.disabled]="teachers.length ? null : ''"
             (click)="goSelected(item)"
+            button
             detail
           >
             <ion-label text-wrap>

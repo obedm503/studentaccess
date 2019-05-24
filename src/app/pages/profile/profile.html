@@ -63,7 +63,7 @@
             </ion-badge>
           </ion-item>
 
-          <ion-item (click)="goSelected({ attendance: attendance })">
+          <ion-item button (click)="goSelected({ attendance: attendance })">
             <ion-icon name="alarm" color="dark" slot="start"></ion-icon>
             <ion-label>{{ 'RECORDS.ATTENDANCE' | translate }}</ion-label>
             <ion-badge color="primary" slot="end">
@@ -71,7 +71,7 @@
             </ion-badge>
           </ion-item>
 
-          <ion-item (click)="goSelected({ discipline: discipline })">
+          <ion-item button (click)="goSelected({ discipline: discipline })">
             <ion-icon
               name="checkmark-circle"
               color="dark"
@@ -120,7 +120,7 @@
             </ion-item>
           </ion-list>
 
-          <ion-item color="secondary" (click)="goGrades()">
+          <ion-item color="secondary" button (click)="goGrades()">
             <ion-label>
               {{ 'PROFILE.CHECK_GRADES' | translate }}
             </ion-label>
