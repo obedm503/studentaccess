@@ -57,17 +57,18 @@ export class Staff {
       this.filteredStaff = this.staff;
     }
   }
-  
+
   doSearch({ detail }: CustomEvent<SearchbarChangeEventDetail>) {
     try {
       const query: string = detail.value.toLowerCase().trim();
       this.filteredStaff = this.staff.filter(
         el =>
-          el.calc_name.toLowerCase().includes(query) ||
-          el.calc_status.toLowerCase().includes(query) ||
-          el.calc_email.toLowerCase().includes(query) ||
-          el.calc_homephone.toLowerCase().includes(query) ||
-          el.calc_phone.toLowerCase().includes(query),
+          (el.calc_name && el.calc_name.toLowerCase().includes(query)) ||
+          (el.calc_status && el.calc_status.toLowerCase().includes(query)) ||
+          (el.calc_email && el.calc_email.toLowerCase().includes(query)) ||
+          (el.calc_homephone &&
+            el.calc_homephone.toLowerCase().includes(query)) ||
+          (el.calc_phone && el.calc_phone.toLowerCase().includes(query)),
       );
     } catch (e) {
       this.log.error(e);
