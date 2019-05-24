@@ -105,10 +105,10 @@ ion-toolbar {
 
 ion-item.alternate-colors {
   &:nth-child(even) {
-    --background: #ffffff;
+    --background: var(--ion-color-light);
   }
   &:nth-child(odd) {
-    --background: var(--ion-color-light);
+    --background: #ffffff;
   }
 }
 
