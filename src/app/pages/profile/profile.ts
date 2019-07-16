@@ -125,10 +125,10 @@ export class Profile {
   toggleMissing() {
     this.showMissing = !this.showMissing;
   }
-  goSelected(opts) {
-    return this.router.navigate(['profile', 'records'], { queryParams: opts });
+  goRecords(route: string) {
+    this.router.navigate(['profile', route]);
   }
   goGrades() {
-    return this.router.navigate(['grades']);
+    this.router.navigate(['grades']);
   }
 }

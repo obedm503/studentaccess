@@ -12,7 +12,11 @@ const routes: Routes = [
     loadChildren: './pages/login/login.module#LoginModule',
   },
   {
-    path: 'profile/records',
+    path: 'profile/attendance',
+    loadChildren: './pages/records/records.module#RecordsModule',
+  },
+  {
+    path: 'profile/discipline',
     loadChildren: './pages/records/records.module#RecordsModule',
   },
   {
