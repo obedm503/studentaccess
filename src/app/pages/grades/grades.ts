@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { IonRefresher, LoadingController } from '@ionic/angular';
+import { LoadingController } from '@ionic/angular';
+import { RefresherEventDetail } from '@ionic/core';
 import { Log } from '../../services/log';
 import { Store } from '../../services/store';
 
@@ -42,12 +43,15 @@ export class Grades {
     }
   }
 
-  async refresh(refresher: IonRefresher) {
+  async refresh({ detail }: CustomEvent<RefresherEventDetail>) {
     await this.get(true);
-    refresher.complete();
+    detail.complete();
   }
 
   goSelected(item) {
-    this.router.navigate(['grades', `${item.class_teacher_id}-${item.class_room}`]);
+    this.router.navigate([
+      'grades',
+      `${item.class_teacher_id}-${item.class_room}`,
+    ]);
   }
 }

@@ -1,9 +1,6 @@
 import { Component } from '@angular/core';
-import {
-  AlertController,
-  IonRefresher,
-  LoadingController,
-} from '@ionic/angular';
+import { AlertController, LoadingController } from '@ionic/angular';
+import { RefresherEventDetail } from '@ionic/core';
 import { TranslateService } from '@ngx-translate/core';
 import { expand } from '../../components/animations';
 import { Log } from '../../services/log';
@@ -124,8 +121,8 @@ export class Homework {
     this.store.persist();
   }
 
-  async refresh(refresher: IonRefresher) {
+  async refresh({ detail }: CustomEvent<RefresherEventDetail>) {
     await this.get(true);
-    refresher.complete();
+    detail.complete();
   }
 }

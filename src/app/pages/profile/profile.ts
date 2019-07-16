@@ -5,7 +5,7 @@ import {
   IonRefresher,
   LoadingController,
 } from '@ionic/angular';
-import { AlertInput } from '@ionic/core';
+import { AlertInput, RefresherEventDetail } from '@ionic/core';
 import { TranslateService } from '@ngx-translate/core';
 import { expand } from '../../components/animations';
 import { Log } from '../../services/log';
@@ -91,9 +91,9 @@ export class Profile {
     }
   }
 
-  async refresh(refresher: IonRefresher) {
+  async refresh({ detail }: CustomEvent<RefresherEventDetail>) {
     await this.get(true);
-    refresher.complete();
+    detail.complete();
   }
 
   async toggleSchedule() {
