@@ -1,5 +1,5 @@
 {
-  "GLOBAL":{
+  "GLOBAL": {
     "CANCEL": "취소",
     "OK": "승인",
     "LOGOUT": "로그 아웃",
@@ -35,7 +35,8 @@
     "QUARTER": "쿼터",
     "REASON": "이유",
     "DAY": "하루",
-    "TEACHER": "선생"
+    "TEACHER": "선생",
+    "NONE": "기록이 없습니다."
   },
   "HOMEWORK": {
     "NAME": "숙제",

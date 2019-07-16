@@ -1,5 +1,5 @@
 {
-  "GLOBAL":{
+  "GLOBAL": {
     "CANCEL": "Cancel",
     "OK": "OK",
     "LOGOUT": "Logout",
@@ -35,7 +35,8 @@
     "QUARTER": "Quarter",
     "REASON": "Reason",
     "DAY": "Day",
-    "TEACHER": "Teacher"
+    "TEACHER": "Teacher",
+    "NONE": "No records found."
   },
   "HOMEWORK": {
     "NAME": "Homework",

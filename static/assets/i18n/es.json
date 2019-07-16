@@ -1,5 +1,5 @@
 {
-  "GLOBAL":{
+  "GLOBAL": {
     "CANCEL": "Cancelar",
     "OK": "OK",
     "LOGOUT": "Salir",
@@ -35,7 +35,8 @@
     "QUARTER": "Quatrimestre",
     "REASON": "Razón",
     "DAY": "Dia",
-    "TEACHER": "Maestro"
+    "TEACHER": "Maestro",
+    "NONE": "No se encontraron registros."
   },
   "HOMEWORK": {
     "NAME": "Tareas",

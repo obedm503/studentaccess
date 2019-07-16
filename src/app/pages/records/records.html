@@ -13,6 +13,16 @@
   <ion-grid>
     <ion-row>
       <ion-col size="12" size-lg="6" size-md="6" offset-md="3" size-sm="12">
+        <ion-list lines="none" *ngIf="!attendance.length || !discipline.length">
+          <ion-card>
+            <ion-item>
+              <ion-label>
+                {{ 'RECORDS.NONE' | translate }}
+              </ion-label>
+            </ion-item>
+          </ion-card>
+        </ion-list>
+
         <ion-list *ngIf="isAttendance">
           <ion-card *ngFor="let item of attendance">
             <ion-item [color]="item.at_cat == 'E' ? 'secondary' : 'danger'">
