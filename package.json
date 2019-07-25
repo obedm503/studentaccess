@@ -10,6 +10,11 @@
     "lint": "prettier --check 'src/**/*' && ng lint",
     "prettify": "prettier --write 'src/**/*'"
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "yarn lint"
+    }
+  },
   "dependencies": {
     "@angular/animations": "^7.2.15",
     "@angular/common": "^7.2.15",
