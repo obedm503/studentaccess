@@ -155,9 +155,7 @@ export class Store {
     }
 
     const user = data.data;
-    return `${API}?query=${query}&lang=${user.language}&username=${
-      user.username
-    }&password=${user.password}&mode=student&${extraParams}`;
+    return `${API}?query=${query}&lang=${user.language}&username=${user.username}&password=${user.password}&mode=student&${extraParams}`;
   }
 
   private async getUser() {

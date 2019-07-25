@@ -49,7 +49,9 @@ export class AppComponent {
   }
 
   getIconColor(url: string, currentRoute: string) {
-    return currentRoute && currentRoute.startsWith('/' + url) ? 'dark' : 'medium';
+    return currentRoute && currentRoute.startsWith('/' + url)
+      ? 'dark'
+      : 'medium';
   }
 
   openPage(url: string) {

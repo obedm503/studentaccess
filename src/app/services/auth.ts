@@ -22,9 +22,7 @@ export class Auth {
     }
     return this.http
       .get(
-        `https://db.nca.edu.ni/api/api_ewapp.php?mode=student&query=login&username=${
-          credentials.username
-        }&password=${credentials.password}&lang=${credentials.language}`,
+        `https://db.nca.edu.ni/api/api_ewapp.php?mode=student&query=login&username=${credentials.username}&password=${credentials.password}&lang=${credentials.language}`,
       )
       .toPromise();
   }
