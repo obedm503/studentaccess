@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar color="primary">
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
@@ -9,7 +9,7 @@
 </ion-header>
 
 <ion-content>
-  <ion-refresher (ionRefresh)="refresh($event)">
+  <ion-refresher (ionRefresh)="refresh($event)" slot="fixed">
     <ion-refresher-content></ion-refresher-content>
   </ion-refresher>
 
@@ -26,7 +26,7 @@
             button
             detail
           >
-            <ion-label text-wrap>
+            <ion-label class="ion-text-wrap">
               <b>[{{ item.class_period }}] {{ item.class_name }}</b>
             </ion-label>
 

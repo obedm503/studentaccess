@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar color="primary">
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
       <ion-back-button defaultHref="/grades"></ion-back-button>
@@ -70,8 +70,8 @@
             {{ (class$ | async).class_description }}
           </ion-card-content>
 
-          <ion-item text-wrap color="secondary">
-            <ion-label text-wrap>
+          <ion-item color="primary" class="ion-text-wrap">
+            <ion-label class="ion-text-wrap">
               <ion-grid>
                 <ion-row [hidden]="!(class$ | async).class_period">
                   <ion-col>
@@ -127,11 +127,10 @@
           </ion-card-header>
           <ion-list>
             <ion-item
-              text-wrap
-              *ngFor="let item of (grades$ | async)"
-              class="alternate-colors"
+              *ngFor="let item of grades$ | async"
+              class="alternate-colors ion-text-wrap"
             >
-              <ion-label text-wrap>
+              <ion-label class="ion-text-wrap">
                 <ion-grid>
                   <ion-row>
                     <ion-col>

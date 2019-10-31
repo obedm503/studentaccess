@@ -3,19 +3,19 @@
 //  Ionic CSS Variables
 // https://ionicframework.com/docs/theming/color-generator
 :root {
-  --ion-color-primary: #448aff;
-  --ion-color-primary-rgb: 68, 138, 255;
+  --ion-color-primary: #009688;
+  --ion-color-primary-rgb: 0, 150, 136;
   --ion-color-primary-contrast: #ffffff;
-  --ion-color-primary-contrast-rgb: 0, 0, 0;
-  --ion-color-primary-shade: #3c79e0;
-  --ion-color-primary-tint: #5796ff;
+  --ion-color-primary-contrast-rgb: 255, 255, 255;
+  --ion-color-primary-shade: #008478;
+  --ion-color-primary-tint: #1aa194;
 
-  --ion-color-secondary: #009688;
-  --ion-color-secondary-rgb: 0, 150, 136;
+  --ion-color-secondary: #448aff;
+  --ion-color-secondary-rgb: 68, 138, 255;
   --ion-color-secondary-contrast: #ffffff;
-  --ion-color-secondary-contrast-rgb: 255, 255, 255;
-  --ion-color-secondary-shade: #008478;
-  --ion-color-secondary-tint: #1aa194;
+  --ion-color-secondary-contrast-rgb: 0, 0, 0;
+  --ion-color-secondary-shade: #3c79e0;
+  --ion-color-secondary-tint: #5796ff;
 
   --ion-color-tertiary: #7044ff;
   --ion-color-tertiary-rgb: 112, 68, 255;
@@ -84,13 +84,6 @@
 // no border between side-menu and content
 ion-split-pane {
   --border: none !important;
-}
-
-// // navbar background
-// $toolbar-background: map-get($colors, secondary);
-ion-toolbar {
-  --color: white;
-  --background: var(--ion-color-secondary);
 }
 
 // //card background

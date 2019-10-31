@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar color="primary">
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
@@ -17,7 +17,7 @@
 </ion-header>
 
 <ion-content>
-  <ion-toolbar no-border-top color="secondary" [@expand]="showSearch">
+  <ion-toolbar no-border-top color="primary" [@expand]="showSearch">
     <ion-searchbar
       (ionChange)="doSearch($event)"
       [placeholder]="'STAFF.NAME' | translate"
@@ -40,7 +40,7 @@
             </ion-card-header>
 
             <ion-item
-              color="secondary"
+              color="primary"
               [@expand]="
                 item.t_id === activePerson &&
                 (!!item.calc_phone ||
@@ -48,7 +48,7 @@
                   !!item.calc_email)
               "
             >
-              <ion-label text-wrap>
+              <ion-label class="ion-text-wrap">
                 <ion-grid>
                   <ion-row [hidden]="!item.calc_phone">
                     <ion-col>

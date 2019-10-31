@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar color="primary">
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
@@ -9,7 +9,7 @@
 </ion-header>
 
 <ion-content>
-  <ion-refresher (ionRefresh)="refresh($event)">
+  <ion-refresher (ionRefresh)="refresh($event)" slot="fixed">
     <ion-refresher-content></ion-refresher-content>
   </ion-refresher>
 
@@ -65,7 +65,7 @@
           <ion-item button (click)="goRecords('attendance')">
             <ion-icon name="alarm" color="dark" slot="start"></ion-icon>
             <ion-label>{{ 'RECORDS.ATTENDANCE' | translate }}</ion-label>
-            <ion-badge color="primary" slot="end">
+            <ion-badge color="secondary" slot="end">
               {{ attendance.length }}
             </ion-badge>
           </ion-item>
@@ -88,7 +88,7 @@
 
         <ion-card class="card-fab">
           <ion-fab vertical="top" horizontal="end" edge slot="fixed">
-            <ion-fab-button (click)="toggleMissing()">
+            <ion-fab-button (click)="toggleMissing()" color="secondary">
               {{ missing.length }}
             </ion-fab-button>
           </ion-fab>
@@ -102,9 +102,8 @@
           <ion-list [attr.hidden]="missing.length ? 'true' : ''">
             <ion-item
               *ngFor="let item of missing"
-              text-wrap
               [@expand]="showMissing"
-              class="alternate-colors"
+              class="alternate-colors ion-text-wrap"
             >
               <ion-label>
                 {{ item.calc_date }}
@@ -115,11 +114,11 @@
                 <strong>{{ 'PROFILE.WORTH' | translate }}: </strong>
                 {{ item.gra_points }} {{ 'PROFILE.POINTS' | translate }}
               </ion-label>
-              <ion-checkbox color="primary"></ion-checkbox>
+              <ion-checkbox color="secondary"></ion-checkbox>
             </ion-item>
           </ion-list>
 
-          <ion-item color="secondary" button (click)="goGrades()">
+          <ion-item color="primary" button (click)="goGrades()">
             <ion-label>
               {{ 'PROFILE.CHECK_GRADES' | translate }}
             </ion-label>
@@ -130,7 +129,7 @@
       <ion-col size-lg="5" size-md="6" size-sm="12" size="12">
         <ion-card class="card-fab">
           <ion-fab vertical="top" horizontal="end" edge slot="fixed">
-            <ion-fab-button (click)="toggleSchedule()">
+            <ion-fab-button (click)="toggleSchedule()" color="secondary">
               <ion-icon name="swap"></ion-icon>
             </ion-fab-button>
           </ion-fab>
