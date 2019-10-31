@@ -24,7 +24,7 @@ export class Staff {
   staff: Person[] = [];
   filteredStaff: Person[] = [];
   activePerson: string;
-  showSearch: boolean = false;
+  showSearch = false;
 
   constructor(
     private loadingCtrl: LoadingController,

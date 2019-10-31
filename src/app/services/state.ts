@@ -107,7 +107,7 @@ export const KEYS: Key[] = [
 
 @Injectable({ providedIn: 'root' })
 export class State {
-  remember: boolean = true;
+  remember = true;
   private cache: Cache = {} as any;
 
   constructor(private storage: Storage) {}

@@ -128,7 +128,7 @@ export class Store {
     }
 
     let data: T;
-    //check validity
+    // check validity
     if (valid && !refresh) {
       data = storeItem.data;
     } else {

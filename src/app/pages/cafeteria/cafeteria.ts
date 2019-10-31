@@ -44,6 +44,7 @@ export class Cafeteria implements OnInit {
   @ViewChild('chart') canvas: { nativeElement: HTMLCanvasElement };
   transactions: any[] = [];
   menu: any[] = [];
+  chart: Chart;
 
   constructor(
     private store: Store,
@@ -83,7 +84,6 @@ export class Cafeteria implements OnInit {
     detail.complete();
   }
 
-  chart: Chart;
   ngOnInit() {
     const ctx = this.canvas.nativeElement.getContext('2d');
     this.chart = new Chart(ctx, {

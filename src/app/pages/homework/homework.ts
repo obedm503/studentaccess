@@ -25,8 +25,8 @@ export class Homework {
   homework: Hw[] = [];
   classes: any[];
   filteredHw: Hw[] = [];
-  selectedClass: string = 'all-classes';
-  hideChecked: boolean = true;
+  selectedClass = 'all-classes';
+  hideChecked = true;
 
   constructor(
     private translate: TranslateService,

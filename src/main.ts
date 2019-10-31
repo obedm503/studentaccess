@@ -10,4 +10,5 @@ if (environment.production) {
 // renamed to AppModule to solve prod env bug ¯\_(ツ)_/¯
 platformBrowserDynamic()
   .bootstrapModule(AppModule)
-  .catch(err => console.log(err));
+  /* tslint:disable-next-line no-console */
+  .catch(console.error);

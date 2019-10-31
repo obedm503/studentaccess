@@ -17,7 +17,7 @@ import { Store } from '../../services/store';
 export class Login {
   loading: HTMLIonLoadingElement;
   user = { username: '', password: '', language: 'en' };
-  remember: boolean = true;
+  remember = true;
 
   constructor(
     private events: Events,

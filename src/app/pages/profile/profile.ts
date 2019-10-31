@@ -30,14 +30,14 @@ export class Profile {
   };
 
   missing: any[] = [];
-  showMissing: boolean = false;
+  showMissing = false;
 
-  birth: string = '';
-  studentName: string = '';
-  grade: string = '';
-  familyCredit: number = 0.0;
-  studentCredit: number = 0.0;
-  personImage: string = 'assets/placeholder.jpg';
+  birth = '';
+  studentName = '';
+  grade = '';
+  familyCredit = 0.0;
+  studentCredit = 0.0;
+  personImage = 'assets/placeholder.jpg';
 
   attendance: any[] = [];
   discipline: any[] = [];
