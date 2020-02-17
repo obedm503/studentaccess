@@ -1,5 +1,5 @@
 import { formatDate } from '@angular/common';
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ViewChild } from '@angular/core';
 import { LoadingController } from '@ionic/angular';
 import { RefresherEventDetail } from '@ionic/core';
 import { Chart, ChartOptions } from 'chart.js';
@@ -40,8 +40,10 @@ const graphPattern = draw('cross', '#448AFF');
   selector: 'page-cafeteria',
   templateUrl: 'cafeteria.html',
 })
-export class Cafeteria implements OnInit {
-  @ViewChild('chart') canvas: { nativeElement: HTMLCanvasElement };
+export class Cafeteria implements AfterViewInit {
+  @ViewChild('chart', { static: false }) canvas: {
+    nativeElement: HTMLCanvasElement;
+  };
   transactions: any[] = [];
   menu: any[] = [];
   chart: Chart;
@@ -84,7 +86,7 @@ export class Cafeteria implements OnInit {
     detail.complete();
   }
 
-  ngOnInit() {
+  ngAfterViewInit() {
     const ctx = this.canvas.nativeElement.getContext('2d');
     this.chart = new Chart(ctx, {
       type: 'line',

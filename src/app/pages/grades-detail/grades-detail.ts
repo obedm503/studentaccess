@@ -99,7 +99,7 @@ export class GradesDetail {
 
       this.class$ = data$.pipe(
         map(data => data.currentClass),
-        filter(Boolean),
+        filter<Class>(Boolean),
       );
       this.grades$ = this.class$.pipe(
         map(data => data.grades.slice(0).reverse()),
