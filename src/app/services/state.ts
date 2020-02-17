@@ -189,13 +189,10 @@ export class State {
       KEYS.map(({ key }) => this.storage.get(key)),
     );
 
-    const fromStorage = state.reduce(
-      (accumulator, el, i) => {
-        accumulator[KEYS[i].key] = el;
-        return accumulator;
-      },
-      {} as Cache,
-    );
+    const fromStorage = state.reduce((accumulator, el, i) => {
+      accumulator[KEYS[i].key] = el;
+      return accumulator;
+    }, {} as Cache);
 
     // load state into memory
     Object.assign(this.cache, fromStorage);
