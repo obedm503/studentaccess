@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
-import { Events, LoadingController } from '@ionic/angular';
+import { LoadingController } from '@ionic/angular';
 import { TranslateService } from '@ngx-translate/core';
 import { Observable } from 'rxjs';
 import { filter, map } from 'rxjs/operators';
-import { Auth } from './services/auth';
+import { Auth, User } from './services/auth';
 import { Log } from './services/log';
 import { State } from './services/state';
 
@@ -17,19 +17,43 @@ export class AppComponent {
   name = '';
 
   appPages = [
-    { title: 'PROFILE.NAME', url: 'profile', icon: 'person' },
-    { title: 'HOMEWORK.NAME', url: 'homework', icon: 'bookmarks' },
-    { title: 'GRADES.NAME', url: 'grades', icon: 'checkmark-circle' },
-    { title: 'EVENTS.NAME', url: 'events', icon: 'calendar' },
-    { title: 'CAFETERIA.NAME', url: 'cafeteria', icon: 'card' },
-    { title: 'STAFF.NAME', url: 'staff', icon: 'people' },
+    {
+      title: 'PROFILE.NAME',
+      url: 'profile',
+      md: 'person-sharp',
+      ios: 'person',
+    },
+    {
+      title: 'HOMEWORK.NAME',
+      url: 'homework',
+      md: 'book-sharp',
+      ios: 'book',
+    },
+    {
+      title: 'GRADES.NAME',
+      url: 'grades',
+      md: 'checkmark-circle-sharp',
+      ios: 'checkmark-circle',
+    },
+    {
+      title: 'EVENTS.NAME',
+      url: 'events',
+      md: 'calendar-sharp',
+      ios: 'calendar-outline',
+    },
+    {
+      title: 'CAFETERIA.NAME',
+      url: 'cafeteria',
+      md: 'card-outline',
+      ios: 'card',
+    },
+    { title: 'STAFF.NAME', url: 'staff', md: 'people-sharp', ios: 'people' },
   ];
-  loading: HTMLIonLoadingElement;
+  loading?: HTMLIonLoadingElement;
   currentRoute: Observable<string>;
 
   constructor(
     private loadingCtrl: LoadingController,
-    private events: Events,
     private auth: Auth,
     private state: State,
     private log: Log,
@@ -38,20 +62,16 @@ export class AppComponent {
   ) {
     this.init();
 
-    this.events.subscribe('login', (user, login, link) =>
-      this.login(user, login, link),
-    );
+    this.auth.onLogin((user, login, link) => this.login(user, login, link));
 
     this.currentRoute = router.events.pipe(
-      filter(event => event instanceof NavigationEnd),
+      filter((event: any) => event instanceof NavigationEnd),
       map((event: NavigationEnd) => event.urlAfterRedirects),
     );
   }
 
-  getIconColor(url: string, currentRoute: string) {
-    return currentRoute && currentRoute.startsWith('/' + url)
-      ? 'dark'
-      : 'medium';
+  getIconColor(url: string, currentRoute?: string) {
+    return currentRoute?.startsWith('/' + url) ? 'dark' : 'medium';
   }
 
   openPage(url: string) {
@@ -74,7 +94,7 @@ export class AppComponent {
 
     const state = await this.state.ready();
 
-    if (state && state.USER && state.LOGIN) {
+    if (state.USER && state.LOGIN) {
       await this.login(state.USER.data, state.LOGIN.data);
     } else {
       await this.logout();
@@ -83,7 +103,7 @@ export class AppComponent {
     await this.loading.dismiss();
   }
 
-  async login(user, login, link?) {
+  async login(user: User, login: any, link?: string) {
     this.username = user.username;
     this.name = login.person_name;
     this.translate.use(user.language);
@@ -97,12 +117,12 @@ export class AppComponent {
 
   async logout() {
     try {
-      await this.loading.present();
+      await this.loading?.present();
 
       await this.router.navigate(['login']);
 
       await this.auth.logout();
-      await this.loading.dismiss();
+      await this.loading?.dismiss();
     } catch (e) {
       this.log.error(e);
     }

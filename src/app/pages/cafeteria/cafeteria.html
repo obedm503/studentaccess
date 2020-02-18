@@ -45,7 +45,11 @@
             </ion-card-title>
           </ion-card-header>
 
-          <ion-item *ngFor="let item of menu" class="alternate-colors">
+          <ion-item
+            *ngFor="let item of menu"
+            class="alternate-colors"
+            lines="none"
+          >
             <ion-label>
               <b>{{ item.calc_date | date }}</b> {{ item.calc_menu }}
             </ion-label>
@@ -67,7 +71,11 @@
             </ion-card-title>
           </ion-card-header>
 
-          <ion-item *ngFor="let item of transactions" class="alternate-colors">
+          <ion-item
+            *ngFor="let item of transactions"
+            class="alternate-colors"
+            lines="none"
+          >
             <ion-label>
               <ion-grid>
                 <ion-row [hidden]="!item.credhist_method">
@@ -83,7 +91,7 @@
                   <ion-col>
                     <b>{{ 'CAFETERIA.PRODUCT' | translate }}</b>
                   </ion-col>
-                  <ion-col>
+                  <ion-col class="ion-text-wrap">
                     {{ item.credhist_description }}
                   </ion-col>
                 </ion-row>

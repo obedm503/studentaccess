@@ -1,17 +1,17 @@
 import { Component } from '@angular/core';
 import { LoadingController } from '@ionic/angular';
-import { SearchbarChangeEventDetail } from '@ionic/core';
+import { isPlatform, SearchbarChangeEventDetail } from '@ionic/core';
 import { expand } from '../../components/animations';
 import { Log } from '../../services/log';
 import { Store } from '../../services/store';
 
 type Person = {
-  calc_email: string;
-  calc_homephone: string;
-  calc_name: string;
-  calc_phone: string;
-  calc_status: string;
-  t_id: string;
+  calc_email?: string;
+  calc_homephone?: string;
+  calc_name?: string;
+  calc_phone?: string;
+  calc_status?: string;
+  t_id?: string;
 };
 
 @Component({
@@ -21,9 +21,10 @@ type Person = {
   animations: [expand],
 })
 export class Staff {
+  isIOS = isPlatform('ios');
   staff: Person[] = [];
   filteredStaff: Person[] = [];
-  activePerson: string;
+  activePerson?: string;
   showSearch = false;
 
   constructor(
@@ -43,7 +44,7 @@ export class Staff {
     }
     await loading.dismiss();
   }
-  select(item) {
+  select(item: string) {
     if (this.activePerson === item) {
       this.activePerson = undefined;
     } else {
@@ -60,16 +61,17 @@ export class Staff {
 
   doSearch({ detail }: CustomEvent<SearchbarChangeEventDetail>) {
     try {
-      const query: string = detail.value.toLowerCase().trim();
-      this.filteredStaff = this.staff.filter(
-        el =>
-          (el.calc_name && el.calc_name.toLowerCase().includes(query)) ||
-          (el.calc_status && el.calc_status.toLowerCase().includes(query)) ||
-          (el.calc_email && el.calc_email.toLowerCase().includes(query)) ||
-          (el.calc_homephone &&
-            el.calc_homephone.toLowerCase().includes(query)) ||
-          (el.calc_phone && el.calc_phone.toLowerCase().includes(query)),
-      );
+      const query = detail.value?.toLowerCase().trim();
+      if (query) {
+        this.filteredStaff = this.staff.filter(
+          el =>
+            el.calc_name?.toLowerCase().includes(query) ||
+            el.calc_status?.toLowerCase().includes(query) ||
+            el.calc_email?.toLowerCase().includes(query) ||
+            el.calc_homephone?.toLowerCase().includes(query) ||
+            el.calc_phone?.toLowerCase().includes(query),
+        );
+      }
     } catch (e) {
       this.log.error(e);
     }

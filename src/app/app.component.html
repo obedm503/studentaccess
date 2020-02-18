@@ -9,8 +9,10 @@
 
       <ion-content>
         <ion-list lines="none">
-          <ion-list-header>
-            <ion-label>{{ username }}@nca.edu.ni</ion-label>
+          <ion-list-header mode="md">
+            <ion-label class="ion-text-uppercase">
+              {{ username }}@nca.edu.ni
+            </ion-label>
           </ion-list-header>
 
           <ion-menu-toggle [autoHide]="false" *ngFor="let p of appPages">
@@ -21,7 +23,8 @@
             >
               <ion-icon
                 slot="start"
-                [name]="p.icon"
+                [md]="p.md"
+                [ios]="p.ios"
                 [color]="getIconColor(p.url, currentRoute | async)"
               ></ion-icon>
               <ion-label>{{ p.title | translate }}</ion-label>
@@ -29,7 +32,12 @@
           </ion-menu-toggle>
 
           <ion-item button (click)="logout()">
-            <ion-icon slot="start" name="log-out" color="medium"></ion-icon>
+            <ion-icon
+              slot="start"
+              md="log-out-outline"
+              ios="log-out-outline"
+              color="medium"
+            ></ion-icon>
             <ion-label>
               {{ 'GLOBAL.LOGOUT' | translate }}
             </ion-label>

@@ -41,12 +41,12 @@ const graphPattern = draw('cross', '#448AFF');
   templateUrl: 'cafeteria.html',
 })
 export class Cafeteria implements AfterViewInit {
-  @ViewChild('chart', { static: false }) canvas: {
+  @ViewChild('chart') canvas?: {
     nativeElement: HTMLCanvasElement;
   };
   transactions: any[] = [];
   menu: any[] = [];
-  chart: Chart;
+  chart?: Chart;
 
   constructor(
     private store: Store,
@@ -66,12 +66,12 @@ export class Cafeteria implements AfterViewInit {
       const menu = await this.store.get('MENU');
       this.menu = menu.menu;
 
-      const transactions = await this.store.get<{ transactions: any[] }>(
+      const { transactions } = (await this.store.get<{ transactions: any[] }>(
         'TRANSACTIONS',
         { refresh },
-      );
+      )) || { transactions: [] };
       // hard code limit until api is fixed
-      this.transactions = transactions.transactions
+      this.transactions = transactions
         .slice(0)
         .reverse()
         .slice(0, 10);
@@ -87,13 +87,18 @@ export class Cafeteria implements AfterViewInit {
   }
 
   ngAfterViewInit() {
-    const ctx = this.canvas.nativeElement.getContext('2d');
-    this.chart = new Chart(ctx, {
-      type: 'line',
-      options: chartOptions,
-    });
+    const ctx = this.canvas?.nativeElement.getContext('2d') || undefined;
+    this.chart =
+      ctx &&
+      new Chart(ctx, {
+        type: 'line',
+        options: chartOptions,
+      });
   }
   updateChart(transactions: any[]) {
+    if (!this.chart) {
+      return;
+    }
     this.chart.data = {
       labels: transactions.map(el =>
         formatDate(el.credhist_datetime, 'mediumDate', navigator.language),

@@ -9,10 +9,10 @@ import { filter, map } from 'rxjs/operators';
   templateUrl: 'records.html',
 })
 export class Records {
-  title: string;
+  title?: string;
   attendance: any[] = [];
   discipline: any[] = [];
-  isAttendance: boolean;
+  isAttendance?: boolean;
 
   constructor(
     private store: Store,
@@ -21,7 +21,7 @@ export class Records {
   ) {
     router.events
       .pipe(
-        filter(event => event instanceof NavigationEnd),
+        filter((event: any) => event instanceof NavigationEnd),
         map((event: NavigationEnd) => event.urlAfterRedirects),
       )
       .subscribe(route => {

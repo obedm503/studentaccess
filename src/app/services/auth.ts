@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Subject } from 'rxjs';
 import { Store } from './store';
 
 export class User {
@@ -12,14 +13,22 @@ export class User {
 
 @Injectable({ providedIn: 'root' })
 export class Auth {
-  currentUser: User;
+  currentUser?: User;
+  private events: Subject<[User, any, string?]> = new Subject();
 
   constructor(private http: HttpClient, private store: Store) {}
 
-  login(credentials): Promise<any> {
+  login(credentials: {
+    username: string;
+    password: string;
+    language: string;
+  }): Promise<any> {
     if (!credentials.username || !credentials.password) {
       return Promise.reject(null);
     }
+
+    const lang = credentials.language === 'es' ? 'es' : 'en';
+
     return this.http
       .get(
         [
@@ -28,18 +37,25 @@ export class Auth {
           '&password=',
           credentials.password,
           '&lang=',
-          credentials.language,
+          lang,
         ].join(''),
       )
       .toPromise();
   }
 
-  getUser(): Promise<User> {
+  getUser(): Promise<User | undefined> {
     return Promise.resolve(this.currentUser || this.store.get('USER'));
   }
 
-  async logout(): Promise<null> {
+  async logout(): Promise<undefined> {
     await this.store.clear();
-    return (this.currentUser = null);
+    return (this.currentUser = undefined);
+  }
+
+  onLogin(sub: (user: User, login: any, link?: string) => void) {
+    this.events.subscribe(([user, login, link]) => sub(user, login, link));
+  }
+  publishLogin(user: User, login: any, link?: string) {
+    this.events.next([user, login, link]);
   }
 }

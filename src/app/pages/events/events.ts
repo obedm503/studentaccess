@@ -10,8 +10,8 @@ import { Store } from '../../services/store';
   animations: [expand],
 })
 export class Events {
-  events;
-  selected: string;
+  events?: any;
+  selected?: string;
 
   constructor(
     private loadingCtrl: LoadingController,
@@ -23,7 +23,7 @@ export class Events {
     const loading = await this.loadingCtrl.create();
     await loading.present();
     try {
-      const { events } = await this.store.get('EVENTS');
+      const { events } = (await this.store.get('EVENTS')) || {};
       this.events = events;
     } catch (err) {
       this.log.warn(err);

@@ -11,7 +11,7 @@ import { Store } from '../../services/store';
 })
 export class Grades {
   classes: any[] = [];
-  avg;
+  avg?: string;
   teachers: any[] = [];
 
   constructor(
@@ -30,13 +30,14 @@ export class Grades {
 
   async get(refresh = false) {
     try {
-      const { overall_avg } = await this.store.get('SCHEDULE');
+      const { overall_avg } = (await this.store.get('SCHEDULE')) || {};
       this.avg = overall_avg;
 
-      const { classes } = await this.store.get('ALLGRADES', { refresh });
+      const { classes } =
+        (await this.store.get('ALLGRADES', { refresh })) || {};
       this.classes = classes;
 
-      const { teachers } = await this.store.get('TEACHERS');
+      const { teachers } = (await this.store.get('TEACHERS')) || {};
       this.teachers = teachers;
     } catch (err) {
       this.log.error(err);
@@ -48,7 +49,7 @@ export class Grades {
     detail.complete();
   }
 
-  goSelected(item) {
+  goSelected(item: any) {
     this.router.navigate([
       'grades',
       `${item.class_teacher_id}-${item.class_room}`,

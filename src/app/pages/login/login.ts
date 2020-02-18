@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import {
   AlertController,
-  Events,
   LoadingController,
   MenuController,
 } from '@ionic/angular';
@@ -15,12 +14,11 @@ import { Store } from '../../services/store';
   templateUrl: 'login.html',
 })
 export class Login {
-  loading: HTMLIonLoadingElement;
+  loading?: HTMLIonLoadingElement;
   user = { username: '', password: '', language: 'en' };
   remember = true;
 
   constructor(
-    private events: Events,
     private auth: Auth,
     private store: Store,
     private state: State,
@@ -47,15 +45,15 @@ export class Login {
 
       if (login.login_status) {
         this.store.setUser(this.user);
-        this.events.publish('login', this.user, login, 'profile');
+        this.auth.publishLogin(this.user, login, 'profile');
       } else {
         this.user.password = '';
         this.user.username = '';
         await this.showError(this.translate.instant('LOGIN.FAIL'));
       }
-      await this.loading.dismiss();
+      await this.loading?.dismiss();
     } catch (err) {
-      await this.loading.dismiss();
+      await this.loading?.dismiss();
       if (err === null) {
         await this.showError(this.translate.instant('LOGIN.NO_CREDENTIALS'));
       } else {
@@ -73,8 +71,8 @@ export class Login {
     await this.loading.present();
   }
 
-  async showError(text) {
-    await this.loading.dismiss();
+  async showError(text: string) {
+    await this.loading?.dismiss();
 
     const alert = await this.alert.create({
       header: 'Error',

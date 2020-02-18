@@ -1,7 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Storage } from '@ionic/storage';
-import currentWeekNumber from 'current-week-number';
+// import currentWeekNumber from 'current-week-number';
+import { getWeek } from 'date-fns';
 import { Log } from './log';
 import { Key, KeyName, KEYS, State, StoredItem } from './state';
 
@@ -19,7 +20,7 @@ interface StoredUser {
   language: string;
 }
 
-type Modifier<T> = (args: { newData: T; oldData: T }) => T;
+type Modifier<T> = (args: { newData: T; oldData: T | undefined }) => T;
 
 const API = 'https://db.nca.edu.ni/api/api_ewapp.php';
 
@@ -51,13 +52,10 @@ export class Store {
 
   private async fromApi<T = any>(
     el: Key,
-    modifier: Modifier<T>,
+    modifier?: Modifier<T>,
     oldData?: T,
-  ): Promise<T> {
-    const url = this.buildUrl(el.url, el.query, el.queryParams);
-    if (!url) {
-      return;
-    }
+  ): Promise<T | undefined> {
+    const url = this.buildUrl(el);
 
     try {
       const text = await this.http
@@ -104,6 +102,9 @@ export class Store {
     const storeItem = this.state.get(key);
 
     const keyItem = KEYS.find(el => el.key === key);
+    if (!keyItem) {
+      throw new Error(`store: unknown key ${key}`);
+    }
 
     // not in memory, not in storage, from api
     if (!storeItem) {
@@ -116,9 +117,7 @@ export class Store {
         valid = this.date.getDate() === new Date(storeItem.date).getDate();
         break;
       case 'WEEK':
-        valid =
-          currentWeekNumber(this.date) ===
-          currentWeekNumber(new Date(storeItem.date));
+        valid = getWeek(this.date) === getWeek(new Date(storeItem.date));
         break;
       case 'MONTH':
         valid = this.date.getMonth() === new Date(storeItem.date).getMonth();
@@ -138,24 +137,33 @@ export class Store {
     return data;
   }
 
-  private buildUrl(
-    url: string,
-    query: string,
-    queryParams: string[] = [],
-  ): string | undefined {
-    if (url) {
+  private buildUrl({
+    url,
+    query,
+    queryParams = [],
+  }: {
+    url?: string;
+    query?: string;
+    queryParams?: string[];
+  }): string {
+    if (typeof url === 'string') {
       return url;
+    }
+
+    if (!query) {
+      throw new Error('store: exptected query to be defined');
     }
 
     const extraParams = queryParams.join('&');
 
     const data = this.state.get('USER') as StoredItem<StoredUser> | undefined;
     if (!data) {
-      return;
+      throw new Error('store: user credentials not available');
     }
 
     const user = data.data;
-    return `${API}?query=${query}&lang=${user.language}&username=${user.username}&password=${user.password}&mode=student&${extraParams}`;
+    const lang = user.language === 'es' ? 'es' : 'en';
+    return `${API}?query=${query}&lang=${lang}&username=${user.username}&password=${user.password}&mode=student&${extraParams}`;
   }
 
   private async getUser() {
@@ -188,7 +196,7 @@ export class Store {
     return this.state.save();
   }
 
-  setUser(user) {
+  setUser(user: any) {
     this.state.set('USER', {
       date: this.date,
       data: user,

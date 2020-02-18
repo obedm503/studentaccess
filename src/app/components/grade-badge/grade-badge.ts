@@ -10,7 +10,7 @@ import { Component, Input } from '@angular/core';
 })
 export class GradeBadge {
   @Input()
-  grade: string | null;
+  grade?: string | null;
 
   static color(grade: number): string {
     if (grade >= 95) {
@@ -25,7 +25,7 @@ export class GradeBadge {
     return 'fail';
   }
 
-  background(grade: string | null): string {
+  background(grade?: string | null): string {
     if (!grade) {
       return '';
     }

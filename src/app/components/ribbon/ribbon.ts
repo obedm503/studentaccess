@@ -17,11 +17,11 @@ import { Component, Input, OnChanges } from '@angular/core';
 })
 export class Ribbon implements OnChanges {
   @Input()
-  average: number;
-  circle: string;
-  ribbon: string;
+  average?: number;
+  circle?: string;
+  ribbon?: string;
 
-  ngOnChanges(changes) {
+  ngOnChanges(changes: any) {
     const avg: number = changes.average.currentValue;
 
     if (avg === null) {
@@ -41,7 +41,7 @@ export class Ribbon implements OnChanges {
     }
   }
 
-  setState(state) {
+  setState(state: string) {
     this.circle = `${state}-circle`;
     this.ribbon = `${state}-ribbon`;
   }

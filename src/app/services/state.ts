@@ -113,9 +113,9 @@ export class State {
   constructor(private storage: Storage) {}
 
   private isReady = false;
-  private readyPromise: Promise<Cache>;
-  private resolveReady;
-  private rejectReady;
+  private readyPromise?: Promise<Cache>;
+  private resolveReady?: any;
+  private rejectReady?: any;
   async ready(): Promise<Cache> {
     if (this.isReady) {
       return this.cache;

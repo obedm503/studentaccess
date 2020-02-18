@@ -27,14 +27,10 @@
             detail
           >
             <ion-label class="ion-text-wrap">
-              <b>[{{ item.class_period }}] {{ item.class_name }}</b>
+              <b>[{{ item.class_period }}]</b> {{ item.class_name }}
             </ion-label>
 
-            <grade-badge
-              style="margin: 11px 8px 10px 8px"
-              slot="end"
-              [grade]="item.class_avg"
-            ></grade-badge>
+            <grade-badge slot="end" [grade]="item.class_avg"></grade-badge>
           </ion-item>
         </ion-list>
       </ion-col>

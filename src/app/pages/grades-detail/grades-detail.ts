@@ -51,7 +51,7 @@ export class GradesDetail {
     teacher_phone: '',
   });
   teacherPic$: Observable<string> = of('assets/placeholder.jpg');
-  grades$ = of([]);
+  grades$ = of([] as any[]);
 
   constructor(
     private route: ActivatedRoute,
@@ -69,15 +69,25 @@ export class GradesDetail {
 
   async get() {
     try {
-      const [{ classes }, { teachers }] = await Promise.all([
+      const [cl, t] = await Promise.all([
         this.store.get<{ classes: Class[] }>('ALLGRADES'),
         this.store.get<{ teachers: Teacher[] }>('TEACHERS'),
       ]);
+      if (!cl || !t) {
+        return;
+      }
+      const { classes } = cl;
+      const { teachers } = t;
 
       // using observable simply because angular router uses observables for the routeMap
       const data$ = this.route.paramMap.pipe(
         map((params: ParamMap) => {
-          const [teacherId, room] = params.get('classId').split('-');
+          const classId = params.get('classId');
+          if (!classId) {
+            return { teacherPic: 'assets/placeholder.jpg' };
+          }
+
+          const [teacherId, room] = classId.split('-');
 
           const currentClass = classes.find(
             item =>
@@ -98,20 +108,23 @@ export class GradesDetail {
       );
 
       this.class$ = data$.pipe(
-        map(data => data.currentClass),
-        filter<Class>(Boolean),
+        map(data => data.currentClass as Class),
+        filter(item => !!item),
       );
       this.grades$ = this.class$.pipe(
         map(data => data.grades.slice(0).reverse()),
       );
-      this.teacher$ = data$.pipe(map(data => data.currentTeacher));
+      this.teacher$ = data$.pipe(
+        map(data => data.currentTeacher as Teacher),
+        filter(item => !!item),
+      );
       this.teacherPic$ = data$.pipe(map(data => data.teacherPic));
     } catch (err) {
       this.log.error(err);
     }
   }
 
-  gradeColor(item) {
+  gradeColor(item: any) {
     const avg = (item.grs_score / item.gra_points) * 100;
     return `${GradeBadge.color(avg)}-grade`;
   }

@@ -23,7 +23,7 @@ type Hw = {
 })
 export class Homework {
   homework: Hw[] = [];
-  classes: any[];
+  classes: any[] = [];
   filteredHw: Hw[] = [];
   selectedClass = 'all-classes';
   hideChecked = true;
@@ -49,10 +49,10 @@ export class Homework {
         refresh,
         modifier: ({ newData, oldData = { homework: [] } }) => ({
           ...newData,
-          homework: newData.homework.map(item => {
+          homework: newData.homework.map((item: any) => {
             if (
               oldData.homework.find(
-                el => item.lsn_id === el.lsn_id && el.checked,
+                (el: any) => item.lsn_id === el.lsn_id && el.checked,
               )
             ) {
               item.checked = true;
@@ -61,6 +61,7 @@ export class Homework {
           }),
         }),
       });
+
       // this.homework serves as a backup
       // this.filteredHw is presented in view
       this.filteredHw = this.homework = hw.homework.slice(0).reverse();
@@ -113,7 +114,7 @@ export class Homework {
 
     await alert.present();
   }
-  check(item) {
+  check(item: any) {
     const index = this.homework.findIndex(
       el => el.pb_lsn_id === item.pb_lsn_id,
     );

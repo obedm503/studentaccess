@@ -39,11 +39,13 @@ ion-avatar {
   }
 }
 
-.card-fab,
-ion-card + .card-fab {
-  margin-top: 36px;
+.fab-card-wrapper {
   position: relative;
-  overflow: visible;
+  margin-top: 52px;
+
+  > ion-fab {
+    margin-right: 10px;
+  }
 }
 
 ion-fab * {

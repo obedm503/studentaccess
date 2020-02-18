@@ -12,26 +12,27 @@ enum LogLevel {
 
 @Injectable({ providedIn: 'root' })
 export class Log {
+  // @ts-ignore
   level: LogLevel = LogLevel[environment.logLevel];
-  debug(...rest) {
+  debug(...rest: string[]) {
     if (this.level < LogLevel.debug) {
       return;
     }
     console.debug(`DEBUG [StudentAccess]`, ...rest);
   }
-  info(...rest) {
+  info(...rest: string[]) {
     if (this.level < LogLevel.info) {
       return;
     }
     console.info(`%cINFO [StudentAccess]`, 'color: blue', ...rest);
   }
-  warn(...rest) {
+  warn(...rest: string[]) {
     if (this.level < LogLevel.warn) {
       return;
     }
     console.warn(`WARN [StudentAccess]`, ...rest);
   }
-  error(...rest) {
+  error(...rest: string[]) {
     if (this.level < LogLevel.error) {
       return;
     }

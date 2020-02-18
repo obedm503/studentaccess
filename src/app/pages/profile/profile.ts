@@ -21,11 +21,21 @@ export class Profile {
   schedules: Array<{
     en: string;
     es: string;
+    ko: string;
     schedule: any[];
     type: string;
   }> = [];
-  selectedSchedule = {
+  selectedSchedule: {
+    schedule: any[];
+    type: string;
+    en: string;
+    es: string;
+    ko: string;
+  } = {
     type: '',
+    en: '',
+    es: '',
+    ko: '',
     schedule: [],
   };
 
@@ -50,6 +60,11 @@ export class Profile {
     private log: Log,
     private router: Router,
   ) {}
+
+  // needed in order to make strict ts happy
+  get currentLang(): 'en' | 'es' | 'ko' {
+    return this.translate.currentLang as any;
+  }
 
   async ionViewDidEnter() {
     const loading = await this.loadingCtrl.create();
@@ -99,7 +114,7 @@ export class Profile {
   async toggleSchedule() {
     const inputs: AlertInput[] = this.schedules.map(el => ({
       type: 'radio' as 'radio',
-      label: el[this.translate.currentLang],
+      label: el[this.translate.currentLang as 'en' | 'es' | 'ko'],
       value: el.type,
       checked: el.type === this.selectedSchedule.type,
     }));
@@ -111,9 +126,11 @@ export class Profile {
         {
           text: this.translate.instant('GLOBAL.OK'),
           handler: type => {
-            this.selectedSchedule = this.schedules.find(
-              schedule => schedule.type === type,
-            );
+            const sc = this.schedules.find(schedule => schedule.type === type);
+            if (!sc) {
+              return;
+            }
+            this.selectedSchedule = sc;
           },
         },
       ],
