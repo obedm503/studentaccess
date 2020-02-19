@@ -10,8 +10,8 @@
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "importHelpers": true,
-    "target": "es5",
-    "lib": ["es2018", "dom"],
+    "target": "ES2015",
+    "lib": ["ES2015", "DOM"],
     "strict": true
   },
   "include": ["src"],
