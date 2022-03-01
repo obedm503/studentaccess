@@ -6,10 +6,10 @@ import { Log } from '../../services/log';
 import { Store } from '../../services/store';
 
 @Component({
-  selector: 'page-grades',
+  selector: 'app-page-grades',
   templateUrl: 'grades.html',
 })
-export class Grades {
+export class GradesComponent {
   classes: any[] = [];
   avg?: string;
   teachers: any[] = [];
@@ -40,7 +40,7 @@ export class Grades {
       const { teachers } = (await this.store.get('TEACHERS')) || {};
       this.teachers = teachers;
     } catch (err) {
-      this.log.error(err);
+      this.log.error(err as string);
     }
   }
 

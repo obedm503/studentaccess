@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 import { TranslateModule } from '@ngx-translate/core';
-import { Records } from './records';
+import { RecordsComponent } from './records';
 
 @NgModule({
   imports: [
@@ -12,11 +12,11 @@ import { Records } from './records';
     RouterModule.forChild([
       {
         path: '',
-        component: Records,
+        component: RecordsComponent,
       },
     ]),
     TranslateModule.forChild(),
   ],
-  declarations: [Records],
+  declarations: [RecordsComponent],
 })
 export class RecordsModule {}

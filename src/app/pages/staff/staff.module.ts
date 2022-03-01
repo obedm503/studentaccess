@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 import { TranslateModule } from '@ngx-translate/core';
-import { Staff } from './staff';
+import { StaffComponent } from './staff';
 
 @NgModule({
   imports: [
@@ -14,11 +14,11 @@ import { Staff } from './staff';
     RouterModule.forChild([
       {
         path: '',
-        component: Staff,
+        component: StaffComponent,
       },
     ]),
     TranslateModule.forChild(),
   ],
-  declarations: [Staff],
+  declarations: [StaffComponent],
 })
 export class StaffModule {}

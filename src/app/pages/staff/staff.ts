@@ -15,12 +15,12 @@ type Person = {
 };
 
 @Component({
-  selector: 'page-staff',
+  selector: 'app-page-staff',
   templateUrl: 'staff.html',
   styleUrls: ['staff.scss'],
   animations: [expand],
 })
-export class Staff {
+export class StaffComponent {
   isIOS = isPlatform('ios');
   staff: Person[] = [];
   filteredStaff: Person[] = [];
@@ -40,7 +40,7 @@ export class Staff {
       const staff = await this.store.get('STAFF');
       this.filteredStaff = this.staff = staff.staff_list;
     } catch (err) {
-      this.log.warn(err);
+      this.log.warn(err as string);
     }
     await loading.dismiss();
   }
@@ -73,7 +73,7 @@ export class Staff {
         );
       }
     } catch (e) {
-      this.log.error(e);
+      this.log.error(e as string);
     }
   }
 }

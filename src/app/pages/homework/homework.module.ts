@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 import { TranslateModule } from '@ngx-translate/core';
-import { Homework } from './homework';
+import { HomeworkComponent } from './homework';
 
 @NgModule({
   imports: [
@@ -14,11 +14,11 @@ import { Homework } from './homework';
     RouterModule.forChild([
       {
         path: '',
-        component: Homework,
+        component: HomeworkComponent,
       },
     ]),
     TranslateModule.forChild(),
   ],
-  declarations: [Homework],
+  declarations: [HomeworkComponent],
 })
 export class HomeworkModule {}

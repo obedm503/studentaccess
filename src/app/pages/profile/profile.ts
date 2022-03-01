@@ -12,12 +12,12 @@ import { Log } from '../../services/log';
 import { Store } from '../../services/store';
 
 @Component({
-  selector: 'page-profile',
+  selector: 'app-page-profile',
   templateUrl: 'profile.html',
   styleUrls: ['profile.scss'],
   animations: [expand],
 })
-export class Profile {
+export class ProfileComponent {
   schedules: Array<{
     en: string;
     es: string;
@@ -102,7 +102,7 @@ export class Profile {
         this.discipline = records.discipline;
       }
     } catch (err) {
-      this.log.error(err);
+      this.log.error(err as string);
     }
   }
 

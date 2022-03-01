@@ -16,7 +16,7 @@
   <ion-grid>
     <ion-row>
       <ion-col size="12" size-lg="6" size-md="6" offset-md="3">
-        <ribbon [average]="avg"></ribbon>
+        <app-ribbon [average]="avg"></app-ribbon>
 
         <ion-list>
           <ion-item
@@ -30,7 +30,10 @@
               <b>[{{ item.class_period }}]</b> {{ item.class_name }}
             </ion-label>
 
-            <grade-badge slot="end" [grade]="item.class_avg"></grade-badge>
+            <app-grade-badge
+              slot="end"
+              [grade]="item.class_avg"
+            ></app-grade-badge>
           </ion-item>
         </ion-list>
       </ion-col>

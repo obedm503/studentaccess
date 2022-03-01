@@ -5,10 +5,10 @@ import { Store } from '../../services/store';
 import { filter, map } from 'rxjs/operators';
 
 @Component({
-  selector: 'page-records',
+  selector: 'app-page-records',
   templateUrl: 'records.html',
 })
-export class Records {
+export class RecordsComponent {
   title?: string;
   attendance: any[] = [];
   discipline: any[] = [];

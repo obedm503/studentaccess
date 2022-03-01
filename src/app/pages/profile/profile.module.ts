@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 import { TranslateModule } from '@ngx-translate/core';
-import { Profile } from './profile';
+import { ProfileComponent } from './profile';
 
 @NgModule({
   imports: [
@@ -12,11 +12,11 @@ import { Profile } from './profile';
     RouterModule.forChild([
       {
         path: '',
-        component: Profile,
+        component: ProfileComponent,
       },
     ]),
     TranslateModule.forChild(),
   ],
-  declarations: [Profile],
+  declarations: [ProfileComponent],
 })
 export class ProfileModule {}

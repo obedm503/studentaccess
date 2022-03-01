@@ -37,10 +37,10 @@ const chartOptions: ChartOptions = {
 const graphPattern = draw('cross', '#448AFF');
 
 @Component({
-  selector: 'page-cafeteria',
+  selector: 'app-page-cafeteria',
   templateUrl: 'cafeteria.html',
 })
-export class Cafeteria implements AfterViewInit {
+export class CafeteriaComponent implements AfterViewInit {
   @ViewChild('chart') canvas?: {
     nativeElement: HTMLCanvasElement;
   };
@@ -77,7 +77,7 @@ export class Cafeteria implements AfterViewInit {
         .slice(0, 10);
       this.updateChart(this.transactions);
     } catch (err) {
-      this.log.warn(err);
+      this.log.warn(err as string);
     }
   }
 

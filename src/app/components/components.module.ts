@@ -1,12 +1,12 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { IonicModule } from '@ionic/angular';
-import { GradeBadge } from './grade-badge/grade-badge';
-import { Ribbon } from './ribbon/ribbon';
+import { GradeBadgeComponent } from './grade-badge/grade-badge';
+import { RibbonComponent } from './ribbon/ribbon';
 
 @NgModule({
-  declarations: [Ribbon, GradeBadge],
-  exports: [Ribbon, GradeBadge],
+  declarations: [RibbonComponent, GradeBadgeComponent],
+  exports: [RibbonComponent, GradeBadgeComponent],
   imports: [CommonModule, IonicModule],
 })
 export class ComponentsModule {}

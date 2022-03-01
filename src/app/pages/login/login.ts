@@ -10,10 +10,10 @@ import { State } from '../../services/state';
 import { Store } from '../../services/store';
 
 @Component({
-  selector: 'page-login',
+  selector: 'app-page-login',
   templateUrl: 'login.html',
 })
-export class Login {
+export class LoginComponent {
   loading?: HTMLIonLoadingElement;
   user = { username: '', password: '', language: 'en' };
   remember = true;
@@ -57,7 +57,7 @@ export class Login {
       if (err === null) {
         await this.showError(this.translate.instant('LOGIN.NO_CREDENTIALS'));
       } else {
-        await this.showError(err);
+        await this.showError(err as string);
       }
     }
   }

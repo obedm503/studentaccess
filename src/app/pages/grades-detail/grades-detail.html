@@ -59,10 +59,10 @@
             <ion-label>
               {{ (class$ | async).class_name }}
             </ion-label>
-            <grade-badge
+            <app-grade-badge
               slot="end"
               [grade]="(class$ | async).class_avg"
-            ></grade-badge>
+            ></app-grade-badge>
           </ion-item>
 
           <ion-card-content [hidden]="!(class$ | async).class_description">

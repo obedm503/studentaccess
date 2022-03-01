@@ -16,12 +16,12 @@ type Hw = {
 };
 
 @Component({
-  selector: 'page-homework',
+  selector: 'app-page-homework',
   templateUrl: 'homework.html',
   styleUrls: ['homework.scss'],
   animations: [expand],
 })
-export class Homework {
+export class HomeworkComponent {
   homework: Hw[] = [];
   classes: any[] = [];
   filteredHw: Hw[] = [];
@@ -66,7 +66,7 @@ export class Homework {
       // this.filteredHw is presented in view
       this.filteredHw = this.homework = hw.homework.slice(0).reverse();
     } catch (err) {
-      this.log.warn(err);
+      this.log.warn(err as string);
     }
   }
 

@@ -3,7 +3,7 @@ import { ActivatedRoute, ParamMap } from '@angular/router';
 import { LoadingController } from '@ionic/angular';
 import { Observable, of } from 'rxjs';
 import { filter, map } from 'rxjs/operators';
-import { GradeBadge } from '../../components/grade-badge/grade-badge';
+import { GradeBadgeComponent } from '../../components/grade-badge/grade-badge';
 import { Log } from '../../services/log';
 import { Store } from '../../services/store';
 
@@ -28,10 +28,10 @@ type Teacher = {
 };
 
 @Component({
-  selector: 'page-grades-detail',
+  selector: 'app-page-grades-detail',
   templateUrl: 'grades-detail.html',
 })
-export class GradesDetail {
+export class GradesDetailComponent {
   class$: Observable<Class> = of({
     class_name: '',
     class_teacher_id: '',
@@ -120,12 +120,12 @@ export class GradesDetail {
       );
       this.teacherPic$ = data$.pipe(map(data => data.teacherPic));
     } catch (err) {
-      this.log.error(err);
+      this.log.error(err as string);
     }
   }
 
   gradeColor(item: any) {
     const avg = (item.grs_score / item.gra_points) * 100;
-    return `${GradeBadge.color(avg)}-grade`;
+    return `${GradeBadgeComponent.color(avg)}-grade`;
   }
 }
