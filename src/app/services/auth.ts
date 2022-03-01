@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Subject } from 'rxjs';
+import { lastValueFrom, Subject } from 'rxjs';
 import { Store } from './store';
 
 export class User {
@@ -29,8 +29,8 @@ export class Auth {
 
     const lang = credentials.language === 'es' ? 'es' : 'en';
 
-    return this.http
-      .get(
+    return lastValueFrom(
+      this.http.get(
         [
           'https://db.nca.edu.ni/api/api_ewapp.php?mode=student&query=login&username=',
           credentials.username,
@@ -39,8 +39,8 @@ export class Auth {
           '&lang=',
           lang,
         ].join(''),
-      )
-      .toPromise();
+      ),
+    );
   }
 
   getUser(): Promise<User | undefined> {

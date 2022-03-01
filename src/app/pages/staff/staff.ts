@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { LoadingController } from '@ionic/angular';
-import { isPlatform, SearchbarChangeEventDetail } from '@ionic/core';
+import { LoadingController, SearchbarCustomEvent } from '@ionic/angular';
+import { isPlatform } from '@ionic/core';
 import { expand } from '../../components/animations';
 import { Log } from '../../services/log';
 import { Store } from '../../services/store';
@@ -59,9 +59,11 @@ export class StaffComponent {
     }
   }
 
-  doSearch({ detail }: CustomEvent<SearchbarChangeEventDetail>) {
+  doSearch(e: any) {
     try {
-      const query = detail.value?.toLowerCase().trim();
+      const query = (e as SearchbarCustomEvent).detail.value
+        ?.toLowerCase()
+        .trim();
       if (query) {
         this.filteredStaff = this.staff.filter(
           (el) =>

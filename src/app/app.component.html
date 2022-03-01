@@ -25,7 +25,9 @@
                 slot="start"
                 [md]="p.md"
                 [ios]="p.ios"
-                [color]="getIconColor(p.url, currentRoute | async)"
+                [color]="
+                  getIconColor(p.url, (currentRoute | async) || undefined)
+                "
               ></ion-icon>
               <ion-label>{{ p.title | translate }}</ion-label>
             </ion-item>

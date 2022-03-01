@@ -9,7 +9,7 @@ import { filter, map } from 'rxjs/operators';
   templateUrl: 'records.html',
 })
 export class RecordsComponent {
-  title?: string;
+  title: string = '';
   attendance: any[] = [];
   discipline: any[] = [];
   isAttendance?: boolean;

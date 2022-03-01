@@ -2,10 +2,10 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import {
   AlertController,
-  IonRefresher,
   LoadingController,
+  RefresherCustomEvent,
 } from '@ionic/angular';
-import { AlertInput, RefresherEventDetail } from '@ionic/core';
+import { AlertInput } from '@ionic/core';
 import { TranslateService } from '@ngx-translate/core';
 import { expand } from '../../components/animations';
 import { Log } from '../../services/log';
@@ -106,9 +106,9 @@ export class ProfileComponent {
     }
   }
 
-  async refresh({ detail }: CustomEvent<RefresherEventDetail>) {
+  async refresh(e: any) {
     await this.get(true);
-    detail.complete();
+    (e as RefresherCustomEvent).target.complete();
   }
 
   async toggleSchedule() {

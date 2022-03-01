@@ -19,5 +19,6 @@
   "compileOnSave": false,
   "atom": {
     "rewriteTsconfig": false
-  }
+  },
+  "angularCompilerOptions": { "strictTemplates": true }
 }

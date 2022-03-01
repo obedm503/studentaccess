@@ -3,6 +3,7 @@ import {
   AlertController,
   LoadingController,
   MenuController,
+  SelectCustomEvent,
 } from '@ionic/angular';
 import { TranslateService } from '@ngx-translate/core';
 import { Auth } from '../../services/auth';
@@ -62,8 +63,8 @@ export class LoginComponent {
     }
   }
 
-  langChanged({ detail }: CustomEvent) {
-    this.translate.use(detail.value);
+  langChanged(e: any) {
+    this.translate.use((e as SelectCustomEvent).detail.value);
   }
 
   async showLoading() {

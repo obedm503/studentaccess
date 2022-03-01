@@ -5,7 +5,8 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { RouteReuseStrategy } from '@angular/router';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
-import { IonicStorageModule } from '@ionic/storage';
+import { Drivers } from '@ionic/storage';
+import { IonicStorageModule } from '@ionic/storage-angular';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { environment } from '../environments/environment';
@@ -26,7 +27,7 @@ export function httpLoaderFactory(http: HttpClient) {
     BrowserModule,
     IonicStorageModule.forRoot({
       name: 'studentaccess',
-      driverOrder: ['indexeddb', 'websql', 'localstorage'],
+      driverOrder: [Drivers.IndexedDB, Drivers.LocalStorage],
     }),
     NoopAnimationsModule,
     // BrowserAnimationsModule,
