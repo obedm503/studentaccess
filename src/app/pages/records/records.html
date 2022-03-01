@@ -24,7 +24,7 @@
 
         <ion-list *ngIf="isAttendance">
           <ion-card *ngFor="let item of attendance">
-            <ion-item [color]="item.at_cat == 'E' ? 'primary' : 'danger'">
+            <ion-item [color]="item.at_cat === 'E' ? 'primary' : 'danger'">
               <ion-label>
                 {{ 'RECORDS.CATEGORY' | translate }}: {{ item.at_cat }}
                 <br />
@@ -42,7 +42,7 @@
 
         <ion-list *ngIf="!isAttendance">
           <ion-card *ngFor="let item of discipline">
-            <ion-item [color]="item.ds_cat == 'L' ? 'primary' : 'danger'">
+            <ion-item [color]="item.ds_cat === 'L' ? 'primary' : 'danger'">
               <ion-label>
                 {{ item.ds_cat }}: {{ item.calc_cat }}
                 <br />
