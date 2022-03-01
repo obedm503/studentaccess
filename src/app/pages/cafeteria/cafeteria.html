@@ -1,0 +1,132 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+
+    <ion-title>{{ 'CAFETERIA.NAME' | translate }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-refresher (ionRefresh)="refresh($event)" slot="fixed">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+
+  <ion-grid>
+    <ion-row [hidden]="!transactions.length">
+      <ion-col size-lg="10" offset-lg="1">
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>
+              {{ 'CAFETERIA.BALANCE_HISTORY' | translate }}
+            </ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <canvas #chart></canvas>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col
+        size-lg="5"
+        offset-lg="1"
+        size-md="6"
+        [offsetMd]="transactions.length ? null : 3"
+        size-sm="12"
+        size="12"
+      >
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>
+              {{ 'CAFETERIA.TODAYS_LUNCH' | translate }}
+            </ion-card-title>
+          </ion-card-header>
+
+          <ion-item
+            *ngFor="let item of menu"
+            class="alternate-colors"
+            lines="none"
+          >
+            <ion-label>
+              <b>{{ item.calc_date | date }}</b> {{ item.calc_menu }}
+            </ion-label>
+          </ion-item>
+        </ion-card>
+      </ion-col>
+
+      <ion-col
+        size-lg="5"
+        size-md="6"
+        size-sm="12"
+        size="12"
+        [hidden]="!transactions.length"
+      >
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>
+              {{ 'CAFETERIA.TRANSACTIONS' | translate }}
+            </ion-card-title>
+          </ion-card-header>
+
+          <ion-item
+            *ngFor="let item of transactions"
+            class="alternate-colors"
+            lines="none"
+          >
+            <ion-label>
+              <ion-grid>
+                <ion-row [hidden]="!item.credhist_method">
+                  <ion-col>
+                    <b>{{ 'CAFETERIA.CLIENT' | translate }}</b>
+                  </ion-col>
+                  <ion-col>
+                    {{ item.credhist_method }}
+                  </ion-col>
+                </ion-row>
+
+                <ion-row [hidden]="!item.credhist_description">
+                  <ion-col>
+                    <b>{{ 'CAFETERIA.PRODUCT' | translate }}</b>
+                  </ion-col>
+                  <ion-col class="ion-text-wrap">
+                    {{ item.credhist_description }}
+                  </ion-col>
+                </ion-row>
+
+                <ion-row [hidden]="!item.credhist_authorized">
+                  <ion-col>
+                    <b>{{ 'CAFETERIA.AUTHORIZED_BY' | translate }}</b>
+                  </ion-col>
+                  <ion-col>
+                    {{ item.credhist_authorized }}
+                  </ion-col>
+                </ion-row>
+
+                <ion-row [hidden]="!item.credhist_authorized">
+                  <ion-col>
+                    <b>{{ 'CAFETERIA.DATE_TIME' | translate }}</b>
+                  </ion-col>
+                  <ion-col>
+                    {{ item.credhist_datetime | date }}
+                  </ion-col>
+                </ion-row>
+
+                <ion-row [hidden]="!item.credhist_debit">
+                  <ion-col>
+                    <b>{{ 'CAFETERIA.PRICE' | translate }}</b>
+                  </ion-col>
+                  <ion-col>
+                    {{ item.credhist_debit | currency: 'USD':'symbol':'1.2-2' }}
+                  </ion-col>
+                </ion-row>
+              </ion-grid>
+            </ion-label>
+          </ion-item>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

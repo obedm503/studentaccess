@@ -1,0 +1,63 @@
+// http://ionicframework.com/docs/theming/
+@import '~@ionic/angular/css/core.css';
+@import '~@ionic/angular/css/normalize.css';
+@import '~@ionic/angular/css/structure.css';
+@import '~@ionic/angular/css/typography.css';
+@import '~@ionic/angular/css/display.css';
+@import '~@ionic/angular/css/padding.css';
+@import '~@ionic/angular/css/float-elements.css';
+@import '~@ionic/angular/css/text-alignment.css';
+@import '~@ionic/angular/css/text-transformation.css';
+@import '~@ionic/angular/css/flex-utils.css';
+
+// include Roboto manually until https://github.com/ionic-team/ionic/issues/16938 is fixed
+@import './theme/font';
+
+@import './theme/variables';
+@each $key, $value in $grade-colors {
+  $color: map-get($value, circle);
+
+  .#{$key}-grade {
+    color: $color;
+    font-weight: bold;
+  }
+  .#{$key}-background {
+    background-color: $color;
+  }
+}
+
+.menu-icon {
+  margin-right: 10px;
+}
+
+ion-avatar {
+  img {
+    height: 110px;
+    min-width: 82.66px;
+    border-radius: 100px;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+  }
+}
+
+.fab-card-wrapper {
+  position: relative;
+  margin-top: 52px;
+
+  > ion-fab {
+    margin-right: 10px;
+  }
+}
+
+ion-fab * {
+  font-size: 1.3rem;
+}
+
+.person-col {
+  line-height: 110px;
+
+  .person {
+    line-height: normal;
+    vertical-align: middle;
+    display: inline-block;
+  }
+}

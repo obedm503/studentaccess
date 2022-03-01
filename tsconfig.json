@@ -1,24 +1,20 @@
 {
   "compilerOptions": {
     "allowSyntheticDefaultImports": true,
+    // "baseUrl": "./",
+    "outDir": "./dist/out-tsc",
+    "sourceMap": true,
     "declaration": false,
+    "module": "esnext",
+    "moduleResolution": "node",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "lib": [
-      "dom",
-      "es2015"
-    ],
-    "module": "es2015",
-    "moduleResolution": "node",
-    "sourceMap": true,
-    "target": "es5"
+    "importHelpers": true,
+    "target": "ES2015",
+    "lib": ["ES2015", "DOM"],
+    "strict": true
   },
-  "include": [
-    "src/**/*.ts"
-  ],
-  "exclude": [
-    "node_modules"
-  ],
+  "include": ["src"],
   "compileOnSave": false,
   "atom": {
     "rewriteTsconfig": false

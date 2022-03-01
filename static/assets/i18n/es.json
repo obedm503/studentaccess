@@ -1,0 +1,77 @@
+{
+  "GLOBAL": {
+    "CANCEL": "Cancelar",
+    "OK": "OK",
+    "LOGOUT": "Salir",
+    "DATE": "Fecha",
+    "EMAIL": "Correo Electronico"
+  },
+  "LOGIN": {
+    "NAME": "Iniciar sesión",
+    "USER_ID": "Usuario",
+    "PASSWORD": "Contraseña",
+    "LANGUAGE": "Idioma",
+    "REMEMBER_ME": "Recordar mi cuenta",
+    "FAIL": "Usuario o contraseña incorrectos. Intentelo denuevo.",
+    "NO_CREDENTIALS": "Usuario o contraseña vacios!"
+  },
+  "PROFILE": {
+    "NAME": "Perfil",
+    "TH": "to",
+    "GRADE": "Grado",
+    "STUDENT_CREDIT": "Credito del Estudiante",
+    "FAMILY_CREDIT": "Credito de la Familia",
+    "MISSING_ASSSIGNMENTS": "Asignaturas Pendientes",
+    "WORTH": "Vale",
+    "POINTS": "Puntos",
+    "CHECK_GRADES": "Revisar Notas",
+    "SCHEDULE": "Horario de Clases",
+    "SELECT_SCHEDULE": "Seleccionar Horario"
+  },
+  "RECORDS": {
+    "ATTENDANCE": "Asistencia",
+    "DISCIPLINE": "Conducta",
+    "CATEGORY": "Categoria",
+    "QUARTER": "Quatrimestre",
+    "REASON": "Razón",
+    "DAY": "Dia",
+    "TEACHER": "Maestro",
+    "NONE": "No se encontraron registros."
+  },
+  "HOMEWORK": {
+    "NAME": "Tareas",
+    "HIDE_CHECKED": "Ocultar Completadas",
+    "TITLE": "Elegir Clase",
+    "ALL_CLASSES": "Todas las Tareas"
+  },
+  "GRADES": {
+    "NAME": "Notas",
+    "PHONE": "Telefono",
+    "PERIOD": "Periodo",
+    "ROOM": "Aula",
+    "GRADING_SCALE": "Escala de Notas",
+    "LAST_UPDATED": "Ultima Actualizacion",
+    "GRADE": "Nota"
+  },
+  "EVENTS": {
+    "NAME": "Eventos",
+    "TIME": "Hora",
+    "LOCATION": "Lugar"
+  },
+  "CAFETERIA": {
+    "NAME": "Cafeteria",
+    "TODAYS_LUNCH": "Almuerzo del Dia",
+    "BALANCE_HISTORY": "Historial de Saldo",
+    "TRANSACTIONS": "Últimas 10 Transacciones",
+    "PRICE": "Precio",
+    "DATE_TIME": "Fecha/Hora",
+    "CLIENT": "Cliente",
+    "PRODUCT": "Producto",
+    "AUTHORIZED_BY": "Autorizado Por"
+  },
+  "STAFF": {
+    "NAME": "Personal",
+    "CELLPHONE": "Celular",
+    "HOMEPHONE": "Convencional"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "recommendations": [
+    "angular.ng-template",
+    "esbenp.prettier-vscode",
+    "formulahendry.auto-rename-tag",
+    "natewallace.angular2-inline"
+  ]
+}

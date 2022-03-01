@@ -1,146 +1,110 @@
 // Ionic Variables and Theming. For more info, please see:
-// http://ionicframework.com/docs/v2/theming/
-$font-path: "../assets/fonts";
+// http://ionicframework.com/docs/theming/
+//  Ionic CSS Variables
+// https://ionicframework.com/docs/theming/color-generator
+:root {
+  --ion-color-primary: #009688;
+  --ion-color-primary-rgb: 0, 150, 136;
+  --ion-color-primary-contrast: #ffffff;
+  --ion-color-primary-contrast-rgb: 255, 255, 255;
+  --ion-color-primary-shade: #008478;
+  --ion-color-primary-tint: #1aa194;
 
-@import "ionic.globals";
+  --ion-color-secondary: #448aff;
+  --ion-color-secondary-rgb: 68, 138, 255;
+  --ion-color-secondary-contrast: #ffffff;
+  --ion-color-secondary-contrast-rgb: 0, 0, 0;
+  --ion-color-secondary-shade: #3c79e0;
+  --ion-color-secondary-tint: #5796ff;
 
+  --ion-color-tertiary: #7044ff;
+  --ion-color-tertiary-rgb: 112, 68, 255;
+  --ion-color-tertiary-contrast: #ffffff;
+  --ion-color-tertiary-contrast-rgb: 255, 255, 255;
+  --ion-color-tertiary-shade: #633ce0;
+  --ion-color-tertiary-tint: #7e57ff;
 
-// Shared Variables
-// --------------------------------------------------
-// To customize the look and feel of this app, you can override
-// the Sass variables found in Ionic's source scss files.
-// To view all the possible Ionic variables, see:
-// http://ionicframework.com/docs/v2/theming/overriding-ionic-variables/
+  --ion-color-success: #41d041;
+  --ion-color-success-rgb: 65, 208, 65;
+  --ion-color-success-contrast: #ffffff;
+  --ion-color-success-contrast-rgb: 0, 0, 0;
+  --ion-color-success-shade: #39b739;
+  --ion-color-success-tint: #54d554;
 
+  --ion-color-warning: #f5f526;
+  --ion-color-warning-rgb: 245, 245, 38;
+  --ion-color-warning-contrast: #000000;
+  --ion-color-warning-contrast-rgb: 0, 0, 0;
+  --ion-color-warning-shade: #d8d821;
+  --ion-color-warning-tint: #f6f63c;
 
+  --ion-color-danger: #f53d3d;
+  --ion-color-danger-rgb: 245, 61, 61;
+  --ion-color-danger-contrast: #ffffff;
+  --ion-color-danger-contrast-rgb: 255, 255, 255;
+  --ion-color-danger-shade: #d83636;
+  --ion-color-danger-tint: #f65050;
 
-// Named Color Variables
-// --------------------------------------------------
-// Named colors makes it easy to reuse colors on various components.
-// It's highly recommended to change the default colors
-// to match your app's branding. Ionic uses a Sass map of
-// colors so you can add, rename and remove colors as needed.
-// The "primary" color is the only required color in the map.
+  --ion-color-dark: #222428;
+  --ion-color-dark-rgb: 34, 34, 34;
+  --ion-color-dark-contrast: #ffffff;
+  --ion-color-dark-contrast-rgb: 255, 255, 255;
+  --ion-color-dark-shade: #1e2023;
+  --ion-color-dark-tint: #383a3e;
 
-$colors: (
-  primary:    #448AFF,
-  secondary:  #009688,
+  --ion-color-medium: #989aa2;
+  --ion-color-medium-rgb: 152, 154, 162;
+  --ion-color-medium-contrast: #ffffff;
+  --ion-color-medium-contrast-rgb: 255, 255, 255;
+  --ion-color-medium-shade: #86888f;
+  --ion-color-medium-tint: #a2a4ab;
 
-  success: #41D041,
-  warning: #F5F526,
-  danger:     #f53d3d,
+  --ion-color-light: #f4f5f8;
+  --ion-color-light-rgb: 244, 244, 244;
+  --ion-color-light-contrast: #000000;
+  --ion-color-light-contrast-rgb: 0, 0, 0;
+  --ion-color-light-shade: #d7d8da;
+  --ion-color-light-tint: #f5f6f9;
+}
 
-  white: white,
-  light:      #f4f4f4,
-  dark:       #222,
+// $colors: (
+//   primary: #448aff,
+//   secondary: #009688,
+//   success: #41d041,
+//   warning: #f5f526,
+//   danger: #f53d3d,
+//   white: white,
+//   light: #f4f4f4,
+//   dark: #222,
+//   dark-gray: #616161,
+//   gray: #b6b6b6,
+//   light-gray: #dbdbdb,
+// );
 
-  dark-gray: #616161,
-  gray: #b6b6b6,
-  light-gray: #dbdbdb,
-);
+// no border between side-menu and content
+ion-split-pane {
+  --border: none !important;
+}
 
-// colors ordered from lightest to darkest
-$grade-colors: (
-  none: (
-    circle: #ff751a,
-    ribbon: #ff6600,
-    ribbonTails: #e65c00,
-    circleTails: #a5480b
-  ),
-  owe: (
-    circle: #1ac6ff,
-    ribbon: #00bfff,
-    ribbonTails: #00ace6,
-    circleTails: #0c627f
-  ),
-  fail: (
-    circle: #e3301c,
-    ribbon: #cc2b19,
-    ribbonTails: #b62616,
-    circleTails: #72180d
-  ),
-  bad: (
-    circle: #a05fb9,
-    ribbon: #954eb1,
-    ribbonTails: #8646a0,
-    circleTails: #4f2d5b
-  ),
-  good: (
-    circle: #2981bc,
-    ribbon: #2573a7,
-    ribbonTails: #206592,
-    circleTails: #144260
-  ),
-  best: (
-    circle: #2ecc71,
-    ribbon: #2abb67,
-    ribbonTails: #27ae60,
-    circleTails: #17753f
-  )
-);
+// //card background
+// $card-md-background-color: map-get($colors, white);
+// $card-ios-background-color: map-get($colors, white);
+// $card-wp-background-color: map-get($colors, white);
 
-// app background
-$background-ios-color: map-get($colors, light-gray);
-$background-md-color: map-get($colors, light-gray);
-$background-wp-color: map-get($colors, light-gray);
+// // show right arrow on clickable items
+// $item-md-detail-push-show: true;
+// $item-wp-detail-push-show: true;
+// $item-ios-detail-push-show: true;
 
-// navbar background
-$toolbar-background: map-get($colors, secondary);
+ion-item.alternate-colors {
+  &:nth-child(even) {
+    --background: var(--ion-color-light);
+  }
+  &:nth-child(odd) {
+    --background: #ffffff;
+  }
+}
 
-//card background
-$card-md-background-color: map-get($colors, white);
-$card-ios-background-color: map-get($colors, white);
-$card-wp-background-color: map-get($colors, white);
-
-// show right arrow on clickable items
-$item-md-detail-push-show: true;
-$item-wp-detail-push-show: true;
-$item-ios-detail-push-show: true;
-
-$badge-font-size: 1.6rem;
-
-
-// App iOS Variables
-// --------------------------------------------------
-// iOS only Sass variables can go here
-
-
-
-
-// App Material Design Variables
-// --------------------------------------------------
-// Material Design only Sass variables can go here
-
-
-
-
-// App Windows Variables
-// --------------------------------------------------
-// Windows only Sass variables can go here
-
-
-
-
-// App Theme
-// --------------------------------------------------
-// Ionic apps can have different themes applied, which can
-// then be future customized. This import comes last
-// so that the above variables are used and Ionic's
-// default are overridden.
-
-@import "ionic.theme.default";
-
-
-// Ionicons
-// --------------------------------------------------
-// The premium icon font for Ionic. For more info, please see:
-// http://ionicframework.com/docs/v2/ionicons/
-
-@import "ionic.ionicons";
-
-
-// Fonts
-// --------------------------------------------------
-
-@import "roboto";
-@import "noto-sans";
+ion-badge {
+  font-size: 1rem;
+}

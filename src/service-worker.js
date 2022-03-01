@@ -20,7 +20,7 @@ let assets = [
   './assets/i18n/en.json',
   './assets/i18n/es.json',
 ];
-for( let i = 0; i < 9; i++ ){
+for (let i = 0; i < 9; i++) {
   assets.push(`./build/${i}.js`);
 }
 self.toolbox.precache(assets);
