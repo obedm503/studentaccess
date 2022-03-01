@@ -71,10 +71,7 @@ export class CafeteriaComponent implements AfterViewInit {
         { refresh },
       )) || { transactions: [] };
       // hard code limit until api is fixed
-      this.transactions = transactions
-        .slice(0)
-        .reverse()
-        .slice(0, 10);
+      this.transactions = transactions.slice(0).reverse().slice(0, 10);
       this.updateChart(this.transactions);
     } catch (err) {
       this.log.warn(err as string);
@@ -100,12 +97,12 @@ export class CafeteriaComponent implements AfterViewInit {
       return;
     }
     this.chart.data = {
-      labels: transactions.map(el =>
+      labels: transactions.map((el) =>
         formatDate(el.credhist_datetime, 'mediumDate', navigator.language),
       ),
       datasets: [
         {
-          data: transactions.map(el => el.credhist_balance),
+          data: transactions.map((el) => el.credhist_balance),
           backgroundColor: graphPattern,
           borderColor: 'rgba(0,0,0,0.7)',
           pointBackgroundColor: 'black',

@@ -64,7 +64,7 @@ export class StaffComponent {
       const query = detail.value?.toLowerCase().trim();
       if (query) {
         this.filteredStaff = this.staff.filter(
-          el =>
+          (el) =>
             el.calc_name?.toLowerCase().includes(query) ||
             el.calc_status?.toLowerCase().includes(query) ||
             el.calc_email?.toLowerCase().includes(query) ||

@@ -82,9 +82,7 @@
                   <ion-col>
                     <b>{{ 'CAFETERIA.CLIENT' | translate }}</b>
                   </ion-col>
-                  <ion-col>
-                    {{ item.credhist_method }}
-                  </ion-col>
+                  <ion-col> {{ item.credhist_method }} </ion-col>
                 </ion-row>
 
                 <ion-row [hidden]="!item.credhist_description">
@@ -100,18 +98,14 @@
                   <ion-col>
                     <b>{{ 'CAFETERIA.AUTHORIZED_BY' | translate }}</b>
                   </ion-col>
-                  <ion-col>
-                    {{ item.credhist_authorized }}
-                  </ion-col>
+                  <ion-col> {{ item.credhist_authorized }} </ion-col>
                 </ion-row>
 
                 <ion-row [hidden]="!item.credhist_authorized">
                   <ion-col>
                     <b>{{ 'CAFETERIA.DATE_TIME' | translate }}</b>
                   </ion-col>
-                  <ion-col>
-                    {{ item.credhist_datetime | date }}
-                  </ion-col>
+                  <ion-col> {{ item.credhist_datetime | date }} </ion-col>
                 </ion-row>
 
                 <ion-row [hidden]="!item.credhist_debit">

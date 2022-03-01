@@ -90,13 +90,13 @@ export class GradesDetailComponent {
           const [teacherId, room] = classId.split('-');
 
           const currentClass = classes.find(
-            item =>
+            (item) =>
               item.class_room === room && item.class_teacher_id === teacherId,
           );
           const currentTeacher =
             currentClass &&
             teachers.find(
-              el => el.teacher_id === currentClass.class_teacher_id,
+              (el) => el.teacher_id === currentClass.class_teacher_id,
             );
           const teacherPic =
             currentTeacher && currentTeacher.teacher_pic
@@ -108,17 +108,17 @@ export class GradesDetailComponent {
       );
 
       this.class$ = data$.pipe(
-        map(data => data.currentClass as Class),
-        filter(item => !!item),
+        map((data) => data.currentClass as Class),
+        filter((item) => !!item),
       );
       this.grades$ = this.class$.pipe(
-        map(data => data.grades.slice(0).reverse()),
+        map((data) => data.grades.slice(0).reverse()),
       );
       this.teacher$ = data$.pipe(
-        map(data => data.currentTeacher as Teacher),
-        filter(item => !!item),
+        map((data) => data.currentTeacher as Teacher),
+        filter((item) => !!item),
       );
-      this.teacherPic$ = data$.pipe(map(data => data.teacherPic));
+      this.teacherPic$ = data$.pipe(map((data) => data.teacherPic));
     } catch (err) {
       this.log.error(err as string);
     }

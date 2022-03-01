@@ -24,7 +24,7 @@ export class RecordsComponent {
         filter((event: any) => event instanceof NavigationEnd),
         map((event: NavigationEnd) => event.urlAfterRedirects),
       )
-      .subscribe(route => {
+      .subscribe((route) => {
         this.isAttendance = route.includes('attendance');
         this.title = this.isAttendance
           ? 'RECORDS.ATTENDANCE'

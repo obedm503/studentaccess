@@ -22,7 +22,6 @@ export function httpLoaderFactory(http: HttpClient) {
 
 @NgModule({
   declarations: [AppComponent],
-  entryComponents: [],
   imports: [
     BrowserModule,
     IonicStorageModule.forRoot({

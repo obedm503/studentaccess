@@ -112,7 +112,7 @@ export class ProfileComponent {
   }
 
   async toggleSchedule() {
-    const inputs: AlertInput[] = this.schedules.map(el => ({
+    const inputs: AlertInput[] = this.schedules.map((el) => ({
       type: 'radio' as 'radio',
       label: el[this.translate.currentLang as 'en' | 'es' | 'ko'],
       value: el.type,
@@ -125,8 +125,10 @@ export class ProfileComponent {
         this.translate.instant('GLOBAL.CANCEL'),
         {
           text: this.translate.instant('GLOBAL.OK'),
-          handler: type => {
-            const sc = this.schedules.find(schedule => schedule.type === type);
+          handler: (type) => {
+            const sc = this.schedules.find(
+              (schedule) => schedule.type === type,
+            );
             if (!sc) {
               return;
             }

@@ -12,6 +12,7 @@
     "importHelpers": true,
     "target": "ES2015",
     "lib": ["ES2015", "DOM"],
+    "skipLibCheck": true,
     "strict": true
   },
   "include": ["src"],

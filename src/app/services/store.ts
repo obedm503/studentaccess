@@ -77,7 +77,7 @@ export class Store {
       });
       return modifiedData;
     } catch (err) {
-      this.log.warn(err);
+      this.log.warn(err as string);
       return oldData;
     }
   }
@@ -101,7 +101,7 @@ export class Store {
     // from the state
     const storeItem = this.state.get(key);
 
-    const keyItem = KEYS.find(el => el.key === key);
+    const keyItem = KEYS.find((el) => el.key === key);
     if (!keyItem) {
       throw new Error(`store: unknown key ${key}`);
     }
@@ -179,7 +179,7 @@ export class Store {
         return null;
       }
     } catch (e) {
-      this.log.warn(e);
+      this.log.warn(e as string);
     }
   }
 

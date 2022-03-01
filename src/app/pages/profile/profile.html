@@ -33,9 +33,7 @@
                   <span [hidden]="!grade">
                     <br />
                     {{ grade }}
-                    <sup>
-                      {{ 'PROFILE.TH' | translate }}
-                    </sup>
+                    <sup> {{ 'PROFILE.TH' | translate }} </sup>
                     &nbsp; {{ 'PROFILE.GRADE' | translate }}
                   </span>
                 </span>
@@ -118,9 +116,7 @@
               <ion-checkbox color="secondary"></ion-checkbox>
             </ion-item>
             <ion-item color="primary" lines="none" button (click)="goGrades()">
-              <ion-label>
-                {{ 'PROFILE.CHECK_GRADES' | translate }}
-              </ion-label>
+              <ion-label> {{ 'PROFILE.CHECK_GRADES' | translate }} </ion-label>
             </ion-item>
           </ion-card>
         </div>
@@ -152,9 +148,7 @@
                 <ion-label>
                   <ion-grid>
                     <ion-row>
-                      <ion-col>
-                        {{ item.period }}
-                      </ion-col>
+                      <ion-col> {{ item.period }} </ion-col>
                       <ion-col>
                         {{ item.begin }}
                         <br />

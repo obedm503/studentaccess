@@ -124,7 +124,7 @@ export class AppComponent {
       await this.auth.logout();
       await this.loading?.dismiss();
     } catch (e) {
-      this.log.error(e);
+      this.log.error(e as string);
     }
   }
 }

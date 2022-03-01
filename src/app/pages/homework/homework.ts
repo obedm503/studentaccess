@@ -74,9 +74,9 @@ export class HomeworkComponent {
     this.classes = this.homework
       .filter(
         (el, i, arr) =>
-          arr.findIndex(t => t.calc_class === el.calc_class) === i,
+          arr.findIndex((t) => t.calc_class === el.calc_class) === i,
       )
-      .map(el => ({
+      .map((el) => ({
         type: 'radio',
         label: el.calc_class,
         value: el.calc_class,
@@ -94,19 +94,19 @@ export class HomeworkComponent {
         this.translate.instant('GLOBAL.CANCEL'),
         {
           text: this.translate.instant('GLOBAL.OK'),
-          handler: className => {
+          handler: (className) => {
             this.selectedClass = className;
             if (className === 'all-classes') {
               this.filteredHw = this.homework;
             } else {
               this.filteredHw = this.homework.filter(
-                hw => className === hw.calc_class,
+                (hw) => className === hw.calc_class,
               );
             }
           },
         },
       ],
-      inputs: this.classes.map(button => ({
+      inputs: this.classes.map((button) => ({
         ...button,
         checked: button.value === this.selectedClass,
       })),
@@ -116,7 +116,7 @@ export class HomeworkComponent {
   }
   check(item: any) {
     const index = this.homework.findIndex(
-      el => el.pb_lsn_id === item.pb_lsn_id,
+      (el) => el.pb_lsn_id === item.pb_lsn_id,
     );
     this.homework[index] = item;
     this.store.persist();
