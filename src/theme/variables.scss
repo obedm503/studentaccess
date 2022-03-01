@@ -1,3 +1,43 @@
+// colors ordered from lightest to darkest
+$grade-colors: (
+  none: (
+    circle: #ff751a,
+    ribbon: #ff6600,
+    ribbonTails: #e65c00,
+    circleTails: #a5480b,
+  ),
+  owe: (
+    circle: #1ac6ff,
+    ribbon: #00bfff,
+    ribbonTails: #00ace6,
+    circleTails: #0c627f,
+  ),
+  fail: (
+    circle: #e3301c,
+    ribbon: #cc2b19,
+    ribbonTails: #b62616,
+    circleTails: #72180d,
+  ),
+  bad: (
+    circle: #a05fb9,
+    ribbon: #954eb1,
+    ribbonTails: #8646a0,
+    circleTails: #4f2d5b,
+  ),
+  good: (
+    circle: #2981bc,
+    ribbon: #2573a7,
+    ribbonTails: #206592,
+    circleTails: #144260,
+  ),
+  best: (
+    circle: #2ecc71,
+    ribbon: #2abb67,
+    ribbonTails: #27ae60,
+    circleTails: #17753f,
+  ),
+);
+
 // Ionic Variables and Theming. For more info, please see:
 // http://ionicframework.com/docs/theming/
 //  Ionic CSS Variables
@@ -52,9 +92,9 @@
   --ion-color-dark-shade: #1e2023;
   --ion-color-dark-tint: #383a3e;
 
-  --ion-color-medium: #989aa2;
+  --ion-color-medium: #cacaca;
   --ion-color-medium-rgb: 152, 154, 162;
-  --ion-color-medium-contrast: #ffffff;
+  --ion-color-medium-contrast: #000000;
   --ion-color-medium-contrast-rgb: 255, 255, 255;
   --ion-color-medium-shade: #86888f;
   --ion-color-medium-tint: #a2a4ab;
