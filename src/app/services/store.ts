@@ -1,8 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Storage } from '@ionic/storage';
-// import currentWeekNumber from 'current-week-number';
+import { Storage } from '@ionic/storage-angular';
 import { getWeek } from 'date-fns';
+import { lastValueFrom } from 'rxjs';
 import { Log } from './log';
 import { Key, KeyName, KEYS, State, StoredItem } from './state';
 
@@ -58,9 +58,9 @@ export class Store {
     const url = this.buildUrl(el);
 
     try {
-      const text = await this.http
-        .get(url, { responseType: 'text' })
-        .toPromise();
+      const text = await lastValueFrom(
+        this.http.get(url, { responseType: 'text' }),
+      );
 
       const newData = tryParse(text);
 
@@ -77,7 +77,7 @@ export class Store {
       });
       return modifiedData;
     } catch (err) {
-      this.log.warn(err);
+      this.log.warn(err as string);
       return oldData;
     }
   }
@@ -101,7 +101,7 @@ export class Store {
     // from the state
     const storeItem = this.state.get(key);
 
-    const keyItem = KEYS.find(el => el.key === key);
+    const keyItem = KEYS.find((el) => el.key === key);
     if (!keyItem) {
       throw new Error(`store: unknown key ${key}`);
     }
@@ -179,7 +179,7 @@ export class Store {
         return null;
       }
     } catch (e) {
-      this.log.warn(e);
+      this.log.warn(e as string);
     }
   }
 

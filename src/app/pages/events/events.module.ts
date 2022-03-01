@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 import { TranslateModule } from '@ngx-translate/core';
-import { Events } from './events';
+import { EventsComponent } from './events';
 
 @NgModule({
   imports: [
@@ -12,11 +12,11 @@ import { Events } from './events';
     RouterModule.forChild([
       {
         path: '',
-        component: Events,
+        component: EventsComponent,
       },
     ]),
     TranslateModule.forChild(),
   ],
-  declarations: [Events],
+  declarations: [EventsComponent],
 })
 export class EventsModule {}

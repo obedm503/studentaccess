@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
-import { AlertController, LoadingController } from '@ionic/angular';
-import { RefresherEventDetail } from '@ionic/core';
+import {
+  AlertController,
+  LoadingController,
+  RefresherCustomEvent,
+} from '@ionic/angular';
 import { TranslateService } from '@ngx-translate/core';
 import { expand } from '../../components/animations';
 import { Log } from '../../services/log';
@@ -16,12 +19,12 @@ type Hw = {
 };
 
 @Component({
-  selector: 'page-homework',
+  selector: 'app-page-homework',
   templateUrl: 'homework.html',
   styleUrls: ['homework.scss'],
   animations: [expand],
 })
-export class Homework {
+export class HomeworkComponent {
   homework: Hw[] = [];
   classes: any[] = [];
   filteredHw: Hw[] = [];
@@ -66,7 +69,7 @@ export class Homework {
       // this.filteredHw is presented in view
       this.filteredHw = this.homework = hw.homework.slice(0).reverse();
     } catch (err) {
-      this.log.warn(err);
+      this.log.warn(err as string);
     }
   }
 
@@ -74,9 +77,9 @@ export class Homework {
     this.classes = this.homework
       .filter(
         (el, i, arr) =>
-          arr.findIndex(t => t.calc_class === el.calc_class) === i,
+          arr.findIndex((t) => t.calc_class === el.calc_class) === i,
       )
-      .map(el => ({
+      .map((el) => ({
         type: 'radio',
         label: el.calc_class,
         value: el.calc_class,
@@ -94,19 +97,19 @@ export class Homework {
         this.translate.instant('GLOBAL.CANCEL'),
         {
           text: this.translate.instant('GLOBAL.OK'),
-          handler: className => {
+          handler: (className) => {
             this.selectedClass = className;
             if (className === 'all-classes') {
               this.filteredHw = this.homework;
             } else {
               this.filteredHw = this.homework.filter(
-                hw => className === hw.calc_class,
+                (hw) => className === hw.calc_class,
               );
             }
           },
         },
       ],
-      inputs: this.classes.map(button => ({
+      inputs: this.classes.map((button) => ({
         ...button,
         checked: button.value === this.selectedClass,
       })),
@@ -116,14 +119,14 @@ export class Homework {
   }
   check(item: any) {
     const index = this.homework.findIndex(
-      el => el.pb_lsn_id === item.pb_lsn_id,
+      (el) => el.pb_lsn_id === item.pb_lsn_id,
     );
     this.homework[index] = item;
     this.store.persist();
   }
 
-  async refresh({ detail }: CustomEvent<RefresherEventDetail>) {
+  async refresh(e: any) {
     await this.get(true);
-    detail.complete();
+    (e as RefresherCustomEvent).target.complete();
   }
 }

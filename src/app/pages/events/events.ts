@@ -5,11 +5,11 @@ import { Log } from '../../services/log';
 import { Store } from '../../services/store';
 
 @Component({
-  selector: 'page-events',
+  selector: 'app-page-events',
   templateUrl: 'events.html',
   animations: [expand],
 })
-export class Events {
+export class EventsComponent {
   events?: any;
   selected?: string;
 
@@ -26,7 +26,7 @@ export class Events {
       const { events } = (await this.store.get('EVENTS')) || {};
       this.events = events;
     } catch (err) {
-      this.log.warn(err);
+      this.log.warn(err as string);
     }
     await loading.dismiss();
   }

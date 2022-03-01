@@ -13,7 +13,7 @@ const expandTransition = [
   'border',
   'min-height',
 ]
-  .map(prop => `${prop} 250ms cubic-bezier(0.420, 0.000, 0.580, 1.000)`)
+  .map((prop) => `${prop} 250ms cubic-bezier(0.420, 0.000, 0.580, 1.000)`)
   .join(', ');
 
 export const expand = trigger('expand', [

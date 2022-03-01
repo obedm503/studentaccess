@@ -1,6 +1,6 @@
 # StudentAccess
 
-Authors: obedm503 (https://obedm503.github.io/)
+Authors: obedm503
 Advisors: Scotty
 
 ## Development

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Storage } from '@ionic/storage';
+import { Storage } from '@ionic/storage-angular';
 
 export type KeyName =
   | 'USER'
@@ -183,7 +183,7 @@ export class State {
   }
 
   private async load(): Promise<void> {
-    await this.storage.ready();
+    await this.storage.create();
 
     const state: StoredItem<any>[] = await Promise.all(
       KEYS.map(({ key }) => this.storage.get(key)),

@@ -1,7 +1,7 @@
 import { Component, Input, OnChanges } from '@angular/core';
 
 @Component({
-  selector: 'ribbon',
+  selector: 'app-ribbon',
   template: `
     <div class="protector">
       <div class="ribbon {{ ribbon }}">
@@ -15,7 +15,7 @@ import { Component, Input, OnChanges } from '@angular/core';
   `,
   styleUrls: ['ribbon.scss'],
 })
-export class Ribbon implements OnChanges {
+export class RibbonComponent implements OnChanges {
   @Input()
   average?: number;
   circle?: string;

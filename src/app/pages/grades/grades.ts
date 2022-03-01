@@ -1,17 +1,16 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { LoadingController } from '@ionic/angular';
-import { RefresherEventDetail } from '@ionic/core';
+import { LoadingController, RefresherCustomEvent } from '@ionic/angular';
 import { Log } from '../../services/log';
 import { Store } from '../../services/store';
 
 @Component({
-  selector: 'page-grades',
+  selector: 'app-page-grades',
   templateUrl: 'grades.html',
 })
-export class Grades {
+export class GradesComponent {
   classes: any[] = [];
-  avg?: string;
+  avg: number = 100;
   teachers: any[] = [];
 
   constructor(
@@ -40,13 +39,13 @@ export class Grades {
       const { teachers } = (await this.store.get('TEACHERS')) || {};
       this.teachers = teachers;
     } catch (err) {
-      this.log.error(err);
+      this.log.error(err as string);
     }
   }
 
-  async refresh({ detail }: CustomEvent<RefresherEventDetail>) {
+  async refresh(e: any) {
     await this.get(true);
-    detail.complete();
+    (e as RefresherCustomEvent).target.complete();
   }
 
   goSelected(item: any) {

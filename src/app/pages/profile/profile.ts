@@ -2,22 +2,22 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import {
   AlertController,
-  IonRefresher,
   LoadingController,
+  RefresherCustomEvent,
 } from '@ionic/angular';
-import { AlertInput, RefresherEventDetail } from '@ionic/core';
+import { AlertInput } from '@ionic/core';
 import { TranslateService } from '@ngx-translate/core';
 import { expand } from '../../components/animations';
 import { Log } from '../../services/log';
 import { Store } from '../../services/store';
 
 @Component({
-  selector: 'page-profile',
+  selector: 'app-page-profile',
   templateUrl: 'profile.html',
   styleUrls: ['profile.scss'],
   animations: [expand],
 })
-export class Profile {
+export class ProfileComponent {
   schedules: Array<{
     en: string;
     es: string;
@@ -102,17 +102,17 @@ export class Profile {
         this.discipline = records.discipline;
       }
     } catch (err) {
-      this.log.error(err);
+      this.log.error(err as string);
     }
   }
 
-  async refresh({ detail }: CustomEvent<RefresherEventDetail>) {
+  async refresh(e: any) {
     await this.get(true);
-    detail.complete();
+    (e as RefresherCustomEvent).target.complete();
   }
 
   async toggleSchedule() {
-    const inputs: AlertInput[] = this.schedules.map(el => ({
+    const inputs: AlertInput[] = this.schedules.map((el) => ({
       type: 'radio' as 'radio',
       label: el[this.translate.currentLang as 'en' | 'es' | 'ko'],
       value: el.type,
@@ -125,8 +125,10 @@ export class Profile {
         this.translate.instant('GLOBAL.CANCEL'),
         {
           text: this.translate.instant('GLOBAL.OK'),
-          handler: type => {
-            const sc = this.schedules.find(schedule => schedule.type === type);
+          handler: (type) => {
+            const sc = this.schedules.find(
+              (schedule) => schedule.type === type,
+            );
             if (!sc) {
               return;
             }

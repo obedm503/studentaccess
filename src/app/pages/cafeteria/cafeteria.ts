@@ -1,46 +1,43 @@
 import { formatDate } from '@angular/common';
 import { AfterViewInit, Component, ViewChild } from '@angular/core';
 import { LoadingController } from '@ionic/angular';
-import { RefresherEventDetail } from '@ionic/core';
-import { Chart, ChartOptions } from 'chart.js';
-import { draw } from 'patternomaly';
+import { RefresherCustomEvent } from '@ionic/core';
+import {
+  CategoryScale,
+  Chart,
+  ChartOptions,
+  LinearScale,
+  LineController,
+  LineElement,
+  PointElement,
+} from 'chart.js';
 import { Log } from '../../services/log';
 import { Store } from '../../services/store';
 
-const chartOptions: ChartOptions = {
-  tooltips: { backgroundColor: '#009688' },
-  legend: { display: false },
-  scales: {
-    xAxes: [
-      {
-        gridLines: {
-          color: 'rgba(0,0,0,0.3)',
-          zeroLineColor: 'rgba(0,0,0,0.4)',
-          zeroLineWidth: 2,
-        },
-      },
-    ],
-    yAxes: [
-      {
-        gridLines: {
-          color: 'rgba(0,0,0,0.3)',
-          zeroLineColor: 'rgba(0,0,0,0.4)',
-          zeroLineWidth: 2,
-        },
-      },
-    ],
+Chart.register(
+  LineController,
+  LinearScale,
+  CategoryScale,
+  LineElement,
+  PointElement,
+);
+
+const chartOptions: ChartOptions<'line'> = {
+  plugins: {
+    tooltip: { backgroundColor: '#009688' },
+    legend: { display: false },
   },
-  animation: { duration: 0 },
-  hover: { animationDuration: 0 },
-  responsiveAnimationDuration: 0,
+  scales: {
+    x: { grid: { color: 'rgba(0,0,0,0.3)' } },
+    y: { grid: { color: 'rgba(0,0,0,0.3)' } },
+  },
 };
-const graphPattern = draw('cross', '#448AFF');
 
 @Component({
-  selector: 'page-cafeteria',
+  selector: 'app-page-cafeteria',
   templateUrl: 'cafeteria.html',
 })
-export class Cafeteria implements AfterViewInit {
+export class CafeteriaComponent implements AfterViewInit {
   @ViewChild('chart') canvas?: {
     nativeElement: HTMLCanvasElement;
   };
@@ -71,19 +68,16 @@ export class Cafeteria implements AfterViewInit {
         { refresh },
       )) || { transactions: [] };
       // hard code limit until api is fixed
-      this.transactions = transactions
-        .slice(0)
-        .reverse()
-        .slice(0, 10);
+      this.transactions = transactions.slice(0).reverse().slice(0, 10);
       this.updateChart(this.transactions);
     } catch (err) {
-      this.log.warn(err);
+      this.log.warn(err as string);
     }
   }
 
-  async refresh({ detail }: CustomEvent<RefresherEventDetail>) {
+  async refresh(e: any) {
     await this.get(true);
-    detail.complete();
+    (e as RefresherCustomEvent).target.complete();
   }
 
   ngAfterViewInit() {
@@ -92,6 +86,7 @@ export class Cafeteria implements AfterViewInit {
       ctx &&
       new Chart(ctx, {
         type: 'line',
+        data: { datasets: [] },
         options: chartOptions,
       });
   }
@@ -100,16 +95,14 @@ export class Cafeteria implements AfterViewInit {
       return;
     }
     this.chart.data = {
-      labels: transactions.map(el =>
+      labels: transactions.map((el) =>
         formatDate(el.credhist_datetime, 'mediumDate', navigator.language),
       ),
       datasets: [
         {
-          data: transactions.map(el => el.credhist_balance),
-          backgroundColor: graphPattern,
+          data: transactions.map((el) => el.credhist_balance),
           borderColor: 'rgba(0,0,0,0.7)',
           pointBackgroundColor: 'black',
-          lineTension: 0,
         },
       ],
     };

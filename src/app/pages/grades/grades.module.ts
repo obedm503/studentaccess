@@ -4,7 +4,7 @@ import { RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 import { TranslateModule } from '@ngx-translate/core';
 import { ComponentsModule } from '../../components/components.module';
-import { Grades } from './grades';
+import { GradesComponent } from './grades';
 
 @NgModule({
   imports: [
@@ -14,11 +14,11 @@ import { Grades } from './grades';
     RouterModule.forChild([
       {
         path: '',
-        component: Grades,
+        component: GradesComponent,
       },
     ]),
     TranslateModule.forChild(),
   ],
-  declarations: [Grades],
+  declarations: [GradesComponent],
 })
 export class GradesModule {}

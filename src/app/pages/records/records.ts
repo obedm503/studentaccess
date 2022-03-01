@@ -5,11 +5,11 @@ import { Store } from '../../services/store';
 import { filter, map } from 'rxjs/operators';
 
 @Component({
-  selector: 'page-records',
+  selector: 'app-page-records',
   templateUrl: 'records.html',
 })
-export class Records {
-  title?: string;
+export class RecordsComponent {
+  title: string = '';
   attendance: any[] = [];
   discipline: any[] = [];
   isAttendance?: boolean;
@@ -24,7 +24,7 @@ export class Records {
         filter((event: any) => event instanceof NavigationEnd),
         map((event: NavigationEnd) => event.urlAfterRedirects),
       )
-      .subscribe(route => {
+      .subscribe((route) => {
         this.isAttendance = route.includes('attendance');
         this.title = this.isAttendance
           ? 'RECORDS.ATTENDANCE'

@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 import { TranslateModule } from '@ngx-translate/core';
-import { Cafeteria } from './cafeteria';
+import { CafeteriaComponent } from './cafeteria';
 
 @NgModule({
   imports: [
@@ -12,11 +12,11 @@ import { Cafeteria } from './cafeteria';
     RouterModule.forChild([
       {
         path: '',
-        component: Cafeteria,
+        component: CafeteriaComponent,
       },
     ]),
     TranslateModule.forChild(),
   ],
-  declarations: [Cafeteria],
+  declarations: [CafeteriaComponent],
 })
 export class CafeteriaModule {}

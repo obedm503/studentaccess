@@ -1,14 +1,14 @@
 import { Component, Input } from '@angular/core';
 
 @Component({
-  selector: 'grade-badge',
+  selector: 'app-grade-badge',
   template: `
     <ion-badge [hidden]="!grade" [ngClass]="background(grade)">
       {{ grade }}
     </ion-badge>
   `,
 })
-export class GradeBadge {
+export class GradeBadgeComponent {
   @Input()
   grade?: string | null;
 
@@ -29,6 +29,6 @@ export class GradeBadge {
     if (!grade) {
       return '';
     }
-    return `${GradeBadge.color(Number.parseFloat(grade))}-background`;
+    return `${GradeBadgeComponent.color(Number.parseFloat(grade))}-background`;
   }
 }

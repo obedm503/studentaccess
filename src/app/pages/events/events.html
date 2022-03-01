@@ -19,9 +19,7 @@
             [color]="item.ev_date_start === store.today ? 'medium' : ''"
           >
             <ion-card-header (click)="expand(item.ev_id)" class="ion-text-wrap">
-              <ion-card-title>
-                {{ item.calc_subject }}
-              </ion-card-title>
+              <ion-card-title> {{ item.calc_subject }} </ion-card-title>
               <ion-card-subtitle [hidden]="!item.calc_ev_date_start">
                 {{ item.calc_ev_date_start }}
               </ion-card-subtitle>

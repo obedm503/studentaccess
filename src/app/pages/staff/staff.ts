@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { LoadingController } from '@ionic/angular';
-import { isPlatform, SearchbarChangeEventDetail } from '@ionic/core';
+import { LoadingController, SearchbarCustomEvent } from '@ionic/angular';
+import { isPlatform } from '@ionic/core';
 import { expand } from '../../components/animations';
 import { Log } from '../../services/log';
 import { Store } from '../../services/store';
@@ -15,12 +15,12 @@ type Person = {
 };
 
 @Component({
-  selector: 'page-staff',
+  selector: 'app-page-staff',
   templateUrl: 'staff.html',
   styleUrls: ['staff.scss'],
   animations: [expand],
 })
-export class Staff {
+export class StaffComponent {
   isIOS = isPlatform('ios');
   staff: Person[] = [];
   filteredStaff: Person[] = [];
@@ -40,7 +40,7 @@ export class Staff {
       const staff = await this.store.get('STAFF');
       this.filteredStaff = this.staff = staff.staff_list;
     } catch (err) {
-      this.log.warn(err);
+      this.log.warn(err as string);
     }
     await loading.dismiss();
   }
@@ -59,12 +59,14 @@ export class Staff {
     }
   }
 
-  doSearch({ detail }: CustomEvent<SearchbarChangeEventDetail>) {
+  doSearch(e: any) {
     try {
-      const query = detail.value?.toLowerCase().trim();
+      const query = (e as SearchbarCustomEvent).detail.value
+        ?.toLowerCase()
+        .trim();
       if (query) {
         this.filteredStaff = this.staff.filter(
-          el =>
+          (el) =>
             el.calc_name?.toLowerCase().includes(query) ||
             el.calc_status?.toLowerCase().includes(query) ||
             el.calc_email?.toLowerCase().includes(query) ||
@@ -73,7 +75,7 @@ export class Staff {
         );
       }
     } catch (e) {
-      this.log.error(e);
+      this.log.error(e as string);
     }
   }
 }
